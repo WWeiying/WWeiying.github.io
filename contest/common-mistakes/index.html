@@ -1,0 +1,1154 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/contest/common-mistakes/">
+      
+      
+        <meta name="author" content="H">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Common mistakes - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#ce" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Common mistakes
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ce" class="md-nav__link">
+    会引起 CE 的错误
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-warning" class="md-nav__link">
+    不会引起 CE 但会引起 Warning 的错误
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-warning_1" class="md-nav__link">
+    既不会引起 CE 也不会引发 Warning 的错误
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wa" class="md-nav__link">
+    会导致 WA 的错误
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    换行符不同
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re" class="md-nav__link">
+    会导致 RE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tle" class="md-nav__link">
+    会导致 TLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mle" class="md-nav__link">
+    会导致 MLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    未定义行为
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    会导致常数过大
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    只在程序在本地运行的时候造成影响的错误
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/contest/common-mistakes.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Common mistakes</h1>
+                
+                <p>本页面主要列举一些竞赛中很多人经常会出现的错误。</p>
+<h2 id="ce">会引起 CE 的错误<a class="headerlink" href="#ce" title="Permanent link">&para;</a></h2>
+<p>这类错误多为词法、语法和语义错误，引发的原因较为简单，修复难度较低。</p>
+<p>例：</p>
+<ul>
+<li>
+<p><code>int main()</code> 写为 <code>int mian()</code> 之类的拼写错误。</p>
+</li>
+<li>
+<p>写完 <code>struct</code> 或 <code>class</code> 忘记写分号。</p>
+</li>
+<li>
+<p>数组开太大，（在 OJ 上）使用了不合法的函数（例如多线程），或者函数声明但未定义，会引起链接错误。</p>
+</li>
+<li>
+<p>函数参数类型不匹配。</p>
+<ul>
+<li>
+<p>示例：如使用 <code>&lt;algorithm&gt;</code> 头文件中的 <code>max</code> 函数时，传入了一个 <code>int</code> 类型参数和一个 <code>long long</code> 类型参数。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// query 为返回 long long 类型的自定义函数</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">));</span><span class="w"></span>
+
+<span class="c1">//错误    没有与参数列表匹配的 重载函数 &quot;std::max&quot; 实例</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</li>
+<li>
+<p>使用 <code>goto</code> 和 <code>switch-case</code> 的时候跳过了一些局部变量的初始化。</p>
+</li>
+</ul>
+<h2 id="ce-warning">不会引起 CE 但会引起 Warning 的错误<a class="headerlink" href="#ce-warning" title="Permanent link">&para;</a></h2>
+<p>犯这类错误时写下的程序虽然能通过编译，但大概率会得到错误的程序运行结果。这类错误会在使用 <code>-W{warningtype}</code> 参数编译时被编译器指出。</p>
+<ul>
+<li>
+<p>赋值运算符 <code>=</code> 和比较运算符 <code>==</code> 不分。</p>
+<ul>
+<li>
+<p>示例：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">srand</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="k">nullptr</span><span class="p">));</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">rand</span><span class="p">();</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;No&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// 无论 n 的随机所得值为多少，输出肯定是 Yes</span>
+<span class="c1">// 警告    运算符不正确: 在 Boolean 上下文中执行了常量赋值。应考虑改用“==”。</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>如果确实想在原应使用 <code>==</code> 的语句里使用 <code>=</code>（比如 <code>while (foo = bar)</code>），又不想收到 Warning，可以使用 <strong>双括号</strong>：<code>while ((foo = bar))</code>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>由于运算符优先级产生的错误。</p>
+<ul>
+<li>
+<p>示例：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 错误</span>
+<span class="c1">// std::cout &lt;&lt; (1 &lt;&lt; 1 + 1);</span>
+<span class="c1">// 正确</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// 警告    “&lt;&lt;”: 检查运算符优先级是否有可能的错误；使用括号阐明优先级</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</li>
+<li>
+<p>不正确地使用 <code>static</code> 修饰符。</p>
+</li>
+<li>
+<p>使用 <code>scanf</code> 读入的时候没加取地址符 <code>&amp;</code>。</p>
+</li>
+<li>
+<p>使用 <code>scanf</code> 或 <code>printf</code> 的时候参数类型与格式指定符不符。</p>
+</li>
+<li>
+<p>同时使用位运算和逻辑运算符 <code>==</code> 并且未加括号。</p>
+<ul>
+<li>示例：<code>(x &gt;&gt; j) &amp; 3 == 2</code></li>
+</ul>
+</li>
+<li>
+<p><code>int</code> 字面量溢出。</p>
+<ul>
+<li>示例：<code>long long x = 0x7f7f7f7f7f7f7f7f</code>，<code>1&lt;&lt;62</code>。</li>
+</ul>
+</li>
+<li>
+<p>未初始化局部变量，导致局部变量被赋予垃圾初值。</p>
+</li>
+<li>
+<p>局部变量与全局变量重名，导致全局变量被意外覆盖。（开 <code>-Wshadow</code> 就可检查此类错误。）</p>
+</li>
+<li>
+<p>运算符重载后引发的输出错误。</p>
+<ul>
+<li>示例：
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 本意：前一个 &lt;&lt; 为重载后的运算符，表示输出；后一个 &lt;&lt; 为移位运算符，表示将 1</span>
+<span class="c1">// 左移 1 位。 但由于忘记加括号，导致编译器将后一个 &lt;&lt;</span>
+<span class="c1">// 也判作输出运算符，而导致输出的结果与预期不同。 错误 std::cout &lt;&lt; 1 &lt;&lt; 1; 正确</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="ce-warning_1">既不会引起 CE 也不会引发 Warning 的错误<a class="headerlink" href="#ce-warning_1" title="Permanent link">&para;</a></h2>
+<p>这类错误无法被编译器发现，仅能自行查明。</p>
+<h3 id="wa">会导致 WA 的错误<a class="headerlink" href="#wa" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>上一组数据处理完毕，读入下一组数据前，未清空数组。</p>
+</li>
+<li>
+<p>读入优化未判断负数。</p>
+</li>
+<li>
+<p>所用数据类型位宽不足，导致溢出。</p>
+<ul>
+<li>如习语“三年 OI 一场空，不开 <code>long long</code> 见祖宗”所描述的场景。选手因为没有在正确的地方开 <code>long long</code>（将整数定义为 <code>long long</code> 类型），导致得出错误的答案而失分。</li>
+</ul>
+</li>
+<li>
+<p>存图时，节点编号 0 开始，而题目给的边中两个端点的编号从 1 开始，读入的时候忘记 -1。</p>
+</li>
+<li>
+<p>大/小于号打错或打反。</p>
+</li>
+<li>
+<p>在执行 <code>ios::sync_with_stdio(false);</code> 后混用 <code>scanf/printf</code> 和 <code>std::cin/std::cout</code> 两种 IO，导致输入/输出错乱。</p>
+<ul>
+<li>
+<p>示例：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 这个例子将说明关闭与 stdio 的同步后，混用两种 IO 方式的后果</span>
+<span class="c1">// 建议单步运行来观察效果</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 关闭同步后，cin/cout 将使用独立缓冲区，而不是将输出同步至 scanf/printf</span>
+<span class="w">  </span><span class="c1">// 的缓冲区，从而减少 IO 耗时</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// cout 下，使用&#39;\n&#39;换行时，内容会被缓冲而不会被立刻输出</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;a</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// printf 的 &#39;\n&#39; 会刷新 printf 的缓冲区，导致输出错位</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;b</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 程序结束时，cout 的缓冲区才会被输出</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>特别的，也不能在执行 <code>ios::sync_with_stdio(false);</code> 后使用 <code>freopen</code>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>由于宏的展开，且未加括号导致的错误。</p>
+<ul>
+<li>
+<p>示例：该宏返回的值并非 <span class="arithmatex"><span class="MathJax_Preview">4^2 = 16</span><script type="math/tex">4^2 = 16</script></span> 而是 <span class="arithmatex"><span class="MathJax_Preview">2+2\times 2+2 = 8</span><script type="math/tex">2+2\times 2+2 = 8</script></span>。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#define square(x) x* x</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</li>
+<li>
+<p>哈希的时候没有使用 <code>unsigned</code> 导致的运算错误。</p>
+<ul>
+<li>对负数的右移运算会在最高位补 1。参见：<a href="../../math/bit/">位运算</a></li>
+</ul>
+</li>
+<li>
+<p>没有删除或注释掉调试输出语句。</p>
+</li>
+<li>
+<p>误加了 <code>;</code>。</p>
+<ul>
+<li>
+<p>示例：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/* clang-format off */</span><span class="w"></span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;OI Wiki!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</li>
+<li>
+<p>哨兵值设置错误。例如，平衡树的 <code>0</code> 节点。</p>
+</li>
+<li>
+<p>在类或结构体的构造函数中使用 <code>:</code> 初始化变量时，变量声明顺序不符合初始化时候的依赖关系。</p>
+<ul>
+<li>成员变量的初始化顺序与它们在类中声明的顺序有关，而与初始化列表中的顺序无关。参见：<a href="https://zh.cppreference.com/w/cpp/language/constructor">构造函数与成员初始化器列表</a> 的“初始化顺序”</li>
+<li>
+<p>示例：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// a 将在 b 前初始化，其值不确定</span>
+<span class="w">  </span><span class="n">Foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">Foo</span><span class="w"> </span><span class="n">bar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">bar</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">bar</span><span class="p">.</span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// 可能的输出结果：-858993459 1</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</li>
+<li>
+<p>并查集合并集合时没有把两个元素的祖先合并。</p>
+<ul>
+<li>
+<p>示例：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">f</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">              </span><span class="c1">// 错误</span>
+<span class="n">f</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// 正确</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_1">换行符不同<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<details class="warning" open="open">
+<summary>Warning</summary>
+<p>在正式比赛中会尽量保证选手答题的环境和最终测试的环境相同。</p>
+<p>本节内容仅适用于模拟赛等情况，而我们也建议出题人尽量让数据符合 <a href="../problemsetting/#_29">数据格式</a>。</p>
+</details>
+<p>不同的操作系统使用不同的符号来标记换行，以下为几种常用系统的换行符：</p>
+<ul>
+<li>
+<p>LF（用 <code>\n</code> 表示）：<code>Unix</code> 或 <code>Unix</code> 兼容系统</p>
+</li>
+<li>
+<p>CR+LF（用 <code>\r\n</code> 表示）：<code>Windows</code></p>
+</li>
+<li>
+<p>CR（用 <code>\r</code> 表示）：<code>Mac OS</code> 至版本 9</p>
+</li>
+</ul>
+<p>而 C/C++ 利用转义序列 <code>\n</code> 来换行，这可能会导致我们认为输入中的换行符也一定是由 <code>\n</code> 来表示，而只读入了一个字符来代表换行符，这就会导致我们没有完全读入输入文件。</p>
+<p>以下为解决方案：</p>
+<ul>
+<li>
+<p>多次 <code>getchar()</code>，直到读到想要的字符为止。</p>
+</li>
+<li>
+<p>使用 <code>cin</code> 读入，<strong>这可能会增大代码常数</strong>。</p>
+</li>
+<li>
+<p>使用 <code>scanf("%s",str)</code> 读入一个字符串，然后取 <code>str[0]</code> 作为读入的字符。</p>
+</li>
+<li>
+<p>使用 <code>scanf(" %c",&amp;c)</code> 过滤掉所有空白字符。</p>
+</li>
+</ul>
+<h3 id="re">会导致 RE<a class="headerlink" href="#re" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>对整数除以 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>。</p>
+<ul>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 求逆元。</li>
+</ul>
+</li>
+<li>
+<p>没删文件操作（某些 OJ）。</p>
+</li>
+<li>
+<p>排序时比较函数的错误 <code>std::sort</code> 要求比较函数是严格弱序：<code>a&lt;a</code> 为 <code>false</code>；若 <code>a&lt;b</code> 为 <code>true</code>，则 <code>b&lt;a</code> 为 <code>false</code>；若 <code>a&lt;b</code> 为 <code>true</code> 且 <code>b&lt;c</code> 为 <code>true</code>，则 <code>a&lt;c</code> 为 <code>true</code>。其中要特别注意第二点。
+    如果不满足上述要求，排序时很可能会 RE。
+    例如，编写莫队的奇偶性排序时，这样写是错误的：
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">block</span><span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="n">l</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">r</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">block</span><span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">block</span><span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="n">l</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+    上述代码中 <code>(block[a.l]&amp;1)^(a.r&lt;b.r)</code> 不满足上述要求的第二点。
+    改成这样就正确了：
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">block</span><span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="n">l</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 错误：不满足严格弱序的要求</span>
+<span class="w">    </span><span class="c1">// return (block[a.l] &amp; 1) ^ (a.r &lt; b.r);</span>
+<span class="w">    </span><span class="c1">// 正确</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">r</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">block</span><span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">block</span><span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="n">l</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>解引用空指针。</p>
+</li>
+</ul>
+<h3 id="tle">会导致 TLE<a class="headerlink" href="#tle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>分治未判边界导致死递归。</p>
+</li>
+<li>
+<p>死循环。</p>
+<ul>
+<li>
+<p>循环变量重名。</p>
+</li>
+<li>
+<p>循环方向反了。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>BFS 时不标记某个状态是否已访问过。</p>
+</li>
+<li>
+<p>使用宏展开编写 min/max</p>
+<p>这种错误会大大增加程序的运行时间，甚至直接影响代码的时间复杂度。在初学者写线段树时尤为多见。</p>
+<p>常见的错误写法是这样的：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#define Min(x, y) ((x) &lt; (y) ? (x) : (y))</span>
+<span class="cp">#define Max(x, y) ((x) &gt; (y) ? (x) : (y))</span>
+</code></pre></div></td></tr></table></div>
+<p>这样写虽然在正确性上没有问题，但是如果直接对函数的返回值取 max，如 <code>a = Max(func1(), func2())</code>，而这个函数的运行时间较长，则会大大影响程序的性能，因为宏展开后是 <code>a = func1() &gt; func2() ? func1() : func2()</code> 的形式，调用了三次函数，比正常的 max 函数多调用了一次。注意，如果 <code>func1()</code> 每次返回的答案不一样，还会导致这种 <code>max</code> 的写法出现错误。例如 <code>func1()</code> 为 <code>return ++a;</code> 而 <code>a</code> 为全局变量的情况。</p>
+<p>示例：如下代码会被卡到单次查询 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n)</span><script type="math/tex">\Theta(n)</script></span> 导致 TLE。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#define max(x, y) ((x) &gt; (y) ? (x) : (y))</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ql</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ql</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">qr</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">++</span><span class="n">ti</span><span class="p">[</span><span class="n">t</span><span class="p">];</span><span class="w">  </span><span class="c1">// 记录结点访问次数方便调试</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">vi</span><span class="p">[</span><span class="n">t</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mid</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">qr</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">lt</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">ql</span><span class="p">,</span><span class="w"> </span><span class="n">qr</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mid</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ql</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">rt</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">ql</span><span class="p">,</span><span class="w"> </span><span class="n">qr</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">query</span><span class="p">(</span><span class="n">lt</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">ql</span><span class="p">,</span><span class="w"> </span><span class="n">qr</span><span class="p">),</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">rt</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">ql</span><span class="p">,</span><span class="w"> </span><span class="n">qr</span><span class="p">));</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>没删文件操作（某些 OJ）。</p>
+</li>
+<li>
+<p>在 <code>for/while</code> 循环中重复执行复杂度非 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 的函数。严格来说，这可能会引起时间复杂度的改变。</p>
+</li>
+</ul>
+<h3 id="mle">会导致 MLE<a class="headerlink" href="#mle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>数组过大。</p>
+</li>
+<li>
+<p>STL 容器中插入了过多的元素。</p>
+<ul>
+<li>
+<p>经常是在一个会向 STL 插入元素的循环中死循环了。</p>
+</li>
+<li>
+<p>也有可能被卡了。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_2"><a href="https://zh.cppreference.com/w/cpp/language/ub">未定义行为</a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>数组越界。多数会引发 RE。</p>
+<ul>
+<li>
+<p>未正确设置循环的初值导致访问了下标为 -1 的值。</p>
+</li>
+<li>
+<p>无向图边表未开 2 倍。</p>
+</li>
+<li>
+<p>线段树未开 4 倍空间。</p>
+</li>
+<li>
+<p>看错数据范围，少打一个零。</p>
+</li>
+<li>
+<p>错误预估了算法的空间复杂度。</p>
+</li>
+<li>
+<p>写线段树的时候，<code>pushup</code> 或 <code>pushdown</code> 叶节点。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>解引用野指针。</p>
+<ul>
+<li>
+<p>未初始化就解引用指针。</p>
+</li>
+<li>
+<p>指针指向的内存区域已经释放。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_3">会导致常数过大<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>定义模数的时候，未定义为常量。</p>
+<ul>
+<li>
+<p>示例：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// int mod = 998244353;      // 错误</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">998244353</span><span class="w">  </span><span class="c1">// 正确，方便编译器按常量处理</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ul>
+</li>
+<li>
+<p>使用了不必要的递归（尾递归不在此列）。</p>
+</li>
+<li>
+<p>将递归转化成迭代的时候，引入了大量额外运算。</p>
+</li>
+</ul>
+<h3 id="_4">只在程序在本地运行的时候造成影响的错误<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>文件操作有可能会发生的错误：</p>
+<ul>
+<li>
+<p>对拍时未关闭文件指针 <code>fclose(fp)</code> 就又令 <code>fp = fopen()</code>。这会使得进程出现大量的文件野指针。</p>
+</li>
+<li>
+<p><code>freopen()</code> 中的文件名未加 <code>.in</code>/<code>.out</code>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>使用堆空间后忘记 <code>delete</code> 或 <code>free</code>。</p>
+</li>
+</ul>
+                
+                  
+                
+              
+              
+                 
+ 
+   
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/contest/common-mistakes.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">H-J-Granger, orzAtalod, ksyx, Ir1d, Chrogeek, Enter-tainer, yiyangit</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Common mistakes',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,864 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/math/number-theory/powerful-number/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Powerful number - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Powerful number
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#powerful-number" class="md-nav__link">
+    Powerful Number
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pn" class="md-nav__link">
+    PN 筛
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pn_1" class="md-nav__link">
+    PN 筛的一般过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    例题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#luogu-p5325min_25" class="md-nav__link">
+    Luogu P5325【模板】Min_25 筛
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loj-6053" class="md-nav__link">
+    「LOJ #6053」简单的函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    习题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/number-theory/powerful-number.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Powerful number</h1>
+                
+                <h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Powerful Number（以下简称 PN）筛类似于杜教筛，或者说是杜教筛的一个扩展，可以拿来求一些积性函数的前缀和。</p>
+<p><strong>要求</strong>：</p>
+<ul>
+<li>存在一个函数 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 满足：<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 是积性函数。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 易求前缀和。</li>
+<li>对于质数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，<span class="arithmatex"><span class="MathJax_Preview">g(p) = f(p)</span><script type="math/tex">g(p) = f(p)</script></span>。</li>
+</ul>
+</li>
+</ul>
+<p>假设现在要求积性函数 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 的前缀和 <span class="arithmatex"><span class="MathJax_Preview">F(n) = \sum_{i=1}^{n} f(i)</span><script type="math/tex">F(n) = \sum_{i=1}^{n} f(i)</script></span>。</p>
+<h2 id="powerful-number">Powerful Number<a class="headerlink" href="#powerful-number" title="Permanent link">&para;</a></h2>
+<p><strong>定义</strong>：对于正整数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，记 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的质因数分解为 <span class="arithmatex"><span class="MathJax_Preview">n = \prod_{i=1}^{m} p_{i}^{e_{i}}</span><script type="math/tex">n = \prod_{i=1}^{m} p_{i}^{e_{i}}</script></span>。<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 是 PN 当且仅当 <span class="arithmatex"><span class="MathJax_Preview">\forall 1 \le i \le m, e_{i} &gt; 1</span><script type="math/tex">\forall 1 \le i \le m, e_{i} > 1</script></span>。</p>
+<p><strong>性质 1</strong>：所有 PN 都可以表示成 <span class="arithmatex"><span class="MathJax_Preview">a^{2}b^{3}</span><script type="math/tex">a^{2}b^{3}</script></span> 的形式。</p>
+<p><strong>证明</strong>：若 <span class="arithmatex"><span class="MathJax_Preview">e_i</span><script type="math/tex">e_i</script></span> 是偶数，则将 <span class="arithmatex"><span class="MathJax_Preview">p_{i}^{e_{i}}</span><script type="math/tex">p_{i}^{e_{i}}</script></span> 合并进 <span class="arithmatex"><span class="MathJax_Preview">a^{2}</span><script type="math/tex">a^{2}</script></span> 里；若 <span class="arithmatex"><span class="MathJax_Preview">e_i</span><script type="math/tex">e_i</script></span> 为奇数，则先将 <span class="arithmatex"><span class="MathJax_Preview">p_{i}^{3}</span><script type="math/tex">p_{i}^{3}</script></span> 合并进 <span class="arithmatex"><span class="MathJax_Preview">b^{3}</span><script type="math/tex">b^{3}</script></span> 里，再将 <span class="arithmatex"><span class="MathJax_Preview">p_{i}^{e_{i}-3}</span><script type="math/tex">p_{i}^{e_{i}-3}</script></span> 合并进 <span class="arithmatex"><span class="MathJax_Preview">a^{2}</span><script type="math/tex">a^{2}</script></span> 里。</p>
+<p><strong>性质 2</strong>：<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 以内的 PN 至多有 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 个。</p>
+<p><strong>证明</strong>：考虑枚举 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>，再考虑满足条件的 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 的个数，有 PN 的个数约等于</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\int_{1}^{\sqrt{n}} \sqrt[3]{\frac{n}{x^2}} \mathrm{d}x = O(\sqrt{n})
+</div>
+<script type="math/tex; mode=display">
+\int_{1}^{\sqrt{n}} \sqrt[3]{\frac{n}{x^2}} \mathrm{d}x = O(\sqrt{n})
+</script>
+</div>
+<p>那么如何求出 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 以内所有的 PN 呢？线性筛找出 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 内的所有素数，再 DFS 搜索各素数的指数即可。由于 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 以内的 PN 至多有 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 个，所以至多搜索 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 次。</p>
+<h2 id="pn">PN 筛<a class="headerlink" href="#pn" title="Permanent link">&para;</a></h2>
+<p>首先，构造出一个易求前缀和的积性函数 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>，且满足对于素数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，<span class="arithmatex"><span class="MathJax_Preview">g(p) = f(p)</span><script type="math/tex">g(p) = f(p)</script></span>。记 <span class="arithmatex"><span class="MathJax_Preview">G(n) = \sum_{i=1}^{n} g(i)</span><script type="math/tex">G(n) = \sum_{i=1}^{n} g(i)</script></span>。</p>
+<p>然后，构造函数 <span class="arithmatex"><span class="MathJax_Preview">h = f / g</span><script type="math/tex">h = f / g</script></span>，这里的 <span class="arithmatex"><span class="MathJax_Preview">/</span><script type="math/tex">/</script></span> 表示狄利克雷卷积除法。根据狄利克雷卷积的性质可以得知 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 也为积性函数，因此 <span class="arithmatex"><span class="MathJax_Preview">h(1) = 1</span><script type="math/tex">h(1) = 1</script></span>。<span class="arithmatex"><span class="MathJax_Preview">f = g * h</span><script type="math/tex">f = g * h</script></span>，这里 <span class="arithmatex"><span class="MathJax_Preview">*</span><script type="math/tex">*</script></span> 表示狄利克雷卷积。</p>
+<p>对于素数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，<span class="arithmatex"><span class="MathJax_Preview">f(p) = g(1)h(p) + g(p)h(1) = h(p) + g(p) \implies h(p) = 0</span><script type="math/tex">f(p) = g(1)h(p) + g(p)h(1) = h(p) + g(p) \implies h(p) = 0</script></span>。根据 <span class="arithmatex"><span class="MathJax_Preview">h(p)=0</span><script type="math/tex">h(p)=0</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 是积性函数可以推出对于非 PN 的数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 有 <span class="arithmatex"><span class="MathJax_Preview">h(n) = 0</span><script type="math/tex">h(n) = 0</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 仅在 PN 处取有效值。</p>
+<p>现在，根据 <span class="arithmatex"><span class="MathJax_Preview">f = g * h</span><script type="math/tex">f = g * h</script></span> 有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+F(n) &amp;= \sum_{i = 1}^{n} f(i)\\
+     &amp;= \sum_{i = 1}^{n} \sum_{d|i} h(i) g\left(\frac{i}{d}\right)\\
+     &amp;= \sum_{d=1}^{n} \sum_{i=1}^{\lfloor \frac{n}{d}\rfloor} h(d) g(i)\\
+     &amp;= \sum_{d=1}^{n} h(d) \sum_{i=1}^{\lfloor \frac{n}{d}\rfloor}  g(i) \\
+     &amp;= \sum_{d=1}^{n} h(d) G\left(\left\lfloor \frac{n}{d}\right\rfloor\right)\\
+     &amp;= \sum_{\substack{d=1 \\ d \text{ is PN}}}^{n}h(d) G\left(\left\lfloor \frac{n}{d}\right\rfloor\right)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F(n) &= \sum_{i = 1}^{n} f(i)\\
+     &= \sum_{i = 1}^{n} \sum_{d|i} h(i) g\left(\frac{i}{d}\right)\\
+     &= \sum_{d=1}^{n} \sum_{i=1}^{\lfloor \frac{n}{d}\rfloor} h(d) g(i)\\
+     &= \sum_{d=1}^{n} h(d) \sum_{i=1}^{\lfloor \frac{n}{d}\rfloor}  g(i) \\
+     &= \sum_{d=1}^{n} h(d) G\left(\left\lfloor \frac{n}{d}\right\rfloor\right)\\
+     &= \sum_{\substack{d=1 \\ d \text{ is PN}}}^{n}h(d) G\left(\left\lfloor \frac{n}{d}\right\rfloor\right)
+\end{aligned}
+</script>
+</div>
+<p><span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 找出所有 PN，计算出所有 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 的有效值。对于 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 有效值的计算，只需要计算出所有 <span class="arithmatex"><span class="MathJax_Preview">h(p^c)</span><script type="math/tex">h(p^c)</script></span> 处的值，就可以根据 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 为积性函数推出 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 的所有有效值。现在对于每一个有效值 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>，计算 <span class="arithmatex"><span class="MathJax_Preview">h(d)G\left(\left\lfloor \dfrac{n}{d} \right\rfloor\right)</span><script type="math/tex">h(d)G\left(\left\lfloor \dfrac{n}{d} \right\rfloor\right)</script></span> 并累加即可得到 <span class="arithmatex"><span class="MathJax_Preview">F(n)</span><script type="math/tex">F(n)</script></span>。</p>
+<p>下面考虑计算 <span class="arithmatex"><span class="MathJax_Preview">h(p^c)</span><script type="math/tex">h(p^c)</script></span>，一共有两种方法：一种是直接推出 <span class="arithmatex"><span class="MathJax_Preview">h(p^c)</span><script type="math/tex">h(p^c)</script></span> 仅与 <span class="arithmatex"><span class="MathJax_Preview">p, c</span><script type="math/tex">p, c</script></span> 有关的计算公式，再根据公式计算 <span class="arithmatex"><span class="MathJax_Preview">h(p^c)</span><script type="math/tex">h(p^c)</script></span>；另一种是根据 <span class="arithmatex"><span class="MathJax_Preview">f = g * h</span><script type="math/tex">f = g * h</script></span> 有 <span class="arithmatex"><span class="MathJax_Preview">f(p^c) = \sum_{i=0}^c g(p^i)h(p^{c-i})</span><script type="math/tex">f(p^c) = \sum_{i=0}^c g(p^i)h(p^{c-i})</script></span>，移项可得 <span class="arithmatex"><span class="MathJax_Preview">h(p^c) = f(p^c) - \sum_{i=1}^{c}g(p^i)h(p^{c-i})</span><script type="math/tex">h(p^c) = f(p^c) - \sum_{i=1}^{c}g(p^i)h(p^{c-i})</script></span>，现在就可以枚举素数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 再枚举指数 <span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 求解出所有 <span class="arithmatex"><span class="MathJax_Preview">h(p^c)</span><script type="math/tex">h(p^c)</script></span>。</p>
+<h2 id="pn_1">PN 筛的一般过程<a class="headerlink" href="#pn_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>构造 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span></li>
+<li>构造快速计算 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的方法</li>
+<li>计算 <span class="arithmatex"><span class="MathJax_Preview">h(p^c)</span><script type="math/tex">h(p^c)</script></span></li>
+<li>搜索 PN，过程中累加答案</li>
+<li>得到结果</li>
+</ol>
+<p>对于第 3 步，可以直接根据公式计算，可以使用枚举法预处理打表，也可以搜索到了再临时推。</p>
+<h2 id="_2">复杂度分析<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>以使用第二种方法计算 <span class="arithmatex"><span class="MathJax_Preview">h(p^c)</span><script type="math/tex">h(p^c)</script></span> 为例进行分析。可以分为计算 <span class="arithmatex"><span class="MathJax_Preview">h(p^c)</span><script type="math/tex">h(p^c)</script></span> 和搜索两部分进行分析。</p>
+<p>对于第一部分，根据 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 内的素数个数为 <span class="arithmatex"><span class="MathJax_Preview">O\left(\dfrac{\sqrt{n}}{\log n}\right)</span><script type="math/tex">O\left(\dfrac{\sqrt{n}}{\log n}\right)</script></span>，每个素数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的指数 <span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 至多为 <span class="arithmatex"><span class="MathJax_Preview">\log n</span><script type="math/tex">\log n</script></span>，计算 <span class="arithmatex"><span class="MathJax_Preview">h(p^c)</span><script type="math/tex">h(p^c)</script></span> 需要循环 <span class="arithmatex"><span class="MathJax_Preview">(c - 1)</span><script type="math/tex">(c - 1)</script></span> 次，由此有第一部分的时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O\left(\dfrac{\sqrt{n}}{\log n} \cdot \log n \cdot \log n\right) = O(\sqrt{n}\log{n})</span><script type="math/tex">O\left(\dfrac{\sqrt{n}}{\log n} \cdot \log n \cdot \log n\right) = O(\sqrt{n}\log{n})</script></span>，且这是一个宽松的上界。根据题目的不同还可以添加不同的优化，从而降低第一部分的时间复杂度。</p>
+<p>对于搜索部分，由于 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 以内的 PN 至多有 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 个，所以至多搜索 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 次。对于每一个 PN，根据计算 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的方法不同，时间复杂度也不同。例如，假设计算 <span class="arithmatex"><span class="MathJax_Preview">G\left(\left\lfloor \dfrac{n}{d}\right\rfloor\right)</span><script type="math/tex">G\left(\left\lfloor \dfrac{n}{d}\right\rfloor\right)</script></span> 的时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>，则第二部分的复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span>。</p>
+<p>特别地，若借助杜教筛计算 <span class="arithmatex"><span class="MathJax_Preview">G\left(\left\lfloor \dfrac{n}{d}\right\rfloor\right)</span><script type="math/tex">G\left(\left\lfloor \dfrac{n}{d}\right\rfloor\right)</script></span>，则第二部分的时间复杂度为杜教筛的时间复杂度，即 <span class="arithmatex"><span class="MathJax_Preview">O(n^{\frac{2}{3}})</span><script type="math/tex">O(n^{\frac{2}{3}})</script></span>。因为若事先计算一次 <span class="arithmatex"><span class="MathJax_Preview">G(n)</span><script type="math/tex">G(n)</script></span>，并且预先使用线性筛优化和用支持快速随机访问的数据结构（如 C++ 中的 <code>std::map</code> 和 <code>std::unordered_map</code>）记录较大的值，则杜教筛过程中用到的 <span class="arithmatex"><span class="MathJax_Preview">G\left(\left\lfloor \dfrac{n}{d}\right\rfloor\right)</span><script type="math/tex">G\left(\left\lfloor \dfrac{n}{d}\right\rfloor\right)</script></span> 都是线性筛中记录的或者 <code>std::map</code> 中记录的，这一点可以直接用程序验证。</p>
+<p>对于空间复杂度，其瓶颈在于存储 <span class="arithmatex"><span class="MathJax_Preview">h(p^c)</span><script type="math/tex">h(p^c)</script></span>。若使用二维数组 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 记录，<span class="arithmatex"><span class="MathJax_Preview">a_{i,j}</span><script type="math/tex">a_{i,j}</script></span> 表示 <span class="arithmatex"><span class="MathJax_Preview">h(p_i^j)</span><script type="math/tex">h(p_i^j)</script></span> 的值，则空间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O\left(\dfrac{\sqrt{n}}{\log n} \cdot \log n\right) = O(\sqrt{n})</span><script type="math/tex">O\left(\dfrac{\sqrt{n}}{\log n} \cdot \log n\right) = O(\sqrt{n})</script></span>。</p>
+<h2 id="_3">例题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="luogu-p5325min_25"><a href="https://www.luogu.com.cn/problem/P5325">Luogu P5325【模板】Min_25 筛</a><a class="headerlink" href="#luogu-p5325min_25" title="Permanent link">&para;</a></h3>
+<p><strong>题意</strong>：给定积性函数 <span class="arithmatex"><span class="MathJax_Preview">f(p^k) = p^k(p^k-1)</span><script type="math/tex">f(p^k) = p^k(p^k-1)</script></span>，求 <span class="arithmatex"><span class="MathJax_Preview">\sum_{i=1}^{n} f(i)</span><script type="math/tex">\sum_{i=1}^{n} f(i)</script></span>。</p>
+<p>易得 <span class="arithmatex"><span class="MathJax_Preview">f(p) = p(p-1) = \textit{id}(p)\varphi(p)</span><script type="math/tex">f(p) = p(p-1) = \textit{id}(p)\varphi(p)</script></span>，构造 <span class="arithmatex"><span class="MathJax_Preview">g(n) = \textit{id}(n)\varphi(n)</span><script type="math/tex">g(n) = \textit{id}(n)\varphi(n)</script></span>。</p>
+<p>考虑使用杜教筛求 <span class="arithmatex"><span class="MathJax_Preview">G(n)</span><script type="math/tex">G(n)</script></span>，根据 <span class="arithmatex"><span class="MathJax_Preview">(\textit{id} * \varphi) * I = id_2</span><script type="math/tex">(\textit{id} * \varphi) * I = id_2</script></span> 可得 <span class="arithmatex"><span class="MathJax_Preview">G(n)= \sum_{i=1}^{n} i^2 - \sum_{i=2}^{n} d \cdot G\left(\left\lfloor \dfrac{n}{d} \right\rfloor\right)</span><script type="math/tex">G(n)= \sum_{i=1}^{n} i^2 - \sum_{i=2}^{n} d \cdot G\left(\left\lfloor \dfrac{n}{d} \right\rfloor\right)</script></span>。</p>
+<p>之后 <span class="arithmatex"><span class="MathJax_Preview">h(p^k)</span><script type="math/tex">h(p^k)</script></span> 的取值可以枚举计算，这种方法不再赘述。</p>
+<p>此外，此题还可以直接求出 <span class="arithmatex"><span class="MathJax_Preview">h(p^k)</span><script type="math/tex">h(p^k)</script></span> 仅与 <span class="arithmatex"><span class="MathJax_Preview">p, k</span><script type="math/tex">p, k</script></span> 有关的公式，过程如下：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+&amp; f(p^k) = \sum_{i=0}^{k} g(p^{k-i})h(p^i)\\
+\iff &amp; p^k(p^k-1) = \sum_{i=0}^{k} p^{k-i}\varphi(p^{k-i}) h(p^i)\\
+\iff &amp; p^k(p^k-1) = \sum_{i=0}^{k} p^{2k-2i-1}(p - 1) h(p^i)\\
+\iff &amp; p^k(p^k-1) = h(p^k) + \sum_{i=0}^{k-1} p^{2k-2i-1}(p - 1) h(p^i)\\
+\iff &amp; h(p^k) = p^k(p^k-1) - \sum_{i=0}^{k-1} p^{2k-2i-1}(p - 1) h(p^i)\\
+\iff &amp; h(p^k) - p^2h(p^{k-1}) = p^{k}(p^k-1)-p^{k+1}(p^{k-1}-1) - p(p-1)h(p^{k-1})\\
+\iff &amp; h(p^k) - ph(p^{k-1}) = p^{k+1} - p^k\\
+\iff &amp; \frac{h(p^k)}{p^k} - \frac{h(p^{k-1})}{p^{k-1}} = p - 1\\
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+& f(p^k) = \sum_{i=0}^{k} g(p^{k-i})h(p^i)\\
+\iff & p^k(p^k-1) = \sum_{i=0}^{k} p^{k-i}\varphi(p^{k-i}) h(p^i)\\
+\iff & p^k(p^k-1) = \sum_{i=0}^{k} p^{2k-2i-1}(p - 1) h(p^i)\\
+\iff & p^k(p^k-1) = h(p^k) + \sum_{i=0}^{k-1} p^{2k-2i-1}(p - 1) h(p^i)\\
+\iff & h(p^k) = p^k(p^k-1) - \sum_{i=0}^{k-1} p^{2k-2i-1}(p - 1) h(p^i)\\
+\iff & h(p^k) - p^2h(p^{k-1}) = p^{k}(p^k-1)-p^{k+1}(p^{k-1}-1) - p(p-1)h(p^{k-1})\\
+\iff & h(p^k) - ph(p^{k-1}) = p^{k+1} - p^k\\
+\iff & \frac{h(p^k)}{p^k} - \frac{h(p^{k-1})}{p^{k-1}} = p - 1\\
+\end{aligned}
+</script>
+</div>
+<p>再根据 <span class="arithmatex"><span class="MathJax_Preview">h(p) = 0</span><script type="math/tex">h(p) = 0</script></span>，通过累加法即可推出 <span class="arithmatex"><span class="MathJax_Preview">h(p^k) = (k-1)(p-1)p^k</span><script type="math/tex">h(p^k) = (k-1)(p-1)p^k</script></span>。</p>
+<details class="note">
+<summary>参考代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="loj-6053"><a href="https://loj.ac/problem/6053">「LOJ #6053」简单的函数</a><a class="headerlink" href="#loj-6053" title="Permanent link">&para;</a></h3>
+<p>给定 <span class="arithmatex"><span class="MathJax_Preview">f(n)</span><script type="math/tex">f(n)</script></span>：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f(n) =
+\begin{cases}
+1 &amp; n = 1 \\
+p \oplus c &amp; n=p^c \\
+f(a)f(b) &amp; n=ab \text{ and } a \perp b
+\end{cases}
+</div>
+<script type="math/tex; mode=display">
+f(n) =
+\begin{cases}
+1 & n = 1 \\
+p \oplus c & n=p^c \\
+f(a)f(b) & n=ab \text{ and } a \perp b
+\end{cases}
+</script>
+</div>
+<p>易得：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f(p) =
+\begin{cases}
+p + 1 &amp; p = 2 \\
+p - 1 &amp; \text{otherwise} \\
+\end{cases}
+</div>
+<script type="math/tex; mode=display">
+f(p) =
+\begin{cases}
+p + 1 & p = 2 \\
+p - 1 & \text{otherwise} \\
+\end{cases}
+</script>
+</div>
+<p>构造 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+g(n) =
+\begin{cases}
+3 \varphi(n) &amp; 2 \mid n \\
+\varphi(n) &amp; \text{otherwise} \\
+\end{cases}
+</div>
+<script type="math/tex; mode=display">
+g(n) =
+\begin{cases}
+3 \varphi(n) & 2 \mid n \\
+\varphi(n) & \text{otherwise} \\
+\end{cases}
+</script>
+</div>
+<p>易证 <span class="arithmatex"><span class="MathJax_Preview">g(p) = f(p)</span><script type="math/tex">g(p) = f(p)</script></span> 且 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 为积性函数。</p>
+<p>下面考虑求 <span class="arithmatex"><span class="MathJax_Preview">G(n)</span><script type="math/tex">G(n)</script></span>。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+G(n)
+&amp;= \sum_{i=1}^{n}[i \bmod 2 = 1] \varphi(i) + 3 \sum_{i=1}^{n}[i \bmod 2 = 0] \varphi(i)\\
+&amp;= \sum_{i=1}^{n} \varphi(i) + 2\sum_{i=1}^{n} [i \bmod 2 = 0]\varphi(i) \\
+&amp;= \sum_{i=1}^{n} \varphi(i) + 2\sum_{i=1}^{\lfloor \frac{n}{2} \rfloor} \varphi(2i)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+G(n)
+&= \sum_{i=1}^{n}[i \bmod 2 = 1] \varphi(i) + 3 \sum_{i=1}^{n}[i \bmod 2 = 0] \varphi(i)\\
+&= \sum_{i=1}^{n} \varphi(i) + 2\sum_{i=1}^{n} [i \bmod 2 = 0]\varphi(i) \\
+&= \sum_{i=1}^{n} \varphi(i) + 2\sum_{i=1}^{\lfloor \frac{n}{2} \rfloor} \varphi(2i)
+\end{aligned}
+</script>
+</div>
+<p>记 <span class="arithmatex"><span class="MathJax_Preview">S_1(n) = \sum_{i=1}^{n} \varphi(i)</span><script type="math/tex">S_1(n) = \sum_{i=1}^{n} \varphi(i)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">S_2(n) = \sum_{i=1}^{n} \varphi(2i)</span><script type="math/tex">S_2(n) = \sum_{i=1}^{n} \varphi(2i)</script></span>，则 <span class="arithmatex"><span class="MathJax_Preview">G(n) = S_1(n) + 2S_2\left(\left\lfloor \dfrac{n}{2} \right\rfloor\right)</span><script type="math/tex">G(n) = S_1(n) + 2S_2\left(\left\lfloor \dfrac{n}{2} \right\rfloor\right)</script></span>。</p>
+<p>当 <span class="arithmatex"><span class="MathJax_Preview">2 \mid n</span><script type="math/tex">2 \mid n</script></span> 时，有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+S_2(n)
+&amp;= \sum_{i=1}^{n} \varphi(2i) \\
+&amp;= \sum_{i=1}^{\frac{n}{2}} (\varphi(2(2i-1)) + \varphi(2(2i))) \\
+&amp;= \sum_{i=1}^{\frac{n}{2}} (\varphi(2i-1) + 2\varphi(2i)) \\
+&amp;= \sum_{i=1}^{\frac{n}{2}} (\varphi(2i-1) + \varphi(2i)) + \sum_{i=1}^{\frac{n}{2}} \varphi(2i) \\
+&amp;= \sum_{i=1}^{n} \varphi(i) + S_2\left(\frac{n}{2}\right)\\
+&amp;= S_1(n) + S_2\left(\left\lfloor \frac{n}{2} \right\rfloor\right)\\
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S_2(n)
+&= \sum_{i=1}^{n} \varphi(2i) \\
+&= \sum_{i=1}^{\frac{n}{2}} (\varphi(2(2i-1)) + \varphi(2(2i))) \\
+&= \sum_{i=1}^{\frac{n}{2}} (\varphi(2i-1) + 2\varphi(2i)) \\
+&= \sum_{i=1}^{\frac{n}{2}} (\varphi(2i-1) + \varphi(2i)) + \sum_{i=1}^{\frac{n}{2}} \varphi(2i) \\
+&= \sum_{i=1}^{n} \varphi(i) + S_2\left(\frac{n}{2}\right)\\
+&= S_1(n) + S_2\left(\left\lfloor \frac{n}{2} \right\rfloor\right)\\
+\end{aligned}
+</script>
+</div>
+<p>当 <span class="arithmatex"><span class="MathJax_Preview">2 \nmid n</span><script type="math/tex">2 \nmid n</script></span> 时，有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+S_2(n)
+&amp;= S_2(n-1) + \varphi(2n) \\
+&amp;= S_2(n-1) + \varphi(n) \\
+&amp;= \sum_{i=1}^{n-1} \varphi(i) + S_2\left(\frac{n-1}{2}\right) + \varphi(n)\\
+&amp;= S_1(n) + S_2\left(\left\lfloor \frac{n}{2} \right\rfloor\right)\\
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S_2(n)
+&= S_2(n-1) + \varphi(2n) \\
+&= S_2(n-1) + \varphi(n) \\
+&= \sum_{i=1}^{n-1} \varphi(i) + S_2\left(\frac{n-1}{2}\right) + \varphi(n)\\
+&= S_1(n) + S_2\left(\left\lfloor \frac{n}{2} \right\rfloor\right)\\
+\end{aligned}
+</script>
+</div>
+<p>综上，有 <span class="arithmatex"><span class="MathJax_Preview">S_2(n) = S_1(n) + S_2\left(\left\lfloor \dfrac{n}{2} \right\rfloor\right)</span><script type="math/tex">S_2(n) = S_1(n) + S_2\left(\left\lfloor \dfrac{n}{2} \right\rfloor\right)</script></span>。</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">S_1</span><script type="math/tex">S_1</script></span> 可以用杜教筛求，<span class="arithmatex"><span class="MathJax_Preview">S_2</span><script type="math/tex">S_2</script></span> 直接按照公式推，这样 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 也可以求出来了。</p>
+<details class="note">
+<summary>参考代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="_4">习题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://projecteuler.net/problem=708">PE708 Twos are all you need</a></li>
+<li><a href="https://projecteuler.net/problem=639">PE639 Summing a multiplicative function</a></li>
+<li><a href="https://projecteuler.net/problem=484">PE484 Arithmetic Derivative</a></li>
+</ul>
+<h2 id="_5">参考资料<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.cnblogs.com/wallbreaker5th/p/13901487.html">破壁人五号 - Powerful number 筛略解</a></li>
+<li><a href="https://www.luogu.com.cn/blog/command-block/du-jiao-shai">command_block - 杜教筛（+ 贝尔级数 + powerful number)</a></li>
+</ul>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/number-theory/powerful-number.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../../assets/vendor/gitalk/gitalk.css">
+<script src="../../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Powerful number',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

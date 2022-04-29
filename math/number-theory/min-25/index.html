@@ -1,0 +1,758 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/math/number-theory/min-25/">
+      
+      
+        <meta name="author" content="M">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Min 25 - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Min 25
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    记号
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    具体方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    复杂度分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    有关代码实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    例题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    求莫比乌斯函数的前缀和
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    求欧拉函数的前缀和
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loj-6053" class="md-nav__link">
+    「LOJ #6053」简单的函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/number-theory/min-25.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Min 25</h1>
+                
+                <p>由于其由 <a href="http://min-25.hatenablog.com/">Min_25</a> 发明并最早开始使用，故称「Min_25 筛」。</p>
+<blockquote>
+<p>从此种筛法的思想方法来说，其又被称为「Extended Eratosthenes Sieve」。</p>
+</blockquote>
+<p>其可以在 <span class="arithmatex"><span class="MathJax_Preview">O\left(\frac{n^{\frac{3}{4}}}{\log{n}}\right)</span><script type="math/tex">O\left(\frac{n^{\frac{3}{4}}}{\log{n}}\right)</script></span> 或 <span class="arithmatex"><span class="MathJax_Preview">\Theta\left(n^{1 - \epsilon}\right)</span><script type="math/tex">\Theta\left(n^{1 - \epsilon}\right)</script></span> 的时间复杂度下解决一类 <strong>积性函数</strong> 的前缀和问题。<br />
+要求：<span class="arithmatex"><span class="MathJax_Preview">f(p)</span><script type="math/tex">f(p)</script></span> 是一个关于 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的项数较少的多项式或可以快速求值；<span class="arithmatex"><span class="MathJax_Preview">f(p^{c})</span><script type="math/tex">f(p^{c})</script></span> 可以快速求值。</p>
+<h2 id="_1">记号<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>如无特别说明，本节中所有记为 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的变量的取值集合均为全体质数。</strong></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">x / y := \left\lfloor\frac{x}{y}\right\rfloor</span><script type="math/tex">x / y := \left\lfloor\frac{x}{y}\right\rfloor</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">\operatorname{isprime}(n) := [ |\{d : d \mid n\}| = 2 ]</span><script type="math/tex">\operatorname{isprime}(n) := [ |\{d : d \mid n\}| = 2 ]</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 为质数时其值为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，否则为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">p_{k}</span><script type="math/tex">p_{k}</script></span>：全体质数中第 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 小的质数（如：<span class="arithmatex"><span class="MathJax_Preview">p_{1} = 2, p_{2} = 3</span><script type="math/tex">p_{1} = 2, p_{2} = 3</script></span>）。特别地，令 <span class="arithmatex"><span class="MathJax_Preview">p_{0} = 1</span><script type="math/tex">p_{0} = 1</script></span>。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">\operatorname{lpf}(n) := [1 &lt; n] \min\{p : p \mid n\} + [1 = n]</span><script type="math/tex">\operatorname{lpf}(n) := [1 < n] \min\{p : p \mid n\} + [1 = n]</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的最小质因数。特别地，<span class="arithmatex"><span class="MathJax_Preview">n=1</span><script type="math/tex">n=1</script></span> 时，其值为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}(n) := \sum_{2 \le p \le n} f(p)</span><script type="math/tex">F_{\mathrm{prime}}(n) := \sum_{2 \le p \le n} f(p)</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">F_{k}(n) := \sum_{i = 2}^{n} [p_{k} \le \operatorname{lpf}(i)] f(i)</span><script type="math/tex">F_{k}(n) := \sum_{i = 2}^{n} [p_{k} \le \operatorname{lpf}(i)] f(i)</script></span></li>
+</ul>
+<h2 id="_2">具体方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>观察 <span class="arithmatex"><span class="MathJax_Preview">F_{k}(n)</span><script type="math/tex">F_{k}(n)</script></span> 的定义，可以发现答案即为 <span class="arithmatex"><span class="MathJax_Preview">F_{1}(n) + f(1) = F_{1}(n) + 1</span><script type="math/tex">F_{1}(n) + f(1) = F_{1}(n) + 1</script></span>。</p>
+<hr />
+<p>考虑如何求出 <span class="arithmatex"><span class="MathJax_Preview">F_{k}(n)</span><script type="math/tex">F_{k}(n)</script></span>。通过枚举每个 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 的最小质因子及其次数可以得到递推式：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+    F_{k}(n)
+    &amp;= \sum_{i = 2}^{n} [p_{k} \le \operatorname{lpf}(i)] f(i) \\
+    &amp;= \sum_{\substack{k \le i \\ p_{i}^{2} \le n}} \sum_{\substack{c \ge 1 \\ p_{i}^{c} \le n}} f\left(p_{i}^{c}\right) ([c &gt; 1] + F_{i + 1}\left(n / p_{i}^{c}\right)) + \sum_{\substack{k \le i \\ p_{i} \le n}} f(p_{i}) \\
+    &amp;= \sum_{\substack{k \le i \\ p_{i}^{2} \le n}} \sum_{\substack{c \ge 1 \\ p_{i}^{c} \le n}} f\left(p_{i}^{c}\right) ([c &gt; 1] + F_{i + 1}\left(n / p_{i}^{c}\right)) + F_{\mathrm{prime}}(n) - F_{\mathrm{prime}}(p_{k - 1}) \\
+    &amp;= \sum_{\substack{k \le i \\ p_{i}^{2} \le n}} \sum_{\substack{c \ge 1 \\ p_{i}^{c + 1} \le n}} \left(f\left(p_{i}^{c}\right) F_{i + 1}\left(n / p_{i}^{c}\right) + f\left(p_{i}^{c + 1}\right)\right) + F_{\mathrm{prime}}(n) - F_{\mathrm{prime}}(p_{k - 1})
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    F_{k}(n)
+    &= \sum_{i = 2}^{n} [p_{k} \le \operatorname{lpf}(i)] f(i) \\
+    &= \sum_{\substack{k \le i \\ p_{i}^{2} \le n}} \sum_{\substack{c \ge 1 \\ p_{i}^{c} \le n}} f\left(p_{i}^{c}\right) ([c > 1] + F_{i + 1}\left(n / p_{i}^{c}\right)) + \sum_{\substack{k \le i \\ p_{i} \le n}} f(p_{i}) \\
+    &= \sum_{\substack{k \le i \\ p_{i}^{2} \le n}} \sum_{\substack{c \ge 1 \\ p_{i}^{c} \le n}} f\left(p_{i}^{c}\right) ([c > 1] + F_{i + 1}\left(n / p_{i}^{c}\right)) + F_{\mathrm{prime}}(n) - F_{\mathrm{prime}}(p_{k - 1}) \\
+    &= \sum_{\substack{k \le i \\ p_{i}^{2} \le n}} \sum_{\substack{c \ge 1 \\ p_{i}^{c + 1} \le n}} \left(f\left(p_{i}^{c}\right) F_{i + 1}\left(n / p_{i}^{c}\right) + f\left(p_{i}^{c + 1}\right)\right) + F_{\mathrm{prime}}(n) - F_{\mathrm{prime}}(p_{k - 1})
+\end{aligned}
+</script>
+</div>
+<p>最后一步推导基于这样一个事实：对于满足 <span class="arithmatex"><span class="MathJax_Preview">p_{i}^{c} \le n &lt; p_{i}^{c + 1}</span><script type="math/tex">p_{i}^{c} \le n < p_{i}^{c + 1}</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span>，有 <span class="arithmatex"><span class="MathJax_Preview">p_{i}^{c + 1} &gt; n \iff n / p_{i}^{c} &lt; p_{i} &lt; p_{i + 1}</span><script type="math/tex">p_{i}^{c + 1} > n \iff n / p_{i}^{c} < p_{i} < p_{i + 1}</script></span>，故 <span class="arithmatex"><span class="MathJax_Preview">F_{i + 1}\left(n / p_{i}^{c}\right) = 0</span><script type="math/tex">F_{i + 1}\left(n / p_{i}^{c}\right) = 0</script></span>。<br />
+其边界值即为 <span class="arithmatex"><span class="MathJax_Preview">F_{k}(n) = 0 (p_{k} &gt; n)</span><script type="math/tex">F_{k}(n) = 0 (p_{k} > n)</script></span>。</p>
+<p>假设现在已经求出了所有的 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}(n)</span><script type="math/tex">F_{\mathrm{prime}}(n)</script></span>，那么有两种方式可以求出所有的 <span class="arithmatex"><span class="MathJax_Preview">F_{k}(n)</span><script type="math/tex">F_{k}(n)</script></span>：</p>
+<ol>
+<li>直接按照递推式计算。</li>
+<li>从大到小枚举 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 转移，仅当 <span class="arithmatex"><span class="MathJax_Preview">p^{2} &lt; n</span><script type="math/tex">p^{2} < n</script></span> 时转移增加值不为零，故按照递推式后缀和优化即可。</li>
+</ol>
+<hr />
+<p>现在考虑如何计算 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}{(n)}</span><script type="math/tex">F_{\mathrm{prime}}{(n)}</script></span>。<br />
+观察求 <span class="arithmatex"><span class="MathJax_Preview">F_{k}(n)</span><script type="math/tex">F_{k}(n)</script></span> 的过程，容易发现 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}</span><script type="math/tex">F_{\mathrm{prime}}</script></span> 有且仅有 <span class="arithmatex"><span class="MathJax_Preview">1, 2, \dots, \left\lfloor\sqrt{n}\right\rfloor, n / \sqrt{n}, \dots, n / 2, n</span><script type="math/tex">1, 2, \dots, \left\lfloor\sqrt{n}\right\rfloor, n / \sqrt{n}, \dots, n / 2, n</script></span> 这 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 处的点值是有用的。<br />
+一般情况下，<span class="arithmatex"><span class="MathJax_Preview">f(p)</span><script type="math/tex">f(p)</script></span> 是一个关于 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的低次多项式，可以表示为 <span class="arithmatex"><span class="MathJax_Preview">f(p) = \sum a_{i} p^{c_{i}}</span><script type="math/tex">f(p) = \sum a_{i} p^{c_{i}}</script></span>。<br />
+那么对于每个 <span class="arithmatex"><span class="MathJax_Preview">p^{c_{i}}</span><script type="math/tex">p^{c_{i}}</script></span>，其对 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}(n)</span><script type="math/tex">F_{\mathrm{prime}}(n)</script></span> 的贡献即为 <span class="arithmatex"><span class="MathJax_Preview">a_{i} \sum_{2 \le p \le n} p^{c_{i}}</span><script type="math/tex">a_{i} \sum_{2 \le p \le n} p^{c_{i}}</script></span>。<br />
+分开考虑每个 <span class="arithmatex"><span class="MathJax_Preview">p^{c_{i}}</span><script type="math/tex">p^{c_{i}}</script></span> 的贡献，问题就转变为了：给定 <span class="arithmatex"><span class="MathJax_Preview">n, s, g(p) = p^{s}</span><script type="math/tex">n, s, g(p) = p^{s}</script></span>，对所有的 <span class="arithmatex"><span class="MathJax_Preview">m = n / i</span><script type="math/tex">m = n / i</script></span>，求 <span class="arithmatex"><span class="MathJax_Preview">\sum_{p \le m} g(p)</span><script type="math/tex">\sum_{p \le m} g(p)</script></span>。</p>
+<blockquote>
+<p>Notice：<span class="arithmatex"><span class="MathJax_Preview">g(p) = p^{s}</span><script type="math/tex">g(p) = p^{s}</script></span> 是完全积性函数！</p>
+</blockquote>
+<p>于是设 <span class="arithmatex"><span class="MathJax_Preview">G_{k}(n) := \sum_{i = 1}^{n} \left[p_{k} &lt; \operatorname{lpf}(i) \lor \operatorname{isprime}(i)\right] g(i)</span><script type="math/tex">G_{k}(n) := \sum_{i = 1}^{n} \left[p_{k} < \operatorname{lpf}(i) \lor \operatorname{isprime}(i)\right] g(i)</script></span>，即埃筛第 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 轮筛完后剩下的数的 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 值之和。<br />
+对于一个合数 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>，必定有 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{lpf}(x) \le \sqrt{x}</span><script type="math/tex">\operatorname{lpf}(x) \le \sqrt{x}</script></span>，则 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}} = G_{\left\lfloor\sqrt{n}\right\rfloor}</span><script type="math/tex">F_{\mathrm{prime}} = G_{\left\lfloor\sqrt{n}\right\rfloor}</script></span>，故只需筛到 <span class="arithmatex"><span class="MathJax_Preview">G_{\left\lfloor\sqrt{n}\right\rfloor}</span><script type="math/tex">G_{\left\lfloor\sqrt{n}\right\rfloor}</script></span> 即可。<br />
+考虑 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的边界值，显然为 <span class="arithmatex"><span class="MathJax_Preview">G_{0}(n) = \sum_{i = 2}^{n} g(i)</span><script type="math/tex">G_{0}(n) = \sum_{i = 2}^{n} g(i)</script></span>。（还记得吗？特别约定了 <span class="arithmatex"><span class="MathJax_Preview">p_{0} = 1</span><script type="math/tex">p_{0} = 1</script></span>）<br />
+对于转移，考虑埃筛的过程，分开讨论每部分的贡献，有：</p>
+<ol>
+<li>对于 <span class="arithmatex"><span class="MathJax_Preview">n &lt; p_{k}^{2}</span><script type="math/tex">n < p_{k}^{2}</script></span> 的部分，<span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 值不变，即 <span class="arithmatex"><span class="MathJax_Preview">G_{k}(n) = G_{k - 1}(n)</span><script type="math/tex">G_{k}(n) = G_{k - 1}(n)</script></span>。</li>
+<li>对于 <span class="arithmatex"><span class="MathJax_Preview">p_{k}^{2} \le n</span><script type="math/tex">p_{k}^{2} \le n</script></span> 的部分，被筛掉的数必有质因子 <span class="arithmatex"><span class="MathJax_Preview">p_{k}</span><script type="math/tex">p_{k}</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">-g(p_{k}) G_{k - 1}(n / p_{k})</span><script type="math/tex">-g(p_{k}) G_{k - 1}(n / p_{k})</script></span>。</li>
+<li>对于第二部分，由于 <span class="arithmatex"><span class="MathJax_Preview">p_{k}^{2} \le n \iff p_{k} \le n / p_{k}</span><script type="math/tex">p_{k}^{2} \le n \iff p_{k} \le n / p_{k}</script></span>，故会有 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{lpf}(i) &lt; p_{k}</span><script type="math/tex">\operatorname{lpf}(i) < p_{k}</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 被减去。这部分应当加回来，即 <span class="arithmatex"><span class="MathJax_Preview">g(p_{k}) G_{k - 1}(p_{k - 1})</span><script type="math/tex">g(p_{k}) G_{k - 1}(p_{k - 1})</script></span>。</li>
+</ol>
+<p>则有：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+G_{k}(n) = G_{k - 1}(n) - \left[p_{k}^{2} \le n\right] g(p_{k}) (G_{k - 1}(n / p_{k}) - G_{k - 1}(p_{k - 1}))
+</div>
+<script type="math/tex; mode=display">
+G_{k}(n) = G_{k - 1}(n) - \left[p_{k}^{2} \le n\right] g(p_{k}) (G_{k - 1}(n / p_{k}) - G_{k - 1}(p_{k - 1}))
+</script>
+</div>
+<hr />
+<h2 id="_3">复杂度分析<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>对于 <span class="arithmatex"><span class="MathJax_Preview">F_{k}(n)</span><script type="math/tex">F_{k}(n)</script></span> 的计算，其第一种方法的时间复杂度被证明为 <span class="arithmatex"><span class="MathJax_Preview">O\left(n^{1 - \epsilon}\right)</span><script type="math/tex">O\left(n^{1 - \epsilon}\right)</script></span>（见 zzt 集训队论文 2.3）；<br />
+对于第二种方法，其本质即为洲阁筛的第二部分，在洲阁论文中也有提及（6.5.4），其时间复杂度被证明为 <span class="arithmatex"><span class="MathJax_Preview">O\left(\frac{n^{\frac{3}{4}}}{\log{n}}\right)</span><script type="math/tex">O\left(\frac{n^{\frac{3}{4}}}{\log{n}}\right)</script></span>。</p>
+<p>对于 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}(n)</span><script type="math/tex">F_{\mathrm{prime}}(n)</script></span> 的计算，事实上，其实现与洲阁筛第一部分是相同的。<br />
+考虑对于每个 <span class="arithmatex"><span class="MathJax_Preview">m = n / i</span><script type="math/tex">m = n / i</script></span>，只有在枚举满足 <span class="arithmatex"><span class="MathJax_Preview">p_{k}^{2} \le m</span><script type="math/tex">p_{k}^{2} \le m</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">p_{k}</span><script type="math/tex">p_{k}</script></span> 转移时会对时间复杂度产生贡献，则时间复杂度可估计为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+    T(n)
+    &amp;= \sum_{i^{2} \le n} O\left(\pi\left(\sqrt{i}\right)\right) + \sum_{i^{2} \le n} O\left(\pi\left(\sqrt{\frac{n}{i}}\right)\right) \\
+    &amp;= \sum_{i^{2} \le n} O\left(\frac{\sqrt{i}}{\ln{\sqrt{i}}}\right) + \sum_{i^{2} \le n} O\left(\frac{\sqrt{\frac{n}{i}}}{\ln{\sqrt{\frac{n}{i}}}}\right) \\
+    &amp;= O\left(\int_{1}^{\sqrt{n}} \frac{\sqrt{\frac{n}{x}}}{\log{\sqrt{\frac{n}{x}}}} \mathrm{d} x\right) \\
+    &amp;= O\left(\frac{n^{\frac{3}{4}}}{\log{n}}\right)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    T(n)
+    &= \sum_{i^{2} \le n} O\left(\pi\left(\sqrt{i}\right)\right) + \sum_{i^{2} \le n} O\left(\pi\left(\sqrt{\frac{n}{i}}\right)\right) \\
+    &= \sum_{i^{2} \le n} O\left(\frac{\sqrt{i}}{\ln{\sqrt{i}}}\right) + \sum_{i^{2} \le n} O\left(\frac{\sqrt{\frac{n}{i}}}{\ln{\sqrt{\frac{n}{i}}}}\right) \\
+    &= O\left(\int_{1}^{\sqrt{n}} \frac{\sqrt{\frac{n}{x}}}{\log{\sqrt{\frac{n}{x}}}} \mathrm{d} x\right) \\
+    &= O\left(\frac{n^{\frac{3}{4}}}{\log{n}}\right)
+\end{aligned}
+</script>
+</div>
+<p>对于空间复杂度，可以发现不论是 <span class="arithmatex"><span class="MathJax_Preview">F_{k}</span><script type="math/tex">F_{k}</script></span> 还是 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}</span><script type="math/tex">F_{\mathrm{prime}}</script></span>，其均只在 <span class="arithmatex"><span class="MathJax_Preview">n / i</span><script type="math/tex">n / i</script></span> 处取有效点值，共 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 个，仅记录有效值即可将空间复杂度优化至 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span>。</p>
+<p>首先，通过一次数论分块可以得到所有的有效值，用一个大小为 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 的数组 <span class="arithmatex"><span class="MathJax_Preview">\text{lis}</span><script type="math/tex">\text{lis}</script></span> 记录。对于有效值 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>，记 <span class="arithmatex"><span class="MathJax_Preview">\text{id}(v)</span><script type="math/tex">\text{id}(v)</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 在 <span class="arithmatex"><span class="MathJax_Preview">\text{lis}</span><script type="math/tex">\text{lis}</script></span> 中的下标，易得：对于所有有效值 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>，<span class="arithmatex"><span class="MathJax_Preview">\text{id}(v) \le \sqrt{n}</span><script type="math/tex">\text{id}(v) \le \sqrt{n}</script></span>。</p>
+<p>然后分开考虑小于等于 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 的有效值和大于 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 的有效值：对于小于等于 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 的有效值 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>，用一个数组 <span class="arithmatex"><span class="MathJax_Preview">\text{le}</span><script type="math/tex">\text{le}</script></span> 记录其 <span class="arithmatex"><span class="MathJax_Preview">\text{id}(v)</span><script type="math/tex">\text{id}(v)</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">\text{le}_v = \text{id}(v)</span><script type="math/tex">\text{le}_v = \text{id}(v)</script></span>；对于大于 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 的有效值 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>，用一个数组 <span class="arithmatex"><span class="MathJax_Preview">\text{ge}</span><script type="math/tex">\text{ge}</script></span> 记录 <span class="arithmatex"><span class="MathJax_Preview">\text{id}(v)</span><script type="math/tex">\text{id}(v)</script></span>，由于 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 过大所以借助 <span class="arithmatex"><span class="MathJax_Preview">v^\prime = n / v &lt; \sqrt{n}</span><script type="math/tex">v^\prime = n / v < \sqrt{n}</script></span> 记录 <span class="arithmatex"><span class="MathJax_Preview">\text{id}(v)</span><script type="math/tex">\text{id}(v)</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">\text{ge}_{v^\prime} = \text{id}(v)</span><script type="math/tex">\text{ge}_{v^\prime} = \text{id}(v)</script></span>。</p>
+<p>这样，就可以使用两个大小为 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 的数组记录所有有效值的 <span class="arithmatex"><span class="MathJax_Preview">\text{id}</span><script type="math/tex">\text{id}</script></span> 并 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 查询。在计算 <span class="arithmatex"><span class="MathJax_Preview">F_{k}</span><script type="math/tex">F_{k}</script></span> 或 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}</span><script type="math/tex">F_{\mathrm{prime}}</script></span> 时，使用有效值的 <span class="arithmatex"><span class="MathJax_Preview">\text{id}</span><script type="math/tex">\text{id}</script></span> 代替有效值作为下标，即可将空间复杂度优化至 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span>。</p>
+<h2 id="_4">有关代码实现<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>对于 <span class="arithmatex"><span class="MathJax_Preview">F_{k}(n)</span><script type="math/tex">F_{k}(n)</script></span> 的计算，我们实现时一般选择实现难度较低的第一种方法，其在数据规模较小时往往比第二种方法的表现要好；</p>
+<p>对于 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}(n)</span><script type="math/tex">F_{\mathrm{prime}}(n)</script></span> 的计算，直接按递推式实现即可。</p>
+<p>对于 <span class="arithmatex"><span class="MathJax_Preview">p_{k}^{2} \le n</span><script type="math/tex">p_{k}^{2} \le n</script></span>，可以用线性筛预处理出 <span class="arithmatex"><span class="MathJax_Preview">s_{k} := F_{\mathrm{prime}}(p_{k})</span><script type="math/tex">s_{k} := F_{\mathrm{prime}}(p_{k})</script></span> 来替代 <span class="arithmatex"><span class="MathJax_Preview">F_{k}</span><script type="math/tex">F_{k}</script></span> 递推式中的 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}(p_{k - 1})</span><script type="math/tex">F_{\mathrm{prime}}(p_{k - 1})</script></span>。<br />
+相应地，<span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 递推式中的 <span class="arithmatex"><span class="MathJax_Preview">G_{k - 1}(p_{k - 1}) = \sum_{i = 1}^{k - 1} g(p_{i})</span><script type="math/tex">G_{k - 1}(p_{k - 1}) = \sum_{i = 1}^{k - 1} g(p_{i})</script></span> 也可以用此方法预处理。</p>
+<p>用 Extended Eratosthenes Sieve 求 <strong>积性函数</strong>  <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 的前缀和时，应当明确以下几点：</p>
+<ul>
+<li>如何快速（一般是线性时间复杂度）筛出前 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 个 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 值；</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">f(p)</span><script type="math/tex">f(p)</script></span> 的多项式表示；</li>
+<li>如何快速求出 <span class="arithmatex"><span class="MathJax_Preview">f(p^{c})</span><script type="math/tex">f(p^{c})</script></span>。</li>
+</ul>
+<p>明确上述几点之后按顺序实现以下几部分即可：</p>
+<ol>
+<li>筛出 <span class="arithmatex"><span class="MathJax_Preview">[1, \sqrt{n}]</span><script type="math/tex">[1, \sqrt{n}]</script></span> 内的质数与前 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 个 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 值；</li>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">f(p)</span><script type="math/tex">f(p)</script></span> 多项式表示中的每一项筛出对应的 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span>，合并得到 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}</span><script type="math/tex">F_{\mathrm{prime}}</script></span> 的所有 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 个有用点值；</li>
+<li>按照 <span class="arithmatex"><span class="MathJax_Preview">F_{k}</span><script type="math/tex">F_{k}</script></span> 的递推式实现递归，求出 <span class="arithmatex"><span class="MathJax_Preview">F_{1}(n)</span><script type="math/tex">F_{1}(n)</script></span>。</li>
+</ol>
+<h2 id="_5">例题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">求莫比乌斯函数的前缀和<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>求 <span class="arithmatex"><span class="MathJax_Preview">\displaystyle \sum_{i = 1}^{n} \mu(i)</span><script type="math/tex">\displaystyle \sum_{i = 1}^{n} \mu(i)</script></span>。</p>
+<p>易知 <span class="arithmatex"><span class="MathJax_Preview">f(p) = -1</span><script type="math/tex">f(p) = -1</script></span>。则 <span class="arithmatex"><span class="MathJax_Preview">g(p) = -1, G_{0}(n) = \sum_{i = 2}^{n} g(i) = -n + 1</span><script type="math/tex">g(p) = -1, G_{0}(n) = \sum_{i = 2}^{n} g(i) = -n + 1</script></span>。<br />
+直接筛即可得到 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}</span><script type="math/tex">F_{\mathrm{prime}}</script></span> 的所有 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 个所需点值。</p>
+<h3 id="_7">求欧拉函数的前缀和<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>求 <span class="arithmatex"><span class="MathJax_Preview">\displaystyle \sum_{i = 1}^{n} \varphi(i)</span><script type="math/tex">\displaystyle \sum_{i = 1}^{n} \varphi(i)</script></span>。</p>
+<p>首先易知 <span class="arithmatex"><span class="MathJax_Preview">f(p) = p - 1</span><script type="math/tex">f(p) = p - 1</script></span>。<br />
+对于 <span class="arithmatex"><span class="MathJax_Preview">f(p)</span><script type="math/tex">f(p)</script></span> 的一次项 <span class="arithmatex"><span class="MathJax_Preview">(p)</span><script type="math/tex">(p)</script></span>，有 <span class="arithmatex"><span class="MathJax_Preview">g(p) = p, G_{0}(n) = \sum_{i = 2}^{n} g(i) = \frac{(n + 2) (n - 1)}{2}</span><script type="math/tex">g(p) = p, G_{0}(n) = \sum_{i = 2}^{n} g(i) = \frac{(n + 2) (n - 1)}{2}</script></span>；<br />
+对于 <span class="arithmatex"><span class="MathJax_Preview">f(p)</span><script type="math/tex">f(p)</script></span> 的常数项 <span class="arithmatex"><span class="MathJax_Preview">(-1)</span><script type="math/tex">(-1)</script></span>，有 <span class="arithmatex"><span class="MathJax_Preview">g(p) = -1, G_{0}(n) = \sum_{i = 2}^{n} g(i) = -n + 1</span><script type="math/tex">g(p) = -1, G_{0}(n) = \sum_{i = 2}^{n} g(i) = -n + 1</script></span>。<br />
+筛两次加起来即可得到 <span class="arithmatex"><span class="MathJax_Preview">F_{\mathrm{prime}}</span><script type="math/tex">F_{\mathrm{prime}}</script></span> 的所有 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 个所需点值。</p>
+<h3 id="loj-6053"><a href="https://loj.ac/problem/6053">「LOJ #6053」简单的函数</a><a class="headerlink" href="#loj-6053" title="Permanent link">&para;</a></h3>
+<p>给定 <span class="arithmatex"><span class="MathJax_Preview">f(n)</span><script type="math/tex">f(n)</script></span>：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f(n) = \begin{cases}
+    1 &amp; n = 1 \\
+    p \operatorname{xor} c &amp; n = p^{c} \\
+    f(a)f(b) &amp; n = ab \land a \perp b
+\end{cases}
+</div>
+<script type="math/tex; mode=display">
+f(n) = \begin{cases}
+    1 & n = 1 \\
+    p \operatorname{xor} c & n = p^{c} \\
+    f(a)f(b) & n = ab \land a \perp b
+\end{cases}
+</script>
+</div>
+<p>易知 <span class="arithmatex"><span class="MathJax_Preview">f(p) = p - 1 + 2[p = 2]</span><script type="math/tex">f(p) = p - 1 + 2[p = 2]</script></span>。则按照筛 <span class="arithmatex"><span class="MathJax_Preview">\varphi</span><script type="math/tex">\varphi</script></span> 的方法筛，对 <span class="arithmatex"><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span> 讨论一下即可。<br />
+此处给出一种 C++ 实现：</p>
+<details class="参考代码" open="open">
+<summary>参考代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+</details>
+                
+                  
+                
+              
+              
+                 
+ 
+   
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/number-theory/min-25.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">Marcythm, Xeonacid</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../../assets/vendor/gitalk/gitalk.css">
+<script src="../../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Min 25',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

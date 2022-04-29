@@ -1,0 +1,717 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/string/automaton/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Automaton - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Automaton
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前置知识
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    自动机入门
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    形式化定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oi" class="md-nav__link">
+    OI 中常用的自动机
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    字典树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kmp" class="md-nav__link">
+    KMP 自动机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ac" class="md-nav__link">
+    AC 自动机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    后缀自动机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    广义后缀自动机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    回文自动机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    序列自动机
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    后缀链接
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    扩展阅读
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/string/automaton.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Automaton</h1>
+                
+                <p>OI 中所说的“自动机”一般都指“确定有限状态自动机”。</p>
+<p>自动机是 OI、计算机科学中被广泛使用的一个数学模型，其思想在许多字符串算法中都有涉及，因此推荐在学习一些字符串算法（<a href="../kmp/">KMP</a>、<a href="../ac-automaton/">AC 自动机</a>、<a href="../sam/">SAM</a>）前先完成自动机的学习。学习自动机有助于理解上述算法。</p>
+<h2 id="_1">前置知识<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>基础图论。</li>
+</ul>
+<h2 id="_2">自动机入门<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>首先理解一下自动机是用来干什么的：自动机是一个对信号序列进行判定的数学模型。</p>
+<p>这句话涉及到的名词比较多，逐一解释一下。“信号序列”是指一连串有顺序的信号，例如字符串从前到后的每一个字符、数组从 1 到 n 的每一个数、数从高到低的每一位等。“判定”是指针对某一个命题给出或真或假的回答。有时我们需要对一个信号序列进行判定。一个简单的例子就是判定一个二进制数是奇数还是偶数，较复杂的例子例如判定一个字符串是否回文，判定一个字符串是不是某个特定字符串的子序列等等。</p>
+<p>自动机的工作原理和地图很类似。假设你在你家，然后你从你家到学校，按顺序经过了很多路口。每个路口都有岔路，而你在所有这些路口的选择就构成了一个序列。</p>
+<p>例如，你的选择序列是“家门 -&gt; 右拐 -&gt; 萍水西街 -&gt; 尚园街 -&gt; 古墩路 -&gt; 地铁站 -&gt; 下宁桥”，那你按顺序经过的路口可能是“家 -&gt; 家门口 -&gt; 萍水西街竞舟北路口 -&gt; 萍水西街尚圆街路口 -&gt; 尚园街古墩路口 -&gt; 古墩路中 -&gt; 三坝地铁站 -&gt; 下宁桥地铁站”。可以发现，上学的选择序列不止这一个。同样要去地铁站，你还可以从竞舟北路绕道，或者横穿文鼎苑抄近路。</p>
+<p>而我们如果找到一个选择序列，就可以在地图上比划出这个选择序列能不能去学校。比如，如果一个选择序列是“家门 -&gt; 右拐 -&gt; 萍水西街 -&gt; 尚园街 -&gt; 古墩路 -&gt; 地铁站 -&gt; 钱江路 -&gt; 四号线站台 -&gt; 联庄”，那么它就不会带你去同一个学校，但是仍旧可能是一个可被接受的序列，因为目标地点可能不止一个。</p>
+<p>也就是说，我们通过这个地图和一组目的地，将信号序列分成了三类，一类是无法识别的信号序列（例如“家门 -&gt; ???”），一类是能去学校的信号序列，另一类是不能的信号序列。我们将所有合法的信号序列分成了两类，完成了一个判定问题。</p>
+<p>既然自动机是一个数学模型，那么显然不可能是一张地图。对地图进行抽象之后，可以简化为一个有向图。因此，自动机的结构就是一张有向图。</p>
+<p>而自动机的工作方式和流程图类似，不同的是：自动机的每一个结点都是一个判定结点；自动机的结点只是一个单纯的状态而非任务；自动机的边可以接受多种字符（不局限于 T 或 F）。</p>
+<p>例如，完成“判断一个二进制数是不是偶数”的自动机如下：</p>
+<p><img alt="example automaton" src="../images/automaton2.png" /></p>
+<p>从起始结点开始，从高到低接受这个数的二进制序列，然后看最终停在哪里。如果最终停在红圈结点，则是偶数，否则不是。</p>
+<p>如果需要判定一个有限的信号序列和另外一个信号序列的关系（例如另一个信号序列是不是某个信号序列的子序列），那么常用的方法是针对那个有限的信号序列构建一个自动机。这个在学习 KMP 的时候会讲到。</p>
+<p>需要注意的是，自动机只是一个 <strong>数学模型</strong>，而 <strong>不是算法</strong>，也 <strong>不是数据结构</strong>。实现同一个自动机的方法有很多种，可能会有不一样的时空复杂度。</p>
+<p>接下来你可以选择继续看自动机的形式化定义，也可以去学习 <a href="../kmp/">KMP</a>、<a href="../ac-automaton/">AC 自动机</a> 或 <a href="../sam/">SAM</a>。</p>
+<h2 id="_3">形式化定义<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>一个 <strong>确定有限状态自动机（DFA）</strong> 由以下五部分构成：</p>
+<ol>
+<li><strong>字符集</strong>（<span class="arithmatex"><span class="MathJax_Preview">\Sigma</span><script type="math/tex">\Sigma</script></span>），该自动机只能输入这些字符。</li>
+<li><strong>状态集合</strong>（<span class="arithmatex"><span class="MathJax_Preview">Q</span><script type="math/tex">Q</script></span>）。如果把一个 DFA 看成一张有向图，那么 DFA 中的状态就相当于图上的顶点。</li>
+<li><strong>起始状态</strong>（<span class="arithmatex"><span class="MathJax_Preview">start</span><script type="math/tex">start</script></span>），<span class="arithmatex"><span class="MathJax_Preview">start\in Q</span><script type="math/tex">start\in Q</script></span>，是一个特殊的状态。起始状态一般用 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 表示，为了避免混淆，本文中使用 <span class="arithmatex"><span class="MathJax_Preview">start</span><script type="math/tex">start</script></span>。</li>
+<li><strong>接受状态集合</strong>（<span class="arithmatex"><span class="MathJax_Preview">F</span><script type="math/tex">F</script></span>），<span class="arithmatex"><span class="MathJax_Preview">F\subseteq Q</span><script type="math/tex">F\subseteq Q</script></span>，是一组特殊的状态。</li>
+<li><strong>转移函数</strong>（<span class="arithmatex"><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span>），<span class="arithmatex"><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> 是一个接受两个参数返回一个值的函数，其中第一个参数和返回值都是一个状态，第二个参数是字符集中的一个字符。如果把一个 DFA 看成一张有向图，那么 DFA 中的转移函数就相当于顶点间的边，而每条边上都有一个字符。</li>
+</ol>
+<p>DFA 的作用就是识别字符串，一个自动机 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>，若它能识别（接受）字符串 <span class="arithmatex"><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>，那么 <span class="arithmatex"><span class="MathJax_Preview">A(S)=\mathrm{True}</span><script type="math/tex">A(S)=\mathrm{True}</script></span>，否则 <span class="arithmatex"><span class="MathJax_Preview">A(S)=\mathrm{False}</span><script type="math/tex">A(S)=\mathrm{False}</script></span>。</p>
+<p>当一个 DFA 读入一个字符串时，从初始状态起按照转移函数一个一个字符地转移。如果读入完一个字符串的所有字符后位于一个接受状态，那么我们称这个 DFA <strong>接受</strong> 这个字符串，反之我们称这个 DFA <strong>不接受</strong> 这个字符串。</p>
+<p>如果一个状态 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 没有字符 <span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 的转移，那么我们令 <span class="arithmatex"><span class="MathJax_Preview">\delta(v,c)=\mathrm{null}</span><script type="math/tex">\delta(v,c)=\mathrm{null}</script></span>，而 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{null}</span><script type="math/tex">\mathrm{null}</script></span> 只能转移到 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{null}</span><script type="math/tex">\mathrm{null}</script></span>，且 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{null}</span><script type="math/tex">\mathrm{null}</script></span> 不属于接受状态集合。无法转移到任何一个接受状态的状态都可以视作 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{null}</span><script type="math/tex">\mathrm{null}</script></span>，或者说，<span class="arithmatex"><span class="MathJax_Preview">\mathrm{null}</span><script type="math/tex">\mathrm{null}</script></span> 代指所有无法转移到任何一个接受状态的状态。</p>
+<p>我们扩展定义转移函数 <span class="arithmatex"><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span>，令其第二个参数可以接收一个字符串：<span class="arithmatex"><span class="MathJax_Preview">\delta(v,s)=\delta(\delta(v,s[1]),s[2..|s|])</span><script type="math/tex">\delta(v,s)=\delta(\delta(v,s[1]),s[2..|s|])</script></span>，扩展后的转移函数就可以表示从一个状态起接收一个字符串后转移到的状态。那么，<span class="arithmatex"><span class="MathJax_Preview">A(s)=[\delta(start,s)\in F]</span><script type="math/tex">A(s)=[\delta(start,s)\in F]</script></span>。</p>
+<p>如，一个接受且仅接受字符串 "a", "ab", "aac" 的 DFA：</p>
+<p><img alt="" src="../images/automaton1.png" /></p>
+<h2 id="oi">OI 中常用的自动机<a class="headerlink" href="#oi" title="Permanent link">&para;</a></h2>
+<h3 id="_4">字典树<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><a href="../trie/">字典树</a> 是大部分 OIer 接触到的第一个自动机，接受且仅接受指定的字符串集合中的元素。</p>
+<p>转移函数就是 Trie 上的边，接受状态是将每个字符串插入到 Trie 时到达的那个状态。</p>
+<h3 id="kmp">KMP 自动机<a class="headerlink" href="#kmp" title="Permanent link">&para;</a></h3>
+<p><a href="../kmp/">KMP 算法</a> 可以视作自动机，基于字符串 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 的 KMP 自动机接受且仅接受以 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 为后缀的字符串，其接受状态为 <span class="arithmatex"><span class="MathJax_Preview">|s|</span><script type="math/tex">|s|</script></span>。</p>
+<p>转移函数：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta(i, c)=
+\begin{cases}
+i+1&amp;s[i+1]=c\\
+0&amp;s[1]\ne c\land i=0\\
+\delta(\pi(i),c)&amp;s[i+1]\ne c\land i&gt;0
+\end{cases}
+</div>
+<script type="math/tex; mode=display">
+\delta(i, c)=
+\begin{cases}
+i+1&s[i+1]=c\\
+0&s[1]\ne c\land i=0\\
+\delta(\pi(i),c)&s[i+1]\ne c\land i>0
+\end{cases}
+</script>
+</div>
+<h3 id="ac">AC 自动机<a class="headerlink" href="#ac" title="Permanent link">&para;</a></h3>
+<p><a href="../ac-automaton/">AC 自动机</a> 接受且仅接受以指定的字符串集合中的某个元素为后缀的字符串。也就是 Trie + KMP。</p>
+<h3 id="_5">后缀自动机<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><a href="../sam/">后缀自动机</a> 接受且仅接受指定字符串的后缀。</p>
+<h3 id="_6">广义后缀自动机<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><a href="../general-sam/">广义后缀自动机</a> 接受且仅接受指定的字符串集合中的某个元素的后缀。也就是 Trie + SAM。</p>
+<p>广义 SAM 与 SAM 的关系就是 AC 自动机与 KMP 自动机的关系。</p>
+<h3 id="_7">回文自动机<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><a href="../pam/">回文自动机</a> 比较特殊，它不能非常方便地定义为自动机。</p>
+<p>如果需要定义的话，它接受且仅接受某个字符串的所有回文子串的 <strong>中心及右半部分</strong>。</p>
+<p>“中心及右边部分”在奇回文串中就是字面意思，在偶回文串中定义为一个特殊字符加上右边部分。这个定义看起来很奇怪，但它能让 PAM 真正成为一个自动机，而不仅是两棵树。</p>
+<h3 id="_8">序列自动机<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><a href="../seq-automaton/">序列自动机</a> 接受且仅接受指定字符串的子序列。</p>
+<h2 id="_9">后缀链接<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>由于自动机和匹配有着密不可分的关系，而匹配的一个基本思想是“这个串不行，就试试它的后缀可不可以”，所以在很多自动机（KMP、AC 自动机、SAM、PAM）中，都有后缀链接的概念。</p>
+<p>一个状态会对应若干字符串，而这个状态的后缀链接，是在自动机上的、是这些字符串的公共真后缀的字符串中，最长的那一个。</p>
+<p>一般来讲，后缀链接会形成一棵树，并且不同自动机的后缀链接树有着一些相同的性质，学习时可以加以注意。</p>
+<h2 id="_10">扩展阅读<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>在计算复杂性领域中，自动机是一个经典的模型。并且，自动机与正则语言有着密不可分的关系。</p>
+<p>如果对相关内容感兴趣的话，推荐阅读博客 <a href="https://lingeros-tot.github.io/2019/03/05/Warming-Up-自动机模型/">计算复杂性（1）Warming Up: 自动机模型</a>。</p>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/string/automaton.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Automaton',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

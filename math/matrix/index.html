@@ -1,0 +1,1229 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/math/matrix/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Matrix - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Matrix
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    性质
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    矩阵的逆
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    矩阵乘法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    优化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    参考代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    应用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    矩阵加速递推
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    矩阵表达修改
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    定长路径统计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    定长最短路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    限长路径计数/最短路
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    习题
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/matrix.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Matrix</h1>
+                
+                <p>本文介绍线性代数中一个非常重要的内容——矩阵（Matrix），主要讲解矩阵的性质、运算以及在常系数齐次递推式上的应用。</p>
+<h2 id="_1">定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>对于矩阵 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>，主对角线是指 <span class="arithmatex"><span class="MathJax_Preview">A_{i,i}</span><script type="math/tex">A_{i,i}</script></span> 的元素。</p>
+<p>一般用 <span class="arithmatex"><span class="MathJax_Preview">I</span><script type="math/tex">I</script></span> 来表示单位矩阵，就是主对角线上为 1，其余位置为 0。</p>
+<h2 id="_2">性质<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">矩阵的逆<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 的逆矩阵 <span class="arithmatex"><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> 是使得 <span class="arithmatex"><span class="MathJax_Preview">A \times P = I</span><script type="math/tex">A \times P = I</script></span> 的矩阵。</p>
+<p>逆矩阵可以用 <a href="../gauss/">高斯消元</a> 的方式来求。</p>
+<h2 id="_4">运算<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>矩阵的加减法是逐个元素进行的。</p>
+<h3 id="_5">矩阵乘法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>矩阵相乘只有在第一个矩阵的列数和第二个矩阵的行数相同时才有意义。</p>
+<p>设 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">P \times M</span><script type="math/tex">P \times M</script></span> 的矩阵，<span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">M \times Q</span><script type="math/tex">M \times Q</script></span> 的矩阵，设矩阵 <span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> 为矩阵 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 的乘积，</p>
+<p>其中矩阵 <span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> 中的第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 行第 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 列元素可以表示为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+C_{i,j} = \sum_{k=1}^MA_{i,k}B_{k,j}
+</div>
+<script type="math/tex; mode=display">
+C_{i,j} = \sum_{k=1}^MA_{i,k}B_{k,j}
+</script>
+</div>
+<p>如果没看懂上面的式子，没关系。通俗的讲，在矩阵乘法中，结果 <span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> 矩阵的第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 行第 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 列的数，就是由矩阵 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 行 <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> 个数与矩阵 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 第 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 列 <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> 个数分别相乘再相加得到的。</p>
+<p>矩阵乘法满足结合律，不满足一般的交换律。</p>
+<p>利用结合律，矩阵乘法可以利用 <a href="../quick-pow/">快速幂</a> 的思想来优化。</p>
+<p>在比赛中，由于线性递推式可以表示成矩阵乘法的形式，也通常用矩阵快速幂来求线性递推数列的某一项。</p>
+<h4 id="_6">优化<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>首先对于比较小的矩阵，可以考虑直接手动展开循环以减小常数。</p>
+<p>可以重新排列循环以提高空间局部性，这样的优化不会改变矩阵乘法的时间复杂度，但是会在得到常数级别的提升。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 以下文的参考代码为例</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">mat</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">mat</span><span class="o">&amp;</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">mat</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">mul</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">],</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="n">MOD</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// 不如</span>
+<span class="kr">inline</span><span class="w"> </span><span class="n">mat</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">mat</span><span class="o">&amp;</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">mat</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="n">MOD</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_7">参考代码<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>一般来说，可以用一个二维数组来模拟矩阵。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">mat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">LL</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">sz</span><span class="p">][</span><span class="n">sz</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="n">mat</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">memset</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="n">mat</span><span class="w"> </span><span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">mat</span><span class="o">&amp;</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">mat</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MOD</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="n">mat</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">mat</span><span class="o">&amp;</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">mat</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MOD</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="n">mat</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">mat</span><span class="o">&amp;</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">mat</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">T</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="n">MOD</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="n">mat</span><span class="w"> </span><span class="k">operator</span><span class="o">^</span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">mat</span><span class="w"> </span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">bas</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="n">bas</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MOD</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bas</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">bas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bas</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bas</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_8">应用<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">矩阵加速递推<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>斐波那契数列（Fibonacci Sequence）大家应该都非常的熟悉了。在斐波那契数列当中，<span class="arithmatex"><span class="MathJax_Preview">F_1 = F_2 = 1</span><script type="math/tex">F_1 = F_2 = 1</script></span>，<span class="arithmatex"><span class="MathJax_Preview">F_i = F_{i - 1} + F_{i - 2}(i \geq 3)</span><script type="math/tex">F_i = F_{i - 1} + F_{i - 2}(i \geq 3)</script></span>。</p>
+<p>如果有一道题目让你求斐波那契数列第 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 项的值，最简单的方法莫过于直接递推了。但是如果 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的范围达到了 <span class="arithmatex"><span class="MathJax_Preview">10^{18}</span><script type="math/tex">10^{18}</script></span> 级别，递推就不行了，稳 TLE。考虑矩阵加速递推。</p>
+<p>设 <span class="arithmatex"><span class="MathJax_Preview">Fib(n)</span><script type="math/tex">Fib(n)</script></span> 表示一个 <span class="arithmatex"><span class="MathJax_Preview">1 \times 2</span><script type="math/tex">1 \times 2</script></span> 的矩阵 <span class="arithmatex"><span class="MathJax_Preview">\left[ \begin{array}{ccc}F_n &amp; F_{n-1} \end{array}\right]</span><script type="math/tex">\left[ \begin{array}{ccc}F_n & F_{n-1} \end{array}\right]</script></span>。我们希望根据 <span class="arithmatex"><span class="MathJax_Preview">Fib(n-1)=\left[ \begin{array}{ccc}F_{n-1} &amp; F_{n-2} \end{array}\right]</span><script type="math/tex">Fib(n-1)=\left[ \begin{array}{ccc}F_{n-1} & F_{n-2} \end{array}\right]</script></span> 推出 <span class="arithmatex"><span class="MathJax_Preview">Fib(n)</span><script type="math/tex">Fib(n)</script></span>。</p>
+<p>试推导一个矩阵 <span class="arithmatex"><span class="MathJax_Preview">\text{base}</span><script type="math/tex">\text{base}</script></span>，使 <span class="arithmatex"><span class="MathJax_Preview">Fib(n-1) \times \text{base} = Fib(n)</span><script type="math/tex">Fib(n-1) \times \text{base} = Fib(n)</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">\left[\begin{array}{ccc}F_{n-1} &amp; F_{n-2}\end{array}\right] \times \text{base} = \left[ \begin{array}{ccc}F_n &amp; F_{n-1} \end{array}\right]</span><script type="math/tex">\left[\begin{array}{ccc}F_{n-1} & F_{n-2}\end{array}\right] \times \text{base} = \left[ \begin{array}{ccc}F_n & F_{n-1} \end{array}\right]</script></span>。</p>
+<p>怎么推呢？因为 <span class="arithmatex"><span class="MathJax_Preview">F_n=F_{n-1}+F_{n-2}</span><script type="math/tex">F_n=F_{n-1}+F_{n-2}</script></span>，所以 <span class="arithmatex"><span class="MathJax_Preview">\text{base}</span><script type="math/tex">\text{base}</script></span> 矩阵第一列应该是 <span class="arithmatex"><span class="MathJax_Preview">\left[\begin{array}{ccc} 1 \\ 1 \end{array}\right]</span><script type="math/tex">\left[\begin{array}{ccc} 1 \\ 1 \end{array}\right]</script></span>，这样在进行矩阵乘法运算的时候才能令 <span class="arithmatex"><span class="MathJax_Preview">F_{n-1}</span><script type="math/tex">F_{n-1}</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">F_{n-2}</span><script type="math/tex">F_{n-2}</script></span> 相加，从而得出 <span class="arithmatex"><span class="MathJax_Preview">F_n</span><script type="math/tex">F_n</script></span>。同理，为了得出 <span class="arithmatex"><span class="MathJax_Preview">F_{n-1}</span><script type="math/tex">F_{n-1}</script></span>，矩阵 <span class="arithmatex"><span class="MathJax_Preview">\text{base}</span><script type="math/tex">\text{base}</script></span> 的第二列应该为 <span class="arithmatex"><span class="MathJax_Preview">\left[\begin{array}{ccc} 1 \\ 0 \end{array}\right]</span><script type="math/tex">\left[\begin{array}{ccc} 1 \\ 0 \end{array}\right]</script></span>。</p>
+<p>综上所述：<span class="arithmatex"><span class="MathJax_Preview">\text{base} = \left[\begin{array}{ccc} 1 &amp; 1 \\ 1 &amp; 0 \end{array}\right]</span><script type="math/tex">\text{base} = \left[\begin{array}{ccc} 1 & 1 \\ 1 & 0 \end{array}\right]</script></span> 原式化为 <span class="arithmatex"><span class="MathJax_Preview">\left[\begin{array}{ccc}F_{n-1} &amp; F_{n-2}\end{array}\right] \times \left[\begin{array}{ccc} 1 &amp; 1 \\ 1 &amp; 0 \end{array}\right] = \left[ \begin{array}{ccc}F_n &amp; F_{n-1} \end{array}\right]</span><script type="math/tex">\left[\begin{array}{ccc}F_{n-1} & F_{n-2}\end{array}\right] \times \left[\begin{array}{ccc} 1 & 1 \\ 1 & 0 \end{array}\right] = \left[ \begin{array}{ccc}F_n & F_{n-1} \end{array}\right]</script></span></p>
+<p>转化为代码，应该怎么求呢？</p>
+<p>定义初始矩阵 <span class="arithmatex"><span class="MathJax_Preview">\text{ans} = \left[\begin{array}{ccc}F_2 &amp; F_1\end{array}\right] = \left[\begin{array}{ccc}1 &amp; 1\end{array}\right], \text{base} = \left[\begin{array}{ccc} 1 &amp; 1 \\ 1 &amp; 0 \end{array}\right]</span><script type="math/tex">\text{ans} = \left[\begin{array}{ccc}F_2 & F_1\end{array}\right] = \left[\begin{array}{ccc}1 & 1\end{array}\right], \text{base} = \left[\begin{array}{ccc} 1 & 1 \\ 1 & 0 \end{array}\right]</script></span>。那么，<span class="arithmatex"><span class="MathJax_Preview">F_n</span><script type="math/tex">F_n</script></span> 就等于 <span class="arithmatex"><span class="MathJax_Preview">\text{ans} \times \text{base}^{n-2}</span><script type="math/tex">\text{ans} \times \text{base}^{n-2}</script></span> 这个矩阵的第一行第一列元素，也就是 <span class="arithmatex"><span class="MathJax_Preview">\left[\begin{array}{ccc}1 &amp; 1\end{array}\right] \times \left[\begin{array}{ccc} 1 &amp; 1 \\ 1 &amp; 0 \end{array}\right]^{n-2}</span><script type="math/tex">\left[\begin{array}{ccc}1 & 1\end{array}\right] \times \left[\begin{array}{ccc} 1 & 1 \\ 1 & 0 \end{array}\right]^{n-2}</script></span> 的第一行第一列元素。</p>
+<p>注意，矩阵乘法不满足交换律，所以一定不能写成 <span class="arithmatex"><span class="MathJax_Preview">\left[\begin{array}{ccc} 1 &amp; 1 \\ 1 &amp; 0 \end{array}\right]^{n-2} \times \left[\begin{array}{ccc}1 &amp; 1\end{array}\right]</span><script type="math/tex">\left[\begin{array}{ccc} 1 & 1 \\ 1 & 0 \end{array}\right]^{n-2} \times \left[\begin{array}{ccc}1 & 1\end{array}\right]</script></span> 的第一行第一列元素。另外，对于 <span class="arithmatex"><span class="MathJax_Preview">n \leq 2</span><script type="math/tex">n \leq 2</script></span> 的情况，直接输出 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 即可，不需要执行矩阵快速幂。</p>
+<p>为什么要乘上 <span class="arithmatex"><span class="MathJax_Preview">\text{base}</span><script type="math/tex">\text{base}</script></span> 矩阵的 <span class="arithmatex"><span class="MathJax_Preview">n-2</span><script type="math/tex">n-2</script></span> 次方而不是 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次方呢？因为 <span class="arithmatex"><span class="MathJax_Preview">F_1, F_2</span><script type="math/tex">F_1, F_2</script></span> 是不需要进行矩阵乘法就能求的。也就是说，如果只进行一次乘法，就已经求出 <span class="arithmatex"><span class="MathJax_Preview">F_3</span><script type="math/tex">F_3</script></span> 了。如果还不是很理解为什么幂是 <span class="arithmatex"><span class="MathJax_Preview">n-2</span><script type="math/tex">n-2</script></span>，建议手算一下。</p>
+<p>下面是求斐波那契数列第 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 项对 <span class="arithmatex"><span class="MathJax_Preview">10^9+7</span><script type="math/tex">10^9+7</script></span> 取模的示例代码（核心部分）。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000007</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Matrix</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">Matrix</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">memset</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="w"> </span><span class="n">a</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">Matrix</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">Matrix</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">base</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">base</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ans</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">qpow</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">base</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">base</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">init</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">qpow</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<p>这是一个稍微复杂一些的例子。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f_{1} = f_{2} = 0\\
+f_{n} = 7f_{n-1}+6f_{n-2}+5n+4\times 3^n
+</div>
+<script type="math/tex; mode=display">
+f_{1} = f_{2} = 0\\
+f_{n} = 7f_{n-1}+6f_{n-2}+5n+4\times 3^n
+</script>
+</div>
+<p>我们发现，<span class="arithmatex"><span class="MathJax_Preview">f_n</span><script type="math/tex">f_n</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">f_{n-1}, f_{n-2}, n</span><script type="math/tex">f_{n-1}, f_{n-2}, n</script></span> 有关，于是考虑构造一个矩阵描述状态。</p>
+<p>但是发现如果矩阵仅有这三个元素 <span class="arithmatex"><span class="MathJax_Preview">\begin{bmatrix}f_n&amp; f_{n-1}&amp; n\end{bmatrix}</span><script type="math/tex">\begin{bmatrix}f_n& f_{n-1}& n\end{bmatrix}</script></span> 是难以构造出转移方程的，因为乘方运算和 <span class="arithmatex"><span class="MathJax_Preview">+1</span><script type="math/tex">+1</script></span> 无法用矩阵描述。</p>
+<p>于是考虑构造一个更大的矩阵。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{bmatrix}f_n&amp; f_{n-1}&amp; n&amp; 3^n &amp; 1\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}f_n& f_{n-1}& n& 3^n & 1\end{bmatrix}
+</script>
+</div>
+<p>我们希望构造一个递推矩阵可以转移到</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{bmatrix}
+f_{n+1}&amp; f_{n}&amp; n+1&amp; 3^{n+1} &amp; 1
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+f_{n+1}& f_{n}& n+1& 3^{n+1} & 1
+\end{bmatrix}
+</script>
+</div>
+<p>转移矩阵即为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{bmatrix}
+7 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\
+6 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+5 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\
+12 &amp; 0 &amp; 0 &amp; 3 &amp; 0\\
+5 &amp; 0 &amp; 1 &amp; 0 &amp; 1
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+7 & 1 & 0 & 0 & 0\\
+6 & 0 & 0 & 0 & 0\\
+5 & 0 & 1 & 0 & 0\\
+12 & 0 & 0 & 3 & 0\\
+5 & 0 & 1 & 0 & 1
+\end{bmatrix}
+</script>
+</div>
+<h3 id="_10">矩阵表达修改<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>「THUSCH 2017」大魔法师</summary>
+<p>大魔法师小 L 制作了 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个魔力水晶球，每个水晶球有水、火、土三个属性的能量值。小 L 把这 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个水晶球在地上从前向后排成一行，然后开始今天的魔法表演。</p>
+<p>我们用 <span class="arithmatex"><span class="MathJax_Preview">A_i,\ B_i,\ C_i</span><script type="math/tex">A_i,\ B_i,\ C_i</script></span> 分别表示从前向后第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个水晶球（下标从 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 开始）的水、火、土的能量值。</p>
+<p>小 L 计划施展 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 次魔法。每次，他会选择一个区间 <span class="arithmatex"><span class="MathJax_Preview">[l, r]</span><script type="math/tex">[l, r]</script></span>，然后施展以下 <span class="arithmatex"><span class="MathJax_Preview">3</span><script type="math/tex">3</script></span> 大类、<span class="arithmatex"><span class="MathJax_Preview">7</span><script type="math/tex">7</script></span> 种魔法之一：</p>
+<ol>
+<li>
+<p>魔力激发：令区间里每个水晶球中 <strong>特定属性</strong> 的能量爆发，从而使另一个 <strong>特定属性</strong> 的能量增强。具体来说，有以下三种可能的表现形式：</p>
+<ul>
+<li>火元素激发水元素能量：令 <span class="arithmatex"><span class="MathJax_Preview">A_i = A_i + B_i</span><script type="math/tex">A_i = A_i + B_i</script></span>。</li>
+<li>土元素激发火元素能量：令 <span class="arithmatex"><span class="MathJax_Preview">B_i = B_i + C_i</span><script type="math/tex">B_i = B_i + C_i</script></span>。</li>
+<li>
+<p>水元素激发土元素能量：令 <span class="arithmatex"><span class="MathJax_Preview">C_i = C_i + A_i</span><script type="math/tex">C_i = C_i + A_i</script></span>。</p>
+<p><strong>需要注意的是，增强一种属性的能量并不会改变另一种属性的能量，例如 <span class="arithmatex"><span class="MathJax_Preview">A_i = A_i + B_i</span><script type="math/tex">A_i = A_i + B_i</script></span> 并不会使 <span class="arithmatex"><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span> 增加或减少。</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p>魔力增强：小 L 挥舞法杖，消耗自身 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 点法力值，来改变区间里每个水晶球的 <strong>特定属性</strong> 的能量。具体来说，有以下三种可能的表现形式：</p>
+<ul>
+<li>火元素能量定值增强：令 <span class="arithmatex"><span class="MathJax_Preview">A_i = A_i + v</span><script type="math/tex">A_i = A_i + v</script></span>。</li>
+<li>水元素能量翻倍增强：令 <span class="arithmatex"><span class="MathJax_Preview">B_i=B_i \cdot v</span><script type="math/tex">B_i=B_i \cdot v</script></span>。</li>
+<li>土元素能量吸收融合：令 <span class="arithmatex"><span class="MathJax_Preview">C_i = v</span><script type="math/tex">C_i = v</script></span>。</li>
+</ul>
+</li>
+<li>
+<p>魔力释放：小 L 将区间里所有水晶球的能量聚集在一起，融合成一个新的水晶球，然后送给场外观众。生成的水晶球每种属性的能量值等于区间内所有水晶球对应能量值的代数和。<strong>需要注意的是，魔力释放的过程不会真正改变区间内水晶球的能量</strong>。</p>
+</li>
+</ol>
+<p>值得一提的是，小 L 制造和融合的水晶球的原材料都是定制版的 OI 工厂水晶，所以这些水晶球有一个能量阈值 <span class="arithmatex"><span class="MathJax_Preview">998244353</span><script type="math/tex">998244353</script></span>。当水晶球中某种属性的能量值大于等于这个阈值时，能量值会自动对阈值取模，从而避免水晶球爆炸。</p>
+<p>小 W 为小 L（唯一的）观众，围观了整个表演，并且收到了小 L 在表演中融合的每个水晶球。小 W 想知道，这些水晶球蕴涵的三种属性的能量值分别是多少。</p>
+</details>
+<p>由于矩阵的结合律和分配律成立，单点修改可以自然地推广到区间，即推出矩阵后直接用线段树维护区间矩阵乘积即可。</p>
+<p>下面将举几个例子。</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">A_i = A_i + v</span><script type="math/tex">A_i = A_i + v</script></span> 的转移</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{bmatrix}
+A &amp; B &amp; C &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+v &amp; 0 &amp; 0 &amp; 1\\
+\end{bmatrix}=
+\begin{bmatrix}
+A+v &amp; B &amp; C &amp; 1\\
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+A & B & C & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+v & 0 & 0 & 1\\
+\end{bmatrix}=
+\begin{bmatrix}
+A+v & B & C & 1\\
+\end{bmatrix}
+</script>
+</div>
+<p><span class="arithmatex"><span class="MathJax_Preview">B_i=B_i \cdot v</span><script type="math/tex">B_i=B_i \cdot v</script></span> 的转移</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{bmatrix}
+A &amp; B &amp; C &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; v &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+\end{bmatrix}=
+\begin{bmatrix}
+A &amp; B \cdot v &amp; C &amp; 1\\
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+A & B & C & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & v & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+\end{bmatrix}=
+\begin{bmatrix}
+A & B \cdot v & C & 1\\
+\end{bmatrix}
+</script>
+</div>
+<hr />
+<details class="note" open="open">
+<summary>「LibreOJ 6208」树上询问</summary>
+<p>有一棵 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 节点的树，根为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 号节点。每个节点有两个权值 <span class="arithmatex"><span class="MathJax_Preview">k_i, t_i</span><script type="math/tex">k_i, t_i</script></span>，初始值均为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>。</p>
+<p>给出三种操作：</p>
+<ol>
+<li><span class="arithmatex"><span class="MathJax_Preview">\operatorname{Add}( x , d )</span><script type="math/tex">\operatorname{Add}( x , d )</script></span> 操作：将 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 到根的路径上所有点的 <span class="arithmatex"><span class="MathJax_Preview">k_i\leftarrow k_i + d</span><script type="math/tex">k_i\leftarrow k_i + d</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">\operatorname{Mul}( x , d )</span><script type="math/tex">\operatorname{Mul}( x , d )</script></span> 操作：将 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 到根的路径上所有点的 <span class="arithmatex"><span class="MathJax_Preview">t_i\leftarrow t_i + d \times k_i</span><script type="math/tex">t_i\leftarrow t_i + d \times k_i</script></span></li>
+<li>
+<p><span class="arithmatex"><span class="MathJax_Preview">\operatorname{Query}( x )</span><script type="math/tex">\operatorname{Query}( x )</script></span> 操作：询问点 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的权值 <span class="arithmatex"><span class="MathJax_Preview">t_x</span><script type="math/tex">t_x</script></span></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">n,~m \leq 100000, ~-10 \leq d \leq 10</span><script type="math/tex">n,~m \leq 100000, ~-10 \leq d \leq 10</script></span></p>
+</li>
+</ol>
+</details>
+<p>若直接思考，下放操作和维护信息并不是很好想。但是矩阵可以轻松地表达。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\begin{bmatrix}k &amp; t &amp; 1 \end{bmatrix}
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+d &amp; 0 &amp; 1
+\end{bmatrix}
+&amp;=
+\begin{bmatrix}k+d &amp; t &amp; 1 \end{bmatrix}\\
+\begin{bmatrix}k &amp; t &amp; 1 \end{bmatrix}
+\begin{bmatrix}
+1 &amp; d &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+&amp;=
+\begin{bmatrix}k &amp; t+d \times k &amp; 1 \end{bmatrix}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\begin{bmatrix}k & t & 1 \end{bmatrix}
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+d & 0 & 1
+\end{bmatrix}
+&=
+\begin{bmatrix}k+d & t & 1 \end{bmatrix}\\
+\begin{bmatrix}k & t & 1 \end{bmatrix}
+\begin{bmatrix}
+1 & d & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+&=
+\begin{bmatrix}k & t+d \times k & 1 \end{bmatrix}
+\end{aligned}
+</script>
+</div>
+<h3 id="_11">定长路径统计<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>问题描述</summary>
+<p>给一个 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 阶有向图，每条边的边权均为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，然后给一个整数 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>，你的任务是对于所有点对 <span class="arithmatex"><span class="MathJax_Preview">(u,v)</span><script type="math/tex">(u,v)</script></span> 求出从 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 长度为 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的路径的数量（不一定是简单路径，即路径上的点或者边可能走多次）。</p>
+</details>
+<p>我们将这个图用邻接矩阵 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span>（对于图中的边 <span class="arithmatex"><span class="MathJax_Preview">(u\to v)</span><script type="math/tex">(u\to v)</script></span>，令 <span class="arithmatex"><span class="MathJax_Preview">G[u,v]=1</span><script type="math/tex">G[u,v]=1</script></span>，其余为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 的矩阵；如果有重边，则设 <span class="arithmatex"><span class="MathJax_Preview">G[u,v]</span><script type="math/tex">G[u,v]</script></span> 为重边的数量）表示这个有向图。下述算法同样适用于图有自环的情况。</p>
+<p>显然，该邻接矩阵对应 <span class="arithmatex"><span class="MathJax_Preview">k=1</span><script type="math/tex">k=1</script></span> 时的答案。</p>
+<p>假设我们知道长度为 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的路径条数构成的矩阵，记为矩阵 <span class="arithmatex"><span class="MathJax_Preview">C_k</span><script type="math/tex">C_k</script></span>，我们想求 <span class="arithmatex"><span class="MathJax_Preview">C_{k+1}</span><script type="math/tex">C_{k+1}</script></span>。显然有 DP 转移方程</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+C_{k+1}[i,j] = \sum_{p = 1}^{n} C_k[i,p] \cdot G[p,j]
+</div>
+<script type="math/tex; mode=display">
+C_{k+1}[i,j] = \sum_{p = 1}^{n} C_k[i,p] \cdot G[p,j]
+</script>
+</div>
+<p>我们可以把它看作矩阵乘法的运算，于是上述转移可以描述为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+C_{k+1} = C_k \cdot G
+</div>
+<script type="math/tex; mode=display">
+C_{k+1} = C_k \cdot G
+</script>
+</div>
+<p>那么把这个递推式展开可以得到</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+C_k = \underbrace{G \cdot G \cdots G}_{k \text{ 次}} = G^k
+</div>
+<script type="math/tex; mode=display">
+C_k = \underbrace{G \cdot G \cdots G}_{k \text{ 次}} = G^k
+</script>
+</div>
+<p>要计算这个矩阵幂，我们可以使用快速幂（二进制取幂）的思想，在 <span class="arithmatex"><span class="MathJax_Preview">O(n^3 \log k)</span><script type="math/tex">O(n^3 \log k)</script></span> 的复杂度内计算结果。</p>
+<h3 id="_12">定长最短路<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>问题描述</summary>
+<p>给你一个 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 阶加权有向图和一个整数 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>。对于每个点对 <span class="arithmatex"><span class="MathJax_Preview">(u,v)</span><script type="math/tex">(u,v)</script></span> 找到从 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 的恰好包含 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 条边的最短路的长度。（不一定是简单路径，即路径上的点或者边可能走多次）</p>
+</details>
+<p>我们仍构造这个图的邻接矩阵 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span>，<span class="arithmatex"><span class="MathJax_Preview">G[i,j]</span><script type="math/tex">G[i,j]</script></span> 表示从 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 的边权。如果 <span class="arithmatex"><span class="MathJax_Preview">i,j</span><script type="math/tex">i,j</script></span> 两点之间没有边，那么 <span class="arithmatex"><span class="MathJax_Preview">G[i,j]=\infty</span><script type="math/tex">G[i,j]=\infty</script></span>。（有重边的情况取边权的最小值）</p>
+<p>显然上述矩阵对应 <span class="arithmatex"><span class="MathJax_Preview">k=1</span><script type="math/tex">k=1</script></span> 时问题的答案。我们仍假设我们知道 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的答案，记为矩阵 <span class="arithmatex"><span class="MathJax_Preview">L_k</span><script type="math/tex">L_k</script></span>。现在我们想求 <span class="arithmatex"><span class="MathJax_Preview">k+1</span><script type="math/tex">k+1</script></span> 的答案。显然有转移方程</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+L_{k+1}[i,j] = \min_{1\le p \le n} \left\{L_k[i,p] + G[p,j]\right\}
+</div>
+<script type="math/tex; mode=display">
+L_{k+1}[i,j] = \min_{1\le p \le n} \left\{L_k[i,p] + G[p,j]\right\}
+</script>
+</div>
+<p>事实上我们可以类比矩阵乘法，你发现上述转移只是把矩阵乘法的乘积求和变成相加取最小值，于是我们定义这个运算为 <span class="arithmatex"><span class="MathJax_Preview">\odot</span><script type="math/tex">\odot</script></span>，即</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+A \odot B = C~~\Longleftrightarrow~~C[i,j]=\min_{1\le p \le n}\left\{A[i,p] + B[p,j]\right\}
+</div>
+<script type="math/tex; mode=display">
+A \odot B = C~~\Longleftrightarrow~~C[i,j]=\min_{1\le p \le n}\left\{A[i,p] + B[p,j]\right\}
+</script>
+</div>
+<p>于是得到</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+L_{k+1} = L_k \odot G
+</div>
+<script type="math/tex; mode=display">
+L_{k+1} = L_k \odot G
+</script>
+</div>
+<p>展开递推式得到</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+L_k = \underbrace{G \odot \ldots \odot G}_{k\text{ 次}} = G^{\odot k}
+</div>
+<script type="math/tex; mode=display">
+L_k = \underbrace{G \odot \ldots \odot G}_{k\text{ 次}} = G^{\odot k}
+</script>
+</div>
+<p>我们仍然可以用矩阵快速幂的方法计算上式，因为它显然是具有结合律的。时间复杂度 <span class="arithmatex"><span class="MathJax_Preview">O(n^3 \log k)</span><script type="math/tex">O(n^3 \log k)</script></span>。</p>
+<h3 id="_13">限长路径计数/最短路<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>上述算法只适用于边数固定的情况。然而我们可以改进算法以解决边数小于等于 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的情况。具体地，考虑以下问题：</p>
+<details class="note" open="open">
+<summary>问题描述</summary>
+<p>给一个 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 阶有向图，边权为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，然后给一个整数 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>，你的任务是对于每个点对 <span class="arithmatex"><span class="MathJax_Preview">(u,v)</span><script type="math/tex">(u,v)</script></span> 找到从 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 长度小于等于 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的路径的数量（不一定是简单路径，即路径上的点或者边可能走多次）。</p>
+</details>
+<p>我们简单修改一下这个图，我们给每一个结点加一个权值为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 的自环。这样走的时侯就可以走自环，相当于原地走。这样就包含了小于等于 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的情况。修改后再做矩阵快速幂即可。（即使这个图在修改之前就有自环，该算法仍是成立的）。</p>
+<p>同样的方法可以用于求边数小于等于 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的最短路，即加一个边权为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 的自环。</p>
+<h2 id="_14">习题<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P1962">洛谷 P1962 斐波那契数列</a>，即上面的例题，同题 POJ3070</li>
+<li><a href="https://www.luogu.com.cn/problem/P1349">洛谷 P1349 广义斐波那契数列</a>，<span class="arithmatex"><span class="MathJax_Preview">\text{base}</span><script type="math/tex">\text{base}</script></span> 矩阵需要变化一下</li>
+<li>
+<p><a href="https://www.luogu.com.cn/problem/P1939">洛谷 P1939【模板】矩阵加速（数列）</a>，<span class="arithmatex"><span class="MathJax_Preview">\text{base}</span><script type="math/tex">\text{base}</script></span> 矩阵变成了 <span class="arithmatex"><span class="MathJax_Preview">3 \times 3</span><script type="math/tex">3 \times 3</script></span> 的矩阵，推导过程与上面差不多。</p>
+<p><strong>本页面部分内容译自博文 <a href="http://e-maxx.ru/algo/fixed_length_paths">Кратчайшие пути фиксированной длины, количества путей фиксированной длины</a> 与其英文翻译版 <a href="https://cp-algorithms.com/graph/fixed_length_paths.html">Number of paths of fixed length/Shortest paths of fixed length</a>。其中俄文版版权协议为 Public Domain + Leave a Link；英文版版权协议为 CC-BY-SA 4.0。</strong></p>
+</li>
+</ul>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/matrix.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Matrix',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

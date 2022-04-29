@@ -1,0 +1,848 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/math/number-theory/pollard-rho/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Pollard rho - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Pollard rho
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    问题引入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pollard-rho" class="md-nav__link">
+    朴素算法与 Pollard Rho 算法引入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    生日悖论
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    构造伪随机函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    优化随机算法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    时间复杂度分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floyd" class="md-nav__link">
+    Floyd 判环
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    倍增优化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/number-theory/pollard-rho.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Pollard rho</h1>
+                
+                <h2 id="_1">问题引入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>给定一个正整数 <span class="arithmatex"><span class="MathJax_Preview">N \in \mathbf{N}_{+}</span><script type="math/tex">N \in \mathbf{N}_{+}</script></span>，试快速找到它的一个因数。</p>
+<p>考虑朴素算法，因数是成对分布的，<span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 的所有因数可以被分成两块，即 <span class="arithmatex"><span class="MathJax_Preview">[1,\sqrt N]</span><script type="math/tex">[1,\sqrt N]</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">[\sqrt N+1,N]</span><script type="math/tex">[\sqrt N+1,N]</script></span>。只需要把 <span class="arithmatex"><span class="MathJax_Preview">[1,\sqrt N]</span><script type="math/tex">[1,\sqrt N]</script></span> 里的数遍历一遍，再根据除法就可以找出至少两个因数了。这个方法的时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt N)</span><script type="math/tex">O(\sqrt N)</script></span>。</p>
+<p>当 <span class="arithmatex"><span class="MathJax_Preview">N\ge10^{18}</span><script type="math/tex">N\ge10^{18}</script></span> 时，这个算法的运行时间我们是无法接受的，希望有更优秀的算法。一种想法是通过随机的方法，猜测一个数是不是 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 的因数，如果运气好可以在 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 的时间复杂度下求解答案，但是对于 <span class="arithmatex"><span class="MathJax_Preview">N\ge10^{18}</span><script type="math/tex">N\ge10^{18}</script></span> 的数据，成功猜测的概率是 <span class="arithmatex"><span class="MathJax_Preview">\frac{1}{10^{18}}</span><script type="math/tex">\frac{1}{10^{18}}</script></span>, 期望猜测的次数是 <span class="arithmatex"><span class="MathJax_Preview">10^{18}</span><script type="math/tex">10^{18}</script></span>。如果是在 <span class="arithmatex"><span class="MathJax_Preview">[1,\sqrt N]</span><script type="math/tex">[1,\sqrt N]</script></span> 里进行猜测，成功率会大一些。我们希望有方法来优化猜测。</p>
+<h2 id="pollard-rho">朴素算法与 Pollard Rho 算法引入<a class="headerlink" href="#pollard-rho" title="Permanent link">&para;</a></h2>
+<p>最简单的算法即为从 <span class="arithmatex"><span class="MathJax_Preview">[1,\sqrt N]</span><script type="math/tex">[1,\sqrt N]</script></span> 进行遍历。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// C++ Version</span>
+<span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">breakdown</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 如果 i 能够整除 N，说明 i 为 N 的一个质因子。</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 说明再经过操作之后 N 留下了一个素数</span>
+<span class="w">    </span><span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Python Version</span>
+<span class="k">def</span> <span class="nf">breakdown</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">N</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># 如果 i 能够整除 N，说明 i 为 N 的一个质因子。</span>
+            <span class="k">while</span> <span class="n">N</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">N</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="n">i</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">N</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># 说明再经过操作之后 N 留下了一个素数</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></td></tr></table></div>
+<p>我们能够证明 <code>result</code> 中的所有元素均为 <code>N</code> 的素因数。</p>
+<details class="note" open="open">
+<summary>证明 <code>result</code> 中均为 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 的素因数</summary>
+<p>首先证明元素均为 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 的素因数：因为当且仅当 <code>N % i == 0</code> 满足时，<code>result</code> 发生变化：储存 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>，说明此时 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 能整除 <span class="arithmatex"><span class="MathJax_Preview">\frac{N}{A}</span><script type="math/tex">\frac{N}{A}</script></span>，说明了存在一个数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">pi=\frac{N}{A}</span><script type="math/tex">pi=\frac{N}{A}</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">piA = N</span><script type="math/tex">piA = N</script></span>（其中，<span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 自身发生变化后遇到 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 时所除的数。我们注意到 <code>result</code> 若在 push <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 之前就已经有数了，为 <span class="arithmatex"><span class="MathJax_Preview">R_1,\,R_2,\,\ldots,\,R_n</span><script type="math/tex">R_1,\,R_2,\,\ldots,\,R_n</script></span>，那么有 <code>N</code> <span class="arithmatex"><span class="MathJax_Preview">=\frac{N}{R_1^{q_1}\cdot R_2^{q_2}\cdot \cdots \cdot R_n^{q_n}}</span><script type="math/tex">=\frac{N}{R_1^{q_1}\cdot R_2^{q_2}\cdot \cdots \cdot R_n^{q_n}}</script></span>，被除的乘积即为 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>）。所以 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 的因子。</p>
+<p>其次证明 <code>result</code> 中均为素数。我们假设存在一个在 <code>result</code> 中的合数 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span>，并根据整数基本定理，分解为一个素数序列 <span class="arithmatex"><span class="MathJax_Preview">K = K_1^{e_1}\cdot K_2^{e_2}\cdot\cdots\cdot  K_3^{e_3}</span><script type="math/tex">K = K_1^{e_1}\cdot K_2^{e_2}\cdot\cdots\cdot  K_3^{e_3}</script></span>，而因为 <span class="arithmatex"><span class="MathJax_Preview">K_1 &lt; K</span><script type="math/tex">K_1 < K</script></span>，所以它一定会在 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 之前被遍历到，并令 <code>while(N % k1 == 0) N /= k1</code>，即让 <code>N</code> 没有了素因子 <span class="arithmatex"><span class="MathJax_Preview">K_1</span><script type="math/tex">K_1</script></span>，故遍历到 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 时，<code>N</code> 和 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 已经没有了整除关系了。</p>
+</details>
+<p>值得指出的是，如果开始已经打了一个素数表的话，时间复杂度将从 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt N)</span><script type="math/tex">O(\sqrt N)</script></span> 下降到 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{\frac N {\ln N}})</span><script type="math/tex">O(\sqrt{\frac N {\ln N}})</script></span>。去 <a href="../sieve/">筛法</a> 处查阅更多打表的信息。</p>
+<p>例题：<a href="https://codeforces.ml/problemset/problem/1445/C">CF 1445C</a></p>
+<p>而下面复杂度复杂度更低的 Pollard-Rho 算法是一种用于快速分解非平凡因数的算法（<strong>注意</strong>！非平凡因子不是素因子）。而在此之前需要先引入生日悖论。</p>
+<h2 id="_2">生日悖论<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>不考虑出生年份，问：一个房间中至少多少人，才能使其中两个人生日相同的概率达到 <span class="arithmatex"><span class="MathJax_Preview">50\%</span><script type="math/tex">50\%</script></span>?</p>
+<p>解：假设一年有 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 天，房间中有 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 人，用整数 <span class="arithmatex"><span class="MathJax_Preview">1, 2,\dots, k</span><script type="math/tex">1, 2,\dots, k</script></span> 对这些人进行编号。假定每个人的生日均匀分布于 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 天之中，且两个人的生日相互独立。</p>
+<p>设 k 个人生日互不相同为事件 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>, 则事件 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 的概率为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+P(A)=\frac{n}{n} \times \frac{n-1}{n} \times \dots \times \frac{n-k+1}{n}
+</div>
+<script type="math/tex; mode=display">
+P(A)=\frac{n}{n} \times \frac{n-1}{n} \times \dots \times \frac{n-k+1}{n}
+</script>
+</div>
+<p>至少有两个人生日相同的概率为 <span class="arithmatex"><span class="MathJax_Preview">P(\overline A)=1-P(A)</span><script type="math/tex">P(\overline A)=1-P(A)</script></span>。根据题意可知 <span class="arithmatex"><span class="MathJax_Preview">P(\overline A)\ge\frac{1}{2}</span><script type="math/tex">P(\overline A)\ge\frac{1}{2}</script></span>, 那么就有 <span class="arithmatex"><span class="MathJax_Preview">1 \times \frac{n-1}{n} \times \dots \times \frac{n-k+1}{n} \le \frac{1}{2}</span><script type="math/tex">1 \times \frac{n-1}{n} \times \dots \times \frac{n-k+1}{n} \le \frac{1}{2}</script></span></p>
+<p>由不等式 <span class="arithmatex"><span class="MathJax_Preview">1+x\le e^x</span><script type="math/tex">1+x\le e^x</script></span> 可得</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+P(A) \le e^{-\frac{1}{n}}\times e^{-\frac{2}{n}}\times \dots \times e^{-\frac{k-1}{n}}=e^{-\frac{k(k-1)}{2n}}\le\frac{1}{2}\\
+e^{-\frac{k(k-1)}{2n}}\le\frac{1}{2}
+</div>
+<script type="math/tex; mode=display">
+P(A) \le e^{-\frac{1}{n}}\times e^{-\frac{2}{n}}\times \dots \times e^{-\frac{k-1}{n}}=e^{-\frac{k(k-1)}{2n}}\le\frac{1}{2}\\
+e^{-\frac{k(k-1)}{2n}}\le\frac{1}{2}
+</script>
+</div>
+<p>然而我们可以得到一个不等式方程，<span class="arithmatex"><span class="MathJax_Preview">e^{-\frac{k(k-1)}{2n}}\le 1-p</span><script type="math/tex">e^{-\frac{k(k-1)}{2n}}\le 1-p</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 是一个概率。</p>
+<p>将 <span class="arithmatex"><span class="MathJax_Preview">n=365</span><script type="math/tex">n=365</script></span> 代入，解得 <span class="arithmatex"><span class="MathJax_Preview">k=23</span><script type="math/tex">k=23</script></span>。所以一个房间中至少 23 人，使其中两个人生日相同的概率达到 <span class="arithmatex"><span class="MathJax_Preview">50\%</span><script type="math/tex">50\%</script></span>, 但这个数学事实十分反直觉，故称之为一个悖论。</p>
+<p>当 <span class="arithmatex"><span class="MathJax_Preview">k&gt;56</span><script type="math/tex">k>56</script></span>，<span class="arithmatex"><span class="MathJax_Preview">n=365</span><script type="math/tex">n=365</script></span> 时，出现两个人同一天生日的概率将大于 <span class="arithmatex"><span class="MathJax_Preview">99\%</span><script type="math/tex">99\%</script></span>。那么在一年有 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 天的情况下，当房间中有 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{\dfrac{n}{\ln 2}}</span><script type="math/tex">\sqrt{\dfrac{n}{\ln 2}}</script></span> 个人时，至少有两个人的生日相同的概率约为 <span class="arithmatex"><span class="MathJax_Preview">50\%</span><script type="math/tex">50\%</script></span>。</p>
+<p>考虑一个问题，设置一个数据 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，在 <span class="arithmatex"><span class="MathJax_Preview">[1,1000]</span><script type="math/tex">[1,1000]</script></span> 里随机选取 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个数（<span class="arithmatex"><span class="MathJax_Preview">i=1</span><script type="math/tex">i=1</script></span> 时就是它自己），使它们之间有两个数的差值为 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>。当 <span class="arithmatex"><span class="MathJax_Preview">i=1</span><script type="math/tex">i=1</script></span> 时成功的概率是 <span class="arithmatex"><span class="MathJax_Preview">\frac{1}{1000}</span><script type="math/tex">\frac{1}{1000}</script></span>，当 <span class="arithmatex"><span class="MathJax_Preview">i=2</span><script type="math/tex">i=2</script></span> 时成功的概率是 <span class="arithmatex"><span class="MathJax_Preview">\frac{1}{500}</span><script type="math/tex">\frac{1}{500}</script></span>（考虑绝对值，<span class="arithmatex"><span class="MathJax_Preview">k_2</span><script type="math/tex">k_2</script></span> 可以取 <span class="arithmatex"><span class="MathJax_Preview">k_1-k</span><script type="math/tex">k_1-k</script></span> 或 <span class="arithmatex"><span class="MathJax_Preview">k_1+k</span><script type="math/tex">k_1+k</script></span>），随着 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 的增大，这个概率也会增大最后趋向于 1。</p>
+<h3 id="_3">构造伪随机函数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>我们通过 <span class="arithmatex"><span class="MathJax_Preview">f(x)=(x^2+c)\bmod n</span><script type="math/tex">f(x)=(x^2+c)\bmod n</script></span> 来生成一个随机数序列 <span class="arithmatex"><span class="MathJax_Preview">\{x_i\}</span><script type="math/tex">\{x_i\}</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">c=rand()</span><script type="math/tex">c=rand()</script></span>，是一个随机的常数。</p>
+<p>随机取一个 <span class="arithmatex"><span class="MathJax_Preview">x_1</span><script type="math/tex">x_1</script></span>，令 <span class="arithmatex"><span class="MathJax_Preview">x_2=f(x_1),x_3=f(x_2),\dots,x_i=f(x_{i-1})</span><script type="math/tex">x_2=f(x_1),x_3=f(x_2),\dots,x_i=f(x_{i-1})</script></span>，在一定范围内可以认为这个数列是“随机”的。</p>
+<p>举个例子，设 <span class="arithmatex"><span class="MathJax_Preview">N=50,c=2,x_1=1</span><script type="math/tex">N=50,c=2,x_1=1</script></span>  <span class="arithmatex"><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> 生成的数据为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+1,3,11,23,31,11,23,31,\dots
+</div>
+<script type="math/tex; mode=display">
+1,3,11,23,31,11,23,31,\dots
+</script>
+</div>
+<p>可以发现数据在 3 以后都在 11,23,31 之间循环，这也是 <span class="arithmatex"><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> 被称为伪随机函数的原因。</p>
+<p>如果将这些数如下图一样排列起来，会发现这个图像酷似一个 <span class="arithmatex"><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span>，算法也因此得名 rho。</p>
+<p><img alt="Pollard-rho1" src="../images/Pollard-rho1.png" /></p>
+<h2 id="_4">优化随机算法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>最大公约数一定是某个数的约数，即 <span class="arithmatex"><span class="MathJax_Preview">\forall k \in\mathbf{N}_{+},\gcd(k,n)|n</span><script type="math/tex">\forall k \in\mathbf{N}_{+},\gcd(k,n)|n</script></span>，只要选适当的 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">1&lt;\gcd(k,n)&lt; n</span><script type="math/tex">1<\gcd(k,n)< n</script></span>，就可以求得一个约数 <span class="arithmatex"><span class="MathJax_Preview">\gcd(k,n)</span><script type="math/tex">\gcd(k,n)</script></span>。满足这样条件的 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 不少，<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 有若干个质因子，每个质因子及其倍数都是可行的。</p>
+<p>将生日悖论应用到随机算法中，伪随机数序列中不同值的数量约为 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 个。设 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的最小非平凡因子，显然有 <span class="arithmatex"><span class="MathJax_Preview">m\leq \sqrt{n}</span><script type="math/tex">m\leq \sqrt{n}</script></span>。记 <span class="arithmatex"><span class="MathJax_Preview">y_i = x_i \pmod m</span><script type="math/tex">y_i = x_i \pmod m</script></span>，推导可得：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+y_{i+1}&amp;=x_{i+1} \bmod m \\
+&amp; = (x_{i}^2+c \bmod n) \bmod m \\
+&amp; = (x_i ^ 2 + c) \bmod m \\
+&amp; = ((x_i \bmod m) ^ 2 + c) \bmod m \\
+&amp; = y_i ^ 2 + c \pmod m
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+y_{i+1}&=x_{i+1} \bmod m \\
+& = (x_{i}^2+c \bmod n) \bmod m \\
+& = (x_i ^ 2 + c) \bmod m \\
+& = ((x_i \bmod m) ^ 2 + c) \bmod m \\
+& = y_i ^ 2 + c \pmod m
+\end{aligned}
+</script>
+</div>
+<p>于是就得到了一个新序列 <span class="arithmatex"><span class="MathJax_Preview">\{y_i\}</span><script type="math/tex">\{y_i\}</script></span>（当然也可以写作 <span class="arithmatex"><span class="MathJax_Preview">\{x_i \bmod m\}</span><script type="math/tex">\{x_i \bmod m\}</script></span>)，并且根据生日悖论可以得知序列中不同值的个数约为 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{m})\leq O(n^{\frac{1}{4}})</span><script type="math/tex">O(\sqrt{m})\leq O(n^{\frac{1}{4}})</script></span>。</p>
+<p>假设存在两个位置 <span class="arithmatex"><span class="MathJax_Preview">i,j</span><script type="math/tex">i,j</script></span>，使得 <span class="arithmatex"><span class="MathJax_Preview">x_i\neq x_j\wedge y_i=y_j</span><script type="math/tex">x_i\neq x_j\wedge y_i=y_j</script></span>，这意味着 <span class="arithmatex"><span class="MathJax_Preview">n \nmid |x_i−x_j| \wedge m \mid |x_i−x_j|</span><script type="math/tex">n \nmid |x_i−x_j| \wedge m \mid |x_i−x_j|</script></span>, 因此我们可以通过 <span class="arithmatex"><span class="MathJax_Preview">\gcd(n, |x_i-x_j|)</span><script type="math/tex">\gcd(n, |x_i-x_j|)</script></span> 获得 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的一个非平凡因子。</p>
+<h3 id="_5">时间复杂度分析<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>我们期望枚举 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{m})</span><script type="math/tex">O(\sqrt{m})</script></span> 个 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 来分解出 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的一个非平凡因子 <span class="arithmatex"><span class="MathJax_Preview">\gcd(|x_i−x_j|,n)</span><script type="math/tex">\gcd(|x_i−x_j|,n)</script></span>，因此。Pollard-rho 算法能够在 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{m})</span><script type="math/tex">O(\sqrt{m})</script></span> 的期望时间复杂度内分解出 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的一个非平凡因子，通过上面的分析可知 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{m})\leq O(n^{\frac{1}{4}})</span><script type="math/tex">O(\sqrt{m})\leq O(n^{\frac{1}{4}})</script></span>，那么 Pollard-rho 算法的总时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(n^{\frac{1}{4}})</span><script type="math/tex">O(n^{\frac{1}{4}})</script></span>。下面介绍两种实现算法，两种算法都可以在 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{m}</span><script type="math/tex">O(\sqrt{m}</script></span> 的时间复杂度内完成。</p>
+<h3 id="floyd">Floyd 判环<a class="headerlink" href="#floyd" title="Permanent link">&para;</a></h3>
+<p>假设两个人在赛跑，A 的速度快，B 的速度慢，经过一定时间后，A 一定会和 B 相遇，且相遇时 A 跑过的总距离减去 B 跑过的总距离一定是圈长的 n 倍。</p>
+<p>设 <span class="arithmatex"><span class="MathJax_Preview">a=f(1),b=f(f(1))</span><script type="math/tex">a=f(1),b=f(f(1))</script></span>，每一次更新 <span class="arithmatex"><span class="MathJax_Preview">a=f(a),b=f(f(b))</span><script type="math/tex">a=f(a),b=f(f(b))</script></span>，只要检查在更新过程中 a、b 是否相等，如果相等了，那么就出现了环。</p>
+<p>我们每次令 <span class="arithmatex"><span class="MathJax_Preview">d=\gcd(|x_i-x_j|,n)</span><script type="math/tex">d=\gcd(|x_i-x_j|,n)</script></span>，判断 d 是否满足 <span class="arithmatex"><span class="MathJax_Preview">1&lt; d&lt; n</span><script type="math/tex">1< d< n</script></span>，若满足则可直接返回 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>。由于 <span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> 是一个伪随机数列，必定会形成环，在形成环时就不能再继续操作了，直接返回 n 本身，并且在后续操作里调整随机常数 <span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span>，重新分解。</p>
+<details class="note">
+<summary>基于 Floyd 判环的 Pollard-Rho 算法</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// C++ Version</span>
+<span class="n">ll</span><span class="w"> </span><span class="nf">Pollard_Rho</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">ll</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ll</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">ll</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">),</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gcd</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r</span><span class="p">),</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">),</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Python Version</span>
+<span class="k">def</span> <span class="nf">Pollard_Rho</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32767</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">c</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">t</span> <span class="o">!=</span> <span class="n">r</span><span class="p">:</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">r</span><span class="p">),</span> <span class="n">N</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">d</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">c</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">N</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="_6">倍增优化<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>使用 <span class="arithmatex"><span class="MathJax_Preview">\gcd</span><script type="math/tex">\gcd</script></span> 求解的时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(\log N)</span><script type="math/tex">O(\log N)</script></span>，频繁地调用会使算法运行地很慢，可以通过乘法累积来减少求 <span class="arithmatex"><span class="MathJax_Preview">\gcd</span><script type="math/tex">\gcd</script></span> 的次数。如果 <span class="arithmatex"><span class="MathJax_Preview">1&lt; \gcd(a,b)</span><script type="math/tex">1< \gcd(a,b)</script></span>，则有 <span class="arithmatex"><span class="MathJax_Preview">1&lt; \gcd(ac,b)</span><script type="math/tex">1< \gcd(ac,b)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">c\in \mathbf{N}_{+}</span><script type="math/tex">c\in \mathbf{N}_{+}</script></span>，并且有 <span class="arithmatex"><span class="MathJax_Preview">1&lt; \gcd(ac \bmod b,b)=\gcd(a,b)</span><script type="math/tex">1< \gcd(ac \bmod b,b)=\gcd(a,b)</script></span>。</p>
+<p>我们每过一段时间将这些差值进行 <span class="arithmatex"><span class="MathJax_Preview">\gcd</span><script type="math/tex">\gcd</script></span> 运算，设 <span class="arithmatex"><span class="MathJax_Preview">s=\prod|x_0-x_j|\bmod n</span><script type="math/tex">s=\prod|x_0-x_j|\bmod n</script></span>，如果某一时刻得到 <span class="arithmatex"><span class="MathJax_Preview">s=0</span><script type="math/tex">s=0</script></span> 那么表示分解失败，退出并返回 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 本身。每隔 <span class="arithmatex"><span class="MathJax_Preview">2^k-1</span><script type="math/tex">2^k-1</script></span> 个数，计算是否满足 <span class="arithmatex"><span class="MathJax_Preview">1&lt; \gcd(s, n) &lt; n</span><script type="math/tex">1< \gcd(s, n) < n</script></span>。此处取 <span class="arithmatex"><span class="MathJax_Preview">k=7</span><script type="math/tex">k=7</script></span>，可以根据实际情况进行调节。</p>
+<details class="note">
+<summary>参考实现</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">ll</span><span class="w"> </span><span class="nf">Pollard_Rho</span><span class="p">(</span><span class="n">ll</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">ll</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ll</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">goal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ll</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">goal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;;</span><span class="w"> </span><span class="n">goal</span><span class="w"> </span><span class="o">&lt;&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">goal</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">step</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">abs</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">step</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">127</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">ll</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gcd</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gcd</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>例题：<a href="https://www.luogu.com.cn/problem/P4718">P4718【模板】Pollard-Rho 算法</a></p>
+<p>对于一个数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，用 <a href="../prime/#_4">Miller Rabin 算法</a> 判断是否为素数，如果是就可以直接返回了，否则用 Pollard-Rho 算法找一个因子 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，将 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 除去因子 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>。再递归分解 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，用 Miller Rabin 判断是否出现质因子，并用 max_factor 更新就可以求出最大质因子了。由于这个题目的数据过于庞大，用 Floyd 判环的方法是不够的，这里采用倍增优化的方法。</p>
+<details class="note">
+<summary>参考实现</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+</details>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/number-theory/pollard-rho.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../../assets/vendor/gitalk/gitalk.css">
+<script src="../../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Pollard rho',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

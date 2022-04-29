@@ -1,0 +1,791 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/ds/seg-beats/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Seg beats - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Seg beats
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    区间最值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hdu5306-gorgeous-sequence" class="md-nav__link">
+    HDU5306 Gorgeous Sequence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bzoj4695" class="md-nav__link">
+    BZOJ4695 最假女选手
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mzl-loves-segment-tree" class="md-nav__link">
+    Mzl loves segment tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctsn-loves-segment-tree" class="md-nav__link">
+    CTSN loves segment tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    历史最值问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    历史最值不等于可持久化
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    历史最大值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    历史最小值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    历史版本和
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    可以用标记处理的问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    CPU 监控
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/ds/seg-beats.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Seg beats</h1>
+                
+                <p>本文讲解吉老师在 2016 年国家集训队论文中提到的线段树处理历史区间最值的问题。</p>
+<h2 id="_1">区间最值<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>笼统地说，区间最值操作指，将区间 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 的数全部对 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 取 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span> 或 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">a_i=\max(a_i,x)</span><script type="math/tex">a_i=\max(a_i,x)</script></span> 或者 <span class="arithmatex"><span class="MathJax_Preview">a_i=\min(a_i,x)</span><script type="math/tex">a_i=\min(a_i,x)</script></span>。给一道例题吧。</p>
+<h3 id="hdu5306-gorgeous-sequence">HDU5306 Gorgeous Sequence<a class="headerlink" href="#hdu5306-gorgeous-sequence" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>维护一个序列 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>：</p>
+<ol>
+<li><code>0 l r t</code> <span class="arithmatex"><span class="MathJax_Preview">\forall l\le i\le r,\ a_i=\min(a_i,t)</span><script type="math/tex">\forall l\le i\le r,\ a_i=\min(a_i,t)</script></span>。</li>
+<li><code>1 l r</code> 输出区间 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 中的最大值。</li>
+<li><code>2 l r</code> 输出区间和。</li>
+</ol>
+<p>多组数据，<span class="arithmatex"><span class="MathJax_Preview">T\le 100,n\le 10^6,\sum m\le 10^6</span><script type="math/tex">T\le 100,n\le 10^6,\sum m\le 10^6</script></span>。</p>
+</blockquote>
+<p>区间取 min，意味着只对那些大于 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 的数有更改。因此这个操作的对象不再是整个区间，而是“这个区间中大于 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 的数”。于是我们可以有这样的思路：每个结点维护该区间的最大值 <span class="arithmatex"><span class="MathJax_Preview">Max</span><script type="math/tex">Max</script></span>、次大值 <span class="arithmatex"><span class="MathJax_Preview">Se</span><script type="math/tex">Se</script></span>、区间和 <span class="arithmatex"><span class="MathJax_Preview">Sum</span><script type="math/tex">Sum</script></span> 以及最大值的个数 <span class="arithmatex"><span class="MathJax_Preview">Cnt</span><script type="math/tex">Cnt</script></span>。接下来我们考虑区间对 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 取 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span> 的操作。</p>
+<ol>
+<li>如果 <span class="arithmatex"><span class="MathJax_Preview">Max\le t</span><script type="math/tex">Max\le t</script></span>，显然这个 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 是没有意义的，直接返回；</li>
+<li>如果 <span class="arithmatex"><span class="MathJax_Preview">Se&lt;t\le Max</span><script type="math/tex">Se<t\le Max</script></span>，那么这个 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 就能更新当前区间中的最大值。于是我们让区间和加上 <span class="arithmatex"><span class="MathJax_Preview">Cnt(t-Max)</span><script type="math/tex">Cnt(t-Max)</script></span>，然后更新 <span class="arithmatex"><span class="MathJax_Preview">Max</span><script type="math/tex">Max</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>，并打一个标记。</li>
+<li>如果 <span class="arithmatex"><span class="MathJax_Preview">t\le Se</span><script type="math/tex">t\le Se</script></span>，那么这时你发现你不知道有多少个数涉及到更新的问题。于是我们的策略就是，暴力递归向下操作。然后上传信息。</li>
+</ol>
+<p>这个算法的复杂度如何？使用势能分析法可以得到复杂度是 <span class="arithmatex"><span class="MathJax_Preview">O(m\log n)</span><script type="math/tex">O(m\log n)</script></span> 的。具体分析过程见论文。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+<h3 id="bzoj4695">BZOJ4695 最假女选手<a class="headerlink" href="#bzoj4695" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>长度为 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的序列，支持区间加 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>/区间对 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 取 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span>/区间对 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 取 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span>/求区间和/求区间最大值/求区间最小值。</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">N,M\le 5\times 10^5,|A_i|\le 10^8</span><script type="math/tex">N,M\le 5\times 10^5,|A_i|\le 10^8</script></span>。</p>
+</blockquote>
+<p>同样的方法，我们维护最大、次大、最大个数、最小、次小、最小个数、区间和。除了这些信息，我们还需要维护区间 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span>、区间 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span>、区间加的标记。相比上一道题，这就涉及到标记下传的顺序问题了。我们采用这样的策略：</p>
+<ol>
+<li>我们认为区间加的标记是最优先的，其余两种标记地位平等。</li>
+<li>对一个结点加上一个 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 标记，除了用 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 更新卫星信息和当前结点的区间加标记外，我们用这个 v 更新区间 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span> 和区间 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span> 的标记。</li>
+<li>对一个结点取 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span>（这里忽略暴搜的过程，假定标记满足添加的条件），除了更新卫星信息，我们要与区间 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span> 的标记做比较。如果 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 小于区间 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span> 的标记，则所有的数最后都会变成 v，那么把区间 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span> 的标记也变成 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>。否则不管。</li>
+<li>区间取 v 的 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span> 同理。</li>
+</ol>
+<p>另外，BZOJ 这道题卡常……多数组线段树的常数比结构体线段树的常数大……在维护信息的时侯，当只有一两个数的时侯可能发生数集重合，比如一个数既是最大值又是次小值。这种要特判。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+<p>吉老师证出来这个算法的复杂度是 <span class="arithmatex"><span class="MathJax_Preview">O(m\log^2 n)</span><script type="math/tex">O(m\log^2 n)</script></span> 的。</p>
+<h3 id="mzl-loves-segment-tree">Mzl loves segment tree<a class="headerlink" href="#mzl-loves-segment-tree" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>两个序列 <span class="arithmatex"><span class="MathJax_Preview">A,B</span><script type="math/tex">A,B</script></span>，一开始 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 中的数都是 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>。维护的操作是：</p>
+<ol>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 做区间取 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span></li>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 做区间取 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span></li>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 做区间加</li>
+<li>询问 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 的区间和</li>
+</ol>
+<p>每次操作完后，如果 <span class="arithmatex"><span class="MathJax_Preview">A_i</span><script type="math/tex">A_i</script></span> 的值发生变化，就给 <span class="arithmatex"><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span> 加 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>。<span class="arithmatex"><span class="MathJax_Preview">n,m\le 3\times 10^5</span><script type="math/tex">n,m\le 3\times 10^5</script></span>。</p>
+</blockquote>
+<p>先考虑最容易的区间加操作。只要 <span class="arithmatex"><span class="MathJax_Preview">x\neq 0</span><script type="math/tex">x\neq 0</script></span> 那么整个区间的数都变化，所以给 B 作一次区间加即可。</p>
+<p>对于区间取最值的操作，你发现你打标记与下传标记是与 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 数组一一对应的。本质上你将序列的数分成三类：最大值、最小值、非最值。并分别维护（只不过你没有建出具体的最值集合而已，但这并不妨碍维护的操作）。因此在打标记的时侯顺便给 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 更新信息即可（注意不是给 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 打标记！是更新信息！）。查询的时侯，你在 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 上查询，下传标记的时侯顺便给 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 更新信息。找到需要的结点后，返回 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 的信息即可。这种操作本质上就是把最值的信息拿给 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 去维护了。另外仍要处理数集的重复问题。</p>
+<h3 id="ctsn-loves-segment-tree">CTSN loves segment tree<a class="headerlink" href="#ctsn-loves-segment-tree" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>两个序列 <span class="arithmatex"><span class="MathJax_Preview">A,B</span><script type="math/tex">A,B</script></span>：</p>
+<ol>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 做区间取 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span></li>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 做区间取 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span></li>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 做区间加</li>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 做区间加</li>
+<li>
+<p>询问区间的 <span class="arithmatex"><span class="MathJax_Preview">A_i+B_i</span><script type="math/tex">A_i+B_i</script></span> 的最大值</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">n,m\le 3\times 10^5</span><script type="math/tex">n,m\le 3\times 10^5</script></span>。</p>
+</li>
+</ol>
+</blockquote>
+<p>我们把区间中的 <strong>位置</strong> 分成四类：在 <span class="arithmatex"><span class="MathJax_Preview">A,B</span><script type="math/tex">A,B</script></span> 中同是区间最大值的位置、在 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 中是区间最大值在 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 中不是的位置、在 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 中是区间最大值在 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 中不是的位置、在 <span class="arithmatex"><span class="MathJax_Preview">A,B</span><script type="math/tex">A,B</script></span> 中都不是区间最大值的位置。对这四类数分别维护 <strong>答案</strong> 和 <strong>标记</strong> 即可。举个例子，我们维护 <span class="arithmatex"><span class="MathJax_Preview">C_{1\sim 4},M_{1\sim 4},A_{max},B_{max}</span><script type="math/tex">C_{1\sim 4},M_{1\sim 4},A_{max},B_{max}</script></span> 分别表示当前区间中四类数的个数，四类数的答案的最大值，<span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 序列的最大值、<span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 序列的最大值。然后合并信息该怎么合并就怎么合并了。</p>
+<p>复杂度仍是 <span class="arithmatex"><span class="MathJax_Preview">O(m\log^2 n)</span><script type="math/tex">O(m\log^2 n)</script></span>。</p>
+<h3 id="_2">小结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>在第本章节中我们给出了四道例题，分别讲解了基本区间最值操作的维护、多个标记的优先级处理、数集分类的思想以及多个分类的维护。本质上处理区间最值的基本思想就是数集信息的分类维护与高效合并。在下一章节中，我们将探讨历史区间最值的相关问题。</p>
+<h2 id="_3">历史最值问题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">历史最值不等于可持久化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>注意，本章所讲到的历史最值问题不同于所谓的可持久化数据结构。这类特殊的问题我们将其称为历史最值问题。历史最值的问题可以分为三类。</p>
+<h4 id="_5">历史最大值<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>简单地说，一个位置的历史最大值就是当前位置下曾经出现过的数的最大值。形式化地定义，我们定义一个辅助数组 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span>，一开始与 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 完全相同。在 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 的每次操作后，我们对整个数组取 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span>：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\forall i\in[1,n],\ B_i=\max(B_i,A_i)
+</div>
+<script type="math/tex; mode=display">
+\forall i\in[1,n],\ B_i=\max(B_i,A_i)
+</script>
+</div>
+<p>这时，我们将 <span class="arithmatex"><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span> 称作这个位置的历史最大值，</p>
+<h4 id="_6">历史最小值<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>定义与历史最大值类似，在 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 的每次操作后，我们对整个数组取 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span>。这时，我们将 <span class="arithmatex"><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span> 称作这个位置的历史最小值，</p>
+<h4 id="_7">历史版本和<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>辅助数组 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 一开始全部是 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>。在每一次操作后，我们把整个 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 数组累加到 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 数组上</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\forall i\in[1,n], \ B_i=B_i+A_i
+</div>
+<script type="math/tex; mode=display">
+\forall i\in[1,n], \ B_i=B_i+A_i
+</script>
+</div>
+<p>我们称 <span class="arithmatex"><span class="MathJax_Preview">B_i</span><script type="math/tex">B_i</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 这个位置上的历史版本和。</p>
+<p>接下来，我们将历史最值问题分成四类讨论。</p>
+<h3 id="_8">可以用标记处理的问题<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="cpu">CPU 监控<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>序列 <span class="arithmatex"><span class="MathJax_Preview">A,B</span><script type="math/tex">A,B</script></span> 一开始相同：</p>
+<ol>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 做区间覆盖 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></li>
+<li>对 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 做区间加 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></li>
+<li>询问 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> 的区间 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span></li>
+<li>询问 <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 的区间 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span></li>
+</ol>
+<p>每次操作后，我们都进行一次更新，<span class="arithmatex"><span class="MathJax_Preview">\forall i\in [1,n],\ B_i=\max(B_i,A_i)</span><script type="math/tex">\forall i\in [1,n],\ B_i=\max(B_i,A_i)</script></span>。<span class="arithmatex"><span class="MathJax_Preview">n,m\le 10^5</span><script type="math/tex">n,m\le 10^5</script></span>。</p>
+</blockquote>
+<p>我们先不考虑操作 1。那么只有区间加的操作，我们维护标记 <span class="arithmatex"><span class="MathJax_Preview">Add</span><script type="math/tex">Add</script></span> 表示当前区间增加的值，这个标记可以解决区间 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span> 的问题。接下来考虑历史区间 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span>。我们定义标记 <span class="arithmatex"><span class="MathJax_Preview">Pre</span><script type="math/tex">Pre</script></span>，该标记的含义是：在该标记的生存周期内，<span class="arithmatex"><span class="MathJax_Preview">Add</span><script type="math/tex">Add</script></span> 标记的历史最大值。</p>
+<p>这个定义可能比较模糊。因此我们先解释一下标记的生存周期。一个标记会经历这样的过程：</p>
+<ol>
+<li>在结点 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 被建立。</li>
+<li>在结点 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 接受若干个新的标记的同时，与新的标记合并（指同类标记）</li>
+<li>结点 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 的标记下传给 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 的儿子，<span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 的标记清空</li>
+</ol>
+<p>我们认为在这个过程中，从 1 开始到 3 之前，都是结点 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 的标记的生存周期。两个标记合并后，成为同一个标记，那么他们的生存周期也会合并（即取建立时间较早的那个做为生存周期的开始）。一个与之等价的说法是，从上次把这个结点的标记下传的时刻到当前时刻这一时间段。</p>
+<p>为什么要定义生存周期？利用这个概念，我们可以证明：在一个结点标记的生存周期内，其子结点均不会发生任何变化，并保留在这个生存周期之前的状态。道理很简单，因为在这个期间你是没有下传标记的。</p>
+<p>于是，你就可以保证，在当前标记生存周期内的历史 <span class="arithmatex"><span class="MathJax_Preview">Add</span><script type="math/tex">Add</script></span> 的最大值是可以更新到子结点的标记和信息上的。因为子结点的标记和信息在这个时间段内都没有变过。于是我们把 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 的标记下传给它的儿子 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span>，不难发现</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+Pre_s=\max(Pre_s,Pre_u+Add_s),Add_s=Add_u+Add_s
+</div>
+<script type="math/tex; mode=display">
+Pre_s=\max(Pre_s,Pre_u+Add_s),Add_s=Add_u+Add_s
+</script>
+</div>
+<p>那么信息的更新也是类似的，拿对应的标记更新即可。</p>
+<p>接下来，我们考虑操作 1。</p>
+<p>区间覆盖操作，会把所有的数变成一个数。在这之后，无论是区间加减还是覆盖，整个区间的数仍是同一个（除非你结束当前标记的生存周期，下传标记）。因此我们可以把第一次区间覆盖后的所有标记都看成区间覆盖标记。也就是说一个标记的生存周期被大致分成两个阶段：</p>
+<ol>
+<li>若干个加减操作标记的合并，没有接收过覆盖标记。</li>
+<li>覆盖操作的标记，没有所谓的加减标记（加减标记转化为覆盖标记）</li>
+</ol>
+<p>于是我们把这个结点的 Pre 标记拆成 <span class="arithmatex"><span class="MathJax_Preview">(P_1,P_2)</span><script type="math/tex">(P_1,P_2)</script></span>。<span class="arithmatex"><span class="MathJax_Preview">P_1</span><script type="math/tex">P_1</script></span> 表示第一阶段的最大加减标记；<span class="arithmatex"><span class="MathJax_Preview">P_2</span><script type="math/tex">P_2</script></span> 表示第二阶段的最大覆盖标记。利用相似的方法，我们可以对这个做标记下传和信息更新。时间复杂度是 <span class="arithmatex"><span class="MathJax_Preview">O(m\log n)</span><script type="math/tex">O(m\log n)</script></span> 的（这个问题并没有区间对 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 取最值的操作哦～）</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/ds/seg-beats.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Seg beats',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

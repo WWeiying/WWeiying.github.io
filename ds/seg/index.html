@@ -1,0 +1,1166 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/ds/seg/">
+      
+      
+        <meta name="author" content="M">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Seg - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Seg
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    线段树
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    线段树的基本结构与建树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    线段树的区间查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    线段树的区间修改与懒惰标记
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    一些优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    例题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    拓展 - 猫树
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    堆式建树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/ds/seg.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Seg</h1>
+                
+                <p>线段树是算法竞赛中常用的用来维护 <strong>区间信息</strong> 的数据结构。</p>
+<p>线段树可以在 <span class="arithmatex"><span class="MathJax_Preview">O(\log N)</span><script type="math/tex">O(\log N)</script></span> 的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作。</p>
+<p>线段树维护的信息在很多时候可以认为是满足（幺）半群的性质的信息。</p>
+<p>一个幺半群 <span class="arithmatex"><span class="MathJax_Preview">M=(S,\circ ,e)</span><script type="math/tex">M=(S,\circ ,e)</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">\circ</span><script type="math/tex">\circ</script></span> 为在集合 <span class="arithmatex"><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 上定义的二元运算符，幺半群具有以下性质：</p>
+<ul>
+<li>封闭性：<span class="arithmatex"><span class="MathJax_Preview">\forall x\in S</span><script type="math/tex">\forall x\in S</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">\forall y\in S</span><script type="math/tex">\forall y\in S</script></span> 有 <span class="arithmatex"><span class="MathJax_Preview">x\circ y\in S</span><script type="math/tex">x\circ y\in S</script></span>。</li>
+<li>结合律：<span class="arithmatex"><span class="MathJax_Preview">\forall x,y,z\in S</span><script type="math/tex">\forall x,y,z\in S</script></span> 有 <span class="arithmatex"><span class="MathJax_Preview">(x\circ y)\circ z=x\circ (y\circ z)</span><script type="math/tex">(x\circ y)\circ z=x\circ (y\circ z)</script></span>。</li>
+<li>存在幺元：即 <span class="arithmatex"><span class="MathJax_Preview">\exists e\in S</span><script type="math/tex">\exists e\in S</script></span> 满足 <span class="arithmatex"><span class="MathJax_Preview">\forall x \in S</span><script type="math/tex">\forall x \in S</script></span> 有 <span class="arithmatex"><span class="MathJax_Preview">e\circ x=x</span><script type="math/tex">e\circ x=x</script></span>，<span class="arithmatex"><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> 为左幺元；或 <span class="arithmatex"><span class="MathJax_Preview">x\circ e=x</span><script type="math/tex">x\circ e=x</script></span>，<span class="arithmatex"><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> 为右幺元。</li>
+</ul>
+<p>我们观察到线段树上的信息一般满足这样的性质，一些数域上的加法与乘法自然，考虑二元的 <span class="arithmatex"><span class="MathJax_Preview">\max(x,y)</span><script type="math/tex">\max(x,y)</script></span> 运算，此时幺元为 <span class="arithmatex"><span class="MathJax_Preview">-\infty</span><script type="math/tex">-\infty</script></span> 也满足这样的性质（一般左右幺元相同时简称为幺元）。</p>
+<h2 id="_1">线段树<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">线段树的基本结构与建树<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>线段树将每个长度不为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息。这种数据结构可以方便的进行大部分的区间操作。</p>
+<p>有个大小为 <span class="arithmatex"><span class="MathJax_Preview">5</span><script type="math/tex">5</script></span> 的数组 <span class="arithmatex"><span class="MathJax_Preview">a=\{10,11,12,13,14\}</span><script type="math/tex">a=\{10,11,12,13,14\}</script></span>，要将其转化为线段树，有以下做法：设线段树的根节点编号为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，用数组 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 来保存我们的线段树，<span class="arithmatex"><span class="MathJax_Preview">d_i</span><script type="math/tex">d_i</script></span> 用来保存线段树上编号为 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 的节点的值（这里每个节点所维护的值就是这个节点所表示的区间总和）。</p>
+<p>我们先给出这棵线段树的形态，如图所示：</p>
+<p><img alt="" src="../images/segt1.svg" /></p>
+<p>图中每个节点中用红色字体标明的区间，表示该节点管辖的 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 数组上的位置区间。如 <span class="arithmatex"><span class="MathJax_Preview">d_1</span><script type="math/tex">d_1</script></span> 所管辖的区间就是 <span class="arithmatex"><span class="MathJax_Preview">[1,5]</span><script type="math/tex">[1,5]</script></span>（<span class="arithmatex"><span class="MathJax_Preview">a_1,a_2, \cdots ,a_5</span><script type="math/tex">a_1,a_2, \cdots ,a_5</script></span>），即 <span class="arithmatex"><span class="MathJax_Preview">d_1</span><script type="math/tex">d_1</script></span> 所保存的值是 <span class="arithmatex"><span class="MathJax_Preview">a_1+a_2+ \cdots +a_5</span><script type="math/tex">a_1+a_2+ \cdots +a_5</script></span>，<span class="arithmatex"><span class="MathJax_Preview">d_1=60</span><script type="math/tex">d_1=60</script></span> 表示的是 <span class="arithmatex"><span class="MathJax_Preview">a_1+a_2+ \cdots +a_5=60</span><script type="math/tex">a_1+a_2+ \cdots +a_5=60</script></span>。</p>
+<p>通过观察不难发现，<span class="arithmatex"><span class="MathJax_Preview">d_i</span><script type="math/tex">d_i</script></span> 的左儿子节点就是 <span class="arithmatex"><span class="MathJax_Preview">d_{2\times i}</span><script type="math/tex">d_{2\times i}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">d_i</span><script type="math/tex">d_i</script></span> 的右儿子节点就是 <span class="arithmatex"><span class="MathJax_Preview">d_{2\times i+1}</span><script type="math/tex">d_{2\times i+1}</script></span>。如果 <span class="arithmatex"><span class="MathJax_Preview">d_i</span><script type="math/tex">d_i</script></span> 表示的是区间 <span class="arithmatex"><span class="MathJax_Preview">[s,t]</span><script type="math/tex">[s,t]</script></span>（即 <span class="arithmatex"><span class="MathJax_Preview">d_i=a_s+a_{s+1}+ \cdots +a_t</span><script type="math/tex">d_i=a_s+a_{s+1}+ \cdots +a_t</script></span>) 的话，那么 <span class="arithmatex"><span class="MathJax_Preview">d_i</span><script type="math/tex">d_i</script></span> 的左儿子节点表示的是区间 <span class="arithmatex"><span class="MathJax_Preview">[ s, \frac{s+t}{2} ]</span><script type="math/tex">[ s, \frac{s+t}{2} ]</script></span>，<span class="arithmatex"><span class="MathJax_Preview">d_i</span><script type="math/tex">d_i</script></span> 的右儿子表示的是区间 <span class="arithmatex"><span class="MathJax_Preview">[ \frac{s+t}{2} +1,t ]</span><script type="math/tex">[ \frac{s+t}{2} +1,t ]</script></span>。</p>
+<p>在实现时，我们考虑递归建树。设当前的根节点为 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，如果根节点管辖的区间长度已经是 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，则可以直接根据 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 数组上相应位置的值初始化该节点。否则我们将该区间从中点处分割为两个子区间，分别进入左右子节点递归建树，最后合并两个子节点的信息。</p>
+<p>此处给出 C++ 的代码实现，可参考注释理解：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// C++ Version</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 对 [s,t] 区间建立线段树,当前根的编号为 p</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">s</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 移位运算符的优先级小于加减法，所以加上括号</span>
+<span class="w">  </span><span class="c1">// 如果写成 (s + t) &gt;&gt; 1 可能会超出 int 范围</span>
+<span class="w">  </span><span class="n">build</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 递归对左右区间建树</span>
+<span class="w">  </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">[(</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Python Version</span>
+<span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="c1"># 对 [s,t] 区间建立线段树,当前根的编号为 p</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+        <span class="k">return</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># 移位运算符的优先级小于加减法，所以加上括号</span>
+    <span class="c1"># 如果写成 (s + t) &gt;&gt; 1 可能会超出 int 范围</span>
+    <span class="n">build</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span> <span class="n">build</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># 递归对左右区间建树</span>
+    <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">d</span><span class="p">[(</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p>关于线段树的空间：如果采用堆式存储（<span class="arithmatex"><span class="MathJax_Preview">2p</span><script type="math/tex">2p</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的左儿子，<span class="arithmatex"><span class="MathJax_Preview">2p+1</span><script type="math/tex">2p+1</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的右儿子），若有 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个叶子结点，则 d 数组的范围最大为 <span class="arithmatex"><span class="MathJax_Preview">2^{\left\lceil\log{n}\right\rceil+1}</span><script type="math/tex">2^{\left\lceil\log{n}\right\rceil+1}</script></span>。</p>
+<p>分析：容易知道线段树的深度是 <span class="arithmatex"><span class="MathJax_Preview">\left\lceil\log{n}\right\rceil</span><script type="math/tex">\left\lceil\log{n}\right\rceil</script></span> 的，则在堆式储存情况下叶子节点（包括无用的叶子节点）数量为 <span class="arithmatex"><span class="MathJax_Preview">2^{\left\lceil\log{n}\right\rceil}</span><script type="math/tex">2^{\left\lceil\log{n}\right\rceil}</script></span> 个，又由于其为一棵完全二叉树，则其总节点个数 <span class="arithmatex"><span class="MathJax_Preview">2^{\left\lceil\log{n}\right\rceil+1}-1</span><script type="math/tex">2^{\left\lceil\log{n}\right\rceil+1}-1</script></span>。当然如果你懒得计算的话可以直接把数组长度设为 <span class="arithmatex"><span class="MathJax_Preview">4n</span><script type="math/tex">4n</script></span>，因为 <span class="arithmatex"><span class="MathJax_Preview">\frac{2^{\left\lceil\log{n}\right\rceil+1}-1}{n}</span><script type="math/tex">\frac{2^{\left\lceil\log{n}\right\rceil+1}-1}{n}</script></span> 的最大值在 <span class="arithmatex"><span class="MathJax_Preview">n=2^{x}+1(x\in N_{+})</span><script type="math/tex">n=2^{x}+1(x\in N_{+})</script></span> 时取到，此时节点数为 <span class="arithmatex"><span class="MathJax_Preview">2^{\left\lceil\log{n}\right\rceil+1}-1=2^{x+2}-1=4n-5</span><script type="math/tex">2^{\left\lceil\log{n}\right\rceil+1}-1=2^{x+2}-1=4n-5</script></span>。</p>
+<h3 id="_3">线段树的区间查询<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>区间查询，比如求区间 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 的总和（即 <span class="arithmatex"><span class="MathJax_Preview">a_l+a_{l+1}+ \cdots +a_r</span><script type="math/tex">a_l+a_{l+1}+ \cdots +a_r</script></span>）、求区间最大值/最小值等操作。</p>
+<p><img alt="" src="../images/segt1.svg" /></p>
+<p>仍然以最开始的图为例，如果要查询区间 <span class="arithmatex"><span class="MathJax_Preview">[1,5]</span><script type="math/tex">[1,5]</script></span> 的和，那直接获取 <span class="arithmatex"><span class="MathJax_Preview">d_1</span><script type="math/tex">d_1</script></span> 的值（<span class="arithmatex"><span class="MathJax_Preview">60</span><script type="math/tex">60</script></span>）即可。</p>
+<p>如果要查询的区间为 <span class="arithmatex"><span class="MathJax_Preview">[3,5]</span><script type="math/tex">[3,5]</script></span>，此时就不能直接获取区间的值，但是 <span class="arithmatex"><span class="MathJax_Preview">[3,5]</span><script type="math/tex">[3,5]</script></span> 可以拆成 <span class="arithmatex"><span class="MathJax_Preview">[3,3]</span><script type="math/tex">[3,3]</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">[4,5]</span><script type="math/tex">[4,5]</script></span>，可以通过合并这两个区间的答案来求得这个区间的答案。</p>
+<p>一般地，如果要查询的区间是 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>，则可以将其拆成最多为 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 个 <strong>极大</strong> 的区间，合并这些区间即可求出 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 的答案。</p>
+<p>此处给出 C++ 的代码实现，可参考注释理解：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// C++ Version</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">getsum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// [l, r] 为查询区间, [s, t] 为当前节点包含的区间, p 为当前节点的编号</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="w">  </span><span class="c1">// 当前区间为询问区间的子集时直接返回当前区间的和</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 如果左儿子代表的区间 [l, m] 与询问区间有交集, 则递归查询左儿子</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 如果右儿子代表的区间 [m + 1, r] 与询问区间有交集, 则递归查询右儿子</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Python Version</span>
+<span class="k">def</span> <span class="nf">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="c1"># [l, r] 为查询区间, [s, t] 为当前节点包含的区间, p 为当前节点的编号</span>
+    <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="c1"># 当前区间为询问区间的子集时直接返回当前区间的和</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">);</span> <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># 如果左儿子代表的区间 [l, m] 与询问区间有交集, 则递归查询左儿子</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># 如果右儿子代表的区间 [m + 1, r] 与询问区间有交集, 则递归查询右儿子</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_4">线段树的区间修改与懒惰标记<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>如果要求修改区间 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>，把所有包含在区间 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 中的节点都遍历一次、修改一次，时间复杂度无法承受。我们这里要引入一个叫做 <strong>「懒惰标记」</strong> 的东西。</p>
+<p>懒惰标记，简单来说，就是通过延迟对节点信息的更改，从而减少可能不必要的操作次数。每次执行修改时，我们通过打标记的方法表明该节点对应的区间在某一次操作中被更改，但不更新该节点的子节点的信息。实质性的修改则在下一次访问带有标记的节点时才进行。</p>
+<p>仍然以最开始的图为例，我们将执行若干次给区间内的数加上一个值的操作。我们现在给每个节点增加一个 <span class="arithmatex"><span class="MathJax_Preview">t_i</span><script type="math/tex">t_i</script></span>，表示该节点带的标记值。</p>
+<p>最开始时的情况是这样的（为了节省空间，这里不再展示每个节点管辖的区间）：</p>
+<p><img alt="" src="../images/segt2.svg" /></p>
+<p>现在我们准备给 <span class="arithmatex"><span class="MathJax_Preview">[3,5]</span><script type="math/tex">[3,5]</script></span> 上的每个数都加上 <span class="arithmatex"><span class="MathJax_Preview">5</span><script type="math/tex">5</script></span>。根据前面区间查询的经验，我们很快找到了两个极大区间 <span class="arithmatex"><span class="MathJax_Preview">[3,3]</span><script type="math/tex">[3,3]</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">[4,5]</span><script type="math/tex">[4,5]</script></span>（分别对应线段树上的 <span class="arithmatex"><span class="MathJax_Preview">3</span><script type="math/tex">3</script></span> 号点和 <span class="arithmatex"><span class="MathJax_Preview">5</span><script type="math/tex">5</script></span> 号点）。</p>
+<p>我们直接在这两个节点上进行修改，并给它们打上标记：</p>
+<p><img alt="" src="../images/segt3.svg" /></p>
+<p>我们发现，<span class="arithmatex"><span class="MathJax_Preview">3</span><script type="math/tex">3</script></span> 号节点的信息虽然被修改了（因为该区间管辖两个数，所以 <span class="arithmatex"><span class="MathJax_Preview">d_3</span><script type="math/tex">d_3</script></span> 加上的数是 <span class="arithmatex"><span class="MathJax_Preview">5 \times 2=10</span><script type="math/tex">5 \times 2=10</script></span>），但它的两个子节点却还没更新，仍然保留着修改之前的信息。不过不用担心，虽然修改目前还没进行，但当我们要查询这两个子节点的信息时，我们会利用标记修改这两个子节点的信息，使查询的结果依旧准确。</p>
+<p>接下来我们查询一下 <span class="arithmatex"><span class="MathJax_Preview">[4,4]</span><script type="math/tex">[4,4]</script></span> 区间上各数字的和。</p>
+<p>我们通过递归找到 <span class="arithmatex"><span class="MathJax_Preview">[4,5]</span><script type="math/tex">[4,5]</script></span> 区间，发现该区间并非我们的目标区间，且该区间上还存在标记。这时候就到标记下放的时间了。我们将该区间的两个子区间的信息更新，并清除该区间上的标记。</p>
+<p><img alt="" src="../images/segt4.svg" /></p>
+<p>现在 <span class="arithmatex"><span class="MathJax_Preview">6</span><script type="math/tex">6</script></span>、<span class="arithmatex"><span class="MathJax_Preview">7</span><script type="math/tex">7</script></span> 两个节点的值变成了最新的值，查询的结果也是准确的。</p>
+<p>接下来给出在存在标记的情况下，区间修改和查询操作的参考实现。</p>
+<p>区间修改（区间加上某个值）：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// C++ Version</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// [l, r] 为修改区间, c 为被修改的元素的变化量, [s, t] 为当前节点包含的区间, p</span>
+<span class="w">  </span><span class="c1">// 为当前节点的编号</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w">  </span><span class="c1">// 当前区间为修改区间的子集时直接修改当前节点的值,然后打标记,结束修改</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 如果当前节点的懒标记非空,则更新当前节点两个子节点的值和懒标记值</span>
+<span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">],</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="w">  </span><span class="c1">// 将标记下传给子节点</span>
+<span class="w">    </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                                </span><span class="c1">// 清空当前节点的标记</span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Python Version</span>
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="c1"># [l, r] 为修改区间, c 为被修改的元素的变化量, [s, t] 为当前节点包含的区间, p</span>
+    <span class="c1"># 为当前节点的编号</span>
+    <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span>
+        <span class="k">return</span>
+    <span class="c1"># 当前区间为修改区间的子集时直接修改当前节点的值, 然后打标记, 结束修改</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">!=</span> <span class="n">t</span><span class="p">:</span>
+        <span class="c1"># 如果当前节点的懒标记非空, 则更新当前节点两个子节点的值和懒标记值</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span>
+        <span class="c1"># 将标记下传给子节点</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+        <span class="c1"># 清空当前节点的标记</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">:</span>
+        <span class="n">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+        <span class="n">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p>区间查询（区间求和）：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// C++ Version</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">getsum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// [l, r] 为查询区间, [s, t] 为当前节点包含的区间, p 为当前节点的编号</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 当前区间为询问区间的子集时直接返回当前区间的和</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 如果当前节点的懒标记非空,则更新当前节点两个子节点的值和懒标记值</span>
+<span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">m</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">],</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="w">  </span><span class="c1">// 将标记下传给子节点</span>
+<span class="w">    </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                                    </span><span class="c1">// 清空当前节点的标记</span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Python Version</span>
+<span class="k">def</span> <span class="nf">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="c1"># [l, r] 为查询区间, [s, t] 为当前节点包含的区间, p为当前节点的编号</span>
+    <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+    <span class="c1"># 当前区间为询问区间的子集时直接返回当前区间的和</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+        <span class="c1"># 如果当前节点的懒标记非空, 则更新当前节点两个子节点的值和懒标记值</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span>
+        <span class="c1"># 将标记下传给子节点</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+        <span class="c1"># 清空当前节点的标记</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+</code></pre></div></td></tr></table></div>
+<p>如果你是要实现区间修改为某一个值而不是加上某一个值的话，代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// C++ Version</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">m</span><span class="p">),</span><span class="w"></span>
+<span class="w">          </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">getsum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">m</span><span class="p">),</span><span class="w"></span>
+<span class="w">          </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Python Version</span>
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="k">return</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">:</span>
+        <span class="n">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+        <span class="n">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">s</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">s</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]:</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">m</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_5">一些优化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>这里总结几个线段树的优化：</p>
+<ul>
+<li>
+<p>在叶子节点处无需下放懒惰标记，所以懒惰标记可以不下传到叶子节点。</p>
+</li>
+<li>
+<p>下放懒惰标记可以写一个专门的函数 <code>pushdown</code>，从儿子节点更新当前节点也可以写一个专门的函数 <code>maintain</code>（或者对称地用 <code>pushup</code>），降低代码编写难度。</p>
+</li>
+<li>
+<p>标记永久化：如果确定懒惰标记不会在中途被加到溢出（即超过了该类型数据所能表示的最大范围），那么就可以将标记永久化。标记永久化可以避免下传懒惰标记，只需在进行询问时把标记的影响加到答案当中，从而降低程序常数。具体如何处理与题目特性相关，需结合题目来写。这也是树套树和可持久化数据结构中会用到的一种技巧。</p>
+</li>
+</ul>
+<h2 id="_6">例题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<details class="note" open="open">
+<summary><a href="https://www.luogu.com.cn/problem/P3372">luogu P3372【模板】线段树 1</a></summary>
+<p>已知一个数列，你需要进行下面两种操作：</p>
+<ul>
+<li>将某区间每一个数加上 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>。</li>
+<li>求出某区间每一个数的和。</li>
+</ul>
+<details>
+<summary>参考代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+</details>
+</details>
+<details class="note" open="open">
+<summary><a href="https://www.luogu.com.cn/problem/P3373">luogu P3373【模板】线段树 2</a></summary>
+<p>已知一个数列，你需要进行下面三种操作：</p>
+<ul>
+<li>将某区间每一个数乘上 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>。</li>
+<li>将某区间每一个数加上 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>。</li>
+<li>求出某区间每一个数的和。</li>
+</ul>
+<details>
+<summary>参考代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+</details>
+</details>
+<details class="note" open="open">
+<summary><a href="https://cn.vjudge.net/problem/HihoCoder-1078">HihoCoder 1078 线段树的区间修改</a></summary>
+<p>假设货架上从左到右摆放了 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 种商品，并且依次标号为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>，其中标号为 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 的商品的价格为 <span class="arithmatex"><span class="MathJax_Preview">Pi</span><script type="math/tex">Pi</script></span>。小 Hi 的每次操作分为两种可能，第一种是修改价格：小 Hi 给出一段区间 <span class="arithmatex"><span class="MathJax_Preview">[L, R]</span><script type="math/tex">[L, R]</script></span> 和一个新的价格 <span class="arithmatex"><span class="MathJax_Preview">\textit{NewP}</span><script type="math/tex">\textit{NewP}</script></span>，所有标号在这段区间中的商品的价格都变成 <span class="arithmatex"><span class="MathJax_Preview">\textit{NewP}</span><script type="math/tex">\textit{NewP}</script></span>。第二种操作是询问：小 Hi 给出一段区间 <span class="arithmatex"><span class="MathJax_Preview">[L, R]</span><script type="math/tex">[L, R]</script></span>，而小 Ho 要做的便是计算出所有标号在这段区间中的商品的总价格，然后告诉小 Hi。</p>
+<details>
+<summary>参考代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+</details>
+</details>
+<details class="note" open="open">
+<summary><a href="https://vjudge.net/problem/HDU-6356">2018 Multi-University Training Contest 5 Problem G. Glad You Came</a></summary>
+<details>
+<summary>解题思路</summary>
+<p>维护一下每个区间的永久标记就可以了，最后在线段树上跑一边 DFS 统计结果即可。注意打标记的时候加个剪枝优化，否则会 TLE。</p>
+</details>
+</details>
+<h2 id="-">拓展 - 猫树<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p>众所周知线段树可以支持高速查询某一段区间的信息和，比如区间最大子段和，区间和，区间矩阵的连乘积等等。</p>
+<p>但是有一个问题在于普通线段树的区间询问在某些毒瘤的眼里可能还是有些慢了。</p>
+<p>简单来说就是线段树建树的时候需要做 <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 次合并操作，而每一次区间询问需要做 <span class="arithmatex"><span class="MathJax_Preview">O(\log{n})</span><script type="math/tex">O(\log{n})</script></span> 次合并操作，询问区间和这种东西的时候还可以忍受，但是当我们需要询问区间线性基这种合并复杂度高达 <span class="arithmatex"><span class="MathJax_Preview">O(\log^2{w})</span><script type="math/tex">O(\log^2{w})</script></span> 的信息的话，此时就算是做 <span class="arithmatex"><span class="MathJax_Preview">O(\log{n})</span><script type="math/tex">O(\log{n})</script></span> 次合并有些时候在时间上也是不可接受的。</p>
+<p>而所谓“猫树”就是一种不支持修改，仅仅支持快速区间询问的一种静态线段树。</p>
+<p>构造一棵这样的静态线段树需要 <span class="arithmatex"><span class="MathJax_Preview">O(n\log{n})</span><script type="math/tex">O(n\log{n})</script></span> 次合并操作，但是此时的查询复杂度被加速至 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 次合并操作。</p>
+<p>在处理线性基这样特殊的信息的时候甚至可以将复杂度降至 <span class="arithmatex"><span class="MathJax_Preview">O(n\log^2{w})</span><script type="math/tex">O(n\log^2{w})</script></span>。</p>
+<h3 id="_7">原理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>在查询 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 这段区间的信息和的时候，将线段树树上代表 <span class="arithmatex"><span class="MathJax_Preview">[l,l]</span><script type="math/tex">[l,l]</script></span> 的节点和代表 <span class="arithmatex"><span class="MathJax_Preview">[r,r]</span><script type="math/tex">[r,r]</script></span> 这段区间的节点在线段树上的 LCA 求出来，设这个节点 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 代表的区间为 <span class="arithmatex"><span class="MathJax_Preview">[L,R]</span><script type="math/tex">[L,R]</script></span>，我们会发现一些非常有趣的性质：</p>
+<ol>
+<li>
+<p><span class="arithmatex"><span class="MathJax_Preview">[L,R]</span><script type="math/tex">[L,R]</script></span> 这个区间一定包含 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>。显然，因为它既是 <span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> 的祖先又是 <span class="arithmatex"><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 的祖先。</p>
+</li>
+<li>
+<p><span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 这个区间一定跨越 <span class="arithmatex"><span class="MathJax_Preview">[L,R]</span><script type="math/tex">[L,R]</script></span> 的中点。由于 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 的 LCA，这意味着 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的左儿子是 <span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> 的祖先而不是 <span class="arithmatex"><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 的祖先，<span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的右儿子是 <span class="arithmatex"><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 的祖先而不是 <span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> 的祖先。因此，<span class="arithmatex"><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> 一定在 <span class="arithmatex"><span class="MathJax_Preview">[L,\mathit{mid}]</span><script type="math/tex">[L,\mathit{mid}]</script></span> 这个区间内，<span class="arithmatex"><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 一定在 <span class="arithmatex"><span class="MathJax_Preview">(\mathit{mid},R]</span><script type="math/tex">(\mathit{mid},R]</script></span> 这个区间内。</p>
+</li>
+</ol>
+<p>有了这两个性质，我们就可以将询问的复杂度降至 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 了。</p>
+<h3 id="_8">实现<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>具体来讲我们建树的时候对于线段树树上的一个节点，设它代表的区间为 <span class="arithmatex"><span class="MathJax_Preview">(l,r]</span><script type="math/tex">(l,r]</script></span>。</p>
+<p>不同于传统线段树在这个节点里只保留 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 的和，我们在这个节点里面额外保存 <span class="arithmatex"><span class="MathJax_Preview">(l,\mathit{mid}]</span><script type="math/tex">(l,\mathit{mid}]</script></span> 的后缀和数组和 <span class="arithmatex"><span class="MathJax_Preview">(\mathit{mid},r]</span><script type="math/tex">(\mathit{mid},r]</script></span> 的前缀和数组。</p>
+<p>这样的话建树的复杂度为 <span class="arithmatex"><span class="MathJax_Preview">T(n)=2T(n/2)+O(n)=O(n\log{n})</span><script type="math/tex">T(n)=2T(n/2)+O(n)=O(n\log{n})</script></span> 同理空间复杂度也从原来的 <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 变成了 <span class="arithmatex"><span class="MathJax_Preview">O(n\log{n})</span><script type="math/tex">O(n\log{n})</script></span>。</p>
+<p>下面是最关键的询问了。</p>
+<p>如果我们询问的区间是 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 那么我们把代表 <span class="arithmatex"><span class="MathJax_Preview">[l,l]</span><script type="math/tex">[l,l]</script></span> 的节点和代表 <span class="arithmatex"><span class="MathJax_Preview">[r,r]</span><script type="math/tex">[r,r]</script></span> 的节点的 LCA 求出来，记为 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>。</p>
+<p>根据刚才的两个性质，<span class="arithmatex"><span class="MathJax_Preview">l,r</span><script type="math/tex">l,r</script></span> 在 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 所包含的区间之内并且一定跨越了 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的中点。</p>
+<p>这意味这一个非常关键的事实是我们可以使用 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 里面的前缀和数组和后缀和数组，将 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 拆成 <span class="arithmatex"><span class="MathJax_Preview">[l,\mathit{mid}]+(\mathit{mid},r]</span><script type="math/tex">[l,\mathit{mid}]+(\mathit{mid},r]</script></span> 从而拼出来 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 这个区间。</p>
+<p>而这个过程仅仅需要 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 次合并操作！</p>
+<p>不过我们好像忽略了点什么？</p>
+<p>似乎求 LCA 的复杂度似乎还不是 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>，暴力求是 <span class="arithmatex"><span class="MathJax_Preview">O(\log{n})</span><script type="math/tex">O(\log{n})</script></span> 的，倍增法则是 <span class="arithmatex"><span class="MathJax_Preview">O(\log{\log{n}})</span><script type="math/tex">O(\log{\log{n}})</script></span> 的，转 ST 表的代价又太大……</p>
+<h3 id="_9">堆式建树<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>具体来将我们将这个序列补成 <span class="arithmatex"><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span> 的整次幂，然后建线段树。</p>
+<p>此时我们发现线段树上两个节点的 LCA 编号，就是两个节点二进制编号的最长公共前缀 LCP。</p>
+<p>稍作思考即可发现发现在 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 的二进制下 <code>lcp(x,y)=x&gt;&gt;log[x^y]</code>。</p>
+<p>所以我们预处理一个 <code>log</code> 数组即可轻松完成求 LCA 的工作。</p>
+<p>这样我们就构建了一个猫树。</p>
+<p>由于建树的时候涉及到求前缀和和求后缀和，所以对于线性基这种虽然合并是 <span class="arithmatex"><span class="MathJax_Preview">O(\log^2{w})</span><script type="math/tex">O(\log^2{w})</script></span> 但是求前缀和却是 <span class="arithmatex"><span class="MathJax_Preview">O(n\log{n})</span><script type="math/tex">O(n\log{n})</script></span> 的信息，使用猫树可以将静态区间线性基从 <span class="arithmatex"><span class="MathJax_Preview">O(n\log^2{w}+m\log^2{w}\log{n})</span><script type="math/tex">O(n\log^2{w}+m\log^2{w}\log{n})</script></span> 优化至 <span class="arithmatex"><span class="MathJax_Preview">O(n\log{n}\log{w}+m\log^2{w})</span><script type="math/tex">O(n\log{n}\log{w}+m\log^2{w})</script></span> 的复杂度。</p>
+<h3 id="_10">参考<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://immortalco.blog.uoj.ac/blog/2102">immortalCO 大爷的博客</a></li>
+<li><a href="http://ieeexplore.ieee.org/document/1675628/">[Kle77]</a> V. Klee,“Can the Measure of be Computed in Less than O (n log n) Steps?,”Am. Math. Mon., vol. 84, no. 4, pp. 284–285, Apr. 1977.</li>
+<li><a href="https://www.tandfonline.com/doi/full/10.1080/00029890.1977.11994336">[BeW80]</a> Bentley and Wood,“An Optimal Worst Case Algorithm for Reporting Intersections of Rectangles,”IEEE Trans. Comput., vol. C–29, no. 7, pp. 571–577, Jul. 1980.</li>
+</ul>
+                
+                  
+                
+              
+              
+                 
+ 
+   
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/ds/seg.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">Marcythm, Ir1d, Ycrpro, Xeonacid, konnyakuxzy, CJSoft, HeRaNO, ethan-enhe, ChungZH, Chrogeek, hsfzLZH1, billchenchina, orzAtalod, luoguojie, Early0v0</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Seg',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,879 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/ds/queue/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Queue - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Queue
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    数组模拟队列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    双栈模拟队列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-stl" class="md-nav__link">
+    C++ STL 中的队列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    特殊队列
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    双端队列
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c-stl_1" class="md-nav__link">
+    C++ STL 中的双端队列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python 中的双端队列
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    循环队列
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    例题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/ds/queue.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Queue</h1>
+                
+                <p>本页面介绍和队列有关的数据结构及其应用。</p>
+<p><img alt="" src="../images/queue.svg" /></p>
+<p>队列（queue）是一种具有「先进入队列的元素一定先出队列」性质的表。由于该性质，队列通常也被称为先进先出（first in first out）表，简称 FIFO 表。</p>
+<h2 id="_1">数组模拟队列<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>通常用一个数组模拟一个队列，用两个变量标记队列的首尾。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">q</span><span class="p">[</span><span class="n">SIZE</span><span class="p">],</span><span class="w"> </span><span class="n">ql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">qr</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>队列操作对应的代码如下：</p>
+<ul>
+<li>插入元素：<code>q[++qr] = x;</code></li>
+<li>删除元素：<code>ql++;</code></li>
+<li>访问队首：<code>q[ql]</code></li>
+<li>访问队尾：<code>q[qr]</code></li>
+<li>清空队列：<code>ql = 1; qr = 0;</code></li>
+</ul>
+<h2 id="_2">双栈模拟队列<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>还有一种冷门的方法是使用两个 <a href="../stack/">栈</a> 来模拟一个队列。</p>
+<p>这种方法使用两个栈 F, S 模拟一个队列，其中 F 是队尾的栈，S 代表队首的栈，支持 push（在队尾插入），pop（在队首弹出）操作：</p>
+<ul>
+<li>push：插入到栈 F 中。</li>
+<li>pop：如果 S 非空，让 S 弹栈；否则把 F 的元素倒过来压到 S 中（其实就是一个一个弹出插入，做完后是首位颠倒的），然后再让 S 弹栈。</li>
+</ul>
+<p>容易证明，每个元素只会进入/转移/弹出一次，均摊复杂度 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>。</p>
+<h2 id="c-stl">C++ STL 中的队列<a class="headerlink" href="#c-stl" title="Permanent link">&para;</a></h2>
+<p>C++ 在 STL 中提供了一个容器 <code>std::queue</code>，使用前需要先引入 <code>&lt;queue&gt;</code> 头文件。</p>
+<details class="info" open="open">
+<summary>STL 中对 <code>queue</code> 的定义</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// clang-format off</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">queue</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p><code>T</code> 为 queue 中要存储的数据类型。</p>
+<p><code>Container</code> 为用于存储元素的底层容器类型。这个容器必须提供通常语义的下列函数：</p>
+<ul>
+<li><code>back()</code></li>
+<li><code>front()</code></li>
+<li><code>push_back()</code></li>
+<li><code>pop_front()</code></li>
+</ul>
+<p>STL 容器 <code>std::deque</code> 和 <code>std::list</code> 满足这些要求。如果不指定，则默认使用 <code>std::deque</code> 作为底层容器。</p>
+</details>
+<p>STL 中的 <code>queue</code> 容器提供了一众成员函数以供调用。其中较为常用的有：</p>
+<ul>
+<li>元素访问<ul>
+<li><code>q.front()</code> 返回队首元素</li>
+<li><code>q.back()</code> 返回队尾元素</li>
+</ul>
+</li>
+<li>修改<ul>
+<li><code>q.push()</code> 在队尾插入元素</li>
+<li><code>q.pop()</code> 弹出队首元素</li>
+</ul>
+</li>
+<li>容量<ul>
+<li><code>q.empty()</code> 队列是否为空</li>
+<li><code>q.size()</code> 返回队列中元素的数量</li>
+</ul>
+</li>
+</ul>
+<p>此外，<code>queue</code> 还提供了一些运算符。较为常用的是使用赋值运算符 <code>=</code> 为 <code>queue</code> 赋值，示例：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q1</span><span class="p">,</span><span class="w"> </span><span class="n">q2</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// 向 q1 的队尾插入 1</span>
+<span class="n">q1</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// 将 q1 赋值给 q2</span>
+<span class="n">q2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q1</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// 输出 q2 的队首元素</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">q2</span><span class="p">.</span><span class="n">front</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// 输出: 1</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_3">特殊队列<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">双端队列<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>双端队列是指一个可以在队首/队尾插入或删除元素的队列。相当于是栈与队列功能的结合。具体地，双端队列支持的操作有 4 个：</p>
+<ul>
+<li>在队首插入一个元素</li>
+<li>在队尾插入一个元素</li>
+<li>在队首删除一个元素</li>
+<li>在队尾删除一个元素</li>
+</ul>
+<p>数组模拟双端队列的方式与普通队列相同。</p>
+<h4 id="c-stl_1">C++ STL 中的双端队列<a class="headerlink" href="#c-stl_1" title="Permanent link">&para;</a></h4>
+<p>C++ 在 STL 中也提供了一个容器 <code>std::deque</code>，使用前需要先引入 <code>&lt;deque&gt;</code> 头文件。</p>
+<details class="info">
+<summary>STL 中对 <code>deque</code> 的定义</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// clang-format off</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Allocator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">deque</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p><code>T</code> 为 deque 中要存储的数据类型。</p>
+<p><code>Allocator</code> 为分配器，此处不做过多说明，一般保持默认即可。</p>
+</details>
+<p>STL 中的 <code>queue</code> 容器提供了一众成员函数以供调用。其中较为常用的有：</p>
+<ul>
+<li>元素访问<ul>
+<li><code>q.front()</code> 返回队首元素</li>
+<li><code>q.back()</code> 返回队尾元素</li>
+</ul>
+</li>
+<li>修改<ul>
+<li><code>q.push_back()</code> 在队尾插入元素</li>
+<li><code>q.pop_back()</code> 弹出队尾元素</li>
+<li><code>q.push_front()</code> 在队首插入元素</li>
+<li><code>q.pop_front()</code> 弹出队首元素</li>
+<li><code>q.insert()</code> 在指定位置前插入元素（传入迭代器和元素）</li>
+<li><code>q.erase()</code> 删除指定位置的元素（传入迭代器）</li>
+</ul>
+</li>
+<li>容量<ul>
+<li><code>q.empty()</code> 队列是否为空</li>
+<li><code>q.size()</code> 返回队列中元素的数量</li>
+</ul>
+</li>
+</ul>
+<p>此外，<code>queue</code> 还提供了一些运算符。其中较为常用的有：</p>
+<ul>
+<li>使用赋值运算符 <code>=</code> 为 <code>deque</code> 赋值，类似 <code>queue</code>。</li>
+<li>使用 <code>[]</code> 访问元素，类似 <code>vector</code>。</li>
+</ul>
+<p><code>&lt;queue&gt;</code> 头文件中还提供了优先队列 <code>std::priority_queue</code>，因其与 <a href="../heap/">堆</a> 更为相似，在此不作过多介绍。</p>
+<h4 id="python">Python 中的双端队列<a class="headerlink" href="#python" title="Permanent link">&para;</a></h4>
+<p>在 Python 中，双端队列的容器由 <code>collections.deque</code> 提供。</p>
+<p>示例如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="c1"># 新建一个 deque，并初始化内容为 [1, 2, 3]</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># 在队尾插入元素 4</span>
+<span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># 在队首插入元素 0</span>
+<span class="n">queue</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># 访问队列</span>
+<span class="c1"># &gt;&gt;&gt; queue</span>
+<span class="c1"># deque([0, 1, 2, 3, 4])</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_5">循环队列<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>使用数组模拟队列会导致一个问题：随着时间的推移，整个队列会向数组的尾部移动，一旦到达数组的最末端，即使数组的前端还有空闲位置，再进行入队操作也会导致溢出（这种数组里实际有空闲位置而发生了上溢的现象被称为“假溢出”）。</p>
+<p>解决假溢出的办法是采用循环的方式来组织存放队列元素的数组，即将数组下标为 0 的位置看做是最后一个位置的后继。（数组下标为 <code>x</code> 的元素，它的后继为 <code>(x + 1) % SIZE</code>）。这样就形成了循环队列。</p>
+<h2 id="_6">例题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<details class="note" open="open">
+<summary><a href="https://loj.ac/problem/6515">LOJ6515「雅礼集训 2018 Day10」贪玩蓝月</a></summary>
+<p>一个双端队列（deque），m 个事件：</p>
+<ol>
+<li>在前端插入 (w,v)</li>
+<li>在后端插入 (w,v)</li>
+<li>删除前端的二元组</li>
+<li>删除后端的二元组</li>
+<li>
+<p>给定 l,r，在当前 deque 中选择一个子集 S 使得 <span class="arithmatex"><span class="MathJax_Preview">\sum_{(w,v)\in S}w\bmod p\in[l,r]</span><script type="math/tex">\sum_{(w,v)\in S}w\bmod p\in[l,r]</script></span>，且最大化 <span class="arithmatex"><span class="MathJax_Preview">\sum_{(w,v)\in S}v</span><script type="math/tex">\sum_{(w,v)\in S}v</script></span>.</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">m\leq 5\times 10^4,p\leq 500</span><script type="math/tex">m\leq 5\times 10^4,p\leq 500</script></span>.</p>
+</li>
+</ol>
+</details>
+<details class="note">
+<summary>解题思路</summary>
+<p>每个二元组是有一段存活时间的，因此对时间建立线段树，每个二元组做 log 个存活标记。因此我们要做的就是对每个询问，求其到根节点的路径上的标记的一个最优子集。显然这个可以 DP 做。<span class="arithmatex"><span class="MathJax_Preview">f[S,j]</span><script type="math/tex">f[S,j]</script></span> 表示选择集合 S 中的物品余数为 j 的最大价值。（其实实现的时侯是有序的，直接 f[i,j]做）</p>
+<p>一共有 <span class="arithmatex"><span class="MathJax_Preview">O(m\log m)</span><script type="math/tex">O(m\log m)</script></span> 个标记，因此这么做的话复杂度是 <span class="arithmatex"><span class="MathJax_Preview">O(mp\log m)</span><script type="math/tex">O(mp\log m)</script></span> 的。</p>
+<hr />
+<p>这是一个在线算法比离线算法快的神奇题目。而且还比离线的好写。</p>
+<p>上述离线算法其实是略微小题大做的，因为如果把题目的 deque 改成直接维护一个集合的话（即随机删除集合内元素），那么离线算法同样适用。既然是 deque，不妨在数据结构上做点文章。</p>
+<hr />
+<p>如果题目中维护的数据结构是一个栈呢？</p>
+<p>直接 DP 即可。<span class="arithmatex"><span class="MathJax_Preview">f[i,j]</span><script type="math/tex">f[i,j]</script></span> 表示前 i 个二元组，余数为 j 时的最大价值。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f[i,j]=\max(f[i-1,j],f[i-1,(j-w_i)\bmod p]+v_i)
+</div>
+<script type="math/tex; mode=display">
+f[i,j]=\max(f[i-1,j],f[i-1,(j-w_i)\bmod p]+v_i)
+</script>
+</div>
+<p>妥妥的背包啊。</p>
+<p>删除的时侯直接指针前移即可。这样做的复杂度是 <span class="arithmatex"><span class="MathJax_Preview">O(mp)</span><script type="math/tex">O(mp)</script></span> 的。</p>
+<hr />
+<p>如果题目中维护的数据结构是队列？</p>
+<p>有一种操作叫双栈模拟队列。这就是这个东西的用武之地。因为用栈是可以轻松维护 DP 过程的，而双栈模拟队列的复杂度是均摊 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 的，因此，复杂度仍是 <span class="arithmatex"><span class="MathJax_Preview">O(mp)</span><script type="math/tex">O(mp)</script></span>。</p>
+<hr />
+<p>回到原题，那么 Deque 怎么做？</p>
+<p>类比推理，我们尝试用栈模拟双端队列，于是似乎把维护队列的方法扩展一下就可以了。但如果每次是全部转移栈中的元素的话，单次操作复杂度很容易退化为 <span class="arithmatex"><span class="MathJax_Preview">O(m)</span><script type="math/tex">O(m)</script></span>。</p>
+<p>于是乎，神仙的想一想，我们可以丢一半过去啊。</p>
+<p>这样的复杂度其实均摊下来仍是常数级别。具体地说，丢一半指的是把一个栈靠近栈底的一半倒过来丢到另一个栈中。也就是说要手写栈以支持这样的操作。</p>
+<hr />
+<p>似乎可以用 <a href="https://yhx-12243.github.io/OI-transit/records/cf601E.html">势能分析法</a> 证明。其实本蒟蒻有一个很仙的想法。我们考虑这个双栈结构的整体复杂度。m 个事件，我们希望尽可能增加这个结构的复杂度。</p>
+<p>首先，如果全是插入操作的话显然是严格 <span class="arithmatex"><span class="MathJax_Preview">\Theta(m)</span><script type="math/tex">\Theta(m)</script></span> 的，因为插入的复杂度是 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 的。</p>
+<p>“丢一半”操作是在什么时侯触发的？当某一个栈为空又要求删除元素的时侯。设另一个栈的元素个数是 <span class="arithmatex"><span class="MathJax_Preview">O(k)</span><script type="math/tex">O(k)</script></span>，那么丢一半的复杂度就是 <span class="arithmatex"><span class="MathJax_Preview">O(k)\geq O(1)</span><script type="math/tex">O(k)\geq O(1)</script></span> 的。因此我们要尽可能增加“丢一半”操作的次数。</p>
+<p>为了增加丢一半的操作次数，必然需要不断删元素直到某一个栈为空。由于插入操作对增加复杂度是无意义的，因此我们不考虑插入操作。初始时有 m 个元素，假设全在一个栈中。则第一次丢一半的复杂度是 <span class="arithmatex"><span class="MathJax_Preview">O(m)</span><script type="math/tex">O(m)</script></span> 的。然后两个栈就各有 <span class="arithmatex"><span class="MathJax_Preview">\frac{m}{2}</span><script type="math/tex">\frac{m}{2}</script></span> 个元素。这时就需要 <span class="arithmatex"><span class="MathJax_Preview">O(\frac{m}{2})</span><script type="math/tex">O(\frac{m}{2})</script></span> 删除其中一个栈，然后就又可以触发一次复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(\frac{m}{2})</span><script type="math/tex">O(\frac{m}{2})</script></span> 的丢一半操作……</p>
+<p>考虑这样做的总复杂度。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+T(m)=2\cdot O(m)+T\left(\frac{m}{2}\right)
+</div>
+<script type="math/tex; mode=display">
+T(m)=2\cdot O(m)+T\left(\frac{m}{2}\right)
+</script>
+</div>
+<p>解得 <span class="arithmatex"><span class="MathJax_Preview">T(m)=O(m)</span><script type="math/tex">T(m)=O(m)</script></span>。</p>
+<p>于是，总复杂度仍是 <span class="arithmatex"><span class="MathJax_Preview">O(mp)</span><script type="math/tex">O(mp)</script></span>。</p>
+<hr />
+<p>在询问的时侯，我们要处理的应该是“在两个栈中选若干个元素的最大价值”的问题。因此要对栈顶的 DP 值做查询，即两个 <span class="arithmatex"><span class="MathJax_Preview">f,g</span><script type="math/tex">f,g</script></span> 对于询问[l,r]的最大价值：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\max_{0\leq i&lt;p}\left\{f[i]+\max_{l\leq i+j\leq r}g_j\right\}
+</div>
+<script type="math/tex; mode=display">
+\max_{0\leq i<p}\left\{f[i]+\max_{l\leq i+j\leq r}g_j\right\}
+</script>
+</div>
+<p>这个问题暴力做是 <span class="arithmatex"><span class="MathJax_Preview">O(p^2)</span><script type="math/tex">O(p^2)</script></span> 的，不过一个妥妥的单调队列可以做到 <span class="arithmatex"><span class="MathJax_Preview">O(p)</span><script type="math/tex">O(p)</script></span>。</p>
+</details>
+<details class="note">
+<summary>参考代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="_7">参考资料<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="https://zh.cppreference.com/w/cpp/container/queue">std::queue - zh.cppreference.com</a></li>
+<li><a href="https://zh.cppreference.com/w/cpp/container/deque">std::deque - zh.cppreference.com</a></li>
+</ol>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/ds/queue.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Queue',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

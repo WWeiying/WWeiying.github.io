@@ -1,0 +1,1016 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/math/combinatorics/bernoulli/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Bernoulli - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Bernoulli
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    等幂求和
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    递推公式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    证明
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    利用归纳法证明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    利用指数生成函数证明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/combinatorics/bernoulli.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Bernoulli</h1>
+                
+                <p>伯努利数 <span class="arithmatex"><span class="MathJax_Preview">B_n</span><script type="math/tex">B_n</script></span> 是一个与数论有密切关联的有理数序列。前几项被发现的伯努利数分别为：</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">B_0=1,B_1=-\frac{1}{2},B_2=\frac{1}{6},B_3=0,B_4=-\frac{1}{30},\dots</span><script type="math/tex">B_0=1,B_1=-\frac{1}{2},B_2=\frac{1}{6},B_3=0,B_4=-\frac{1}{30},\dots</script></span></p>
+<h2 id="_1">等幂求和<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>伯努利数是由雅各布·伯努利的名字命名的，他在研究 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 次幂和的公式时发现了奇妙的关系。我们记</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+S_{m}(n)=\sum_{k=0}^{n-1}k^m=0^m+1^m+\dots+(n-1)^m
+</div>
+<script type="math/tex; mode=display">
+S_{m}(n)=\sum_{k=0}^{n-1}k^m=0^m+1^m+\dots+(n-1)^m
+</script>
+</div>
+<p>伯努利观察了如下一列公式，勾画出一种模式：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+S_0(n)&amp;=n\\
+S_1(n)&amp;=\frac{1}{2}n^2-\frac{1}{2}n\\
+S_2(n)&amp;=\frac{1}{3}n^3-\frac{1}{2}n^2+\frac{1}{6}n\\
+S_3(n)&amp;=\frac{1}{4}n^4-\frac{1}{2}n^3+\frac{1}{4}n^2\\
+S_4(n)&amp;=\frac{1}{5}n^5-\frac{1}{2}n^4+\frac{1}{3}n^3-\frac{1}{30}n
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S_0(n)&=n\\
+S_1(n)&=\frac{1}{2}n^2-\frac{1}{2}n\\
+S_2(n)&=\frac{1}{3}n^3-\frac{1}{2}n^2+\frac{1}{6}n\\
+S_3(n)&=\frac{1}{4}n^4-\frac{1}{2}n^3+\frac{1}{4}n^2\\
+S_4(n)&=\frac{1}{5}n^5-\frac{1}{2}n^4+\frac{1}{3}n^3-\frac{1}{30}n
+\end{aligned}
+</script>
+</div>
+<p>可以发现，在 <span class="arithmatex"><span class="MathJax_Preview">S_m(n)</span><script type="math/tex">S_m(n)</script></span> 中 <span class="arithmatex"><span class="MathJax_Preview">n^{m+1}</span><script type="math/tex">n^{m+1}</script></span> 的系数总是 <span class="arithmatex"><span class="MathJax_Preview">\frac{1}{m+1}</span><script type="math/tex">\frac{1}{m+1}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">n^m</span><script type="math/tex">n^m</script></span> 的系数总是 <span class="arithmatex"><span class="MathJax_Preview">-\frac{1}{2}</span><script type="math/tex">-\frac{1}{2}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">n^{m-1}</span><script type="math/tex">n^{m-1}</script></span> 的系数总是 <span class="arithmatex"><span class="MathJax_Preview">\frac{m}{12}</span><script type="math/tex">\frac{m}{12}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">n^{m-3}</span><script type="math/tex">n^{m-3}</script></span> 的系数是 <span class="arithmatex"><span class="MathJax_Preview">-\frac{m(m-1)(m-2)}{720}</span><script type="math/tex">-\frac{m(m-1)(m-2)}{720}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">n^{m-4}</span><script type="math/tex">n^{m-4}</script></span> 的系数总是零等。</p>
+<p>而 <span class="arithmatex"><span class="MathJax_Preview">n^{m-k}</span><script type="math/tex">n^{m-k}</script></span> 的系数总是某个常数乘以 <span class="arithmatex"><span class="MathJax_Preview">m^{\underline{k}}</span><script type="math/tex">m^{\underline{k}}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">m^{\underline{k}}</span><script type="math/tex">m^{\underline{k}}</script></span> 表示下降阶乘幂，即 <span class="arithmatex"><span class="MathJax_Preview">\frac{m!}{(m-k)!}</span><script type="math/tex">\frac{m!}{(m-k)!}</script></span>。</p>
+<h2 id="_2">递推公式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+S_m{(n)}&amp;=\frac{1}{m+1}(B_0n^{m+1}+\binom{m+1}{1}B_1 n^m+\dots+\binom{m+1}{m}B_m n) \\
+&amp;=\frac{1}{m+1}\sum_{k=0}^{m}\binom{m+1}{k}B_kn^{m+1-k}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S_m{(n)}&=\frac{1}{m+1}(B_0n^{m+1}+\binom{m+1}{1}B_1 n^m+\dots+\binom{m+1}{m}B_m n) \\
+&=\frac{1}{m+1}\sum_{k=0}^{m}\binom{m+1}{k}B_kn^{m+1-k}
+\end{aligned}
+</script>
+</div>
+<p>伯努利数由隐含的递推关系定义：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\sum_{j=0}^{m}\binom{m+1}{j}B_j&amp;=0,(m&gt;0)\\
+B_0&amp;=1
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{j=0}^{m}\binom{m+1}{j}B_j&=0,(m>0)\\
+B_0&=1
+\end{aligned}
+</script>
+</div>
+<p>例如，<span class="arithmatex"><span class="MathJax_Preview">\binom{2}{0}B_0+\binom{2}{1}B_1=0</span><script type="math/tex">\binom{2}{0}B_0+\binom{2}{1}B_1=0</script></span>，前几个值显然是</p>
+<table>
+<thead>
+<tr>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span></th>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span></th>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span></th>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span></th>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">3</span><script type="math/tex">3</script></span></th>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">4</span><script type="math/tex">4</script></span></th>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">5</span><script type="math/tex">5</script></span></th>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">6</span><script type="math/tex">6</script></span></th>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">7</span><script type="math/tex">7</script></span></th>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">8</span><script type="math/tex">8</script></span></th>
+<th align="center"><span class="arithmatex"><span class="MathJax_Preview">\dots</span><script type="math/tex">\dots</script></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">B_n</span><script type="math/tex">B_n</script></span></td>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span></td>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">-\frac{1}{2}</span><script type="math/tex">-\frac{1}{2}</script></span></td>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">\frac{1}{6}</span><script type="math/tex">\frac{1}{6}</script></span></td>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span></td>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">-\frac{1}{30}</span><script type="math/tex">-\frac{1}{30}</script></span></td>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span></td>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">\frac{1}{42}</span><script type="math/tex">\frac{1}{42}</script></span></td>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span></td>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">-\frac{1}{30}</span><script type="math/tex">-\frac{1}{30}</script></span></td>
+<td align="center"><span class="arithmatex"><span class="MathJax_Preview">\dots</span><script type="math/tex">\dots</script></span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">证明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h4 id="_4">利用归纳法证明<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>这个证明方法来自 Concrete Mathematics 6.5 BERNOULLI NUMBER。</p>
+<p>运用二项式系数的恒等变换和归纳法进行证明：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+S_{m+1}(n)+n^{m+1}&amp;= \sum_{k=0}^{n-1}(k+1)^{m+1}\\
+&amp;=\sum_{k=0}^{n-1}\sum_{j=0}^{m+1}\binom{m+1}{j}k^j\\
+&amp;=\sum_{j=0}^{m+1}\binom{m+1}{j}S_j(n)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S_{m+1}(n)+n^{m+1}&= \sum_{k=0}^{n-1}(k+1)^{m+1}\\
+&=\sum_{k=0}^{n-1}\sum_{j=0}^{m+1}\binom{m+1}{j}k^j\\
+&=\sum_{j=0}^{m+1}\binom{m+1}{j}S_j(n)
+\end{aligned}
+</script>
+</div>
+<p>令 <span class="arithmatex"><span class="MathJax_Preview">\hat{S}_{m}(n)=\frac{1}{m+1} \sum_{k=0}^{m} \binom{m+1}{k}B_kn^{m+1-k}</span><script type="math/tex">\hat{S}_{m}(n)=\frac{1}{m+1} \sum_{k=0}^{m} \binom{m+1}{k}B_kn^{m+1-k}</script></span>，我们希望证明 <span class="arithmatex"><span class="MathJax_Preview">S_m(n)=\hat{S}_m(n)</span><script type="math/tex">S_m(n)=\hat{S}_m(n)</script></span>，假设对 <span class="arithmatex"><span class="MathJax_Preview">j\in[0,m)</span><script type="math/tex">j\in[0,m)</script></span>，有 <span class="arithmatex"><span class="MathJax_Preview">S_j(n)=\hat{S}_j(n)</span><script type="math/tex">S_j(n)=\hat{S}_j(n)</script></span>。</p>
+<p>将原式中两边都减去 <span class="arithmatex"><span class="MathJax_Preview">S_{m+1}(n)</span><script type="math/tex">S_{m+1}(n)</script></span> 后可以得到：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+S_{m+1}(n)+n^{m+1}&amp;=\sum_{j=0}^{m+1}\binom{m+1}{j}S_j(n)\\
+n^{m+1}&amp;=\sum_{j=0}^{m}\binom{m+1}{j}S_j(n)\\
+&amp;=\sum_{j=0}^{m-1}\binom{m+1}{j}\hat{S}_j(n)+\binom{m+1}{m}S_m(n)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S_{m+1}(n)+n^{m+1}&=\sum_{j=0}^{m+1}\binom{m+1}{j}S_j(n)\\
+n^{m+1}&=\sum_{j=0}^{m}\binom{m+1}{j}S_j(n)\\
+&=\sum_{j=0}^{m-1}\binom{m+1}{j}\hat{S}_j(n)+\binom{m+1}{m}S_m(n)
+\end{aligned}
+</script>
+</div>
+<p>尝试在式子的右边加上 <span class="arithmatex"><span class="MathJax_Preview">\binom{m+1}{m}\hat{S}_m(n)-\binom{m+1}{m}\hat{S}_m(n)</span><script type="math/tex">\binom{m+1}{m}\hat{S}_m(n)-\binom{m+1}{m}\hat{S}_m(n)</script></span> 再进行化简，可以得到：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n^{m+1}=\sum_{j=0}^{m}\binom{m+1}{j}\hat{S}_j(n)+(m+1)(S_m(n)-\hat{S}_m(n))
+</div>
+<script type="math/tex; mode=display">
+n^{m+1}=\sum_{j=0}^{m}\binom{m+1}{j}\hat{S}_j(n)+(m+1)(S_m(n)-\hat{S}_m(n))
+</script>
+</div>
+<p>不妨设 <span class="arithmatex"><span class="MathJax_Preview">\Delta = S_m(n)-\hat{S}_m(n)</span><script type="math/tex">\Delta = S_m(n)-\hat{S}_m(n)</script></span>，并且将 <span class="arithmatex"><span class="MathJax_Preview">\hat{S}_j(n)</span><script type="math/tex">\hat{S}_j(n)</script></span> 展开，那么有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+n^{m+1}&amp;=\sum_{j=0}^{m}\binom{m+1}{j}\hat{S}_j(n)+(m+1)\Delta\\
+&amp;=\sum_{j=0}^{m}\binom{m+1}{j}\frac{1}{j+1}\sum_{k=0}^{j}\binom{j+1}{k}B_kn^{j+1-k}+(m+1)\Delta\\
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+n^{m+1}&=\sum_{j=0}^{m}\binom{m+1}{j}\hat{S}_j(n)+(m+1)\Delta\\
+&=\sum_{j=0}^{m}\binom{m+1}{j}\frac{1}{j+1}\sum_{k=0}^{j}\binom{j+1}{k}B_kn^{j+1-k}+(m+1)\Delta\\
+\end{aligned}
+</script>
+</div>
+<p>将第二个 <span class="arithmatex"><span class="MathJax_Preview">\sum</span><script type="math/tex">\sum</script></span> 中的求和顺序改为逆向，再将组合数的写法恒等变换可以得到：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+n^{m+1}&amp;=\sum_{j=0}^{m}\binom{m+1}{j}\frac{1}{j+1}\sum_{k=0}^{j}\binom{j+1}{j-k}B_{j-k}n^{k+1}+(m+1)\Delta\\
+&amp;=\sum_{j=0}^{m}\binom{m+1}{j}\frac{1}{j+1}\sum_{k=0}^{j}\binom{j+1}{k+1}B_{j-k}n^{k+1}+(m+1)\Delta\\
+&amp;=\sum_{j=0}^{m}\binom{m+1}{j}\frac{1}{j+1}\sum_{k=0}^{j}\frac{j+1}{k+1}\binom{j}{k}B_{j-k}n^{k+1}+(m+1)\Delta\\
+&amp;=\sum_{j=0}^{m}\binom{m+1}{j}\sum_{k=0}^{j}\binom{j}{k}\frac{B_{j-k}}{k+1}n^{k+1}+(m+1)\Delta
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+n^{m+1}&=\sum_{j=0}^{m}\binom{m+1}{j}\frac{1}{j+1}\sum_{k=0}^{j}\binom{j+1}{j-k}B_{j-k}n^{k+1}+(m+1)\Delta\\
+&=\sum_{j=0}^{m}\binom{m+1}{j}\frac{1}{j+1}\sum_{k=0}^{j}\binom{j+1}{k+1}B_{j-k}n^{k+1}+(m+1)\Delta\\
+&=\sum_{j=0}^{m}\binom{m+1}{j}\frac{1}{j+1}\sum_{k=0}^{j}\frac{j+1}{k+1}\binom{j}{k}B_{j-k}n^{k+1}+(m+1)\Delta\\
+&=\sum_{j=0}^{m}\binom{m+1}{j}\sum_{k=0}^{j}\binom{j}{k}\frac{B_{j-k}}{k+1}n^{k+1}+(m+1)\Delta
+\end{aligned}
+</script>
+</div>
+<p>对两个求和符号进行交换，可以得到：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n^{m+1}=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\sum_{j=k}^{m}\binom{m+1}{j}\binom{j}{k}B_{j-k}+(m+1)\Delta
+</div>
+<script type="math/tex; mode=display">
+n^{m+1}=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\sum_{j=k}^{m}\binom{m+1}{j}\binom{j}{k}B_{j-k}+(m+1)\Delta
+</script>
+</div>
+<p>对 <span class="arithmatex"><span class="MathJax_Preview">\binom{m+1}{j}\binom{j}{k}</span><script type="math/tex">\binom{m+1}{j}\binom{j}{k}</script></span> 进行恒等变换：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\binom{m+1}{j}\binom{j}{k}＝\binom{m+1}{k}\binom{m-k+1}{j-k}
+</div>
+<script type="math/tex; mode=display">
+\binom{m+1}{j}\binom{j}{k}＝\binom{m+1}{k}\binom{m-k+1}{j-k}
+</script>
+</div>
+<p>那么式子就变成了：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+n^{m+1}&amp;=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\sum_{j=k}^{m}\binom{m+1}{k}\binom{m-k+1}{j-k}B_{j-k}+(m+1)\Delta\\
+&amp;=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\binom{m+1}{k}\sum_{j=k}^{m}\binom{m-k+1}{j-k}B_{j-k}+(m+1)\Delta\\
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+n^{m+1}&=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\sum_{j=k}^{m}\binom{m+1}{k}\binom{m-k+1}{j-k}B_{j-k}+(m+1)\Delta\\
+&=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\binom{m+1}{k}\sum_{j=k}^{m}\binom{m-k+1}{j-k}B_{j-k}+(m+1)\Delta\\
+\end{aligned}
+</script>
+</div>
+<p>将所有的 <span class="arithmatex"><span class="MathJax_Preview">j-k</span><script type="math/tex">j-k</script></span> 用 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 代替，那么就可以得到：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n^{m+1}=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\binom{m+1}{k}\sum_{j=0}^{m-k}\binom{m-k+1}{j}B_{j}+(m+1)\Delta
+</div>
+<script type="math/tex; mode=display">
+n^{m+1}=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\binom{m+1}{k}\sum_{j=0}^{m-k}\binom{m-k+1}{j}B_{j}+(m+1)\Delta
+</script>
+</div>
+<p>考虑我们前面提到过的递归关系</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\sum_{j=0}^{m}\binom{m+1}{j}B_j&amp;=0,(m&gt;0)\\
+B_0&amp;=1\\
+\sum_{j=0}^{m}\binom{m+1}{j}B_j&amp;=[m = 0]
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{j=0}^{m}\binom{m+1}{j}B_j&=0,(m>0)\\
+B_0&=1\\
+\sum_{j=0}^{m}\binom{m+1}{j}B_j&=[m = 0]
+\end{aligned}
+</script>
+</div>
+<p>代入后可以得到：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+n^{m+1}&amp;=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\binom{m+1}{k}[m - k = 0]+(m+1)\Delta\\
+&amp;=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\binom{m+1}{k}+(m+1)\Delta\\
+&amp;=\frac{n^{m+1}}{m+1}\binom{m+1}{m}+(m+1)\Delta\\
+&amp;=n^{m+1}+(m+1)\Delta
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+n^{m+1}&=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\binom{m+1}{k}[m - k = 0]+(m+1)\Delta\\
+&=\sum_{k=0}^{m}\frac{n^{k+1}}{k+1}\binom{m+1}{k}+(m+1)\Delta\\
+&=\frac{n^{m+1}}{m+1}\binom{m+1}{m}+(m+1)\Delta\\
+&=n^{m+1}+(m+1)\Delta
+\end{aligned}
+</script>
+</div>
+<p>于是 <span class="arithmatex"><span class="MathJax_Preview">\Delta=0</span><script type="math/tex">\Delta=0</script></span>，且有 <span class="arithmatex"><span class="MathJax_Preview">S_m(n)=\hat{S}_m(n)</span><script type="math/tex">S_m(n)=\hat{S}_m(n)</script></span>。</p>
+<h4 id="_5">利用指数生成函数证明<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>对递推式 <span class="arithmatex"><span class="MathJax_Preview">\sum_{j=0}^{m}\binom{m+1}{j}B_j=[m=0]</span><script type="math/tex">\sum_{j=0}^{m}\binom{m+1}{j}B_j=[m=0]</script></span></p>
+<p>两边都加上 <span class="arithmatex"><span class="MathJax_Preview">B_{m + 1}</span><script type="math/tex">B_{m + 1}</script></span>，即得到：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\sum_{j=0}^{m+1}\binom{m+1}{j}B_j&amp;=[m=0]+B_{m+1}\\
+\sum_{j=0}^{m}\binom{m}{j}B_j&amp;=[m=1]+B_{m}\\
+\sum_{j=0}^{m}\dfrac{B_j}{j!}\cdot\dfrac{1}{(m-j)!}&amp;=[m=1]+\dfrac{B_{m}}{m!}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{j=0}^{m+1}\binom{m+1}{j}B_j&=[m=0]+B_{m+1}\\
+\sum_{j=0}^{m}\binom{m}{j}B_j&=[m=1]+B_{m}\\
+\sum_{j=0}^{m}\dfrac{B_j}{j!}\cdot\dfrac{1}{(m-j)!}&=[m=1]+\dfrac{B_{m}}{m!}
+\end{aligned}
+</script>
+</div>
+<p>设 <span class="arithmatex"><span class="MathJax_Preview">B(z) = \sum\limits_{i\ge 0}\dfrac{B_i}{i!}z^i</span><script type="math/tex">B(z) = \sum\limits_{i\ge 0}\dfrac{B_i}{i!}z^i</script></span>，注意到左边为卷积形式，故：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+B(z)e^z &amp;= z+B(z)\\
+B(z)&amp;=\dfrac{z}{e^z - 1}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+B(z)e^z &= z+B(z)\\
+B(z)&=\dfrac{z}{e^z - 1}
+\end{aligned}
+</script>
+</div>
+<p>设 <span class="arithmatex"><span class="MathJax_Preview">F_n(z) = \sum_{m\ge 0}\dfrac{S_m(n)}{m!}z^m</span><script type="math/tex">F_n(z) = \sum_{m\ge 0}\dfrac{S_m(n)}{m!}z^m</script></span>，则：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+F_n(z) &amp;= \sum_{m\ge 0}\dfrac{S_m(n)}{m!}z^m\\
+&amp;= \sum_{m\ge 0}\sum_{i=0}^{n-1}\dfrac{i^mz^m}{m!}\\
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F_n(z) &= \sum_{m\ge 0}\dfrac{S_m(n)}{m!}z^m\\
+&= \sum_{m\ge 0}\sum_{i=0}^{n-1}\dfrac{i^mz^m}{m!}\\
+\end{aligned}
+</script>
+</div>
+<p>调换求和顺序：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+F_n(z) &amp;=\sum_{i=0}^{n-1}\sum_{m\ge 0}\dfrac{i^mz^m}{m!}\\
+       &amp;=\sum_{i=0}^{n-1}e^{iz}\\
+       &amp;=\dfrac{e^{nz} - 1}{e^z - 1}\\
+       &amp;=\dfrac{z}{e^z - 1}\cdot\dfrac{e^{nz} - 1}{z}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F_n(z) &=\sum_{i=0}^{n-1}\sum_{m\ge 0}\dfrac{i^mz^m}{m!}\\
+       &=\sum_{i=0}^{n-1}e^{iz}\\
+       &=\dfrac{e^{nz} - 1}{e^z - 1}\\
+       &=\dfrac{z}{e^z - 1}\cdot\dfrac{e^{nz} - 1}{z}
+\end{aligned}
+</script>
+</div>
+<p>代入 <span class="arithmatex"><span class="MathJax_Preview">B(z)=\dfrac{z}{e^z - 1}</span><script type="math/tex">B(z)=\dfrac{z}{e^z - 1}</script></span>：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+F_n(z) &amp;= B(z)\cdot\dfrac{e^{nz} - 1}{z}\\
+&amp;= \left(\sum_{i\ge 0}\dfrac{B_i}{i!} \right)\left(\sum_{i\ge 1}\dfrac{n^i z^{i - 1}}{i!}\right)\\
+&amp;= \left(\sum_{i\ge 0}\dfrac{B_i}{i!} \right)\left(\sum_{i\ge 0}\dfrac{n^{i+1} z^{i}}{(i+1)!}\right)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+F_n(z) &= B(z)\cdot\dfrac{e^{nz} - 1}{z}\\
+&= \left(\sum_{i\ge 0}\dfrac{B_i}{i!} \right)\left(\sum_{i\ge 1}\dfrac{n^i z^{i - 1}}{i!}\right)\\
+&= \left(\sum_{i\ge 0}\dfrac{B_i}{i!} \right)\left(\sum_{i\ge 0}\dfrac{n^{i+1} z^{i}}{(i+1)!}\right)
+\end{aligned}
+</script>
+</div>
+<p>由于 <span class="arithmatex"><span class="MathJax_Preview">F_n(z) = \sum_{m\ge 0}\dfrac{S_m(n)}{m!}z^m</span><script type="math/tex">F_n(z) = \sum_{m\ge 0}\dfrac{S_m(n)}{m!}z^m</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">S_m(n)=m![z^m]F_n(z)</span><script type="math/tex">S_m(n)=m![z^m]F_n(z)</script></span>：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+S \times m(n)&amp;=m![z^m]F_n(z)\\
+             &amp;= m!\sum_{i=0}^{m}\dfrac{B \times i}{i!}\cdot\dfrac{n^{m-i+1}}{(m-i+1)!}\\
+             &amp;=\dfrac{1}{m+1}\sum_{i=0}^{m}\binom{m+1}{i}B_in^{m-i+1}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+S \times m(n)&=m![z^m]F_n(z)\\
+             &= m!\sum_{i=0}^{m}\dfrac{B \times i}{i!}\cdot\dfrac{n^{m-i+1}}{(m-i+1)!}\\
+             &=\dfrac{1}{m+1}\sum_{i=0}^{m}\binom{m+1}{i}B_in^{m-i+1}
+\end{aligned}
+</script>
+</div>
+<p>故得证。</p>
+<details class="note">
+<summary>参考实现</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">ll</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1e9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"></span>
+<span class="n">ll</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span><span class="w">        </span><span class="c1">// 伯努利数</span>
+<span class="n">ll</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">maxn</span><span class="p">][</span><span class="n">maxn</span><span class="p">];</span><span class="w">  </span><span class="c1">// 组合数</span>
+<span class="n">ll</span><span class="w"> </span><span class="n">inv</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span><span class="w">      </span><span class="c1">// 逆元（计算伯努利数）</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 预处理组合数</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxn</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 预处理逆元</span>
+<span class="w">  </span><span class="n">inv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxn</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">inv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">mod</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">inv</span><span class="p">[</span><span class="n">mod</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// 预处理伯努利数</span>
+<span class="w">  </span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxn</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">maxn</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">ans</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ans</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">inv</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mod</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mod</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/combinatorics/bernoulli.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../../assets/vendor/gitalk/gitalk.css">
+<script src="../../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Bernoulli',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

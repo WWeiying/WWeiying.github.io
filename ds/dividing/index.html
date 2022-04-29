@@ -1,0 +1,717 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/ds/dividing/">
+      
+      
+        <meta name="author" content="X">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Dividing - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Dividing
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    建树
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    理论复杂度和亲测结果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    划分树的应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    后记
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/ds/dividing.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Dividing</h1>
+                
+                <p>划分树是一种来解决区间第 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 大的一种数据结构，其常数、理解难度都要比主席树低很多。同时，划分树紧贴“第 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 大”，所以是一种基于排序的一种数据结构。</p>
+<p><strong>建议先学完 <a href="../persistent-seg/#_1">主席树</a> 再看划分树哦</strong></p>
+<h2 id="_1">建树<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>划分树的建树比较简单，但是相对于其他树来说比较复杂。<img alt="" src="../images/dividing1.png" /></p>
+<p>如图，每一层都有一个看似无序的数组。其实，每一个被红色标记的数字都是 <strong>要分配到左儿子的</strong>。而分配的规则是什么？就是与 <strong>这一层的中位数</strong> 做比较，如果小于等于中位数，则分到左边，否则分到右边。但是这里要注意一下：并不是严格的 <strong>小于等于就分到左边，否则分到右边</strong>。因为中位数可能有相同，而且与 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 的奇偶有一定关系。下面的代码展示会有一个巧妙的运用，大家可以参照代码。</p>
+<p>我们不可能每一次都对每一层排序，这样子不说常数，就算是理论复杂度也过不去。我们想，找中位数，一次排序就够了。为什么？比如，我们求 <span class="arithmatex"><span class="MathJax_Preview">l,r</span><script type="math/tex">l,r</script></span> 的中位数，其实就是在排完序过后的 <code>num[mid]</code>。</p>
+<p>两个关键数组：</p>
+<p>tree[log(N),N]&#x3A;也就是树，要存下所有的值，空间复杂度 <span class="arithmatex"><span class="MathJax_Preview">O(n\log n)</span><script type="math/tex">O(n\log n)</script></span>。
+toleft[log(N),n]&#x3A;也就是每一层 1~i 进入左儿子的数量，这里需要理解一下，这是一个前缀和。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">procedure</span> <span class="nf">Build</span><span class="p">(</span><span class="n">left</span><span class="o">,</span><span class="n">right</span><span class="o">,</span><span class="n">deep</span><span class="o">:</span><span class="kt">longint</span><span class="p">)</span><span class="o">;</span> <span class="c1">// left,right 表示区间左右端点,deep是第几层</span>
+<span class="k">var</span>
+  <span class="n">i</span><span class="o">,</span><span class="n">mid</span><span class="o">,</span><span class="n">same</span><span class="o">,</span><span class="n">ls</span><span class="o">,</span><span class="n">rs</span><span class="o">,</span><span class="n">flag</span><span class="o">:</span><span class="kt">longint</span><span class="o">;</span> <span class="c1">// 其中 flag 是用来平衡左右两边的数量的</span>
+<span class="k">begin</span>
+  <span class="k">if</span> <span class="n">left</span><span class="o">=</span><span class="n">right</span> <span class="k">then</span> <span class="k">exit</span><span class="o">;</span> <span class="c1">// 到底层了</span>
+  <span class="n">mid</span><span class="o">:=</span><span class="p">(</span><span class="n">left</span><span class="o">+</span><span class="n">right</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="n">same</span><span class="o">:=</span><span class="n">mid</span><span class="o">-</span><span class="n">left</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+  <span class="k">for</span> <span class="n">i</span><span class="o">:=</span><span class="n">left</span> <span class="k">to</span> <span class="n">right</span> <span class="k">do</span> 
+    <span class="k">if</span> <span class="n">tree</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="n">num</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="k">then</span>
+      <span class="nb">dec</span><span class="p">(</span><span class="n">same</span><span class="p">)</span><span class="o">;</span>
+
+  <span class="n">ls</span><span class="o">:=</span><span class="n">left</span><span class="o">;</span> <span class="c1">// 分配到左儿子的第一个指针</span>
+  <span class="n">rs</span><span class="o">:=</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span> <span class="c1">// 分配到右儿子的第一个指针</span>
+  <span class="k">for</span> <span class="n">i</span><span class="o">:=</span><span class="n">left</span> <span class="k">to</span> <span class="n">right</span> <span class="k">do</span>
+  <span class="k">begin</span>
+    <span class="n">flag</span><span class="o">:=</span><span class="mi">0</span><span class="o">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="n">num</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span><span class="k">or</span><span class="p">((</span><span class="n">tree</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">num</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span><span class="k">and</span><span class="p">(</span><span class="n">same</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">))</span> <span class="k">then</span> <span class="c1">// 分配到左边的条件</span>
+    <span class="k">begin</span>
+      <span class="n">flag</span><span class="o">:=</span><span class="mi">1</span><span class="o">;</span> <span class="n">tree</span><span class="p">[</span><span class="n">deep</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">ls</span><span class="p">]</span><span class="o">:=</span><span class="n">tree</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">i</span><span class="p">]</span><span class="o">;</span> <span class="nb">inc</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span><span class="o">;</span>
+      <span class="k">if</span> <span class="n">tree</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">num</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="k">then</span> <span class="c1">// 平衡左右个数</span>
+        <span class="nb">dec</span><span class="p">(</span><span class="n">same</span><span class="p">)</span><span class="o">;</span>
+    <span class="k">end</span>
+    <span class="k">else</span>
+    <span class="k">begin</span>
+      <span class="n">tree</span><span class="p">[</span><span class="n">deep</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">rs</span><span class="p">]</span><span class="o">:=</span><span class="n">tree</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">i</span><span class="p">]</span><span class="o">;</span> <span class="nb">inc</span><span class="p">(</span><span class="n">rs</span><span class="p">)</span><span class="o">;</span>
+    <span class="k">end</span><span class="o">;</span>
+    <span class="n">toleft</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">i</span><span class="p">]</span><span class="o">:=</span><span class="n">toleft</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">flag</span><span class="o">;</span>
+  <span class="k">end</span><span class="o">;</span>
+  <span class="n">Build</span><span class="p">(</span><span class="n">left</span><span class="o">,</span><span class="n">mid</span><span class="o">,</span><span class="n">deep</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 继续</span>
+  <span class="n">Build</span><span class="p">(</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">right</span><span class="o">,</span><span class="n">deep</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">;</span>
+<span class="k">end</span><span class="o">;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_2">查询<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>那我们先扯一下主席树的内容。在用主席树求区间第 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 小的时候，我们以 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 为基准，向左就向左，向右要减去向左的值，在划分树中也是这样子的。</p>
+<p>查询难理解的，在于 <strong>区间缩小</strong> 这种东西。下图，我查询的是 <span class="arithmatex"><span class="MathJax_Preview">3</span><script type="math/tex">3</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">7</span><script type="math/tex">7</script></span>, 那么下一层我就只需要查询 <span class="arithmatex"><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">3</span><script type="math/tex">3</script></span> 了。当然，我们定义 <span class="arithmatex"><span class="MathJax_Preview">[\text{left},\text{right}]</span><script type="math/tex">[\text{left},\text{right}]</script></span> 为缩小后的区间（目标区间），<span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 还是我所在节点的区间。那为什么要标出目标区间呢？因为那是 <strong>判定答案在左边还是右边的基准</strong>。</p>
+<p><img alt="" src="../images/dividing2.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">function</span> <span class="nf">Query</span><span class="p">(</span><span class="n">left</span><span class="o">,</span><span class="n">right</span><span class="o">,</span><span class="n">k</span><span class="o">,</span><span class="n">l</span><span class="o">,</span><span class="n">r</span><span class="o">,</span><span class="n">deep</span><span class="o">:</span><span class="kt">longint</span><span class="p">)</span><span class="o">:</span><span class="kt">longint</span><span class="o">;</span>
+<span class="k">var</span>
+  <span class="n">mid</span><span class="o">,</span><span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">,</span><span class="n">cnt</span><span class="o">,</span><span class="n">rx</span><span class="o">,</span><span class="n">ry</span><span class="o">:</span><span class="kt">longint</span><span class="o">;</span>
+<span class="k">begin</span>
+  <span class="k">if</span> <span class="n">left</span><span class="o">=</span><span class="n">right</span> <span class="k">then</span> <span class="c1">// 写成 l=r 也无妨,因为目标区间也一定有答案</span>
+    <span class="k">exit</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">left</span><span class="p">])</span><span class="o">;</span>
+  <span class="n">mid</span><span class="o">:=</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="n">x</span><span class="o">:=</span><span class="n">toleft</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">left</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">toleft</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">;</span> <span class="c1">// l 到 left 的去左儿子的个数</span>
+  <span class="n">y</span><span class="o">:=</span><span class="n">toleft</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">right</span><span class="p">]</span><span class="o">-</span><span class="n">toleft</span><span class="p">[</span><span class="n">deep</span><span class="o">,</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">;</span> <span class="c1">// l 到 right 的去左儿子的个数</span>
+  <span class="n">ry</span><span class="o">:=</span><span class="n">right</span><span class="o">-</span><span class="n">l</span><span class="o">-</span><span class="n">y</span><span class="o">;</span> <span class="n">rx</span><span class="o">:=</span><span class="n">left</span><span class="o">-</span><span class="n">l</span><span class="o">-</span><span class="n">x</span><span class="o">;</span> <span class="c1">// ry 是 l 到 right 去右儿子的个数,rx 则是 l 到 left 去右儿子的个数</span>
+  <span class="n">cnt</span><span class="o">:=</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">;</span> <span class="c1">// left 到 right 左儿子的个数</span>
+  <span class="k">if</span> <span class="n">cnt</span><span class="o">&gt;=</span><span class="n">k</span> <span class="k">then</span> <span class="c1">// 主席树常识啦</span>
+    <span class="n">Query</span><span class="o">:=</span><span class="n">Query</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">x</span><span class="o">,</span><span class="n">l</span><span class="o">+</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="o">,</span><span class="n">k</span><span class="o">,</span><span class="n">l</span><span class="o">,</span><span class="n">mid</span><span class="o">,</span><span class="n">deep</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// l+x 就是缩小左边界,l+y-1 就是缩小右区间。对于上图来说,就是把节点 1 和 2 放弃了。</span>
+  <span class="k">else</span>
+    <span class="n">Query</span><span class="o">:=</span><span class="n">Query</span><span class="p">(</span><span class="n">mid</span><span class="o">+</span><span class="n">rx</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">mid</span><span class="o">+</span><span class="n">ry</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">k</span><span class="o">-</span><span class="n">cnt</span><span class="o">,</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">,</span><span class="n">r</span><span class="o">,</span><span class="n">deep</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">;</span> <span class="c1">// 同样是缩小区间,只不过变成了右边而已。注意要将 k 减去 cnt。</span>
+<span class="k">end</span><span class="o">;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_3">理论复杂度和亲测结果<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>时间复杂度 : 一次查询只需要 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 次询问，就是 <span class="arithmatex"><span class="MathJax_Preview">O(m\log n)</span><script type="math/tex">O(m\log n)</script></span>。</p>
+<p>空间复杂度 : 只需要存储 <span class="arithmatex"><span class="MathJax_Preview">O(n\log n)</span><script type="math/tex">O(n\log n)</script></span> 个数字。</p>
+<p>亲测结果：主席树 :<span class="arithmatex"><span class="MathJax_Preview">1482 \text{ms}</span><script type="math/tex">1482 \text{ms}</script></span>、划分树 :<span class="arithmatex"><span class="MathJax_Preview">889 \text{ms}</span><script type="math/tex">889 \text{ms}</script></span>。（非递归，常数比较小）</p>
+<h2 id="_4">划分树的应用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>例题：<a href="https://www.luogu.com.cn/problem/P3157">Luogu P3157[CQOI2011]动态逆序对</a></p>
+<blockquote>
+<p>题意简述：给定一个 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个元素的排列（<span class="arithmatex"><span class="MathJax_Preview">n\leq 10^5</span><script type="math/tex">n\leq 10^5</script></span>），有 m 次询问（<span class="arithmatex"><span class="MathJax_Preview">m\leq 5\times 10^4</span><script type="math/tex">m\leq 5\times 10^4</script></span>），每次删去排列中的一个数，求删去这个数之后排列的逆序对个数。</p>
+</blockquote>
+<p>这题可以使用 CDQ 在 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n\log^2n)</span><script type="math/tex">\Theta(n\log^2n)</script></span> 的时间及 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n)</span><script type="math/tex">\Theta(n)</script></span> 的空间内解决，并且 CDQ 的常数也很优秀。</p>
+<p>如果这道题改为强制在线，则一般使用树状数组 + 主席树的树套树解法解决，时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n\log^2n)</span><script type="math/tex">\Theta(n\log^2n)</script></span>，空间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n\log^2n)</span><script type="math/tex">\Theta(n\log^2n)</script></span>，常数略大，同样可以过此题。</p>
+<p>而使用划分树的话就可以在 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n\log^2n)</span><script type="math/tex">\Theta(n\log^2n)</script></span> 的时间及 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n\log n)</span><script type="math/tex">\Theta(n\log n)</script></span> 的空间内在线解决本题，同时常数也比树套树解法少很多。（大致与 CDQ 相当。）</p>
+<p><strong>注意：为了编程实现方便，本文依照位置的中间值将大数组划分为两个小数组，即下文中的划分树相当于是归并排序的过程，而非快速排序的过程。最顶层的大数组为有序数组，最底层为原数组。</strong></p>
+<p>对于每一个划分树中的节点，我们称他为右节点当且仅当他在下一层会被划分到右孩子，即原数组中位置比较靠后的那些数，相似的可以定义左节点。如果在建树的过程中将最顶层排为有序的，类似于归并排序求逆序对，可以发现一个数组的逆序对个数就是在每个左节点之前的右节点的个树和。</p>
+<p>再考虑删除操作。删除一个左节点会将整个数组的逆序对减少在他之前右结点的个数，而删除一个右节点会减少在他之后的左节点个数。那么可以考虑每次动态维护“每一个左节点之前的右结点个数”和“每一个右节点之后的左节点个数”。这可以使用树状数组简单维护。</p>
+<p>需要注意的是，在使用树状数组维护时只能计算在划分树中同一块内的贡献，而不能跳出块。对于树状数组来说有一个较为巧妙的处理方式。</p>
+<p>考虑划分树上每一块的下标范围肯定为 <span class="arithmatex"><span class="MathJax_Preview">[c\times 2^k+1,(c+1)\times 2^k]</span><script type="math/tex">[c\times 2^k+1,(c+1)\times 2^k]</script></span> 的形式，列举如下（由于代码中不会涉及到划分树最底层的处理，因此只枚举到倒数第二层）：</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>[0001 0010] [0011 0100] [0101 0110] [0111 1000] [1001 1010] [1011 1100] [1101 1110] [1111 10000]  lev=1
+[0001 0010 0011 0100]   [0101 0110 0111 1000]   [1001 1010 1011 1100]   [1101 1110 1111 10000]    lev=2
+[0001 0010 0011 0100 0101 0110 0111 1000]       [1001 1010 1011 1100 1101 1110 1111 10000]        lev=3
+[0001 0010 0011 0100 0101 0110 0111 1000 1001 1010 1011 1100 1101 1110 1111 10000]                lev=4
+</code></pre></div></td></tr></table></div>
+
+<p>回忆一下树状数组的原理，在向上跳的时候，我们每次 <code>x += lowbit(x)</code>。如果在向上跳的时候可以保证不跳出块，就可以保证只会影响到块内元素的值。向上查询也类似。</p>
+<p>而如果要在向上跳的同时保证不跳出块，只需要保证在跳的时候满足 <span class="arithmatex"><span class="MathJax_Preview">lowbit(x)&lt;2^{lev}</span><script type="math/tex">lowbit(x)<2^{lev}</script></span> 即可。</p>
+<p>而向下跳则是完全不同的处理方式。每一块的下标如果使用 0-index 表示的话，即为 <span class="arithmatex"><span class="MathJax_Preview">[c\times 2^k,(c+1)\times 2^k)</span><script type="math/tex">[c\times 2^k,(c+1)\times 2^k)</script></span> 的形式。那么，只需将某一个下标的值右位移 k，即可得出它在哪一块中。在向下跳的时候时刻判断是否跳出块即可。</p>
+<p>需要注意的是，按这一方法实现的树状数组会访问到的最大下标是距离 n 最近的 2 的整次幂，因此数组下标不能开 n。</p>
+<p>由于需要在 <span class="arithmatex"><span class="MathJax_Preview">\log n</span><script type="math/tex">\log n</script></span> 层修改，在第 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 层修改的时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">\Theta(k)</span><script type="math/tex">\Theta(k)</script></span>，最终时间复杂度即为 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n\log n+m\log^2n)</span><script type="math/tex">\Theta(n\log n+m\log^2n)</script></span>。</p>
+<p>附代码：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+<h2 id="_5">后记<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>参考博文 :<a href="https://blog.csdn.net/littlewhite520/article/details/70250722">传送门</a>。</p>
+                
+                  
+                
+              
+              
+                 
+ 
+   
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/ds/dividing.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">Xarfa</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Dividing',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

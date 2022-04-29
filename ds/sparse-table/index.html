@@ -1,0 +1,684 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/ds/sparse-table/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Sparse table - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Sparse table
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    引入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#st" class="md-nav__link">
+    ST 表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模板代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    注意点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#st_1" class="md-nav__link">
+    ST 表维护其他信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    练习
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#st-gcd" class="md-nav__link">
+    附录：ST 表求区间 GCD 的时间复杂度分析
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/ds/sparse-table.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Sparse table</h1>
+                
+                <h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><img alt="ST 表示意图" src="../images/st.svg" /></p>
+<p>ST 表是用于解决 <strong>可重复贡献问题</strong> 的数据结构。</p>
+<details class="note" open="open">
+<summary>什么是可重复贡献问题？</summary>
+<p><strong>可重复贡献问题</strong> 是指对于运算 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{opt}</span><script type="math/tex">\operatorname{opt}</script></span>，满足 <span class="arithmatex"><span class="MathJax_Preview">x\operatorname{opt} x=x</span><script type="math/tex">x\operatorname{opt} x=x</script></span>，则对应的区间询问就是一个可重复贡献问题。例如，最大值有 <span class="arithmatex"><span class="MathJax_Preview">\max(x,x)=x</span><script type="math/tex">\max(x,x)=x</script></span>，gcd 有 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{gcd}(x,x)=x</span><script type="math/tex">\operatorname{gcd}(x,x)=x</script></span>，所以 RMQ 和区间 GCD 就是一个可重复贡献问题。像区间和就不具有这个性质，如果求区间和的时候采用的预处理区间重叠了，则会导致重叠部分被计算两次，这是我们所不愿意看到的。另外，<span class="arithmatex"><span class="MathJax_Preview">\operatorname{opt}</span><script type="math/tex">\operatorname{opt}</script></span> 还必须满足结合律才能使用 ST 表求解。</p>
+</details>
+<details class="note" open="open">
+<summary>什么是RMQ？</summary>
+<p>RMQ 是英文 Range Maximum/Minimum Query 的缩写，表示区间最大（最小）值。解决 RMQ 问题有很多种方法，可以参考 <a href="../../topic/rmq/">RMQ 专题</a>。</p>
+</details>
+<h2 id="_2">引入<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.luogu.com.cn/problem/P3865">ST 表模板题</a></p>
+<p>题目大意：给定 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个数，有 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 个询问，对于每个询问，你需要回答区间 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 中的最大值。</p>
+<p>考虑暴力做法。每次都对区间 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 扫描一遍，求出最大值。</p>
+<p>显然，这个算法会超时。</p>
+<h2 id="st">ST 表<a class="headerlink" href="#st" title="Permanent link">&para;</a></h2>
+<p>ST 表基于 <a href="../../basic/binary-lifting/">倍增</a> 思想，可以做到 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n\log n)</span><script type="math/tex">\Theta(n\log n)</script></span> 预处理，<span class="arithmatex"><span class="MathJax_Preview">\Theta(1)</span><script type="math/tex">\Theta(1)</script></span> 回答每个询问。但是不支持修改操作。</p>
+<p>基于倍增思想，我们考虑如何求出区间最大值。可以发现，如果按照一般的倍增流程，每次跳 <span class="arithmatex"><span class="MathJax_Preview">2^i</span><script type="math/tex">2^i</script></span> 步的话，询问时的复杂度仍旧是 <span class="arithmatex"><span class="MathJax_Preview">\Theta(\log n)</span><script type="math/tex">\Theta(\log n)</script></span>，并没有比线段树更优，反而预处理一步还比线段树慢。</p>
+<p>我们发现 <span class="arithmatex"><span class="MathJax_Preview">\max(x,x)=x</span><script type="math/tex">\max(x,x)=x</script></span>，也就是说，区间最大值是一个具有“可重复贡献”性质的问题。即使用来求解的预处理区间有重叠部分，只要这些区间的并是所求的区间，最终计算出的答案就是正确的。</p>
+<p>如果手动模拟一下，可以发现我们能使用至多两个预处理过的区间来覆盖询问区间，也就是说询问时的时间复杂度可以被降至 <span class="arithmatex"><span class="MathJax_Preview">\Theta(1)</span><script type="math/tex">\Theta(1)</script></span>，在处理有大量询问的题目时十分有效。</p>
+<p>具体实现如下：</p>
+<p>令 <span class="arithmatex"><span class="MathJax_Preview">f(i,j)</span><script type="math/tex">f(i,j)</script></span> 表示区间 <span class="arithmatex"><span class="MathJax_Preview">[i,i+2^j-1]</span><script type="math/tex">[i,i+2^j-1]</script></span> 的最大值。</p>
+<p>显然 <span class="arithmatex"><span class="MathJax_Preview">f(i,0)=a_i</span><script type="math/tex">f(i,0)=a_i</script></span>。</p>
+<p>根据定义式，第二维就相当于倍增的时候“跳了 <span class="arithmatex"><span class="MathJax_Preview">2^j-1</span><script type="math/tex">2^j-1</script></span> 步”，依据倍增的思路，写出状态转移方程：<span class="arithmatex"><span class="MathJax_Preview">f(i,j)=\max(f(i,j-1),f(i+2^{j-1},j-1))</span><script type="math/tex">f(i,j)=\max(f(i,j-1),f(i+2^{j-1},j-1))</script></span>。</p>
+<p><img alt="" src="../images/st-preprocess-lift.svg" /></p>
+<p>以上就是预处理部分。而对于查询，可以简单实现如下：</p>
+<p>对于每个询问 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>，我们把它分成两部分：<span class="arithmatex"><span class="MathJax_Preview">f[l,l+2^s-1]</span><script type="math/tex">f[l,l+2^s-1]</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">f[r-2^s+1,r]</span><script type="math/tex">f[r-2^s+1,r]</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">s=\left\lfloor\log_2(r-l+1)\right\rfloor</span><script type="math/tex">s=\left\lfloor\log_2(r-l+1)\right\rfloor</script></span>。两部分的结果的最大值就是回答。</p>
+<p><img alt="ST 表的查询过程" src="../images/st-query.svg" /></p>
+<p>根据上面对于“可重复贡献问题”的论证，由于最大值是“可重复贡献问题”，重叠并不会对区间最大值产生影响。又因为这两个区间完全覆盖了 <span class="arithmatex"><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>，可以保证答案的正确性。</p>
+<h2 id="_3">模板代码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.luogu.com.cn/problem/P3865">ST 表模板题</a></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+<h2 id="_4">注意点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>输入输出数据一般很多，建议开启输入输出优化。</p>
+</li>
+<li>
+<p>每次用 <a href="https://en.cppreference.com/w/cpp/numeric/math/log">std::log</a> 重新计算 log 函数值并不值得，建议进行如下的预处理：</p>
+</li>
+</ol>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\left\{\begin{aligned}
+Logn[1] &amp;=0, \\
+Logn\left[i\right] &amp;=Logn[\frac{i}{2}] + 1.
+\end{aligned}\right.
+</div>
+<script type="math/tex; mode=display">
+\left\{\begin{aligned}
+Logn[1] &=0, \\
+Logn\left[i\right] &=Logn[\frac{i}{2}] + 1.
+\end{aligned}\right.
+</script>
+</div>
+<h2 id="st_1">ST 表维护其他信息<a class="headerlink" href="#st_1" title="Permanent link">&para;</a></h2>
+<p>除 RMQ 以外，还有其它的“可重复贡献问题”。例如“区间按位和”、“区间按位或”、“区间 GCD”，ST 表都能高效地解决。</p>
+<p>需要注意的是，对于“区间 GCD”，ST 表的查询复杂度并没有比线段树更优（令值域为 <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span>，ST 表的查询复杂度为 <span class="arithmatex"><span class="MathJax_Preview">\Theta(\log w)</span><script type="math/tex">\Theta(\log w)</script></span>，而线段树为 <span class="arithmatex"><span class="MathJax_Preview">\Theta(\log n+\log w)</span><script type="math/tex">\Theta(\log n+\log w)</script></span>，且值域一般是大于 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的），但是 ST 表的预处理复杂度也没有比线段树更劣，而编程复杂度方面 ST 表比线段树简单很多。</p>
+<p>如果分析一下，“可重复贡献问题”一般都带有某种类似 RMQ 的成分。例如“区间按位与”就是每一位取最小值，而“区间 GCD”则是每一个质因数的指数取最小值。</p>
+<h2 id="_5">总结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>ST 表能较好的维护“可重复贡献”的区间信息（同时也应满足结合律），时间复杂度较低，代码量相对其他算法很小。但是，ST 表能维护的信息非常有限，不能较好地扩展，并且不支持修改操作。</p>
+<h2 id="_6">练习<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.luogu.com.cn/problem/P3865">RMQ 模板题</a></p>
+<p><a href="https://loj.ac/problem/2279">「SCOI2007」降雨量</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P2880">[USACO07JAN]平衡的阵容 Balanced Lineup</a></p>
+<h2 id="st-gcd">附录：ST 表求区间 GCD 的时间复杂度分析<a class="headerlink" href="#st-gcd" title="Permanent link">&para;</a></h2>
+<p>在算法运行的时候，可能要经过 <span class="arithmatex"><span class="MathJax_Preview">\Theta(\log n)</span><script type="math/tex">\Theta(\log n)</script></span> 次迭代。每一次迭代都可能会使用 GCD 函数进行递归，令值域为 <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span>，GCD 函数的时间复杂度最高是 <span class="arithmatex"><span class="MathJax_Preview">\Omega(\log w)</span><script type="math/tex">\Omega(\log w)</script></span> 的，所以总时间复杂度看似有 <span class="arithmatex"><span class="MathJax_Preview">O(n\log n\log w)</span><script type="math/tex">O(n\log n\log w)</script></span>。</p>
+<p>但是，在 GCD 的过程中，每一次递归（除最后一次递归之外）都会使数列中的某个数至少减半，而数列中的数最多减半的次数为 <span class="arithmatex"><span class="MathJax_Preview">\log_2 (w^n)=\Theta(n\log w)</span><script type="math/tex">\log_2 (w^n)=\Theta(n\log w)</script></span>，所以，GCD 的递归部分最多只会运行 <span class="arithmatex"><span class="MathJax_Preview">O(n\log w)</span><script type="math/tex">O(n\log w)</script></span> 次。再加上循环部分（以及最后一层递归）的 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n\log n)</span><script type="math/tex">\Theta(n\log n)</script></span>，最终时间复杂度则是 <span class="arithmatex"><span class="MathJax_Preview">O(n(\log w+\log x))</span><script type="math/tex">O(n(\log w+\log x))</script></span>，由于可以构造数据使得时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">\Omega(n(\log w+\log x))</span><script type="math/tex">\Omega(n(\log w+\log x))</script></span>，所以最终的时间复杂度即为 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n(\log w+\log x))</span><script type="math/tex">\Theta(n(\log w+\log x))</script></span>。</p>
+<p>而查询部分的时间复杂度很好分析，考虑最劣情况，即每次询问都询问最劣的一对数，时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">\Theta(\log w)</span><script type="math/tex">\Theta(\log w)</script></span>。因此，ST 表维护“区间 GCD”的时间复杂度为预处理 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n(\log n+\log w))</span><script type="math/tex">\Theta(n(\log n+\log w))</script></span>，单次查询 <span class="arithmatex"><span class="MathJax_Preview">\Theta(\log w)</span><script type="math/tex">\Theta(\log w)</script></span>。</p>
+<p>线段树的相应操作是预处理 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n\log x)</span><script type="math/tex">\Theta(n\log x)</script></span>，查询 <span class="arithmatex"><span class="MathJax_Preview">\Theta(n(\log n+\log x))</span><script type="math/tex">\Theta(n(\log n+\log x))</script></span>。</p>
+<p>这并不是一个严谨的数学论证，更为严谨的附在下方：</p>
+<details class="note">
+<summary>更严谨的证明</summary>
+<p>理解本段，可能需要具备 <a href="../../basic/complexity/">时间复杂度</a> 的关于“势能分析法”的知识。</p>
+<p>先分析预处理部分的时间复杂度：</p>
+<p>设“待考虑数列”为在预处理 ST 表的时候当前层循环的数列。例如，第零层的数列就是原数列，第一层的数列就是第零层的数列经过一次迭代之后的数列，即 <code>st[1..n][1]</code>，我们将其记为 <span class="arithmatex"><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>。</p>
+<p>而势能函数就定义为“待考虑数列”中所有数的累乘的以二为底的对数。即：<span class="arithmatex"><span class="MathJax_Preview">\Phi(A)=\log_2\left(\prod\limits_{i=1}^n A_i\right)</span><script type="math/tex">\Phi(A)=\log_2\left(\prod\limits_{i=1}^n A_i\right)</script></span>。</p>
+<p>在一次迭代中，所花费的时间相当于迭代循环所花费的时间与 GCD 所花费的时间之和。其中，GCD 花费的时间有长有短。最短可能只有两次甚至一次递归，而最长可能有 <span class="arithmatex"><span class="MathJax_Preview">O(\log w)</span><script type="math/tex">O(\log w)</script></span> 次递归。但是，GCD 过程中，除最开头一层与最末一层以外，每次递归都会使“待考虑数列”中的某个结果至少减半。即，<span class="arithmatex"><span class="MathJax_Preview">\Phi(A)</span><script type="math/tex">\Phi(A)</script></span> 会减少至少 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，该层递归所用的时间可以被势能函数均摊。</p>
+<p>同时，我们可以看到，<span class="arithmatex"><span class="MathJax_Preview">\Phi(A)</span><script type="math/tex">\Phi(A)</script></span> 的初值最大为 <span class="arithmatex"><span class="MathJax_Preview">\log_2 (w^n)=\Theta(n\log w)</span><script type="math/tex">\log_2 (w^n)=\Theta(n\log w)</script></span>，而 <span class="arithmatex"><span class="MathJax_Preview">\Phi(A)</span><script type="math/tex">\Phi(A)</script></span> 不增。所以，ST 表预处理部分的时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(n(\log w+\log n))</span><script type="math/tex">O(n(\log w+\log n))</script></span>。</p>
+</details>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/ds/sparse-table.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Sparse table',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1274 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/graph/hld/">
+      
+      
+        <meta name="author" content="I">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Hld - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Hld
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    树链剖分的思想及能解决的问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    重链剖分
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    重链剖分的性质
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    常见应用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    路径上维护
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    子树维护
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    求最近公共祖先
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    例题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zjoi2008" class="md-nav__link">
+    「ZJOI2008」树的统计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    题目大意
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    解法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nauuo-and-binary-tree" class="md-nav__link">
+    Nauuo and Binary Tree
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    题目大意
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    解法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    长链剖分
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    常见应用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dp" class="md-nav__link">
+    长链剖分优化 DP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    长链剖分求 k 级祖先
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    练习
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/graph/hld.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Hld</h1>
+                
+                <h2 id="_1">树链剖分的思想及能解决的问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>树链剖分用于将树分割成若干条链的形式，以维护树上路径的信息。</p>
+<p>具体来说，将整棵树剖分为若干条链，使它组合成线性结构，然后用其他的数据结构维护信息。</p>
+<p><strong>树链剖分</strong>（树剖/链剖）有多种形式，如 <strong>重链剖分</strong>，<strong>长链剖分</strong> 和用于 Link/cut Tree 的剖分（有时被称作“实链剖分”），大多数情况下（没有特别说明时），“树链剖分”都指“重链剖分”。</p>
+<p>重链剖分可以将树上的任意一条路径划分成不超过 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 条连续的链，每条链上的点深度互不相同（即是自底向上的一条链，链上所有点的 LCA 为链的一个端点）。</p>
+<p>重链剖分还能保证划分出的每条链上的节点 DFS 序连续，因此可以方便地用一些维护序列的数据结构（如线段树）来维护树上路径的信息。</p>
+<p>如：</p>
+<ol>
+<li>修改 <strong>树上两点之间的路径上</strong> 所有点的值。</li>
+<li>查询 <strong>树上两点之间的路径上</strong> 节点权值的 <strong>和/极值/其它（在序列上可以用数据结构维护，便于合并的信息）</strong>。</li>
+</ol>
+<p>除了配合数据结构来维护树上路径信息，树剖还可以用来 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span>（且常数较小）地求 LCA。在某些题目中，还可以利用其性质来灵活地运用树剖。</p>
+<h2 id="_2">重链剖分<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>我们给出一些定义：</p>
+<p>定义 <strong>重子节点</strong> 表示其子节点中子树最大的子结点。如果有多个子树最大的子结点，取其一。如果没有子节点，就无重子节点。</p>
+<p>定义 <strong>轻子节点</strong> 表示剩余的所有子结点。</p>
+<p>从这个结点到重子节点的边为 <strong>重边</strong>。</p>
+<p>到其他轻子节点的边为 <strong>轻边</strong>。</p>
+<p>若干条首尾衔接的重边构成 <strong>重链</strong>。</p>
+<p>把落单的结点也当作重链，那么整棵树就被剖分成若干条重链。</p>
+<p>如图：</p>
+<p><img alt="HLD" src="../images/hld.png" /></p>
+<h2 id="_3">实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>树剖的实现分两个 DFS 的过程。伪代码如下：</p>
+<p>第一个 DFS 记录每个结点的父节点（father）、深度（deep）、子树大小（size）、重子节点（hson）。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{array}{l}
+\text{TREE-BUILD }(u,dep) \\
+\begin{array}{ll}
+1 &amp; u.hson\gets 0 \\
+2 &amp; u.hson.size\gets 0 \\
+3 &amp; u.deep\gets dep \\
+4 &amp; u.size\gets 1 \\
+5 &amp; \textbf{for }\text{each }u\text{'s son }v \\
+6 &amp; \qquad u.size\gets u.size + \text{TREE-BUILD }(v,dep+1) \\
+7 &amp; \qquad v.father\gets u \\
+8 &amp; \qquad \textbf{if }v.size&gt; u.hson.size \\
+9 &amp; \qquad \qquad u.hson\gets v \\
+10 &amp; \textbf{return } u.size
+\end{array}
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+\text{TREE-BUILD }(u,dep) \\
+\begin{array}{ll}
+1 & u.hson\gets 0 \\
+2 & u.hson.size\gets 0 \\
+3 & u.deep\gets dep \\
+4 & u.size\gets 1 \\
+5 & \textbf{for }\text{each }u\text{'s son }v \\
+6 & \qquad u.size\gets u.size + \text{TREE-BUILD }(v,dep+1) \\
+7 & \qquad v.father\gets u \\
+8 & \qquad \textbf{if }v.size> u.hson.size \\
+9 & \qquad \qquad u.hson\gets v \\
+10 & \textbf{return } u.size
+\end{array}
+\end{array}
+</script>
+</div>
+<p>第二个 DFS 记录所在链的链顶（top，应初始化为结点本身）、重边优先遍历时的 DFS 序（dfn）、DFS 序对应的节点编号（rank）。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{array}{l}
+\text{TREE-DECOMPOSITION }(u,top) \\
+\begin{array}{ll}
+1 &amp; u.top\gets top \\
+2 &amp; tot\gets tot+1\\
+3 &amp; u.dfn\gets tot \\
+4 &amp; rank(tot)\gets u \\
+5 &amp; \textbf{if }u.hson\text{ is not }0 \\
+6 &amp; \qquad \text{TREE-DECOMPOSITION }(u.hson,top) \\
+7 &amp; \qquad \textbf{for }\text{each }u\text{'s son }v \\
+8 &amp; \qquad \qquad \textbf{if }v\text{ is not }u.hson \\
+9 &amp; \qquad \qquad \qquad \text{TREE-DECOMPOSITION }(v,v) 
+\end{array}
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+\text{TREE-DECOMPOSITION }(u,top) \\
+\begin{array}{ll}
+1 & u.top\gets top \\
+2 & tot\gets tot+1\\
+3 & u.dfn\gets tot \\
+4 & rank(tot)\gets u \\
+5 & \textbf{if }u.hson\text{ is not }0 \\
+6 & \qquad \text{TREE-DECOMPOSITION }(u.hson,top) \\
+7 & \qquad \textbf{for }\text{each }u\text{'s son }v \\
+8 & \qquad \qquad \textbf{if }v\text{ is not }u.hson \\
+9 & \qquad \qquad \qquad \text{TREE-DECOMPOSITION }(v,v) 
+\end{array}
+\end{array}
+</script>
+</div>
+<p>以下为代码实现。</p>
+<p>我们先给出一些定义：</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">fa(x)</span><script type="math/tex">fa(x)</script></span> 表示节点 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 在树上的父亲。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">dep(x)</span><script type="math/tex">dep(x)</script></span> 表示节点 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 在树上的深度。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">siz(x)</span><script type="math/tex">siz(x)</script></span> 表示节点 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的子树的节点个数。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">son(x)</span><script type="math/tex">son(x)</script></span> 表示节点 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的 <strong>重儿子</strong>。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">top(x)</span><script type="math/tex">top(x)</script></span> 表示节点 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 所在 <strong>重链</strong> 的顶部节点（深度最小）。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">dfn(x)</span><script type="math/tex">dfn(x)</script></span> 表示节点 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的 <strong>DFS 序</strong>，也是其在线段树中的编号。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">rnk(x)</span><script type="math/tex">rnk(x)</script></span> 表示 DFS 序所对应的节点编号，有 <span class="arithmatex"><span class="MathJax_Preview">rnk(dfn(x))=x</span><script type="math/tex">rnk(dfn(x))=x</script></span>。</li>
+</ul>
+<p>我们进行两遍 DFS 预处理出这些值，其中第一次 DFS 求出 <span class="arithmatex"><span class="MathJax_Preview">fa(x)</span><script type="math/tex">fa(x)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">dep(x)</span><script type="math/tex">dep(x)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">siz(x)</span><script type="math/tex">siz(x)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">son(x)</span><script type="math/tex">son(x)</script></span>，第二次 DFS 求出 <span class="arithmatex"><span class="MathJax_Preview">top(x)</span><script type="math/tex">top(x)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">dfn(x)</span><script type="math/tex">dfn(x)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">rnk(x)</span><script type="math/tex">rnk(x)</script></span>。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">dfs1</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">son</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">siz</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">[</span><span class="n">o</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dep</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">dep</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">fa</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">dfs1</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
+<span class="w">      </span><span class="n">siz</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">siz</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]];</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">son</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">siz</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">siz</span><span class="p">[</span><span class="n">son</span><span class="p">[</span><span class="n">o</span><span class="p">]])</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">top</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">cnt</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">dfn</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">rnk</span><span class="p">[</span><span class="n">cnt</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">o</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">son</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">dfs2</span><span class="p">(</span><span class="n">son</span><span class="p">[</span><span class="n">o</span><span class="p">],</span><span class="w"> </span><span class="n">t</span><span class="p">);</span><span class="w">  </span><span class="c1">// 优先对重儿子进行 DFS，可以保证同一条重链上的点 DFS 序连续</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">[</span><span class="n">o</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">o</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">fa</span><span class="p">[</span><span class="n">o</span><span class="p">])</span><span class="w"> </span><span class="n">dfs2</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_4">重链剖分的性质<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>树上每个节点都属于且仅属于一条重链</strong>。</p>
+<p>重链开头的结点不一定是重子节点（因为重边是对于每一个结点都有定义的）。</p>
+<p>所有的重链将整棵树 <strong>完全剖分</strong>。</p>
+<p>在剖分时 <strong>重边优先遍历</strong>，最后树的 DFN 序上，重链内的 DFN 序是连续的。按 DFN 排序后的序列即为剖分后的链。</p>
+<p>一颗子树内的 DFN 序是连续的。</p>
+<p>可以发现，当我们向下经过一条 <strong>轻边</strong> 时，所在子树的大小至少会除以二。</p>
+<p>因此，对于树上的任意一条路径，把它拆分成从 <span class="arithmatex"><span class="MathJax_Preview">lca</span><script type="math/tex">lca</script></span> 分别向两边往下走，分别最多走 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 次，因此，树上的每条路径都可以被拆分成不超过 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 条重链。</p>
+<h2 id="_5">常见应用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">路径上维护<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>用树链剖分求树上两点路径权值和，伪代码如下：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{array}{l}
+\text{TREE-PATH-SUM }(u,v) \\
+\begin{array}{ll}
+1 &amp; tot\gets 0 \\
+2 &amp; \textbf{while }u.top\text{ is not }v.top \\
+3 &amp; \qquad \textbf{if }u.top.deep&lt; v.top.deep \\
+4 &amp; \qquad \qquad \text{SWAP}(u, v) \\
+5 &amp; \qquad tot\gets tot + \text{sum of values between }u\text{ and }u.top \\
+6 &amp; \qquad u\gets u.top.father \\
+7 &amp; tot\gets tot + \text{sum of values between }u\text{ and }v \\
+8 &amp; \textbf{return } tot 
+\end{array}
+\end{array}
+</div>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+\text{TREE-PATH-SUM }(u,v) \\
+\begin{array}{ll}
+1 & tot\gets 0 \\
+2 & \textbf{while }u.top\text{ is not }v.top \\
+3 & \qquad \textbf{if }u.top.deep< v.top.deep \\
+4 & \qquad \qquad \text{SWAP}(u, v) \\
+5 & \qquad tot\gets tot + \text{sum of values between }u\text{ and }u.top \\
+6 & \qquad u\gets u.top.father \\
+7 & tot\gets tot + \text{sum of values between }u\text{ and }v \\
+8 & \textbf{return } tot 
+\end{array}
+\end{array}
+</script>
+</div>
+<p>链上的 DFS 序是连续的，可以使用线段树、树状数组维护。</p>
+<p>每次选择深度较大的链往上跳，直到两点在同一条链上。</p>
+<p>同样的跳链结构适用于维护、统计路径上的其他信息。</p>
+<h3 id="_7">子树维护<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>有时会要求，维护子树上的信息，譬如将以 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 为根的子树的所有结点的权值增加 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>。</p>
+<p>在 DFS 搜索的时候，子树中的结点的 DFS 序是连续的。</p>
+<p>每一个结点记录 bottom 表示所在子树连续区间末端的结点。</p>
+<p>这样就把子树信息转化为连续的一段区间信息。</p>
+<h3 id="_8">求最近公共祖先<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>不断向上跳重链，当跳到同一条重链上时，深度较小的结点即为 LCA。</p>
+<p>向上跳重链时需要先跳所在重链顶端深度较大的那个。</p>
+<p>参考代码：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">lca</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">top</span><span class="p">[</span><span class="n">v</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dep</span><span class="p">[</span><span class="n">top</span><span class="p">[</span><span class="n">u</span><span class="p">]]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">top</span><span class="p">[</span><span class="n">v</span><span class="p">]])</span><span class="w"></span>
+<span class="w">      </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fa</span><span class="p">[</span><span class="n">top</span><span class="p">[</span><span class="n">u</span><span class="p">]];</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="w">      </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fa</span><span class="p">[</span><span class="n">top</span><span class="p">[</span><span class="n">v</span><span class="p">]];</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<details class="note">
+<summary>怎么有理有据地卡树剖</summary>
+<p>一般情况下树剖的 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 常数不满很难卡，如果要卡只能建立二叉树深度低。</p>
+<p>于是我们可以考虑折中方案。</p>
+<p>我们建立一颗 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 个节点的二叉树。对于每个节点到其儿子的边，我们将其替换成一条长度为 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 的链。</p>
+<p>这样子我们可以将随机询问轻重链切换次数卡到平均 <span class="arithmatex"><span class="MathJax_Preview">\frac{\log n}{2}</span><script type="math/tex">\frac{\log n}{2}</script></span> 次，同时有 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n} \log n)</span><script type="math/tex">O(\sqrt{n} \log n)</script></span> 的深度。</p>
+<p>加上若干随机叶子看上去可以卡树剖。但是树剖常数小有可能卡不掉。</p>
+</details>
+<h2 id="_9">例题<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="zjoi2008"><a href="https://loj.ac/problem/10138">「ZJOI2008」树的统计</a><a class="headerlink" href="#zjoi2008" title="Permanent link">&para;</a></h3>
+<h4 id="_10">题目大意<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>对一棵有 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个节点，节点带权值的静态树，进行三种操作共 <span class="arithmatex"><span class="MathJax_Preview">q</span><script type="math/tex">q</script></span> 次：</p>
+<ol>
+<li>修改单个节点的权值；</li>
+<li>查询 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 的路径上的最大权值；</li>
+<li>查询 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 的路径上的权值之和。</li>
+</ol>
+<p>保证 <span class="arithmatex"><span class="MathJax_Preview">1\le n\le 30000</span><script type="math/tex">1\le n\le 30000</script></span>，<span class="arithmatex"><span class="MathJax_Preview">0\le q\le 200000</span><script type="math/tex">0\le q\le 200000</script></span>。</p>
+<h4 id="_11">解法<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>根据题面以及以上的性质，你的线段树需要维护三种操作：</p>
+<ol>
+<li>单点修改；</li>
+<li>区间查询最大值；</li>
+<li>区间查询和。</li>
+</ol>
+<p>单点修改很容易实现。</p>
+<p>由于子树的 DFS 序连续（无论是否树剖都是如此），修改一个节点的子树只用修改这一段连续的 DFS 序区间。</p>
+<p>问题是如何修改/查询两个节点之间的路径。</p>
+<p>考虑我们是如何用 <strong>倍增法求解 LCA</strong> 的。首先我们 <strong>将两个节点提到同一高度，然后将两个节点一起向上跳</strong>。对于树链剖分也可以使用这样的思想。</p>
+<p>在向上跳的过程中，如果当前节点在重链上，向上跳到重链顶端，如果当前节点不在重链上，向上跳一个节点。如此直到两节点相同。沿途更新/查询区间信息。</p>
+<p>对于每个询问，最多经过 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 条重链，每条重链上线段树的复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span>，因此总时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(n\log n+q\log^2 n)</span><script type="math/tex">O(n\log n+q\log^2 n)</script></span>。实际上重链个数很难达到 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span>（可以用完全二叉树卡满），所以树剖在一般情况下常数较小。</p>
+<p>给出一种代码实现：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// st 是线段树结构体</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">querymax</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">inf</span><span class="p">,</span><span class="w"> </span><span class="n">fx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="w"> </span><span class="n">fy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">[</span><span class="n">y</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">fx</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">fy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dep</span><span class="p">[</span><span class="n">fx</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">fy</span><span class="p">])</span><span class="w"></span>
+<span class="w">      </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">query1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">dfn</span><span class="p">[</span><span class="n">fx</span><span class="p">],</span><span class="w"> </span><span class="n">dfn</span><span class="p">[</span><span class="n">x</span><span class="p">])),</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fa</span><span class="p">[</span><span class="n">fx</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="w">      </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">query1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">dfn</span><span class="p">[</span><span class="n">fy</span><span class="p">],</span><span class="w"> </span><span class="n">dfn</span><span class="p">[</span><span class="n">y</span><span class="p">])),</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fa</span><span class="p">[</span><span class="n">fy</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">fx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">[</span><span class="n">x</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">fy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">[</span><span class="n">y</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dfn</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dfn</span><span class="p">[</span><span class="n">y</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">query1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">dfn</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="w"> </span><span class="n">dfn</span><span class="p">[</span><span class="n">y</span><span class="p">]));</span><span class="w"></span>
+<span class="w">  </span><span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">query1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">dfn</span><span class="p">[</span><span class="n">y</span><span class="p">],</span><span class="w"> </span><span class="n">dfn</span><span class="p">[</span><span class="n">x</span><span class="p">]));</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<details>
+<summary>参考代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="nauuo-and-binary-tree"><a href="https://loj.ac/problem/6669">Nauuo and Binary Tree</a><a class="headerlink" href="#nauuo-and-binary-tree" title="Permanent link">&para;</a></h3>
+<p>这是一道交互题，也是树剖的非传统应用。</p>
+<h4 id="_12">题目大意<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>有一棵以 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 为根的二叉树，你可以询问任意两点之间的距离，求出每个点的父亲。</p>
+<p>节点数不超过 <span class="arithmatex"><span class="MathJax_Preview">3000</span><script type="math/tex">3000</script></span>，你最多可以进行 <span class="arithmatex"><span class="MathJax_Preview">30000</span><script type="math/tex">30000</script></span> 次询问。</p>
+<h4 id="_13">解法<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>首先可以通过 <span class="arithmatex"><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span> 次询问确定每个节点的深度。</p>
+<p>然后考虑按深度从小到大确定每个节点的父亲，这样的话确定一个节点的父亲时其所有祖先一定都是已知的。</p>
+<p>确定一个节点的父亲之前，先对树已知的部分进行重链剖分。</p>
+<p>假设我们需要在子树 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 中找节点 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 所在的位置，我们可以询问 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 所在重链的尾端的距离，就可以进一步确定 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的位置，具体见图：</p>
+<p><img alt="" src="../images/hld2.png" /></p>
+<p>其中红色虚线是一条重链，<span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 是询问的结果即 <span class="arithmatex"><span class="MathJax_Preview">dis(k, bot[u])</span><script type="math/tex">dis(k, bot[u])</script></span>，<span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 的深度为 <span class="arithmatex"><span class="MathJax_Preview">(dep[k]+dep[bot[u]]-d)/2</span><script type="math/tex">(dep[k]+dep[bot[u]]-d)/2</script></span>。</p>
+<p>这样的话，如果 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 只有一个儿子，<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的父亲就是 <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>，否则可以递归地在 <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> 的子树中找 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的父亲。</p>
+<p>时间复杂度 <span class="arithmatex"><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>，询问复杂度 <span class="arithmatex"><span class="MathJax_Preview">O(n\log n)</span><script type="math/tex">O(n\log n)</script></span>。</p>
+<p>具体地，设 <span class="arithmatex"><span class="MathJax_Preview">T(n)</span><script type="math/tex">T(n)</script></span> 为最坏情况下在一棵大小为 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的树中找到一个新节点的位置所需的询问次数，可以得到：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+T(n)\le
+\begin{cases}
+0&amp;n=1\\
+T\left(\left\lfloor\frac{n-1}2\right\rfloor\right)+1&amp;n\ge2
+\end{cases}
+</div>
+<script type="math/tex; mode=display">
+T(n)\le
+\begin{cases}
+0&n=1\\
+T\left(\left\lfloor\frac{n-1}2\right\rfloor\right)+1&n\ge2
+\end{cases}
+</script>
+</div>
+<p><span class="arithmatex"><span class="MathJax_Preview">2999+\sum_{i=1}^{2999}T(i)\le 29940</span><script type="math/tex">2999+\sum_{i=1}^{2999}T(i)\le 29940</script></span>，事实上这个上界是可以通过构造数据达到的，然而只要进行一些随机扰动（如对深度进行排序时使用不稳定的排序算法），询问次数很难超过 <span class="arithmatex"><span class="MathJax_Preview">21000</span><script type="math/tex">21000</script></span> 次。</p>
+<details class="note">
+<summary>参考代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3010</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">fa</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">ch</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">siz</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">son</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">bot</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;? %d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">d</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setFather</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">fa</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">siz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">siz</span><span class="p">[</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">siz</span><span class="p">[</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="n">son</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">siz</span><span class="p">[</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">siz</span><span class="p">[</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]]);</span><span class="w"></span>
+<span class="w">  </span><span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">son</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">son</span><span class="p">[</span><span class="n">u</span><span class="p">]])</span><span class="w"></span>
+<span class="w">    </span><span class="n">bot</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bot</span><span class="p">[</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">son</span><span class="p">[</span><span class="n">u</span><span class="p">]]];</span><span class="w"></span>
+<span class="w">  </span><span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">bot</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">ch</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">setFather</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">bot</span><span class="p">[</span><span class="n">u</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bot</span><span class="p">[</span><span class="n">u</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">dep</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">dep</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">bot</span><span class="p">[</span><span class="n">u</span><span class="p">]]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fa</span><span class="p">[</span><span class="n">v</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ch</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">son</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">solve</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">else</span><span class="w"></span>
+<span class="w">    </span><span class="n">setFather</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dep</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">sort</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">y</span><span class="p">];</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">solve</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot; %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="_14">长链剖分<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p>长链剖分本质上就是另外一种链剖分方式。</p>
+<p>定义 <strong>重子节点</strong> 表示其子节点中子树深度最大的子结点。如果有多个子树最大的子结点，取其一。如果没有子节点，就无重子节点。</p>
+<p>定义 <strong>轻子节点</strong> 表示剩余的子结点。</p>
+<p>从这个结点到重子节点的边为 <strong>重边</strong>。</p>
+<p>到其他轻子节点的边为 <strong>轻边</strong>。</p>
+<p>若干条首尾衔接的重边构成 <strong>重链</strong>。</p>
+<p>把落单的结点也当作重链，那么整棵树就被剖分成若干条重链。</p>
+<p>如图（这种剖分方式既可以看成重链剖分也可以看成长链剖分）：</p>
+<p><img alt="HLD" src="../images/hld.png" /></p>
+<p>长链剖分实现方式和重链剖分类似，这里就不再展开。</p>
+<h3 id="_15">常见应用<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>首先，我们发现长链剖分从一个节点到根的路径的轻边切换条数是 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 级别的。</p>
+<details class="note">
+<summary>如何构造数据将轻重边切换次数卡满</summary>
+<p>我们可以构造这么一颗二叉树 T：</p>
+<p>假设构造的二叉树参数为 <span class="arithmatex"><span class="MathJax_Preview">D</span><script type="math/tex">D</script></span>。</p>
+<p>若 <span class="arithmatex"><span class="MathJax_Preview">D \neq 0</span><script type="math/tex">D \neq 0</script></span>, 则在左儿子构造一颗参数为 <span class="arithmatex"><span class="MathJax_Preview">D-1</span><script type="math/tex">D-1</script></span> 的二叉树，在右儿子构造一个长度为 <span class="arithmatex"><span class="MathJax_Preview">2D-1</span><script type="math/tex">2D-1</script></span> 的链。</p>
+<p>若 <span class="arithmatex"><span class="MathJax_Preview">D = 0</span><script type="math/tex">D = 0</script></span>, 则我们可以直接构造一个单独叶节点，并且结束调用。</p>
+<p>这样子构造一定可以将单独叶节点到根的路径全部为轻边且需要 <span class="arithmatex"><span class="MathJax_Preview">D^2</span><script type="math/tex">D^2</script></span> 级别的节点数。</p>
+<p>取 <span class="arithmatex"><span class="MathJax_Preview">D=\sqrt{n}</span><script type="math/tex">D=\sqrt{n}</script></span> 即可。</p>
+</details>
+<h4 id="dp">长链剖分优化 DP<a class="headerlink" href="#dp" title="Permanent link">&para;</a></h4>
+<p>一般情况下可以使用长链剖分来优化的 DP 会有一维状态为深度维。</p>
+<p>我们可以考虑使用长链剖分优化树上 DP。</p>
+<p>具体的，我们每个节点的状态直接继承其重儿子的节点状态，同时将轻儿子的 DP 状态暴力合并。</p>
+<div class="admonition note">
+<p class="admonition-title"><a href="http://codeforces.com/contest/1009/problem/F">CF 1009F</a></p>
+<p>我们设 <span class="arithmatex"><span class="MathJax_Preview">f_{i,j}</span><script type="math/tex">f_{i,j}</script></span> 表示在子树 i 内，和 i 距离为 j 的点数。</p>
+<p>直接暴力转移时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span></p>
+<p>我们考虑每次转移我们直接继承重儿子的 DP 数组和答案，并且考虑在此基础上进行更新。</p>
+<p>首先我们需要将重儿子的 DP 数组前面插入一个元素 1, 这代表着当前节点。</p>
+<p>然后我们将所有轻儿子的 DP 数组暴力和当前节点的 DP 数组合并。</p>
+<p>注意到因为轻儿子的 DP 数组长度为轻儿子所在重链长度，而所有重链长度和为 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>。</p>
+<p>也就是说，我们直接暴力合并轻儿子的总时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
+</div>
+<p>注意，一般情况下 DP 数组的内存分配为一条重链整体分配内存，链上不同的节点有不同的首位置指针。</p>
+<p>DP 数组的长度我们可以根据子树最深节点算出。</p>
+<p>例题参考代码：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+</code></pre></div></td></tr></table></div>
+<p>当然长链剖分优化 DP 技巧非常多，包括但是不仅限于打标记等等。这里不再展开。</p>
+<p>参考 <a href="https://www.cnblogs.com/zhoushuyu/p/9468669.html">租酥雨的博客</a>。</p>
+<h4 id="k">长链剖分求 k 级祖先<a class="headerlink" href="#k" title="Permanent link">&para;</a></h4>
+<p>即询问一个点向父亲跳 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 次跳到的节点。</p>
+<p>首先我们假设我们已经预处理了每一个节点的 <span class="arithmatex"><span class="MathJax_Preview">2^i</span><script type="math/tex">2^i</script></span> 级祖先。</p>
+<p>现在我们假设我们找到了询问节点的 <span class="arithmatex"><span class="MathJax_Preview">2^i</span><script type="math/tex">2^i</script></span> 级祖先满足 <span class="arithmatex"><span class="MathJax_Preview">2^i &lt; k &lt; 2^{i+1}</span><script type="math/tex">2^i < k < 2^{i+1}</script></span>。</p>
+<p>我们考虑求出其所在重链的节点并且按照深度列入表格。假设重链长度为 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>。</p>
+<p>同时我们在预处理的时候找到每条重链的根节点的 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 级祖先，同样放入表格。</p>
+<p>根据长链剖分的性质，<span class="arithmatex"><span class="MathJax_Preview">k-2^i &lt; 2^i \leq d</span><script type="math/tex">k-2^i < 2^i \leq d</script></span>, 也就是说，我们可以 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 在这条长链的表格上求出的这个节点的 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 级祖先。</p>
+<p>预处理需要倍增出 <span class="arithmatex"><span class="MathJax_Preview">2^i</span><script type="math/tex">2^i</script></span> 次级祖先，同时需要预处理每条重链对应的表格。</p>
+<p>预处理复杂度 <span class="arithmatex"><span class="MathJax_Preview">O(n\log n)</span><script type="math/tex">O(n\log n)</script></span>, 询问复杂度 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>。</p>
+<h2 id="_16">练习<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.luogu.com.cn/problem/P3379">「luogu P3379」【模板】最近公共祖先（LCA）</a>（树剖求 LCA 无需数据结构，可以用作练习）</p>
+<p><a href="https://loj.ac/problem/2236">「JLOI2014」松鼠的新家</a>（当然也可以用树上差分）</p>
+<p><a href="https://loj.ac/problem/2125">「HAOI2015」树上操作</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P3384">「luogu P3384」【模板】树链剖分</a></p>
+<p><a href="https://uoj.ac/problem/128">「NOI2015」软件包管理器</a></p>
+<p><a href="https://www.luogu.com.cn/problem/P2486">「SDOI2011」染色</a></p>
+<p><a href="https://hydro.ac/d/bzoj/p/3531">「SDOI2014」旅行</a></p>
+<p><a href="https://hydro.ac/d/bzoj/p/4543">「POI2014」Hotel 加强版</a>（长链剖分优化 DP)</p>
+<p><a href="https://hydro.ac/d/bzoj/p/3252">攻略</a>（长链剖分优化贪心）</p>
+                
+                  
+                
+              
+              
+                 
+ 
+   
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/graph/hld.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">Ir1d, Marcythm, ouuan, hsfzLZH1, Xeonacid, greyqz, Chrogeek, ftxj, sshwy, LuoshuiTianyi, hyp1231</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Hld',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

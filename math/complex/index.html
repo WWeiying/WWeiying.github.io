@@ -1,0 +1,1130 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/math/complex/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Complex - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Complex
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    复数的引入，定义和分类
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    复数的引入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    复数的定义和分类
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    复数的性质与运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    复数的几何意义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    复数的运算
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    复数的加法与减法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    复数的乘法与除法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    极坐标的视角
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    复指数函数和复三角函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    复数的三种形式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    多值函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    复对数函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    一般指数函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    一般幂函数与复数乘方开方
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    单位根
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    本原单位根
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c99" class="md-nav__link">
+    C99 中的复数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C++ 中的复数
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/complex.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Complex</h1>
+                
+                <p>如果您已经学习过复数相关知识，请跳过本页面。</p>
+<p>学习复数知识需要一部分向量基础，如果并未学习过向量知识请移步 <a href="../vector/">向量页面</a>。</p>
+<h2 id="_1">复数的引入，定义和分类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">复数的引入<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>注：下面的引入方法来自人教版高中数学 A 版必修二。</p>
+<p>从方程的角度看，负实数能不能开平方，就是方程 <span class="arithmatex"><span class="MathJax_Preview">x^2+a=0 (a&gt;0)</span><script type="math/tex">x^2+a=0 (a>0)</script></span> 有没有解，进而可以归结为方程 <span class="arithmatex"><span class="MathJax_Preview">x^2+1=0</span><script type="math/tex">x^2+1=0</script></span> 有没有解。</p>
+<p>回顾已有的数集扩充过程，可以看到，每次扩充都与实际需求密切相关。例如，为了解决正方形对角线的度量，以及 <span class="arithmatex"><span class="MathJax_Preview">x^2-2=0</span><script type="math/tex">x^2-2=0</script></span> 这样的方程在有理数集中无解的问题，人们把有理数集扩充到了实数集。数集扩充后，在实数集中规定的加法运算、乘法运算，与原来在有理数集中规定的加法运算、乘法运算协调一致，并且加法和乘法都满足交换律和结合律，乘法对加法满足分配律。</p>
+<p>依照这种思想，为了解决 <span class="arithmatex"><span class="MathJax_Preview">x^2+1=0</span><script type="math/tex">x^2+1=0</script></span> 这样的方程在实数系中无解的问题，我们设想引入一个新数 <span class="arithmatex"><span class="MathJax_Preview">\text{i}</span><script type="math/tex">\text{i}</script></span>，使得 <span class="arithmatex"><span class="MathJax_Preview">x=\text{i}</span><script type="math/tex">x=\text{i}</script></span> 是方程 <span class="arithmatex"><span class="MathJax_Preview">x^2+1=0</span><script type="math/tex">x^2+1=0</script></span> 的解，即使得 <span class="arithmatex"><span class="MathJax_Preview">\text{i}^2=-1</span><script type="math/tex">\text{i}^2=-1</script></span>。</p>
+<p>思考：把新引进的数 <span class="arithmatex"><span class="MathJax_Preview">\text{i}</span><script type="math/tex">\text{i}</script></span> 添加到实数集中，我们希望数 <span class="arithmatex"><span class="MathJax_Preview">\text{i}</span><script type="math/tex">\text{i}</script></span> 和实数之间仍然能像实数那样进行加法和乘法运算，并希望加法和乘法都满足交换律、结合律，以及乘法对加法满足分配律。那么，实数系经过扩充后，得到的新数系由哪些数组成呢？</p>
+<p>依照以上设想，把实数 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">\text{i}</span><script type="math/tex">\text{i}</script></span> 相乘，结果记作 <span class="arithmatex"><span class="MathJax_Preview">b\text{i}</span><script type="math/tex">b\text{i}</script></span>；把实数 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">b\text{i}</span><script type="math/tex">b\text{i}</script></span> 相加，结果记作 <span class="arithmatex"><span class="MathJax_Preview">a+b\text{i}</span><script type="math/tex">a+b\text{i}</script></span>。注意到所有实数以及 <span class="arithmatex"><span class="MathJax_Preview">\text{i}</span><script type="math/tex">\text{i}</script></span> 都可以写成 <span class="arithmatex"><span class="MathJax_Preview">a+b\text{i}(a,b\in \mathbb{R})</span><script type="math/tex">a+b\text{i}(a,b\in \mathbb{R})</script></span> 的形式，从而这些数都在扩充后的新数集中。</p>
+<h3 id="_3">复数的定义和分类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>哇哦我们定义的数的性质这么好！</p>
+</blockquote>
+<p>我们定义形如 <span class="arithmatex"><span class="MathJax_Preview">a+b\text{i}</span><script type="math/tex">a+b\text{i}</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">a,b\in \mathbb{R}</span><script type="math/tex">a,b\in \mathbb{R}</script></span> 的数叫做 <strong>复数</strong>，其中 <span class="arithmatex"><span class="MathJax_Preview">\text{i}</span><script type="math/tex">\text{i}</script></span> 被称为 <strong>虚数单位</strong>，全体复数的集合叫做 <strong>复数集</strong>。</p>
+<p>复数通常用 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 表示，即 <span class="arithmatex"><span class="MathJax_Preview">z=a+b\text{i}</span><script type="math/tex">z=a+b\text{i}</script></span>。这种形式被称为 <strong>复数的代数形式</strong>。其中 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 称为复数 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的 <strong>实部</strong>，<span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 称为复数 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的 <strong>虚部</strong>。如无特殊说明，都有 <span class="arithmatex"><span class="MathJax_Preview">a,b\in \mathbb{R}</span><script type="math/tex">a,b\in \mathbb{R}</script></span>。</p>
+<p>对于一个复数 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span>，当且仅当 <span class="arithmatex"><span class="MathJax_Preview">b=0</span><script type="math/tex">b=0</script></span> 时，它是实数，当 <span class="arithmatex"><span class="MathJax_Preview">b\not = 0</span><script type="math/tex">b\not = 0</script></span> 时，它是虚数，当 <span class="arithmatex"><span class="MathJax_Preview">a=0</span><script type="math/tex">a=0</script></span> 且 <span class="arithmatex"><span class="MathJax_Preview">b\not = 0</span><script type="math/tex">b\not = 0</script></span> 时，它是纯虚数。</p>
+<p>纯虚数，虚数，实数，复数的关系如下图所示。</p>
+<p><img alt="" src="../images/complex-relation.svg" /></p>
+<h2 id="_4">复数的性质与运算<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">复数的几何意义<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>我们知道了 <span class="arithmatex"><span class="MathJax_Preview">a+b\text{i}</span><script type="math/tex">a+b\text{i}</script></span> 这样类似的形式的数被称为复数，并且给出了定义和分类，我们还可以挖掘一下更深层的性质。</p>
+<p>我们把所有实数都放在了数轴上，并且发现数轴上的点与实数一一对应。我们考虑对复数也这样处理。</p>
+<p>首先我们定义 <strong>复数相等</strong>：两个复数 <span class="arithmatex"><span class="MathJax_Preview">z_1=a+b\text{i},z_2=c+d\text{i}</span><script type="math/tex">z_1=a+b\text{i},z_2=c+d\text{i}</script></span> 是相等的，当且仅当 <span class="arithmatex"><span class="MathJax_Preview">a=c</span><script type="math/tex">a=c</script></span> 且 <span class="arithmatex"><span class="MathJax_Preview">b=d</span><script type="math/tex">b=d</script></span>。</p>
+<p>这么定义是十分自然的，在此不做过多解释。</p>
+<p>也就是说，我们可以用唯一的有序实数对 <span class="arithmatex"><span class="MathJax_Preview">(a,b)</span><script type="math/tex">(a,b)</script></span> 表示一个复数 <span class="arithmatex"><span class="MathJax_Preview">z=a+b\text{i}</span><script type="math/tex">z=a+b\text{i}</script></span>。这样，联想到平面直角坐标系，我们可以发现 <strong>复数集与平面直角坐标系中的点集一一对应</strong>。好了，我们找到了复数的一种几何意义。</p>
+<p>那么这个平面直角坐标系就不再一般，因为平面直角坐标系中的点具有了特殊意义——表示一个复数，所以我们把这样的平面直角坐标系称为 <strong>复平面</strong>，<span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 轴称为 <strong>实轴</strong>，<span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 轴称为 <strong>虚轴</strong>。我们进一步地说：<strong>复数集与复平面内所有的点所构成的集合是一一对应的</strong>。</p>
+<p>我们考虑到学过的平面向量的知识，发现向量的坐标表示也是一个有序实数对 <span class="arithmatex"><span class="MathJax_Preview">(a,b)</span><script type="math/tex">(a,b)</script></span>，显然，复数 <span class="arithmatex"><span class="MathJax_Preview">z=a+b\text{i}</span><script type="math/tex">z=a+b\text{i}</script></span> 对应复平面内的点 <span class="arithmatex"><span class="MathJax_Preview">Z(a,b)</span><script type="math/tex">Z(a,b)</script></span>，那么它还对应平面向量 <span class="arithmatex"><span class="MathJax_Preview">\overrightarrow{OZ}=(a,b)</span><script type="math/tex">\overrightarrow{OZ}=(a,b)</script></span>，于是我们又找到了复数的另一种几何意义：<strong>复数集与复平面内的向量所构成的集合是一一对应的（实数 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 与零向量对应）</strong>。</p>
+<p>于是，我们由向量的知识迁移到复数上来，定义 <strong>复数的模</strong> 就是复数所对应的向量的模。复数 <span class="arithmatex"><span class="MathJax_Preview">z=a+b\text{i}</span><script type="math/tex">z=a+b\text{i}</script></span> 的模 <span class="arithmatex"><span class="MathJax_Preview">|z|=\sqrt{a^2+b^2}</span><script type="math/tex">|z|=\sqrt{a^2+b^2}</script></span>。</p>
+<p>于是为了方便，我们常把复数 <span class="arithmatex"><span class="MathJax_Preview">z=a+b\text{i}</span><script type="math/tex">z=a+b\text{i}</script></span> 称为点 <span class="arithmatex"><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> 或向量 <span class="arithmatex"><span class="MathJax_Preview">\overrightarrow {OZ}</span><script type="math/tex">\overrightarrow {OZ}</script></span>，并规定相等的向量表示同一个复数。</p>
+<p>并且由向量的知识我们发现，虚数不可以比较大小（但是实数是可以的）。</p>
+<h3 id="_6">复数的运算<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="_7">复数的加法与减法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>我们规定，复数的加法规则如下：</p>
+<p>设 <span class="arithmatex"><span class="MathJax_Preview">z_1=a+b\text{i},z_2=c+d\text{i}</span><script type="math/tex">z_1=a+b\text{i},z_2=c+d\text{i}</script></span>，那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+z_1+z_2=(a+c)+(b+d)\text{i}
+</div>
+<script type="math/tex; mode=display">
+z_1+z_2=(a+c)+(b+d)\text{i}
+</script>
+</div>
+<p>很明显，两个复数的和仍为复数。</p>
+<p>考虑到向量的加法运算，我们发现复数的加法运算符合向量的加法运算法则，这同样证明了复数的几何意义的正确性。</p>
+<p>同样可以验证，<strong>复数的加法满足交换律和结合律</strong>。即：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+z_1+z_2=z_2+z_1\\
+(z_1+z_2)+z_3=z_1+(z_2+z_3)
+</div>
+<script type="math/tex; mode=display">
+z_1+z_2=z_2+z_1\\
+(z_1+z_2)+z_3=z_1+(z_2+z_3)
+</script>
+</div>
+<p>减法作为加法的逆运算，我们可以通过加法法则与复数相等的定义来推导出减法法则：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+z_1-z_2=(a-c)+(b-d)\text{i}
+</div>
+<script type="math/tex; mode=display">
+z_1-z_2=(a-c)+(b-d)\text{i}
+</script>
+</div>
+<p>这同样符合向量的减法运算。</p>
+<h4 id="_8">复数的乘法与除法<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>我们规定，复数的乘法规则如下：</p>
+<p>设 <span class="arithmatex"><span class="MathJax_Preview">z_1=a+b\text{i},z_2=c+d\text{i}</span><script type="math/tex">z_1=a+b\text{i},z_2=c+d\text{i}</script></span>，那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+z_1z_2&amp;=(a+b\text{i})(c+d\text{i})\\
+&amp;=ac+bc\text{i}+ad\text{i}+bd\text{i}^2\\
+&amp;=(ac-bd)+(bc+ad)\text{i}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+z_1z_2&=(a+b\text{i})(c+d\text{i})\\
+&=ac+bc\text{i}+ad\text{i}+bd\text{i}^2\\
+&=(ac-bd)+(bc+ad)\text{i}
+\end{aligned}
+</script>
+</div>
+<p>可以看出，两个复数相乘类似于两个多项式相乘，只需要把 <span class="arithmatex"><span class="MathJax_Preview">\text{i}^2</span><script type="math/tex">\text{i}^2</script></span> 换成 <span class="arithmatex"><span class="MathJax_Preview">-1</span><script type="math/tex">-1</script></span>，并将实部与虚部分别合并即可。</p>
+<p>复数确实与多项式有关，因为复数域是实系数多项式环模掉 <span class="arithmatex"><span class="MathJax_Preview">x^2+1</span><script type="math/tex">x^2+1</script></span> 生成的理想。（这句话不明白其实也没有关系）</p>
+<p>复数的乘法与向量的向量积形式类似，是由于复数集是数环。</p>
+<p>于是容易知道，<strong>复数乘法满足交换律，结合律和对加法的分配律</strong>，即：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+z_1z_2=z_2z_1\\
+(z_1z_2)z_3=z_1(z_2z_3)\\
+z_1(z_2+z_3)=z_1z_2+z_1z_3
+</div>
+<script type="math/tex; mode=display">
+z_1z_2=z_2z_1\\
+(z_1z_2)z_3=z_1(z_2z_3)\\
+z_1(z_2+z_3)=z_1z_2+z_1z_3
+</script>
+</div>
+<p>由于满足运算律，我们可以发现实数域中的 <strong>乘法公式在复数域中同样适用</strong>。</p>
+<p>除法运算是乘法运算的逆运算，我们可以推导一下：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\frac{a+b\text{i}}{c+d\text{i}}&amp;=\frac{(a+b\text{i})(c-d\text{i})}{(c+d\text{i})(c-d\text{i})}\\
+&amp;=\frac{ac+bd}{c^2+d^2}+\frac{bc-ad}{c^2+d^2}\text{i} &amp;(c+d\text{i}\not =0)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{a+b\text{i}}{c+d\text{i}}&=\frac{(a+b\text{i})(c-d\text{i})}{(c+d\text{i})(c-d\text{i})}\\
+&=\frac{ac+bd}{c^2+d^2}+\frac{bc-ad}{c^2+d^2}\text{i} &(c+d\text{i}\not =0)
+\end{aligned}
+</script>
+</div>
+<p>为了分母实数化，我们乘了一个 <span class="arithmatex"><span class="MathJax_Preview">c-d\text{i}</span><script type="math/tex">c-d\text{i}</script></span>，这个式子很有意义。</p>
+<p>我们定义，当两个虚数实部相等，虚部互为相反数时，这两个复数互为 <strong>共轭复数</strong>。通常记 <span class="arithmatex"><span class="MathJax_Preview">z=a+b\text{i}</span><script type="math/tex">z=a+b\text{i}</script></span> 的共轭复数为 <span class="arithmatex"><span class="MathJax_Preview">\bar z=a-b\text{i}</span><script type="math/tex">\bar z=a-b\text{i}</script></span>。我们可以发现，两个复数互为共轭复数，那么它们 <strong>关于实轴对称</strong>。</p>
+<p>由于向量没有除法，这里不讨论与向量的关系。</p>
+<h2 id="_9">极坐标的视角<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>如果设定实数单位 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 作为水平正方向，虚数单位 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 作为竖直正方向，得到的就是直角坐标视角下的复平面。</p>
+<p>表示复数 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的位置，也可以借助于极坐标 <span class="arithmatex"><span class="MathJax_Preview">(r, \theta)</span><script type="math/tex">(r, \theta)</script></span> 确定。前文已经提到了 <span class="arithmatex"><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 为复数 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的模。</p>
+<p>从实轴正向到 <strong>非零</strong> 复数 <span class="arithmatex"><span class="MathJax_Preview">z=x+iy</span><script type="math/tex">z=x+iy</script></span> 对应向量的夹角 <span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> 满足关系：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\tan \theta=\frac{y}{x}
+</div>
+<script type="math/tex; mode=display">
+\tan \theta=\frac{y}{x}
+</script>
+</div>
+<p>称为复数 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的 <strong>辐角</strong>，记为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\theta= \operatorname{Arg} z
+</div>
+<script type="math/tex; mode=display">
+\theta= \operatorname{Arg} z
+</script>
+</div>
+<p>任一个 <strong>非零</strong> 复数 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 有无穷多个辐角。借助开头小写的 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{arg} z</span><script type="math/tex">\operatorname{arg} z</script></span> 表示 <strong>其中一个特定值</strong>，满足条件：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+-\pi&lt;\operatorname{arg} z \le \pi
+</div>
+<script type="math/tex; mode=display">
+-\pi<\operatorname{arg} z \le \pi
+</script>
+</div>
+<p>称 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{arg} z</span><script type="math/tex">\operatorname{arg} z</script></span> 为 <strong>辐角主值</strong> 或 <strong>主辐角</strong>。辐角就是辐角主值基础上加若干整数个（可以为零或负整数）<span class="arithmatex"><span class="MathJax_Preview">2k\pi</span><script type="math/tex">2k\pi</script></span>。</p>
+<p>称模小于 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 的复数，在复平面上构成的图形为 <strong>单位圆</strong>。称模等于 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 的复数为 <strong>单位复数</strong>，全体单位复数在复平面上构成的图形为 <strong>单位圆周</strong>。在不引起混淆的情况下，有时单位圆周也简称单位圆。</p>
+<p>在极坐标的视角下，复数的乘除法变得很简单。复数乘法，模相乘，辐角相加。复数除法，模相除，辐角相减。</p>
+<h2 id="_10">复指数函数和复三角函数<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>对于复数 <span class="arithmatex"><span class="MathJax_Preview">z=x+iy</span><script type="math/tex">z=x+iy</script></span>，函数 <span class="arithmatex"><span class="MathJax_Preview">f(z)=e^x(\cos y+i\sin y)</span><script type="math/tex">f(z)=e^x(\cos y+i\sin y)</script></span> 满足 <span class="arithmatex"><span class="MathJax_Preview">f(z_1+z_2)=f(z_1)f(z_2)</span><script type="math/tex">f(z_1+z_2)=f(z_1)f(z_2)</script></span>。给出 <strong>复指数函数</strong> 的定义：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\operatorname{exp} z=e^x(\cos y+i\sin y)
+</div>
+<script type="math/tex; mode=display">
+\operatorname{exp} z=e^x(\cos y+i\sin y)
+</script>
+</div>
+<p>复指数函数在实数集上与实指数函数的定义完全一致。在复平面上拥有性质：</p>
+<p>模恒正：<span class="arithmatex"><span class="MathJax_Preview">|\operatorname{exp} z|=\operatorname{exp} x&gt;0</span><script type="math/tex">|\operatorname{exp} z|=\operatorname{exp} x>0</script></span>。</p>
+<p>辐角主值：<span class="arithmatex"><span class="MathJax_Preview">\operatorname{arg} \operatorname{exp} z=y</span><script type="math/tex">\operatorname{arg} \operatorname{exp} z=y</script></span>。</p>
+<p>加法定理：<span class="arithmatex"><span class="MathJax_Preview">\operatorname{exp} (z_1+z_2)=\operatorname{exp} (z_1)\operatorname{exp} (z_2)</span><script type="math/tex">\operatorname{exp} (z_1+z_2)=\operatorname{exp} (z_1)\operatorname{exp} (z_2)</script></span>。</p>
+<p>周期性：<span class="arithmatex"><span class="MathJax_Preview">\operatorname{exp} z</span><script type="math/tex">\operatorname{exp} z</script></span> 是以 <span class="arithmatex"><span class="MathJax_Preview">2\pi i</span><script type="math/tex">2\pi i</script></span> 为基本周期的周期函数。如果一个函数 <span class="arithmatex"><span class="MathJax_Preview">f(z)</span><script type="math/tex">f(z)</script></span> 的周期是某一周期的整倍数，称该周期为 <strong>基本周期</strong>。</p>
+<p>这里将复指数函数记为 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{exp}</span><script type="math/tex">\operatorname{exp}</script></span>，是为了与下文的一般指数函数做区分。</p>
+<p><strong>复三角函数</strong>（也简称 <strong>三角函数</strong>）的定义，是 <strong>欧拉公式</strong>：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\cos z=\frac{\operatorname{exp} (iz)+\operatorname{exp} (-iz)}{2}
+</div>
+<script type="math/tex; mode=display">
+\cos z=\frac{\operatorname{exp} (iz)+\operatorname{exp} (-iz)}{2}
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\sin z=\frac{\operatorname{exp} (iz)-\operatorname{exp} (-iz)}{2i}
+</div>
+<script type="math/tex; mode=display">
+\sin z=\frac{\operatorname{exp} (iz)-\operatorname{exp} (-iz)}{2i}
+</script>
+</div>
+<p>复三角函数在实数集上与实三角函数的定义完全一致。在复平面上拥有性质：</p>
+<p>奇偶性：正弦函数是奇函数，余弦函数是偶函数。</p>
+<p>三角恒等式：通常的三角恒等式都成立，例如平方和为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，或者角的和差公式等。</p>
+<p>周期性：正弦与余弦函数以 <span class="arithmatex"><span class="MathJax_Preview">2\pi</span><script type="math/tex">2\pi</script></span> 为基本周期。</p>
+<p>零点：实正弦与实余弦函数的全体零点，构成了复正弦与复余弦函数的全体零点。这个推广没有引进新的零点。</p>
+<p>模的无界性：复正弦与复余弦函数，模长可以大于任意给定的正数，不再像实正弦与实余弦函数一样被限制在 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 的范围内。</p>
+<h2 id="_11">复数的三种形式<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>借助直角坐标系的视角以及极坐标系的视角，可以写出复数的三种形式。</p>
+<p>复数的 <strong>代数形式</strong> 用于表示任意复数。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+z=x+yi
+</div>
+<script type="math/tex; mode=display">
+z=x+yi
+</script>
+</div>
+<p>代数形式用于计算复数的加减乘除四个运算比较方便。</p>
+<p>复数的 <strong>三角形式</strong> 和 <strong>指数形式</strong>，用于表示非零复数。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+z=r(\cos \theta +i\sin \theta)=r \operatorname{exp} (i\theta)
+</div>
+<script type="math/tex; mode=display">
+z=r(\cos \theta +i\sin \theta)=r \operatorname{exp} (i\theta)
+</script>
+</div>
+<p>这两种形式用于计算复数的乘除两个运算以及后面的运算较为方便。如果只用高中见过的函数，可以使用三角形式。如果引入了复指数函数，写成等价的指数形式会更加方便。</p>
+<h2 id="_12">多值函数<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>在复数集之上定义的函数，函数值可能不再是一个具体的复数值，而是一个集合。</p>
+<p>一个例子，上述定义的辐角函数 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{Arg} z</span><script type="math/tex">\operatorname{Arg} z</script></span> 就是这样。辐角函数的函数值是 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{Arg} z=\{\operatorname{arg} z +2k\pi | k\in Z\}</span><script type="math/tex">\operatorname{Arg} z=\{\operatorname{arg} z +2k\pi | k\in Z\}</script></span>，为一个集合。</p>
+<p>如果对于每一个复数自变量，只有唯一的复数函数值与其对应，称为 <strong>单值函数</strong>。上述指数函数和三角函数都是单值函数。</p>
+<p>如果对于某些复数自变量，有多于一个的复数函数值与其对应，这样的函数称为 <strong>多值函数</strong>。</p>
+<p>多值函数的函数值为集合，值域为函数值集合的集合。多值函数常常首字母大写，并规定一个对应首字母小写的单值函数称为 <strong>主值</strong>。</p>
+<h2 id="_13">复对数函数<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>规定 <strong>复对数函数</strong>（也简称 <strong>对数函数</strong>）是复指数函数的反函数。可以解得：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\operatorname{Ln} z=\ln{|z|}+i \operatorname{Arg} z
+</div>
+<script type="math/tex; mode=display">
+\operatorname{Ln} z=\ln{|z|}+i \operatorname{Arg} z
+</script>
+</div>
+<p>对数函数的定义域为 <strong>非零</strong> 复数。由于辐角函数是多值函数，因此对数函数也是多值函数。相应地，记 <strong>对数函数的主值</strong> 为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\ln z=\ln{|z|}+i \operatorname{arg} z
+</div>
+<script type="math/tex; mode=display">
+\ln z=\ln{|z|}+i \operatorname{arg} z
+</script>
+</div>
+<p>于是对数函数可以记为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\operatorname{Ln} z=\{\ln z +2k\pi i| k\in Z\}
+</div>
+<script type="math/tex; mode=display">
+\operatorname{Ln} z=\{\ln z +2k\pi i| k\in Z\}
+</script>
+</div>
+<p>复对数函数拥有性质：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\operatorname{Ln}(z_1z_2)=\operatorname{Ln} z_1 + \operatorname{Ln} z_2
+</div>
+<script type="math/tex; mode=display">
+\operatorname{Ln}(z_1z_2)=\operatorname{Ln} z_1 + \operatorname{Ln} z_2
+</script>
+</div>
+<p>这个性质与实对数函数相同。而对数函数的主值不满足该性质。</p>
+<h2 id="_14">一般指数函数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p><strong>一般指数函数</strong> 定义为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+a^z=\operatorname{exp} (z \operatorname{Ln} a)
+</div>
+<script type="math/tex; mode=display">
+a^z=\operatorname{exp} (z \operatorname{Ln} a)
+</script>
+</div>
+<p>对于任意的 <strong>非零</strong> 复数 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>，一般指数函数是多值函数。</p>
+<p>上述定义式展开是这样的：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+a^z=\operatorname{exp} (z \operatorname{Ln} a)=\operatorname{exp} (z\ln a +2k\pi iz)=\operatorname{exp} (z\ln a)\operatorname{exp} (2k\pi iz)
+</div>
+<script type="math/tex; mode=display">
+a^z=\operatorname{exp} (z \operatorname{Ln} a)=\operatorname{exp} (z\ln a +2k\pi iz)=\operatorname{exp} (z\ln a)\operatorname{exp} (2k\pi iz)
+</script>
+</div>
+<p>一般指数函数的多值性来源于底数辐角的多值性。以实数单位 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 为底的指数函数应当是：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+1^z=\operatorname{exp} (2k\pi iz)
+</div>
+<script type="math/tex; mode=display">
+1^z=\operatorname{exp} (2k\pi iz)
+</script>
+</div>
+<p>以 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 为底的指数函数不恒为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，而是一个多值函数。这是因为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 的辐角不一定是 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，于是根据复数乘法“模相乘辐角相加”的规则，指数的结果也是多值的。只有式中 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 的时候才不恒为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，即只有主值恒为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>。</p>
+<p>于是一般指数函数可以记为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+a^z=\operatorname{exp} (z\ln a) 1^z
+</div>
+<script type="math/tex; mode=display">
+a^z=\operatorname{exp} (z\ln a) 1^z
+</script>
+</div>
+<p>可以把指数函数的主值部分与其他部分以乘积的形式分开。</p>
+<p>以自然对数 <span class="arithmatex"><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> 为底的指数函数应当是：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+e^z=\operatorname{exp} z 1^z
+</div>
+<script type="math/tex; mode=display">
+e^z=\operatorname{exp} z 1^z
+</script>
+</div>
+<p>单值函数 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{exp}</span><script type="math/tex">\operatorname{exp}</script></span> 是以自然对数 <span class="arithmatex"><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> 为底的指数函数的主值。真正以 <span class="arithmatex"><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> 为底的指数函数是多值函数，而 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{exp}</span><script type="math/tex">\operatorname{exp}</script></span> 是一个形式上的记号，没有幂的含义。</p>
+<h2 id="_15">一般幂函数与复数乘方开方<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p><strong>一般幂函数</strong> 定义为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+z^a=\operatorname{exp} (a \operatorname{Ln} z)
+</div>
+<script type="math/tex; mode=display">
+z^a=\operatorname{exp} (a \operatorname{Ln} z)
+</script>
+</div>
+<p>一般幂函数的取值情况需要分类讨论。将上述定义式展开：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+z^a=\operatorname{exp} (a \operatorname{Ln} z)=\operatorname{exp} (a(\ln z +2k\pi i))=\operatorname{exp} (a\ln z) \operatorname{exp} (2k\pi ia)
+</div>
+<script type="math/tex; mode=display">
+z^a=\operatorname{exp} (a \operatorname{Ln} z)=\operatorname{exp} (a(\ln z +2k\pi i))=\operatorname{exp} (a\ln z) \operatorname{exp} (2k\pi ia)
+</script>
+</div>
+<p>根据 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 的取值，分三种情形。</p>
+<p>如果 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 为无理数或者虚数，<span class="arithmatex"><span class="MathJax_Preview">\operatorname{exp} (2k\pi ia)</span><script type="math/tex">\operatorname{exp} (2k\pi ia)</script></span> 的值有无限多个，此时一般幂函数是多值函数，并且函数值集合为无限集。</p>
+<p>如果 <span class="arithmatex"><span class="MathJax_Preview">a=n</span><script type="math/tex">a=n</script></span> 为整数，此时有：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\operatorname{exp} (2k\pi ia)=\operatorname{exp} (2(kn)\pi ia)=1
+</div>
+<script type="math/tex; mode=display">
+\operatorname{exp} (2k\pi ia)=\operatorname{exp} (2(kn)\pi ia)=1
+</script>
+</div>
+<p>此时 <span class="arithmatex"><span class="MathJax_Preview">z^a</span><script type="math/tex">z^a</script></span> 是单值函数。复数的整数次幂（乘方）是单值函数。</p>
+<p>如果 <span class="arithmatex"><span class="MathJax_Preview">a=\frac{q}{p}</span><script type="math/tex">a=\frac{q}{p}</script></span> 为有理数，其中 <span class="arithmatex"><span class="MathJax_Preview">\gcd(q, p)=1</span><script type="math/tex">\gcd(q, p)=1</script></span>，此时有：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\operatorname{exp} (2k\pi ia)=\operatorname{exp} (2k\pi i\frac{q}{p})
+</div>
+<script type="math/tex; mode=display">
+\operatorname{exp} (2k\pi ia)=\operatorname{exp} (2k\pi i\frac{q}{p})
+</script>
+</div>
+<p>只能取 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 个不同的值，即 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 到 <span class="arithmatex"><span class="MathJax_Preview">p-1</span><script type="math/tex">p-1</script></span> 之间的值。这 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 个不同的值将单位圆周 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 等分，就是下文的单位根。</p>
+<p>此时 <span class="arithmatex"><span class="MathJax_Preview">z^a</span><script type="math/tex">z^a</script></span> 是多值函数，并且可以取到有限的 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 个不同的值。复数的有理数次幂（开方）是多值函数，函数值集合为有限集。</p>
+<p>这里引入一个经典结论。根据复数乘法，模相乘，辐角相加，也可以用来计算乘方和开方（整数次幂与有理数次幂）。如果 <span class="arithmatex"><span class="MathJax_Preview">z=r \operatorname{exp} (i\theta)</span><script type="math/tex">z=r \operatorname{exp} (i\theta)</script></span>，则有：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+z^n=r^n(\operatorname{exp} (i\theta))^n=r^n(\cos n\theta +i\sin n\theta)
+</div>
+<script type="math/tex; mode=display">
+z^n=r^n(\operatorname{exp} (i\theta))^n=r^n(\cos n\theta +i\sin n\theta)
+</script>
+</div>
+<p>当模为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 的时候，就得到 <strong>棣莫弗定理</strong>（De Moivre's formula）：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+(\cos\theta+i\sin\theta)^n=\cos n\theta+i\sin n\theta
+</div>
+<script type="math/tex; mode=display">
+(\cos\theta+i\sin\theta)^n=\cos n\theta+i\sin n\theta
+</script>
+</div>
+<p>非零复数 <span class="arithmatex"><span class="MathJax_Preview">z</span><script type="math/tex">z</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次方根共有 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个，沿中心在原点，半径为 <span class="arithmatex"><span class="MathJax_Preview">r^\frac{1}{n}</span><script type="math/tex">r^\frac{1}{n}</script></span> 的圆周均匀分布，即构成内接于该圆周的正 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 边形的 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个顶点。</p>
+<h2 id="_16">单位根<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>称 <span class="arithmatex"><span class="MathJax_Preview">x^n=1</span><script type="math/tex">x^n=1</script></span> 在复数意义下的解是 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次复根。显然，这样的解有 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个，称这 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个解都是 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次 <strong>单位根</strong> 或 <strong>单位复根</strong>（the <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>-th root of unity）。根据复平面的知识，<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次单位根把单位圆 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 等分。</p>
+<p>设 <span class="arithmatex"><span class="MathJax_Preview">\omega_n=\operatorname{exp} \frac{2\pi i}{n}</span><script type="math/tex">\omega_n=\operatorname{exp} \frac{2\pi i}{n}</script></span>（即幅角为 <span class="arithmatex"><span class="MathJax_Preview">2\pi \over n</span><script type="math/tex">2\pi \over n</script></span> 的单位复数），则 <span class="arithmatex"><span class="MathJax_Preview">x^n=1</span><script type="math/tex">x^n=1</script></span> 的解集表示为 <span class="arithmatex"><span class="MathJax_Preview">\{\omega_n^k\mid k=0,1\cdots,n-1\}</span><script type="math/tex">\{\omega_n^k\mid k=0,1\cdots,n-1\}</script></span>。</p>
+<p>如果不加说明，一般叙述的 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次单位根，是指从 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 开始逆时针方向的第一个解，即上述 <span class="arithmatex"><span class="MathJax_Preview">\omega_n</span><script type="math/tex">\omega_n</script></span>，其它解均可以用 <span class="arithmatex"><span class="MathJax_Preview">\omega_n</span><script type="math/tex">\omega_n</script></span> 的幂表示。</p>
+<h3 id="_17">性质<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>单位根有三个重要的性质。对于任意正整数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 和整数 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\omega_n^n&amp;=1\\
+\omega_n^k&amp;=\omega_{2n}^{2k}\\
+\omega_{2n}^{k+n}&amp;=-\omega_{2n}^k\\
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\omega_n^n&=1\\
+\omega_n^k&=\omega_{2n}^{2k}\\
+\omega_{2n}^{k+n}&=-\omega_{2n}^k\\
+\end{aligned}
+</script>
+</div>
+<p>推导留给读者自证。这三个性质在快速傅里叶变换中会得到应用。</p>
+<h2 id="_18">本原单位根<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>为什么说，上述 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个解都是 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次单位根，而平时说的 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次单位根一般特指第一个？</p>
+<p>特指第一个，是为了在应用时方便。</p>
+<p>在解方程的视角看来，满足 <span class="arithmatex"><span class="MathJax_Preview">\omega_n</span><script type="math/tex">\omega_n</script></span> 性质的不止 <span class="arithmatex"><span class="MathJax_Preview">\omega_n</span><script type="math/tex">\omega_n</script></span> 一个，对于 <span class="arithmatex"><span class="MathJax_Preview">\omega_n</span><script type="math/tex">\omega_n</script></span> 的若干次幂也会满足性质。</p>
+<p>称集合：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+ \{\omega_n^k\mid 0\le k&lt;n, \gcd(n,k)=1\}
+</div>
+<script type="math/tex; mode=display">
+ \{\omega_n^k\mid 0\le k<n, \gcd(n,k)=1\}
+</script>
+</div>
+<p>中的元素为 <strong>本原单位根</strong>。任意一个本原单位根 <span class="arithmatex"><span class="MathJax_Preview">\omega</span><script type="math/tex">\omega</script></span>，与上述 <span class="arithmatex"><span class="MathJax_Preview">\omega_n</span><script type="math/tex">\omega_n</script></span> 具有相同的性质：对于任意的 <span class="arithmatex"><span class="MathJax_Preview">0&lt;k&lt;n</span><script type="math/tex">0<k<n</script></span>，<span class="arithmatex"><span class="MathJax_Preview">\omega</span><script type="math/tex">\omega</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 次幂不为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>。因此，借助任意一个本原单位根，都可以生成全体单位根。</p>
+<p>全体 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次本原单位根共有 <span class="arithmatex"><span class="MathJax_Preview">\varphi(n)</span><script type="math/tex">\varphi(n)</script></span> 个。</p>
+<h2 id="c99">C99 中的复数<a class="headerlink" href="#c99" title="Permanent link">&para;</a></h2>
+<p>在 C99 标准中，有 <code>&lt;complex.h&gt;</code> 头文件。</p>
+<p>在 <code>&lt;complex.h&gt;</code> 头文件中，提供了 <code>double complex</code>、<code>float complex</code> 和 <code>long double complex</code> 三种类型。</p>
+<p>算术运算符'+'、'-'、'*'和'/'，可以用于浮点数和复数的任意混合。当表达式两端有一个为复数时，计算结果为复数。</p>
+<p>头文件 <code>&lt;complex.h&gt;</code> 提供了虚数单位 I，引入此头文件时，大写字母 I 不可以作为变量名使用。</p>
+<p>对于单个复数，<code>&lt;complex.h&gt;</code> 提供了若干操作：creal 函数用于提取实部，cimag 函数用于提取虚部，cabs 函数用于计算模，carg 函数用于计算辐角主值。</p>
+<p>所有的函数根据类型不同，都有三个。例如 creal 函数有 creal、crealf、creall 三个，用于处理对应的 <code>double</code>、<code>float</code> 和 <code>long double</code> 三种类型。末尾什么都不带的默认处理 double 类型。以下所有函数均遵从此规律，不再特别说明。</p>
+<p>这些函数返回值都是一般的浮点数。可以将普通浮点数直接赋值给复数，但是不可以将复数直接赋值给浮点数，而是需要使用上述提取操作。</p>
+<p>函数 conj 用于计算共轭复数，返回值是复数。</p>
+<p>函数 cexp 计算复指数，clog 计算对数主值，csin 计算正弦，ccos 计算余弦，ctan 计算正切。</p>
+<p>函数 cpow 计算幂函数，csqrt 计算平方根，casin 计算反正弦，cacos 计算反余弦，ctan 计算反正切。这部分函数计算的全部都是多值函数的主值。</p>
+<h2 id="c">C++ 中的复数<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
+<p>在 C 里面的 <code>&lt;ctype.h&gt;</code>，到 C++ 会变成 <code>&lt;cctype&gt;</code>，几乎所有的头文件遵从这个命名规律。</p>
+<p>但是，<code>&lt;complex.h&gt;</code> 不遵守，C++ 没有 <code>&lt;ccomplex&gt;</code> 头文件。C++ 的复数直接是 <code>&lt;complex&gt;</code>，并且装的东西和 C 完全不一样。</p>
+<p>很有趣。这是因为，在 C++ 的第一个版本 C++98，即已经有了 <code>&lt;complex&gt;</code>，而 C 语言在 C99 才添加。</p>
+<p>在 C++ 中，复数类型定义使用 <code>complex&lt;float&gt;</code>、<code>complex&lt;double&gt;</code> 和 <code>complex&lt;long double&gt;</code>。由于面向对象的多态性，下面函数的名字都是唯一的，无需 f 或 l 的后缀。</p>
+<p>一个复数对象拥有成员函数 real 和 imag，可以访问实部和虚部。</p>
+<p>一个复数对象拥有非成员函数 real、imag、abs、arg，返回实部、虚部、模和辐角。</p>
+<p>一个复数对象还拥有非成员函数：norm 为模的平方，conj 为共轭复数。</p>
+<p>一个复数对象还拥有非成员函数 exp、log（底为 e 的对数主值）、log10（底为 10 的对数主值，C 中没有）、pow、sqrt、sin、cos、tan，含义与 C 中的含义相同。</p>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/complex.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Complex',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

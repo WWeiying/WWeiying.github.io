@@ -1,0 +1,1363 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/math/combinatorics/partition/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Partition - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#k" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Partition
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    k 部分拆数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    例题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    生成函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ferrers" class="md-nav__link">
+    Ferrers 图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    互异分拆数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    例题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    奇分拆数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    五边形数定理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    例题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/combinatorics/partition.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Partition</h1>
+                
+                <p>分拆：将自然数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 写成递降正整数和的表示。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n=r_1+r_2+\ldots+r_k \quad r_1 \ge r_2 \ge \ldots \ge r_k \ge 1
+</div>
+<script type="math/tex; mode=display">
+n=r_1+r_2+\ldots+r_k \quad r_1 \ge r_2 \ge \ldots \ge r_k \ge 1
+</script>
+</div>
+<p>和式中每个正整数称为一个部分。</p>
+<p>分拆数：<span class="arithmatex"><span class="MathJax_Preview">p_n</span><script type="math/tex">p_n</script></span>。自然数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的分拆方法数。</p>
+<p>自 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 开始的分拆数：</p>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">p_n</span><script type="math/tex">p_n</script></span></td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>7</td>
+<td>11</td>
+<td>15</td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+<h2 id="k">k 部分拆数<a class="headerlink" href="#k" title="Permanent link">&para;</a></h2>
+<p>将 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 分成恰有 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 个部分的分拆，称为 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 部分拆数，记作 <span class="arithmatex"><span class="MathJax_Preview">p(n,k)</span><script type="math/tex">p(n,k)</script></span>。</p>
+<p>显然，<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 部分拆数 <span class="arithmatex"><span class="MathJax_Preview">p(n,k)</span><script type="math/tex">p(n,k)</script></span> 同时也是下面方程的解数：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n-k=y_1+y_2+\ldots+y_k\quad y_1\ge y_2\ge\ldots\ge y_k\ge 0
+</div>
+<script type="math/tex; mode=display">
+n-k=y_1+y_2+\ldots+y_k\quad y_1\ge y_2\ge\ldots\ge y_k\ge 0
+</script>
+</div>
+<p>如果这个方程里面恰有 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 个部分非 0，则恰有 <span class="arithmatex"><span class="MathJax_Preview">p(n-k,j)</span><script type="math/tex">p(n-k,j)</script></span> 个解。因此有和式：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+p(n,k)=\sum_{j=1}^k p(n-k,j)
+</div>
+<script type="math/tex; mode=display">
+p(n,k)=\sum_{j=1}^k p(n-k,j)
+</script>
+</div>
+<p>相邻两个和式作差，得：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+p(n,k)=p(n-1,k-1)+p(n-k,k)
+</div>
+<script type="math/tex; mode=display">
+p(n,k)=p(n-1,k-1)+p(n-k,k)
+</script>
+</div>
+<p>如果列出表格，每个格里的数，等于左上方的数，加上该格向上方数，所在列数个格子中的数。</p>
+<table>
+<thead>
+<tr>
+<th>k</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">p(0,k)</span><script type="math/tex">p(0,k)</script></span></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">p(1,k)</span><script type="math/tex">p(1,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">p(2,k)</span><script type="math/tex">p(2,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">p(3,k)</span><script type="math/tex">p(3,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">p(4,k)</span><script type="math/tex">p(4,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">p(5,k)</span><script type="math/tex">p(5,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">p(6,k)</span><script type="math/tex">p(6,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">p(7,k)</span><script type="math/tex">p(7,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">p(8,k)</span><script type="math/tex">p(8,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>5</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_1">例题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>计算k部分拆数</summary>
+<p>计算 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 部分拆数 <span class="arithmatex"><span class="MathJax_Preview">p(n,k)</span><script type="math/tex">p(n,k)</script></span>。多组输入，其中 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 上界为 <span class="arithmatex"><span class="MathJax_Preview">10000</span><script type="math/tex">10000</script></span>，<span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 上界为 <span class="arithmatex"><span class="MathJax_Preview">1000</span><script type="math/tex">1000</script></span>，对 <span class="arithmatex"><span class="MathJax_Preview">1000007</span><script type="math/tex">1000007</script></span> 取模。</p>
+<p>观察表格与递推式，按列更新对于存储更有利。不难写出程序：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="mi">10005</span><span class="p">][</span><span class="mi">1005</span><span class="p">];</span><span class="w"> </span><span class="cm">/*将自然数n分拆为k个部分的方法数*/</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">k</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="cm">/*p[i-j][j]所有部分大于1*/</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"></span>
+<span class="w">                    </span><span class="mi">1000007</span><span class="p">;</span><span class="w"> </span><span class="cm">/*p[i-1][j-1]至少有一个部分为1。*/</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">k</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="_2">生成函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>生成函数：一种幂级数。各项的系数为数列中的对应项。</p>
+<p>由等比数列求和公式，有：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\frac{1}{1-x^k}=1+x^k+x^{2k}+x^{3k}+\ldots
+</div>
+<script type="math/tex; mode=display">
+\frac{1}{1-x^k}=1+x^k+x^{2k}+x^{3k}+\ldots
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+1+p_1 x+p_2 x^2+p_3 x^3+\ldots=\frac{1}{1-x}  \frac{1}{1-x^2}  \frac{1}{1-x^3}…
+</div>
+<script type="math/tex; mode=display">
+1+p_1 x+p_2 x^2+p_3 x^3+\ldots=\frac{1}{1-x}  \frac{1}{1-x^2}  \frac{1}{1-x^3}…
+</script>
+</div>
+<p>对于 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 部分拆数，生成函数稍微复杂。具体写出如下：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\sum_{n,k=0}^\infty {p(n,k) x^n y^k }=\frac{1}{1-xy}  \frac{1}{1-x^2 y}  \frac{1}{1-x^3 y}…
+</div>
+<script type="math/tex; mode=display">
+\sum_{n,k=0}^\infty {p(n,k) x^n y^k }=\frac{1}{1-xy}  \frac{1}{1-x^2 y}  \frac{1}{1-x^3 y}…
+</script>
+</div>
+<h3 id="ferrers">Ferrers 图<a class="headerlink" href="#ferrers" title="Permanent link">&para;</a></h3>
+<p>Ferrers 图：将分拆的每个部分用点组成的行表示。每行点的个数为这个部分的大小。</p>
+<p>根据分拆的定义，Ferrers 图中不同的行按照递减的次序排放。最长行在最上面。</p>
+<p>例如：分拆 <span class="arithmatex"><span class="MathJax_Preview">12=5+4+2+1</span><script type="math/tex">12=5+4+2+1</script></span> 的 Ferrers 图。</p>
+<p><img alt="" src="../images/ferrers.jpg" /></p>
+<p>将一个 Ferrers 图沿着对角线翻转，得到的新 Ferrers 图称为原图的共轭，新分拆称为原分拆的共轭。显然，共轭是对称的关系。</p>
+<p>例如上述分拆 <span class="arithmatex"><span class="MathJax_Preview">12=5+4+2+1</span><script type="math/tex">12=5+4+2+1</script></span> 的共轭是分拆 <span class="arithmatex"><span class="MathJax_Preview">12=4+3+2+2+1</span><script type="math/tex">12=4+3+2+2+1</script></span>。</p>
+<p>最大 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 分拆数：自然数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的最大部分为 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的分拆个数。</p>
+<p>根据共轭的定义，有显然结论：</p>
+<p>最大 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 分拆数与 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 部分拆数相同，均为 <span class="arithmatex"><span class="MathJax_Preview">p(n,k)</span><script type="math/tex">p(n,k)</script></span>。</p>
+<h2 id="_3">互异分拆数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>互异分拆数：<span class="arithmatex"><span class="MathJax_Preview">pd_n</span><script type="math/tex">pd_n</script></span>。自然数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的各部分互不相同的分拆方法数。（Different）</p>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">pd_n</span><script type="math/tex">pd_n</script></span></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>同样地，定义互异 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 部分拆数 <span class="arithmatex"><span class="MathJax_Preview">pd(n,k)</span><script type="math/tex">pd(n,k)</script></span>，表示最大拆出 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 个部分的互异分拆，是这个方程的解数：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n=r_1+r_2+\ldots+r_k\quad r_1&gt;r_2&gt;\ldots&gt;r_k\ge 1
+</div>
+<script type="math/tex; mode=display">
+n=r_1+r_2+\ldots+r_k\quad r_1>r_2>\ldots>r_k\ge 1
+</script>
+</div>
+<p>完全同上，也是这个方程的解数：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n-k=y_1+y_2+\ldots+y_k\quad y_1&gt;y_2&gt;\ldots&gt;y_k\ge 0
+</div>
+<script type="math/tex; mode=display">
+n-k=y_1+y_2+\ldots+y_k\quad y_1>y_2>\ldots>y_k\ge 0
+</script>
+</div>
+<p>这里与上面不同的是，由于互异，新方程中至多只有一个部分为零。有不变的结论：恰有 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 个部分非 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，则恰有 <span class="arithmatex"><span class="MathJax_Preview">pd(n-k,j)</span><script type="math/tex">pd(n-k,j)</script></span> 个解，这里 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 只取 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 或 <span class="arithmatex"><span class="MathJax_Preview">k-1</span><script type="math/tex">k-1</script></span>。因此直接得到递推：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+pd(n,k)=pd(n-k,k-1)+pd(n-k,k)
+</div>
+<script type="math/tex; mode=display">
+pd(n,k)=pd(n-k,k-1)+pd(n-k,k)
+</script>
+</div>
+<p>同样像组合数一样列出表格，每个格里的数，等于该格前一列上数，所在列数个格子中的数，加上该格向上方数，所在列数个格子中的数。</p>
+<table>
+<thead>
+<tr>
+<th>k</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">pd(0,k)</span><script type="math/tex">pd(0,k)</script></span></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">pd(1,k)</span><script type="math/tex">pd(1,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">pd(2,k)</span><script type="math/tex">pd(2,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">pd(3,k)</span><script type="math/tex">pd(3,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">pd(4,k)</span><script type="math/tex">pd(4,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">pd(5,k)</span><script type="math/tex">pd(5,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">pd(6,k)</span><script type="math/tex">pd(6,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">pd(7,k)</span><script type="math/tex">pd(7,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex"><span class="MathJax_Preview">pd(8,k)</span><script type="math/tex">pd(8,k)</script></span></td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">例题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>计算互异分拆数</summary>
+<p>计算互异分拆数 <span class="arithmatex"><span class="MathJax_Preview">pd_n</span><script type="math/tex">pd_n</script></span>。多组输入，其中 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 上界为 <span class="arithmatex"><span class="MathJax_Preview">50000</span><script type="math/tex">50000</script></span>，对 <span class="arithmatex"><span class="MathJax_Preview">1000007</span><script type="math/tex">1000007</script></span> 取模。</p>
+<p>观察表格与递推式，按列更新对于存储更有利。代码中将后一位缩减了空间，仅保留相邻两项。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">pd</span><span class="p">[</span><span class="mi">50005</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="cm">/*将自然数n分拆为k个部分的互异方法数*/</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">pd</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">pd</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="n">pd</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">350</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">350</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">pd</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="cm">/*pd[i][j]只与pd[][j]和pd[][j-1]有关*/</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="cm">/*pd[i-j][j]所有部分大于1*/</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="n">pd</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">pd</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pd</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="p">][(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"></span>
+<span class="w">                         </span><span class="mi">1000007</span><span class="p">;</span><span class="w"> </span><span class="cm">/*pd[i-j][j-1]至少有一个部分为1。*/</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ans</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pd</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000007</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="_5">奇分拆数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>奇分拆数：<span class="arithmatex"><span class="MathJax_Preview">po_n</span><script type="math/tex">po_n</script></span>。自然数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的各部分都是奇数的分拆方法数。（Odd）</p>
+<p>有一个显然的等式：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\prod_{i=1}^\infty (1+x^i ) =\frac{\prod_{i=1}^\infty (1-x^{2i} ) }{\prod_{i=1}^\infty (1-x^i ) }=\prod_{i=1}^\infty \frac{1}{1-x^{2i-1} }
+</div>
+<script type="math/tex; mode=display">
+\prod_{i=1}^\infty (1+x^i ) =\frac{\prod_{i=1}^\infty (1-x^{2i} ) }{\prod_{i=1}^\infty (1-x^i ) }=\prod_{i=1}^\infty \frac{1}{1-x^{2i-1} }
+</script>
+</div>
+<p>最左边是互异分拆数的生成函数，最右边是奇分拆数的生成函数。两者对应系数相同，因此，奇分拆数和互异分拆数相同：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+po_n=pd_n
+</div>
+<script type="math/tex; mode=display">
+po_n=pd_n
+</script>
+</div>
+<p>但显然 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 部奇分拆数和互异 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 部分拆数不是一个概念，这里就不列出了。</p>
+<p>再引入两个概念：</p>
+<p>互异偶分拆数：<span class="arithmatex"><span class="MathJax_Preview">pde_n</span><script type="math/tex">pde_n</script></span>。自然数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的部分数为偶数的互异分拆方法数。（Even）</p>
+<p>互异奇分拆数：<span class="arithmatex"><span class="MathJax_Preview">pdo_n</span><script type="math/tex">pdo_n</script></span>。自然数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的部分数为奇数的互异分拆方法数。（Odd）</p>
+<p>因此有：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+pd_n=pde_n+pdo_n
+</div>
+<script type="math/tex; mode=display">
+pd_n=pde_n+pdo_n
+</script>
+</div>
+<p>同样也有相应的 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 部概念。由于过于复杂，不再列出。</p>
+<h2 id="_6">五边形数定理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>单独观察分拆数的生成函数的分母部分：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\prod_{i=1}^\infty (1-x^i ) 
+</div>
+<script type="math/tex; mode=display">
+\prod_{i=1}^\infty (1-x^i ) 
+</script>
+</div>
+<p>将这部分展开，可以想到互异分拆，与互异分拆拆出的部分数奇偶性有关。</p>
+<p>具体地，互异偶部分拆在展开式中被正向计数，互异奇部分拆在展开式中被负向计数。因此展开式中各项系数为两方法数之差。即：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\sum_{i=0}^\infty ({pde}_n-{pdo}_n ) x^n =\prod_{i=1}^\infty (1-x^i ) 
+</div>
+<script type="math/tex; mode=display">
+\sum_{i=0}^\infty ({pde}_n-{pdo}_n ) x^n =\prod_{i=1}^\infty (1-x^i ) 
+</script>
+</div>
+<p>接下来说明，多数情况下，上述两方法数相等，在展开式中系数为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>；仅在少数位置，两方法数相差 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 或 <span class="arithmatex"><span class="MathJax_Preview">-1</span><script type="math/tex">-1</script></span>。</p>
+<p>这里可以借助构造对应的办法。</p>
+<p>画出每个互异分拆的 Ferrers 图。最后一行称为这个图的底，底上点的个数记为 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>（Bottom）；连接最上面一行的最后一个点与图中某点的最长 <span class="arithmatex"><span class="MathJax_Preview">45</span><script type="math/tex">45</script></span> 度角线段，称为这个图的坡，坡上点的个数记为 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span>（Slide）。</p>
+<p><img alt="" src="../images/bottom_slide.jpg" /></p>
+<p>要想在互异偶部分拆与互异奇部分拆之间构造对应，就要定义变换，在保证互异条件不变的前提下，使得行数改变 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>：</p>
+<p>变换 A：当 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 小于等于 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 的时候，就将底移到右边，成为一个新坡。</p>
+<p>变换 B：当 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 大于 <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 的时候，就将坡移到下边，成为一个新底。</p>
+<p>这两个变换，对于多数时候的 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，恰有一个变换可以进行，就在互异偶部分拆与互异奇部分拆之间构造了一个一一对应。已经构造了一一对应的两部分分拆个数相等，因此这时展开式中第 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 项系数为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>。</p>
+<p>变换 A 不能进行的条件：底与坡有一个公共点，且 <span class="arithmatex"><span class="MathJax_Preview">b=s</span><script type="math/tex">b=s</script></span>。这种情形只发生于：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n=b+(b+1)+\ldots+(b+b-1)=\frac{b(3b-1)}{2}
+</div>
+<script type="math/tex; mode=display">
+n=b+(b+1)+\ldots+(b+b-1)=\frac{b(3b-1)}{2}
+</script>
+</div>
+<p>这时，展开式中第 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 项为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\prod_{i=0}^{b-1} (-x)^{b+i} =(-1)^b \prod_{i=0}^{b-1} x^{b+i} =(-1)^b x^n
+</div>
+<script type="math/tex; mode=display">
+\prod_{i=0}^{b-1} (-x)^{b+i} =(-1)^b \prod_{i=0}^{b-1} x^{b+i} =(-1)^b x^n
+</script>
+</div>
+<p>变换 B 不能进行的条件：底与坡有一个公共点，且 <span class="arithmatex"><span class="MathJax_Preview">b=s+1</span><script type="math/tex">b=s+1</script></span>。这种情形只发生于：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n=(s+1)+(s+2)+\ldots+(s+s)=\frac{s(3s-1)}{2}
+</div>
+<script type="math/tex; mode=display">
+n=(s+1)+(s+2)+\ldots+(s+s)=\frac{s(3s-1)}{2}
+</script>
+</div>
+<p>这时，展开式中第 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 项为：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\prod_{i=1}^s (-x)^{s+i} =(-1)^s \prod_{i=1}^s x^{s+i} =(-1)^s x^n
+</div>
+<script type="math/tex; mode=display">
+\prod_{i=1}^s (-x)^{s+i} =(-1)^s \prod_{i=1}^s x^{s+i} =(-1)^s x^n
+</script>
+</div>
+<p>至此，我们就证明了：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+(1-x)(1-x^2 )(1-x^3 )…=\ldots+x^{26}-x^{15}+x^7-x^2+1-x+x^5-x^{12}+x^{22}-…=\sum_{k=-\infty}^{+\infty} (-1)^k x^{\frac{k(3k-1)}{2}} 
+</div>
+<script type="math/tex; mode=display">
+(1-x)(1-x^2 )(1-x^3 )…=\ldots+x^{26}-x^{15}+x^7-x^2+1-x+x^5-x^{12}+x^{22}-…=\sum_{k=-\infty}^{+\infty} (-1)^k x^{\frac{k(3k-1)}{2}} 
+</script>
+</div>
+<p>将这个式子整理，对比两边各项系数，就得到递推式。</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+(1+p_1 x+p_2 x^2+p_3 x^3+\ldots)(1-x-x^2+x^5+x^7-x^{12}-x^{15}+x^{22}+x^{26}-…)=1
+</div>
+<script type="math/tex; mode=display">
+(1+p_1 x+p_2 x^2+p_3 x^3+\ldots)(1-x-x^2+x^5+x^7-x^{12}-x^{15}+x^{22}+x^{26}-…)=1
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+p_n=p_{n-1}+p_{n-2}-p_{n-5}-p_{n-7}+\ldots
+</div>
+<script type="math/tex; mode=display">
+p_n=p_{n-1}+p_{n-2}-p_{n-5}-p_{n-7}+\ldots
+</script>
+</div>
+<p>这个递推式有无限项，但是如果规定负数的分拆数是 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>（<span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 的分拆数已经定义为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>），那么就简化为了有限项。</p>
+<h3 id="_7">例题<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>计算分拆数</summary>
+<p>计算分拆数 <span class="arithmatex"><span class="MathJax_Preview">p_n</span><script type="math/tex">p_n</script></span>。多组输入，其中 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 上界为 <span class="arithmatex"><span class="MathJax_Preview">50000</span><script type="math/tex">50000</script></span>，对 <span class="arithmatex"><span class="MathJax_Preview">1000007</span><script type="math/tex">1000007</script></span> 取模。</p>
+<p>采用五边形数定理的方法。有代码：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">100010</span><span class="p">];</span><span class="w"></span>
+<span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="mi">50005</span><span class="p">];</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50005</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="cm">/*递推式系数1,2,5,7,12,15,22,26...i*(3*i-1)/2,i*(3*i+1)/2*/</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="cm">/*五边形数为1,5,12,22...i*(3*i-1)/2*/</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50005</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="cm">/*p[n]=p[n-1]+p[n-2]-p[n-5]-p[n-7]+p[12]+p[15]-...+p[n-i*[3i-1]/2]+p[n-i*[3i+1]/2]*/</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="cm">/*有可能为负数,式中加1000007*/</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1000007</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000007</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1000007</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000007</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">~</span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="n">n</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/combinatorics/partition.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../../assets/vendor/gitalk/gitalk.css">
+<script src="../../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Partition',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

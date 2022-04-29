@@ -1,0 +1,1281 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/math/poly/shift/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Shift - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Shift
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    多项式平移
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    分治法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taylor" class="md-nav__link">
+    Taylor 公式法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二项式定理法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    连续点值平移
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lagrange" class="md-nav__link">
+    Lagrange 插值公式法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    应用
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stirling" class="md-nav__link">
+    同一行第一类无符号 Stirling 数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    模素数意义下阶乘
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    多项式多点求值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    连续点值平移
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    模素数意义下二项式系数前缀和
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    模素数意义下调和数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    参考文献
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/poly/shift.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Shift</h1>
+                
+                <h2 id="_1">多项式平移<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>多项式平移是简单情况的多项式复合变换，给出 <span class="arithmatex"><span class="MathJax_Preview">f(x)=\sum _ {i=0}^nf_ix^i</span><script type="math/tex">f(x)=\sum _ {i=0}^nf_ix^i</script></span> 的系数和一个常数 <span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span>，求 <span class="arithmatex"><span class="MathJax_Preview">f(x+c)</span><script type="math/tex">f(x+c)</script></span> 的系数，即 <span class="arithmatex"><span class="MathJax_Preview">f(x)\mapsto f(x+c)</span><script type="math/tex">f(x)\mapsto f(x+c)</script></span>。</p>
+<h3 id="_2">分治法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>令</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f(x)=f_0(x)+x^{\left\lfloor n/2\right\rfloor}f_1(x)
+</div>
+<script type="math/tex; mode=display">
+f(x)=f_0(x)+x^{\left\lfloor n/2\right\rfloor}f_1(x)
+</script>
+</div>
+<p>那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f(x+c)=f_0(x+c)+(x+c)^{\left\lfloor n/2\right\rfloor}f_1(x+c)
+</div>
+<script type="math/tex; mode=display">
+f(x+c)=f_0(x+c)+(x+c)^{\left\lfloor n/2\right\rfloor}f_1(x+c)
+</script>
+</div>
+<p><span class="arithmatex"><span class="MathJax_Preview">(x+c)^{\left\lfloor n/2\right\rfloor}</span><script type="math/tex">(x+c)^{\left\lfloor n/2\right\rfloor}</script></span> 的系数为二项式系数，那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+T(n)=2T(n/2)+O(n\log n)=O(n\log^2 n)
+</div>
+<script type="math/tex; mode=display">
+T(n)=2T(n/2)+O(n\log n)=O(n\log^2 n)
+</script>
+</div>
+<p>其中 <span class="arithmatex"><span class="MathJax_Preview">O(n\log n)</span><script type="math/tex">O(n\log n)</script></span> 为多项式乘法的时间。</p>
+<h3 id="taylor">Taylor 公式法<a class="headerlink" href="#taylor" title="Permanent link">&para;</a></h3>
+<p>对 <span class="arithmatex"><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> 在 <span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 处应用 Taylor 公式，有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f(x)=f(c)+\frac{f'(c)}{1!}(x-c)+\frac{f''(c)}{2!}(x-c)^2+\cdots +\frac{f^{(n)}(c)}{n!}(x-c)^n
+</div>
+<script type="math/tex; mode=display">
+f(x)=f(c)+\frac{f'(c)}{1!}(x-c)+\frac{f''(c)}{2!}(x-c)^2+\cdots +\frac{f^{(n)}(c)}{n!}(x-c)^n
+</script>
+</div>
+<p>那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f(x+c)=f(c)+\frac{f'(c)}{1!}x+\frac{f''(c)}{2!}x^2+\cdots +\frac{f^{(n)}(c)}{n!}x^n
+</div>
+<script type="math/tex; mode=display">
+f(x+c)=f(c)+\frac{f'(c)}{1!}x+\frac{f''(c)}{2!}x^2+\cdots +\frac{f^{(n)}(c)}{n!}x^n
+</script>
+</div>
+<p>观察到对于 <span class="arithmatex"><span class="MathJax_Preview">t\geq 0</span><script type="math/tex">t\geq 0</script></span> 有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+t!\lbrack x^t\rbrack f(x+c)&amp;=f^{(t)}(c)\\
+&amp;=\sum _ {i=t}^nf_ii!\frac{c^{i-t}}{(i-t)!}\\
+&amp;=\sum _ {i=0}^{n-t}f _ {i+t}(i+t)!\frac{c^i}{i!}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+t!\lbrack x^t\rbrack f(x+c)&=f^{(t)}(c)\\
+&=\sum _ {i=t}^nf_ii!\frac{c^{i-t}}{(i-t)!}\\
+&=\sum _ {i=0}^{n-t}f _ {i+t}(i+t)!\frac{c^i}{i!}
+\end{aligned}
+</script>
+</div>
+<p>令</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+A_0(x)&amp;=\sum _ {i=0}^nf _ {n-i}(n-i)!x^i\\
+B_0(x)&amp;=\sum _ {i=0}^n\frac{c^i}{i!}x^i
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+A_0(x)&=\sum _ {i=0}^nf _ {n-i}(n-i)!x^i\\
+B_0(x)&=\sum _ {i=0}^n\frac{c^i}{i!}x^i
+\end{aligned}
+</script>
+</div>
+<p>那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\lbrack x^{n-t}\rbrack (A_0(x)B_0(x))&amp;=\sum _ {i=0}^{n-t} (\lbrack x^{n-t-i}\rbrack A_0(x))(\lbrack x^i\rbrack B_0(x))\\
+&amp;=\sum _ {i=0}^{n-t}f _ {i+t}(i+t)!\frac{c^i}{i!}\\
+&amp;=t!\lbrack x^t\rbrack f(x+c)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lbrack x^{n-t}\rbrack (A_0(x)B_0(x))&=\sum _ {i=0}^{n-t} (\lbrack x^{n-t-i}\rbrack A_0(x))(\lbrack x^i\rbrack B_0(x))\\
+&=\sum _ {i=0}^{n-t}f _ {i+t}(i+t)!\frac{c^i}{i!}\\
+&=t!\lbrack x^t\rbrack f(x+c)
+\end{aligned}
+</script>
+</div>
+<h3 id="_3">二项式定理法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>考虑二项式定理 <span class="arithmatex"><span class="MathJax_Preview">\displaystyle (a+b)^n=\sum _ {i=0}^n\binom{n}{i}a^ib^{n-i}</span><script type="math/tex">\displaystyle (a+b)^n=\sum _ {i=0}^n\binom{n}{i}a^ib^{n-i}</script></span> 那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+f(x+c)&amp;=\sum _ {i=0}^nf_i(x+c)^i\\
+&amp;=\sum _ {i=0}^nf_i\left(\sum _ {j=0}^i\binom{i}{j}x^jc^{i-j}\right)\\
+&amp;=\sum _ {i=0}^nf_ii!\left(\sum _ {j=0}^i\frac{x^j}{j!}\frac{c^{i-j}}{(i-j)!}\right)\\
+&amp;=\sum _ {i=0}^n\frac{x^i}{i!}\left(\sum _ {j=i}^{n}f_jj!\frac{c^{j-i}}{(j-i)!}\right)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(x+c)&=\sum _ {i=0}^nf_i(x+c)^i\\
+&=\sum _ {i=0}^nf_i\left(\sum _ {j=0}^i\binom{i}{j}x^jc^{i-j}\right)\\
+&=\sum _ {i=0}^nf_ii!\left(\sum _ {j=0}^i\frac{x^j}{j!}\frac{c^{i-j}}{(i-j)!}\right)\\
+&=\sum _ {i=0}^n\frac{x^i}{i!}\left(\sum _ {j=i}^{n}f_jj!\frac{c^{j-i}}{(j-i)!}\right)
+\end{aligned}
+</script>
+</div>
+<p>得到的结果与上述方法相同。</p>
+<h2 id="_4">连续点值平移<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<details class="note" open="open">
+<summary>例题 <a href="https://loj.ac/p/166">LOJ 166 拉格朗日插值 2</a></summary>
+<p>给出度数小于等于 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的多项式 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 的连续点值 <span class="arithmatex"><span class="MathJax_Preview">f(0),f(1),\dots ,f(n)</span><script type="math/tex">f(0),f(1),\dots ,f(n)</script></span>，在模 <span class="arithmatex"><span class="MathJax_Preview">998244353</span><script type="math/tex">998244353</script></span> 意义下计算 <span class="arithmatex"><span class="MathJax_Preview">f(c),f(c+1),\dots ,f(c+n)</span><script type="math/tex">f(c),f(c+1),\dots ,f(c+n)</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">1\leq n\leq 10^5,n &lt; m\leq 10^8</span><script type="math/tex">1\leq n\leq 10^5,n < m\leq 10^8</script></span>。</p>
+</details>
+<h3 id="lagrange">Lagrange 插值公式法<a class="headerlink" href="#lagrange" title="Permanent link">&para;</a></h3>
+<p>考虑 Lagrange 插值公式</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+f(x)&amp;=\sum _ {0\leq i\leq n}f(i)\prod _ {0\leq j\leq n\,\land \,j\neq i}\frac{x-j}{i-j}\\
+&amp;=\sum _ {0\leq i\leq n}f(i)\frac{x!}{(x-n-1)!(x-i)}\frac{(-1)^{n-i}}{i!(n-i)!}\\
+&amp;=\frac{x!}{(x-n-1)!}\sum _ {0\leq i\leq n}\frac{f(i)}{(x-i)}\frac{(-1)^{n-i}}{i!(n-i)!}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(x)&=\sum _ {0\leq i\leq n}f(i)\prod _ {0\leq j\leq n\,\land \,j\neq i}\frac{x-j}{i-j}\\
+&=\sum _ {0\leq i\leq n}f(i)\frac{x!}{(x-n-1)!(x-i)}\frac{(-1)^{n-i}}{i!(n-i)!}\\
+&=\frac{x!}{(x-n-1)!}\sum _ {0\leq i\leq n}\frac{f(i)}{(x-i)}\frac{(-1)^{n-i}}{i!(n-i)!}
+\end{aligned}
+</script>
+</div>
+<p>上式虽然是卷积形式但不能保证分母上 <span class="arithmatex"><span class="MathJax_Preview">x-i\neq 0</span><script type="math/tex">x-i\neq 0</script></span>，所以下面仅考虑 <span class="arithmatex"><span class="MathJax_Preview">c &gt; n</span><script type="math/tex">c > n</script></span> 的情况，其他情况（如系数在模素数意义下时须避免 <span class="arithmatex"><span class="MathJax_Preview">B_0(x)</span><script type="math/tex">B_0(x)</script></span> 系数的分母出现零）可以分类讨论解决，令</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+A_0(x)&amp;=\sum _ {0\leq i\leq n}\frac{f(i)(-1)^{n-i}}{i!(n-i)!}x^i\\
+B_0(x)&amp;=\sum _ {i\geq 0}\frac{1}{c-n+i}x^i
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+A_0(x)&=\sum _ {0\leq i\leq n}\frac{f(i)(-1)^{n-i}}{i!(n-i)!}x^i\\
+B_0(x)&=\sum _ {i\geq 0}\frac{1}{c-n+i}x^i
+\end{aligned}
+</script>
+</div>
+<p>那么对于 <span class="arithmatex"><span class="MathJax_Preview">t\geq 0</span><script type="math/tex">t\geq 0</script></span> 有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\lbrack x^{n+t}\rbrack (A_0(x)B_0(x))&amp;=\sum _ {i=0}^{n+t}(\lbrack x^i\rbrack A_0(x))(\lbrack x^{n+t-i}\rbrack B_0(x))\\
+&amp;=\sum _ {i=0}^{n}\frac{f(i)(-1)^{n-i}}{i!(n-i)!}\frac{1}{c+t-i}\\
+&amp;=\frac{(c+t-n-1)!}{(c+t)!}f(c+t)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lbrack x^{n+t}\rbrack (A_0(x)B_0(x))&=\sum _ {i=0}^{n+t}(\lbrack x^i\rbrack A_0(x))(\lbrack x^{n+t-i}\rbrack B_0(x))\\
+&=\sum _ {i=0}^{n}\frac{f(i)(-1)^{n-i}}{i!(n-i)!}\frac{1}{c+t-i}\\
+&=\frac{(c+t-n-1)!}{(c+t)!}f(c+t)
+\end{aligned}
+</script>
+</div>
+<p>实现中取 <span class="arithmatex"><span class="MathJax_Preview">B_0(x)</span><script type="math/tex">B_0(x)</script></span> 需要的部分截断可求出更多点值，且可利用循环卷积。</p>
+<p>对问题稍加修改，假设对于某个 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 给出的点值为 <span class="arithmatex"><span class="MathJax_Preview">f(d),f(d+k),\dots ,f(d+nk)</span><script type="math/tex">f(d),f(d+k),\dots ,f(d+nk)</script></span>，我们可以计算 <span class="arithmatex"><span class="MathJax_Preview">f(c+d),f(c+d+k),\dots ,f(c+d+nk)</span><script type="math/tex">f(c+d),f(c+d+k),\dots ,f(c+d+nk)</script></span>，视作平移 <span class="arithmatex"><span class="MathJax_Preview">g(x)=f(d+kx)</span><script type="math/tex">g(x)=f(d+kx)</script></span> 的点值 <span class="arithmatex"><span class="MathJax_Preview">g(0),g(1),\dots ,g(n)</span><script type="math/tex">g(0),g(1),\dots ,g(n)</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">g(c/k),g(c/k+1),\dots ,g(c/k+n)</span><script type="math/tex">g(c/k),g(c/k+1),\dots ,g(c/k+n)</script></span>。</p>
+<p>Lagrange 插值公式也给出了通过维护一些前后缀积的线性计算单个点值的方法。</p>
+<h2 id="_5">应用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="stirling">同一行第一类无符号 Stirling 数<a class="headerlink" href="#stirling" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>例题 <a href="https://www.luogu.com.cn/problem/P5408">P5408 第一类斯特林数·行</a></summary>
+<p>在模素数 <span class="arithmatex"><span class="MathJax_Preview">167772161</span><script type="math/tex">167772161</script></span> 意义下求 <span class="arithmatex"><span class="MathJax_Preview">\displaystyle {n\brack 0},{n\brack 1},\dots ,{n\brack n}</span><script type="math/tex">\displaystyle {n\brack 0},{n\brack 1},\dots ,{n\brack n}</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">1\leq n&lt; 262144</span><script type="math/tex">1\leq n< 262144</script></span>。</p>
+</details>
+<p>考虑</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+x^{\overline{n}}=\sum _ {i=0}^n{n\brack i}x^i,\quad n\geq 0
+</div>
+<script type="math/tex; mode=display">
+x^{\overline{n}}=\sum _ {i=0}^n{n\brack i}x^i,\quad n\geq 0
+</script>
+</div>
+<p>其中 <span class="arithmatex"><span class="MathJax_Preview">x^{\overline{n}}=x\cdot (x+1)\cdots (x+n-1)</span><script type="math/tex">x^{\overline{n}}=x\cdot (x+1)\cdots (x+n-1)</script></span> 为上升阶乘幂，令 <span class="arithmatex"><span class="MathJax_Preview">f_n(x)=x^{\overline{n}}</span><script type="math/tex">f_n(x)=x^{\overline{n}}</script></span> 那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f_{2n}(x)=x^{\overline{n}}\cdot (x+n)^{\overline{n}}=f_n(x)f_n(x+n)
+</div>
+<script type="math/tex; mode=display">
+f_{2n}(x)=x^{\overline{n}}\cdot (x+n)^{\overline{n}}=f_n(x)f_n(x+n)
+</script>
+</div>
+<p>通过多项式平移可在 <span class="arithmatex"><span class="MathJax_Preview">O(n\log n)</span><script type="math/tex">O(n\log n)</script></span> 求出 <span class="arithmatex"><span class="MathJax_Preview">f_n(x+n)</span><script type="math/tex">f_n(x+n)</script></span>，问题被缩小为原先的一半即求出 <span class="arithmatex"><span class="MathJax_Preview">f_n(x)</span><script type="math/tex">f_n(x)</script></span> 的系数，那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+T(n)=T(n/2)+O(n\log n)=O(n\log n)
+</div>
+<script type="math/tex; mode=display">
+T(n)=T(n/2)+O(n\log n)=O(n\log n)
+</script>
+</div>
+<h3 id="_6">模素数意义下阶乘<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>例题 <a href="https://www.luogu.com.cn/problem/P5282">P5282 【模板】快速阶乘算法</a></summary>
+<p>求 <span class="arithmatex"><span class="MathJax_Preview">n!\bmod p</span><script type="math/tex">n!\bmod p</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 为素数且 <span class="arithmatex"><span class="MathJax_Preview">1\leq n&lt; p\leq 2^{31}-1</span><script type="math/tex">1\leq n< p\leq 2^{31}-1</script></span>。</p>
+</details>
+<p>令 <span class="arithmatex"><span class="MathJax_Preview">v=\lfloor\sqrt{n}\rfloor</span><script type="math/tex">v=\lfloor\sqrt{n}\rfloor</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">g(x)=\prod _ {i=1}^v(x+i)</span><script type="math/tex">g(x)=\prod _ {i=1}^v(x+i)</script></span> 那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+n!\equiv \left(\prod _ {i=0}^{v-1}g(iv)\right)\cdot \prod _ {i=v^2+1}^n i\pmod{p}
+</div>
+<script type="math/tex; mode=display">
+n!\equiv \left(\prod _ {i=0}^{v-1}g(iv)\right)\cdot \prod _ {i=v^2+1}^n i\pmod{p}
+</script>
+</div>
+<p>其中 <span class="arithmatex"><span class="MathJax_Preview">\prod _ {i=v^2+1}^n i</span><script type="math/tex">\prod _ {i=v^2+1}^n i</script></span> 可在 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> 时间计算，我们希望可以快速计算上式的前半部分。</p>
+<h4 id="_7">多项式多点求值<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex"><span class="MathJax_Preview">g(x)</span><script type="math/tex">g(x)</script></span> 系数的计算可用上述多项式平移算法在 <span class="arithmatex"><span class="MathJax_Preview">O(n\log n)</span><script type="math/tex">O(n\log n)</script></span> 时间得到，但多点求值计算 <span class="arithmatex"><span class="MathJax_Preview">g(0),g(v),g(2v),\dots ,g(v^2-v)</span><script type="math/tex">g(0),g(v),g(2v),\dots ,g(v^2-v)</script></span> 需要 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n}\log ^2n)</span><script type="math/tex">O(\sqrt{n}\log ^2n)</script></span> 时间。</p>
+<h4 id="_8">连续点值平移<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>令 <span class="arithmatex"><span class="MathJax_Preview">g_d(x)=\prod _ {i=1}^d(x+i)</span><script type="math/tex">g_d(x)=\prod _ {i=1}^d(x+i)</script></span>，我们可以用 <span class="arithmatex"><span class="MathJax_Preview">d+1</span><script type="math/tex">d+1</script></span> 个点值 <span class="arithmatex"><span class="MathJax_Preview">g_d(0),g_d(v),\dots ,g_d(dv)</span><script type="math/tex">g_d(0),g_d(v),\dots ,g_d(dv)</script></span> 唯一确定这个度数为 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 的多项式，又</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+g _ {2d}(x)=g_d(x)g_d(x+d)
+</div>
+<script type="math/tex; mode=display">
+g _ {2d}(x)=g_d(x)g_d(x+d)
+</script>
+</div>
+<p>所以只需 <span class="arithmatex"><span class="MathJax_Preview">2d+1</span><script type="math/tex">2d+1</script></span> 个点值可以唯一确定 <span class="arithmatex"><span class="MathJax_Preview">g _ {2d}(x)</span><script type="math/tex">g _ {2d}(x)</script></span>，那么使用连续点值平移计算 <span class="arithmatex"><span class="MathJax_Preview">g_d((d+1)v),g_d((d+2)v),\dots ,g_d(2dv)</span><script type="math/tex">g_d((d+1)v),g_d((d+2)v),\dots ,g_d(2dv)</script></span>（即平移 <span class="arithmatex"><span class="MathJax_Preview">h(x)=g_d(vx)</span><script type="math/tex">h(x)=g_d(vx)</script></span> 的点值 <span class="arithmatex"><span class="MathJax_Preview">h(0),h(1),\dots ,h(d)</span><script type="math/tex">h(0),h(1),\dots ,h(d)</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">h(d+1),h(d+2),\dots ,h(2d)</span><script type="math/tex">h(d+1),h(d+2),\dots ,h(2d)</script></span>）和 <span class="arithmatex"><span class="MathJax_Preview">g_d(d),g_d(v+d),\dots ,g_d(2dv+d)</span><script type="math/tex">g_d(d),g_d(v+d),\dots ,g_d(2dv+d)</script></span>（即平移 <span class="arithmatex"><span class="MathJax_Preview">h(x)=g_d(vx)</span><script type="math/tex">h(x)=g_d(vx)</script></span> 的点值 <span class="arithmatex"><span class="MathJax_Preview">h(0),h(1),\dots ,h(d)</span><script type="math/tex">h(0),h(1),\dots ,h(d)</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">h(d/v),h(d/v+1),h(d/v+2),\dots ,h(d/v+2d)</span><script type="math/tex">h(d/v),h(d/v+1),h(d/v+2),\dots ,h(d/v+2d)</script></span>）后将这两者的对应点值相乘即得 <span class="arithmatex"><span class="MathJax_Preview">g _ {2d}(0),g _ {2d}(v),\dots ,g _ {2d}(2dv)</span><script type="math/tex">g _ {2d}(0),g _ {2d}(v),\dots ,g _ {2d}(2dv)</script></span>。</p>
+<p>由 <span class="arithmatex"><span class="MathJax_Preview">g_d(0),g_d(v),\dots ,g_d(dv)</span><script type="math/tex">g_d(0),g_d(v),\dots ,g_d(dv)</script></span> 计算 <span class="arithmatex"><span class="MathJax_Preview">g _ {d+1}(0),g _ {d+1}(v),\dots ,g _ {d+1}(dv),g _ {d+1}((d+1)v)</span><script type="math/tex">g _ {d+1}(0),g _ {d+1}(v),\dots ,g _ {d+1}(dv),g _ {d+1}((d+1)v)</script></span> 考虑</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+g _ {d+1}(x)=(x+d+1)\cdot g_d(x)
+</div>
+<script type="math/tex; mode=display">
+g _ {d+1}(x)=(x+d+1)\cdot g_d(x)
+</script>
+</div>
+<p>额外增加的一个点值使用线性时间的算法即可。那么在开始时维护 <span class="arithmatex"><span class="MathJax_Preview">g_1(0)=1,g_1(v)=v+1</span><script type="math/tex">g_1(0)=1,g_1(v)=v+1</script></span> 后使用连续点值平移来倍增地维护这些点值，有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+T(n)=T(n/2)+O(n\log n)=O(n\log n)
+</div>
+<script type="math/tex; mode=display">
+T(n)=T(n/2)+O(n\log n)=O(n\log n)
+</script>
+</div>
+<p>而我们只需要约 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 个点值，所以时间复杂度为 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{n}\log n)</span><script type="math/tex">O(\sqrt{n}\log n)</script></span>。</p>
+<h3 id="_9">模素数意义下二项式系数前缀和<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>例题 <a href="https://loj.ac/p/6386">LOJ 6386 组合数前缀和</a></summary>
+<p>求 <span class="arithmatex"><span class="MathJax_Preview">\displaystyle \sum _ {i=0}^m\binom{n}{i}\bmod 998244353</span><script type="math/tex">\displaystyle \sum _ {i=0}^m\binom{n}{i}\bmod 998244353</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">0\leq m\leq n\leq 9\times 10^8</span><script type="math/tex">0\leq m\leq n\leq 9\times 10^8</script></span>。</p>
+</details>
+<p>考虑使用矩阵描述 <span class="arithmatex"><span class="MathJax_Preview">n!=n\cdot (n-1)!</span><script type="math/tex">n!=n\cdot (n-1)!</script></span> 这一步递推，我们有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{bmatrix}
+n!
+\end{bmatrix}
+=\left(
+\prod _ {i=0}^{n-1}
+\begin{bmatrix}i+1\end{bmatrix}
+\right)
+\begin{bmatrix}
+1
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+n!
+\end{bmatrix}
+=\left(
+\prod _ {i=0}^{n-1}
+\begin{bmatrix}i+1\end{bmatrix}
+\right)
+\begin{bmatrix}
+1
+\end{bmatrix}
+</script>
+</div>
+<p>类似的可以将二项式系数前缀和的递推描述为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{bmatrix}
+\binom{n}{m+1}\\
+\sum _ {i=0}^m\binom{n}{i}
+\end{bmatrix}=
+\begin{bmatrix}
+(n-m)/(m+1)&amp;0\\
+1&amp;1
+\end{bmatrix}
+\begin{bmatrix}
+\binom{n}{m}\\
+\sum _ {i=0}^{m-1}\binom{n}{i}
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+\binom{n}{m+1}\\
+\sum _ {i=0}^m\binom{n}{i}
+\end{bmatrix}=
+\begin{bmatrix}
+(n-m)/(m+1)&0\\
+1&1
+\end{bmatrix}
+\begin{bmatrix}
+\binom{n}{m}\\
+\sum _ {i=0}^{m-1}\binom{n}{i}
+\end{bmatrix}
+</script>
+</div>
+<p>注意矩阵乘法的顺序，那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\begin{bmatrix}
+\binom{n}{m+1}\\
+\sum _ {i=0}^m\binom{n}{i}
+\end{bmatrix}
+&amp;=\left(
+\prod _ {i=0}^{m}
+\begin{bmatrix}
+(n-i)/(i+1)&amp;0\\1&amp;1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+1\\0
+\end{bmatrix}\\
+&amp;=
+\frac{1}{(m+1)!}
+\left(
+\prod _ {i=0}^{m}
+\begin{bmatrix}
+n-i&amp;0\\i+1&amp;i+1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+1\\0
+\end{bmatrix}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\begin{bmatrix}
+\binom{n}{m+1}\\
+\sum _ {i=0}^m\binom{n}{i}
+\end{bmatrix}
+&=\left(
+\prod _ {i=0}^{m}
+\begin{bmatrix}
+(n-i)/(i+1)&0\\1&1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+1\\0
+\end{bmatrix}\\
+&=
+\frac{1}{(m+1)!}
+\left(
+\prod _ {i=0}^{m}
+\begin{bmatrix}
+n-i&0\\i+1&i+1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+1\\0
+\end{bmatrix}
+\end{aligned}
+</script>
+</div>
+<p>令 <span class="arithmatex"><span class="MathJax_Preview">v=\lfloor\sqrt{m}\rfloor</span><script type="math/tex">v=\lfloor\sqrt{m}\rfloor</script></span>，考虑维护矩阵</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+M _ d(x)&amp;=
+\prod _ {i=1}^d
+\begin{bmatrix}
+-x+n+1-i&amp;0\\
+x+i&amp;x+i
+\end{bmatrix}\\
+&amp;=
+\begin{bmatrix}
+f_d(x)&amp;0\\
+g_d(x)&amp;h_d(x)
+\end{bmatrix}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+M _ d(x)&=
+\prod _ {i=1}^d
+\begin{bmatrix}
+-x+n+1-i&0\\
+x+i&x+i
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+f_d(x)&0\\
+g_d(x)&h_d(x)
+\end{bmatrix}
+\end{aligned}
+</script>
+</div>
+<p>的点值 <span class="arithmatex"><span class="MathJax_Preview">M _ d(0),M _ d(v),\dots ,M_d(dv)</span><script type="math/tex">M _ d(0),M _ d(v),\dots ,M_d(dv)</script></span> 即 <span class="arithmatex"><span class="MathJax_Preview">f_d(0),f_d(v),\dots ,f_d(dv)</span><script type="math/tex">f_d(0),f_d(v),\dots ,f_d(dv)</script></span>、<span class="arithmatex"><span class="MathJax_Preview">h_d(0),\dots ,h_d(dv)</span><script type="math/tex">h_d(0),\dots ,h_d(dv)</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">g_d(0),\dots ,g_d(dv)</span><script type="math/tex">g_d(0),\dots ,g_d(dv)</script></span>，又</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+M _ {2d}(x)&amp;=
+\prod _ {i=1}^{2d}
+\begin{bmatrix}
+-x+n+1-i&amp;0\\
+x+i&amp;x+i
+\end{bmatrix}\\
+&amp;=
+\left(
+\prod _ {i=1}^d
+\begin{bmatrix}
+-x-d+n+1-i&amp;0\\
+x+d+i&amp;x+d+i
+\end{bmatrix}
+\right)
+\left(
+\prod _ {i=1}^d
+\begin{bmatrix}
+-x+n+1-i&amp;0\\
+x+i&amp;x+i
+\end{bmatrix}
+\right) \\
+&amp;=
+\begin{bmatrix}
+f_d(x+d)&amp;0\\
+g_d(x+d)&amp;h_d(x+d)
+\end{bmatrix}
+\begin{bmatrix}
+f_d(x)&amp;0\\
+g_d(x)&amp;h_d(x)
+\end{bmatrix} \\
+&amp;=
+\begin{bmatrix}
+f_d(x+d)f_d(x)&amp;0\\
+g_d(x+d)f_d(x)+h_d(x+d)g_d(x)&amp;h_d(x+d)h_d(x)
+\end{bmatrix}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+M _ {2d}(x)&=
+\prod _ {i=1}^{2d}
+\begin{bmatrix}
+-x+n+1-i&0\\
+x+i&x+i
+\end{bmatrix}\\
+&=
+\left(
+\prod _ {i=1}^d
+\begin{bmatrix}
+-x-d+n+1-i&0\\
+x+d+i&x+d+i
+\end{bmatrix}
+\right)
+\left(
+\prod _ {i=1}^d
+\begin{bmatrix}
+-x+n+1-i&0\\
+x+i&x+i
+\end{bmatrix}
+\right) \\
+&=
+\begin{bmatrix}
+f_d(x+d)&0\\
+g_d(x+d)&h_d(x+d)
+\end{bmatrix}
+\begin{bmatrix}
+f_d(x)&0\\
+g_d(x)&h_d(x)
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+f_d(x+d)f_d(x)&0\\
+g_d(x+d)f_d(x)+h_d(x+d)g_d(x)&h_d(x+d)h_d(x)
+\end{bmatrix}
+\end{aligned}
+</script>
+</div>
+<p>且矩阵右下角元素恰为我们在阶乘算法中所维护的，那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\prod _ {i=0}^{m}
+\begin{bmatrix}
+n-i&amp;0\\i+1&amp;i+1
+\end{bmatrix}=
+\left(
+\prod _ {i=(k+1)v}^m
+\begin{bmatrix}
+n-i&amp;0\\
+i+1&amp;i+1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+f_v(kv)&amp;0\\
+g_v(kv)&amp;h_v(kv)
+\end{bmatrix}
+\cdots
+\begin{bmatrix}
+f_v(0)&amp;0\\
+g_v(0)&amp;h_v(0)
+\end{bmatrix}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\prod _ {i=0}^{m}
+\begin{bmatrix}
+n-i&0\\i+1&i+1
+\end{bmatrix}=
+\left(
+\prod _ {i=(k+1)v}^m
+\begin{bmatrix}
+n-i&0\\
+i+1&i+1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+f_v(kv)&0\\
+g_v(kv)&h_v(kv)
+\end{bmatrix}
+\cdots
+\begin{bmatrix}
+f_v(0)&0\\
+g_v(0)&h_v(0)
+\end{bmatrix}
+\end{aligned}
+</script>
+</div>
+<p>可在 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt m\log m)</span><script type="math/tex">O(\sqrt m\log m)</script></span> 时间完成计算。</p>
+<h3 id="_10">模素数意义下调和数<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>例题 <a href="https://www.luogu.com.cn/problem/P5702">P5702 调和级数求和</a></summary>
+<p>求 <span class="arithmatex"><span class="MathJax_Preview">\sum _ {i=1}^ni^{-1}\bmod p</span><script type="math/tex">\sum _ {i=1}^ni^{-1}\bmod p</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 为素数且 <span class="arithmatex"><span class="MathJax_Preview">1\leq n&lt; p&lt; 2^{30}</span><script type="math/tex">1\leq n< p< 2^{30}</script></span>。</p>
+</details>
+<p>记 <span class="arithmatex"><span class="MathJax_Preview">H_n=\sum _ {k=1}^nk^{-1}</span><script type="math/tex">H_n=\sum _ {k=1}^nk^{-1}</script></span>，一步递推为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{bmatrix}
+(n+1)!\\(n+1)!H _ {n+1}
+\end{bmatrix}=
+\begin{bmatrix}
+n+1&amp;0\\1&amp;n+1
+\end{bmatrix}
+\begin{bmatrix}
+n!\\n!H_n
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+(n+1)!\\(n+1)!H _ {n+1}
+\end{bmatrix}=
+\begin{bmatrix}
+n+1&0\\1&n+1
+\end{bmatrix}
+\begin{bmatrix}
+n!\\n!H_n
+\end{bmatrix}
+</script>
+</div>
+<p>那么</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{bmatrix}
+{n+1\brack 1}\\{n+1\brack 2}
+\end{bmatrix}=
+\begin{bmatrix}
+n!\\n!H_n
+\end{bmatrix}=
+\left(
+\prod _ {i=0}^{n-1}
+\begin{bmatrix}
+i+1&amp;0\\1&amp;i+1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+1\\0
+\end{bmatrix}
+</div>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+{n+1\brack 1}\\{n+1\brack 2}
+\end{bmatrix}=
+\begin{bmatrix}
+n!\\n!H_n
+\end{bmatrix}=
+\left(
+\prod _ {i=0}^{n-1}
+\begin{bmatrix}
+i+1&0\\1&i+1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+1\\0
+\end{bmatrix}
+</script>
+</div>
+<p>在这里 <span class="arithmatex"><span class="MathJax_Preview">\displaystyle {n+1\brack 1}</span><script type="math/tex">\displaystyle {n+1\brack 1}</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">\displaystyle {n+1\brack 2}</span><script type="math/tex">\displaystyle {n+1\brack 2}</script></span> 为第一类无符号 Stirling 数。维护点值矩阵的方法同上。</p>
+<h2 id="_11">参考文献<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Alin Bostan, Pierrick Gaudry, and Eric Schost. Linear recurrences with polynomial coefficients and application to integer factorization and Cartier-Manin operator.</li>
+<li>Min_25 的博客</li>
+<li><a href="https://www.cnblogs.com/zzqsblog/p/8408691.html">ZZQ 的博客 - 阶乘模大质数</a></li>
+</ul>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/poly/shift.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../../assets/vendor/gitalk/gitalk.css">
+<script src="../../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Shift',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

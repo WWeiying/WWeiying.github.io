@@ -1,0 +1,789 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/math/group-theory/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Group theory - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Group theory
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    群的定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    环
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    群的基本概念
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    群同态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    子群
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    陪集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    商群
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    共轭
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    阶
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    群的主要类别
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    置换群
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    循环群
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    矩阵群
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    变换群
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    抽象群
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    参考资料与拓展阅读
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/group-theory.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Group theory</h1>
+                
+                <h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在数学和抽象代数中，<strong>群论</strong>（Group Theory）主要研究叫做“群”的代数结构。</p>
+<h2 id="_2">群的定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在数学中，<strong>群</strong>（group）是由一种集合以及一个二元运算所组成的，符合“群公理”的代数结构。</p>
+<p>一个群是一个集合 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 加上对 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的二元运算。二元运算用 <span class="arithmatex"><span class="MathJax_Preview">\cdot</span><script type="math/tex">\cdot</script></span> 表示，它结合了任意两个元素 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 形成了一个属于 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的元素，记为 <span class="arithmatex"><span class="MathJax_Preview">a\cdot b</span><script type="math/tex">a\cdot b</script></span>。</p>
+<p>群公理包含下述四个性质（有时略去封闭性，只有三个性质）。若集合 <span class="arithmatex"><span class="MathJax_Preview">G\neq\varnothing</span><script type="math/tex">G\neq\varnothing</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 上的运算 <span class="arithmatex"><span class="MathJax_Preview">\cdot</span><script type="math/tex">\cdot</script></span> 构成的代数结构 <span class="arithmatex"><span class="MathJax_Preview">(G,\cdot)</span><script type="math/tex">(G,\cdot)</script></span> 满足以下性质：</p>
+<ol>
+<li><strong>封闭性</strong>：对于所有 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中 <span class="arithmatex"><span class="MathJax_Preview">a, b</span><script type="math/tex">a, b</script></span>，运算 <span class="arithmatex"><span class="MathJax_Preview">a·b</span><script type="math/tex">a·b</script></span> 的结果也在 G 中。</li>
+<li><strong>结合律</strong>(Associativity)：对于 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中所有的 <span class="arithmatex"><span class="MathJax_Preview">a, b, c</span><script type="math/tex">a, b, c</script></span>，等式 <span class="arithmatex"><span class="MathJax_Preview">(a \cdot b)\cdot c = a \cdot (b \cdot c)</span><script type="math/tex">(a \cdot b)\cdot c = a \cdot (b \cdot c)</script></span> 成立。</li>
+<li><strong>标识元</strong>（Identity element，也称单位元）：<span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中存在一个元素 <span class="arithmatex"><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span>，使得对于 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中的每一个 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>，都有一个 <span class="arithmatex"><span class="MathJax_Preview">e \cdot a=a\cdot e=a</span><script type="math/tex">e \cdot a=a\cdot e=a</script></span> 成立。这样的元素是独一无二的。它被称为群的标识元素。</li>
+<li><strong>逆元</strong>(Inverse element)：对于每个 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中的 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>，总存在 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中的一个元素 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 使 <span class="arithmatex"><span class="MathJax_Preview">a \cdot b = b \cdot a = e</span><script type="math/tex">a \cdot b = b \cdot a = e</script></span>，此处 <span class="arithmatex"><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> 为单位元，称 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 的逆元，记为 <span class="arithmatex"><span class="MathJax_Preview">a^{-1}</span><script type="math/tex">a^{-1}</script></span>。</li>
+</ol>
+<p>则称 <span class="arithmatex"><span class="MathJax_Preview">(G,\cdot)</span><script type="math/tex">(G,\cdot)</script></span> 为一个 <strong>群</strong>。例如，整数集和整数间的加法 <span class="arithmatex"><span class="MathJax_Preview">(\mathbb{Z},+)</span><script type="math/tex">(\mathbb{Z},+)</script></span> 构成一个群，单位元是 0，一个整数的逆元是它的相反数。</p>
+<h2 id="_3">环<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>形式上，<strong>环</strong> 是一个运算为加法的阿贝尔群（abelian group），其中第二个二元运算称为结合乘法，它分布在加法运算上，并具有乘法单位元素。</p>
+<p>环的定义类似于交换群，只不过在原来 <span class="arithmatex"><span class="MathJax_Preview">+</span><script type="math/tex">+</script></span> 的基础上又增添另一种运算 <span class="arithmatex"><span class="MathJax_Preview">\cdot</span><script type="math/tex">\cdot</script></span>（注意我们这里所说的 <span class="arithmatex"><span class="MathJax_Preview">+</span><script type="math/tex">+</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">\cdot</span><script type="math/tex">\cdot</script></span> 不是我们一般所熟知的四则运算加法和乘法）。在抽象代数中，研究环的分支为 <strong>环论</strong>。</p>
+<h2 id="_4">群的基本概念<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>定义 <span class="arithmatex"><span class="MathJax_Preview">X={x,y,z}</span><script type="math/tex">X={x,y,z}</script></span> 为包含 <span class="arithmatex"><span class="MathJax_Preview">x, y, z</span><script type="math/tex">x, y, z</script></span> 元素的集合 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>。<span class="arithmatex"><span class="MathJax_Preview">x \in X</span><script type="math/tex">x \in X</script></span> 表示 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 属于集合 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>。<span class="arithmatex"><span class="MathJax_Preview">f:X\to Y</span><script type="math/tex">f:X\to Y</script></span> 表示 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 是一个与 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 的每个元素和 <span class="arithmatex"><span class="MathJax_Preview">Y</span><script type="math/tex">Y</script></span> 的元素相关联的函数。</p>
+<p>在研究集合时，我们使用子集（subset)、函数（function）和等价关系商（quotient by an equivalence relation）等概念。在研究群时，我们通过等价关系用子群（subgroup)、同态（homomorphism）和商群（quotient group）来代替。</p>
+<h3 id="_5">群同态<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>群同态</strong> 是保持群结构的函数，可用于关联两个组。</p>
+<p>从群 <span class="arithmatex"><span class="MathJax_Preview">(G,\cdot)</span><script type="math/tex">(G,\cdot)</script></span> 到群 <span class="arithmatex"><span class="MathJax_Preview">(H,*)</span><script type="math/tex">(H,*)</script></span> 的同态是一个函数 <span class="arithmatex"><span class="MathJax_Preview">\varphi :G\to H</span><script type="math/tex">\varphi :G\to H</script></span> 使得对于 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中所有的元素 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\varphi (a\cdot b)=\varphi (a)*\varphi (b) 
+</div>
+<script type="math/tex; mode=display">
+\varphi (a\cdot b)=\varphi (a)*\varphi (b) 
+</script>
+</div>
+<h3 id="_6">子群<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><strong>子群</strong> 是包含在更大的群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 内的一个群 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span>。它具有 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的元素的子集和相同操作。这意味着 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的单位元素必须包含在 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 中，并且每当 <span class="arithmatex"><span class="MathJax_Preview">h_{1}</span><script type="math/tex">h_{1}</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">h_{2}</span><script type="math/tex">h_{2}</script></span> 都在 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 中，那么 <span class="arithmatex"><span class="MathJax_Preview">h_{1}\cdot h_{2}</span><script type="math/tex">h_{1}\cdot h_{2}</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">h_{1}^{-1}</span><script type="math/tex">h_{1}^{-1}</script></span> 也在 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 中。所以 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 中的元素，和在 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 上的限制为 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 的群操作，形成了一个群体。</p>
+<p>即，若 <span class="arithmatex"><span class="MathJax_Preview">(G,\cdot)</span><script type="math/tex">(G,\cdot)</script></span> 是群，<span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的非空子集，且 <span class="arithmatex"><span class="MathJax_Preview">(H,\cdot)</span><script type="math/tex">(H,\cdot)</script></span> 也是群，则称 <span class="arithmatex"><span class="MathJax_Preview">(H,\cdot)</span><script type="math/tex">(H,\cdot)</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">(G,\cdot)</span><script type="math/tex">(G,\cdot)</script></span> 的 <strong>子群</strong>。</p>
+<p><strong>子群检验法</strong>（subgroup test）是群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的子集 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 是子群的充分必要条件：对于所有元素 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>,<span class="arithmatex"><span class="MathJax_Preview">h \in H</span><script type="math/tex">h \in H</script></span>，只需检查 <span class="arithmatex"><span class="MathJax_Preview">g^{-1}\cdot h\in H</span><script type="math/tex">g^{-1}\cdot h\in H</script></span>。</p>
+<h3 id="_7">陪集<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>陪集</strong>（coset）是一个群的子集，它包含通过将群的一个固定元素乘以给定子群的每个元素在右边或左边相乘以得到的所有乘积。</p>
+<p>在许多情况下，如果两个组元素因给定子组的元素不同，则需要将它们视为相同。例如，在正方形的对称群中，一旦进行了任何反射，仅靠旋转是无法使正方形回到原来的位置的，因此可以认为正方形的反射位置都相等，不等价到未反映的位置；旋转操作与是否已执行反射的问题无关。陪集被用来形式化这个见解：一个子群 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 决定了左右陪集，它可以被认为是 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 通过任意群元素 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 的平移。对于符号定义，包含元素 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 的左右陪集分别是</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+gH=\{g\cdot h\mid h\in H\} \\
+Hg=\{h \cdot g\mid h\in H\}
+</div>
+<script type="math/tex; mode=display">
+gH=\{g\cdot h\mid h\in H\} \\
+Hg=\{h \cdot g\mid h\in H\}
+</script>
+</div>
+<h3 id="_8">商群<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><strong>商组</strong>(quotient group）或因子组（factor group）是通过使用保留一些群结构的等价关系聚合更大群的相似元素获得的群。</p>
+<p>在某些情况下，子群的陪集集可以被赋予群律，给出商群或因子群。为了使其成立，子群必须是正规子群（normal subgroup）。给定任何正规子群 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span>，商群定义为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+G/N=\{gN\mid g\in G\}
+</div>
+<script type="math/tex; mode=display">
+G/N=\{gN\mid g\in G\}
+</script>
+</div>
+<h3 id="_9">共轭<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>如果群中有一个元素 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">b=g^{-1}ag</span><script type="math/tex">b=g^{-1}ag</script></span>, 群的两个元素 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 是 <strong>共轭</strong>（conjugate）的。这是一个等价关系，其等价类称为 <strong>共轭类</strong>（conjugacy classes）。</p>
+<h3 id="_10">阶<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中元素 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的阶，是指存在一个最小正整数 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>，使得 <span class="arithmatex"><span class="MathJax_Preview">x^d=e</span><script type="math/tex">x^d=e</script></span>。对于有限群，元素 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的阶一定存在。</p>
+<p>群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的阶就是群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 元素的个数。对于无限群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span>，阶规定为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>。</p>
+<p>有定理：群中任意一个元素的阶，一定整除群的阶。</p>
+<p>另外在这里给出两个有关阶的定理：</p>
+<p>如果群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中存在两个元素 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>、<span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 的阶 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>、<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 互素，那么 <span class="arithmatex"><span class="MathJax_Preview">a^sb^t=e</span><script type="math/tex">a^sb^t=e</script></span> 当且仅当 <span class="arithmatex"><span class="MathJax_Preview">a^s=e</span><script type="math/tex">a^s=e</script></span> 并且 <span class="arithmatex"><span class="MathJax_Preview">b^t=e</span><script type="math/tex">b^t=e</script></span>。</p>
+<details class="note" open="open">
+<summary>证明</summary>
+<p>显然，在 <span class="arithmatex"><span class="MathJax_Preview">a^sb^t=e</span><script type="math/tex">a^sb^t=e</script></span> 成立的情况下，<span class="arithmatex"><span class="MathJax_Preview">a^s=e</span><script type="math/tex">a^s=e</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">b^t=e</span><script type="math/tex">b^t=e</script></span> 等价，所以不成立只能同时不成立。</p>
+<p>反证法。如果 <span class="arithmatex"><span class="MathJax_Preview">a^sb^t=e</span><script type="math/tex">a^sb^t=e</script></span>，但是两个部分 <span class="arithmatex"><span class="MathJax_Preview">a^s</span><script type="math/tex">a^s</script></span>、<span class="arithmatex"><span class="MathJax_Preview">b^t</span><script type="math/tex">b^t</script></span> 都不是单位元，那么 <span class="arithmatex"><span class="MathJax_Preview">e=a^sm=b^{-tm}</span><script type="math/tex">e=a^sm=b^{-tm}</script></span>。因为 <span class="arithmatex"><span class="MathJax_Preview">\gcd(-m,n)=1</span><script type="math/tex">\gcd(-m,n)=1</script></span>，根据裴蜀定理或者乘法逆元，可以去掉 <span class="arithmatex"><span class="MathJax_Preview">-m</span><script type="math/tex">-m</script></span>，得到 <span class="arithmatex"><span class="MathJax_Preview">e=b^t</span><script type="math/tex">e=b^t</script></span>，矛盾。</p>
+</details>
+<p>如果群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中存在两个元素 <span class="arithmatex"><span class="MathJax_Preview">x_1</span><script type="math/tex">x_1</script></span>、<span class="arithmatex"><span class="MathJax_Preview">x_2</span><script type="math/tex">x_2</script></span> 的阶是 <span class="arithmatex"><span class="MathJax_Preview">d_1</span><script type="math/tex">d_1</script></span>、<span class="arithmatex"><span class="MathJax_Preview">d_2</span><script type="math/tex">d_2</script></span>，那么 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中一定存在元素 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>，阶为 <span class="arithmatex"><span class="MathJax_Preview">d=lcm(d_1,d_2)</span><script type="math/tex">d=lcm(d_1,d_2)</script></span>。</p>
+<details class="note" open="open">
+<summary>证明</summary>
+<p>设 <span class="arithmatex"><span class="MathJax_Preview">d_0=\gcd(d_1,d_2)</span><script type="math/tex">d_0=\gcd(d_1,d_2)</script></span>。考虑元素 <span class="arithmatex"><span class="MathJax_Preview">{x_1}^{d_0}x_2</span><script type="math/tex">{x_1}^{d_0}x_2</script></span>。</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">{x_1}^(d_0)</span><script type="math/tex">{x_1}^(d_0)</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">x_2</span><script type="math/tex">x_2</script></span> 的阶互素，根据上一个定理，元素 <span class="arithmatex"><span class="MathJax_Preview">{x_1}^{d_0}x_2</span><script type="math/tex">{x_1}^{d_0}x_2</script></span> 的阶就是 d。</p>
+</details>
+<h2 id="_11">群的主要类别<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h3 id="_12">置换群<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p><strong>置换群</strong>(Permutation group）是第一类被系统性研究的群。对给定的集合 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>，<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 到自身的一些置换集合 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 如果在复合运算和求逆运算下封闭，那么称 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 是一个作用于 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 上的群。详细内容请看 <a href="../permutation-group/">置换群</a> 章节。</p>
+<h3 id="_13">循环群<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>循环群是最简单的群。群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中任意一个元素 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 都可以表示为 <span class="arithmatex"><span class="MathJax_Preview">a=g^k</span><script type="math/tex">a=g^k</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 为整数。称 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 为群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的生成元。</p>
+<p>有以下定理：</p>
+<p>生成元 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 的阶就是群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的阶。</p>
+<details class="note" open="open">
+<summary>证明</summary>
+<p>记 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的单位元为 <span class="arithmatex"><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span>。由于 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 有限，对生成元 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 不断做幂运算，必然会在某时重复，即存在不同的整数 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">g^i=g^j</span><script type="math/tex">g^i=g^j</script></span>。两边同时去掉若干个 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 就有非 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 整数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">g^n=e</span><script type="math/tex">g^n=e</script></span>。显然 <span class="arithmatex"><span class="MathJax_Preview">g^0=e</span><script type="math/tex">g^0=e</script></span>。</p>
+<p>设生成元 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 的阶是 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>。<span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 中任意一个元素 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 都可以表示为 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 的幂，因此 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 不可能小于 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>。否则 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 的幂当中出现 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 个元素之后就回到了单位元 <span class="arithmatex"><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span>，剩余的元素就不能被 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 的幂表示，矛盾。</p>
+<p>同样的，<span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 也不可能大于 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>。否则在前 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 个 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 的幂中就会出现重复，存在不同的整数 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">g^i=g^j</span><script type="math/tex">g^i=g^j</script></span>，再得到的 <span class="arithmatex"><span class="MathJax_Preview">g^n=e</span><script type="math/tex">g^n=e</script></span>，<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 介于 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 之间，就与 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 的最小性矛盾。因此，<span class="arithmatex"><span class="MathJax_Preview">d=m</span><script type="math/tex">d=m</script></span>。证完。</p>
+</details>
+<p>阶为 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的有限循环群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 同构于模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 剩余类对于加法构成的群 <span class="arithmatex"><span class="MathJax_Preview">Z_m</span><script type="math/tex">Z_m</script></span>。</p>
+<details class="note" open="open">
+<summary>证明</summary>
+<p>构造映射 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>：<span class="arithmatex"><span class="MathJax_Preview">Z_m→G</span><script type="math/tex">Z_m→G</script></span>，<span class="arithmatex"><span class="MathJax_Preview">f(n)=g^n</span><script type="math/tex">f(n)=g^n</script></span>，可见 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 为双射，并且对于任意的 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>，<span class="arithmatex"><span class="MathJax_Preview">f(i+j)=g^ig^j</span><script type="math/tex">f(i+j)=g^ig^j</script></span>。因此同构。证完。</p>
+</details>
+<h3 id="_14">矩阵群<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><strong>矩阵群</strong>(Matrix group）或线性群（Linear group）是 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 是一个由给定 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 阶可逆矩阵组成的集合，该矩阵在域 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 上在乘积和逆矩阵下闭合。这样的群通过线性变换作用于 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 维向量空间 <span class="arithmatex"><span class="MathJax_Preview">K^{n}</span><script type="math/tex">K^{n}</script></span>。</p>
+<p>矩阵群常见例子为 <strong>李群</strong>(Lie group)。</p>
+<h3 id="_15">变换群<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>置换群和矩阵群是 <strong>变换群</strong>(Transformation group）的特例。</p>
+<p>群作用于某个空间 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 并保留其固有结构。在置换群的情况下，<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 是一个集合；对于矩阵组，<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 是向量空间。变换群的概念与对称群的概念密切相关：变换群通常由所有保持某种结构的变换组成。</p>
+<h3 id="_16">抽象群<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p><strong>抽象群</strong>(Abstract group）通常通过生成器和关系来表示：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+G=\langle S|R\rangle
+</div>
+<script type="math/tex; mode=display">
+G=\langle S|R\rangle
+</script>
+</div>
+<p>抽象群主要来源是通过正规子群 <span class="arithmatex"><span class="MathJax_Preview">H</span><script type="math/tex">H</script></span> 构造群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 的商群 <span class="arithmatex"><span class="MathJax_Preview">G/H</span><script type="math/tex">G/H</script></span>。如果群 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 是集合 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 上的置换群，则商群 <span class="arithmatex"><span class="MathJax_Preview">G/H</span><script type="math/tex">G/H</script></span> 不再作用于 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>；但是抽象群的概念允许人们不必担心这种差异。</p>
+<h2 id="_17">参考资料与拓展阅读<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[1]<a href="https://en.wikipedia.org/wiki/Group_(mathematics)">Group (mathematics) - Wikipedia</a></li>
+<li>[2]<a href="https://en.wikipedia.org/wiki/Group_theory">Group theory - Wikipedia</a></li>
+<li>[3]<a href="https://mathworld.wolfram.com/Group.html">Group - Wolfram MathWorld</a></li>
+<li>[4]<a href="https://www.youtube.com/playlist?list=PLwV-9DG53NDxU337smpTwm6sef4x-SCLv">Visual Group Theory</a></li>
+</ul>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/group-theory.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../assets/vendor/gitalk/gitalk.css">
+<script src="../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Group theory',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

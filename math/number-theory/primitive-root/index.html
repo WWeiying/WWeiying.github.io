@@ -1,0 +1,1127 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="//oi-wiki.org">
+      <link rel="dns-prefetch" href="//search.oi-wiki.org">
+      <link rel="dns-prefetch" href="//api.github.com">
+      <link rel="dns-prefetch" href="//www.google-analytics.com">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="OI Wiki 是一个编程竞赛知识整合站点，提供有趣又实用的编程竞赛知识以及其他有帮助的内容，帮助广大编程竞赛爱好者更快更深入地学习编程竞赛">
+      
+      
+        <link rel="canonical" href="https://www.wweiying.top/math/number-theory/primitive-root/">
+      
+      
+        <meta name="author" content="OI Wiki Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Primitive root - WWeiying's Learn-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.6f7cfa25.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.27508f0e.js"></script>
+    
+    
+      
+        <style>@font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-300.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-regular.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:italic;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot);src:local('Fira Sans'),local('FiraSans-Italic'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-italic.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Sans';font-style:normal;font-weight:700;src:url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot);src:local('Fira Sans'),local('FiraSans-Normal'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-sans/fira-sans-700.svg#FiraSans) format('svg')}@font-face{font-family:'Fira Mono';font-style:normal;font-weight:regular;src:url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot);src:local('Fira Mono'),local('FiraMono-Normal'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.eot?#iefix) format('embedded-opentype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff2) format('woff2'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.woff) format('woff'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.ttf) format('truetype'),url(//lib.baomitu.com/fonts/fira-mono/fira-mono-regular.svg#FiraMono) format('svg')}body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/vendor/material-icons/iconfont/material-icons.css">
+    
+      <link rel="manifest" href="../../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../../_static/css/extra.css?v=13">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-124485594-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="red">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              WWeiying's Learn-notes
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Primitive root
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          简介
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.wweiying.top/" title="WWeiying's Learn-notes" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    WWeiying's Learn-notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/WWeiying/Learn-notes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    WWeiying/Learn-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/about/" title="关于本项目" class="md-nav__link">
+      关于本项目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/htc/" title="如何参与" class="md-nav__link">
+      如何参与
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/format/" title="格式手册" class="md-nav__link">
+      格式手册
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/faq/" title="F.A.Q." class="md-nav__link">
+      F.A.Q.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/docker-deploy/" title="用 Docker 部署 OI Wiki" class="md-nav__link">
+      用 Docker 部署 OI Wiki
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/mirrors/" title="镜像站列表" class="md-nav__link">
+      镜像站列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/thanks/" title="致谢" class="md-nav__link">
+      致谢
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前置知识
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    阶
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    原根
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    原根判定定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    原根个数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    原根存在定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    最小原根的数量级
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/number-theory/primitive-root.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Primitive root</h1>
+                
+                <h2 id="_1">前置知识<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>前置：<a href="../fermat/">费马小定理</a>，<a href="../fermat/">欧拉定理</a>，<a href="../lagrange/">拉格朗日定理</a>。</p>
+<p>这部分知识与抽象代数相关。如果想要进一步了解文中的“阶”、“原根”名字来源，可以参考群论部分。</p>
+<hr />
+<h2 id="_2">阶<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>阶</strong>：由欧拉定理可知，对 <span class="arithmatex"><span class="MathJax_Preview">a\in \mathbb{Z}</span><script type="math/tex">a\in \mathbb{Z}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">m\in\mathbb{N}^{*}</span><script type="math/tex">m\in\mathbb{N}^{*}</script></span>，若 <span class="arithmatex"><span class="MathJax_Preview">\gcd(a,m)=1</span><script type="math/tex">\gcd(a,m)=1</script></span>，则 <span class="arithmatex"><span class="MathJax_Preview">a^{\varphi(m)}\equiv 1\pmod m</span><script type="math/tex">a^{\varphi(m)}\equiv 1\pmod m</script></span>。</p>
+<p>因此满足同余式 <span class="arithmatex"><span class="MathJax_Preview">a^n \equiv 1 \pmod m</span><script type="math/tex">a^n \equiv 1 \pmod m</script></span> 的最小正整数 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 存在，这个 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 称作 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的阶，记作 <span class="arithmatex"><span class="MathJax_Preview">\delta_m(a)</span><script type="math/tex">\delta_m(a)</script></span>。</p>
+</blockquote>
+<details class="note" open="open">
+<summary>注</summary>
+<p>在抽象代数中，这里的“阶”就是模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 缩剩余系关于乘法形成的群中，元素 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 的阶。记号 <span class="arithmatex"><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> 表示阶也只用于这个特殊的群。</p>
+<p>下面的诸多性质可以直接扩展到抽象代数中阶的性质。</p>
+<p>另外还有“半阶”的概念，在数论中会出现 <span class="arithmatex"><span class="MathJax_Preview">\delta^-</span><script type="math/tex">\delta^-</script></span> 记号，表示同余式 <span class="arithmatex"><span class="MathJax_Preview">a^n \equiv -1 \pmod m</span><script type="math/tex">a^n \equiv -1 \pmod m</script></span> 的最小正整数。半阶不是群论中的概念。阶一定存在，半阶不一定存在。</p>
+</details>
+<h3 id="_3">性质<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>性质 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span></strong>：<span class="arithmatex"><span class="MathJax_Preview">a,a^2,\cdots,a^{\delta_m(a)}</span><script type="math/tex">a,a^2,\cdots,a^{\delta_m(a)}</script></span> 模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 两两不同余。</p>
+</blockquote>
+<p><strong>证明</strong>：考虑反证，假设存在两个数 <span class="arithmatex"><span class="MathJax_Preview">i\ne j</span><script type="math/tex">i\ne j</script></span>，且 <span class="arithmatex"><span class="MathJax_Preview">a^i\equiv a^j\pmod m</span><script type="math/tex">a^i\equiv a^j\pmod m</script></span>，则有 <span class="arithmatex"><span class="MathJax_Preview">a^{|i-j|}\equiv 1\pmod p</span><script type="math/tex">a^{|i-j|}\equiv 1\pmod p</script></span>。</p>
+<p>但是显然的有：<span class="arithmatex"><span class="MathJax_Preview">0&lt;|i-j|&lt;\delta_m(a)</span><script type="math/tex">0<|i-j|<\delta_m(a)</script></span>，这与阶的最小性矛盾，故原命题成立。</p>
+<p><strong>证毕</strong></p>
+<hr />
+<blockquote>
+<p><strong>性质 <span class="arithmatex"><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span></strong>：若 <span class="arithmatex"><span class="MathJax_Preview">a^n \equiv 1 \pmod m</span><script type="math/tex">a^n \equiv 1 \pmod m</script></span>，则 <span class="arithmatex"><span class="MathJax_Preview">\delta_m(a)\mid n</span><script type="math/tex">\delta_m(a)\mid n</script></span>。</p>
+</blockquote>
+<p><strong>证明</strong>：对 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 除以 <span class="arithmatex"><span class="MathJax_Preview">\delta_m(a)</span><script type="math/tex">\delta_m(a)</script></span> 作带余除法，设 <span class="arithmatex"><span class="MathJax_Preview">n=\delta_m(a)q+r,0\leq r&lt;\delta_m(a)</span><script type="math/tex">n=\delta_m(a)q+r,0\leq r<\delta_m(a)</script></span>。</p>
+<p>若 <span class="arithmatex"><span class="MathJax_Preview">r&gt;0</span><script type="math/tex">r>0</script></span>，则</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+a^r\equiv a^r(a^{\delta_m(a)})^q\equiv a^n \equiv 1 \pmod m
+</div>
+<script type="math/tex; mode=display">
+a^r\equiv a^r(a^{\delta_m(a)})^q\equiv a^n \equiv 1 \pmod m
+</script>
+</div>
+<p>这与 <span class="arithmatex"><span class="MathJax_Preview">\delta_m(a)</span><script type="math/tex">\delta_m(a)</script></span> 的最小性矛盾。故 <span class="arithmatex"><span class="MathJax_Preview">r=0</span><script type="math/tex">r=0</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">\delta_m(a)\mid n</span><script type="math/tex">\delta_m(a)\mid n</script></span>。</p>
+<p><strong>证毕</strong></p>
+<p>据此我还可以推出：</p>
+<blockquote>
+<p>若 <span class="arithmatex"><span class="MathJax_Preview">a^p\equiv a^q\pmod m</span><script type="math/tex">a^p\equiv a^q\pmod m</script></span>，则有 <span class="arithmatex"><span class="MathJax_Preview">p\equiv q\pmod{\delta_m(a)}</span><script type="math/tex">p\equiv q\pmod{\delta_m(a)}</script></span>。</p>
+</blockquote>
+<hr />
+<p>还有两个与四则运算有关的重要性质。</p>
+<blockquote>
+<p><strong>性质 <span class="arithmatex"><span class="MathJax_Preview">3</span><script type="math/tex">3</script></span></strong>：设 <span class="arithmatex"><span class="MathJax_Preview">m\in\mathbb{N}^{*}</span><script type="math/tex">m\in\mathbb{N}^{*}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">a,b\in\mathbb{Z}</span><script type="math/tex">a,b\in\mathbb{Z}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">\gcd(a,m)=\gcd(b,m)=1</span><script type="math/tex">\gcd(a,m)=\gcd(b,m)=1</script></span>，则</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(ab)=\delta_m(a)\delta_m(b)
+</div>
+<script type="math/tex; mode=display">
+\delta_m(ab)=\delta_m(a)\delta_m(b)
+</script>
+</div>
+<p>的充分必要条件是</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\gcd\big(\delta_m(a),\delta_m(b)\big)=1
+</div>
+<script type="math/tex; mode=display">
+\gcd\big(\delta_m(a),\delta_m(b)\big)=1
+</script>
+</div>
+</blockquote>
+<p><strong>证明</strong>：</p>
+<p><em>必要性</em></p>
+<p>由 <span class="arithmatex"><span class="MathJax_Preview">a^{\delta_m(a)}\equiv 1 \pmod m</span><script type="math/tex">a^{\delta_m(a)}\equiv 1 \pmod m</script></span> 及 <span class="arithmatex"><span class="MathJax_Preview">b^{\delta_m(b)} \equiv 1 \pmod m</span><script type="math/tex">b^{\delta_m(b)} \equiv 1 \pmod m</script></span>，可知</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+(ab)^{\operatorname{lcm}(\delta_m(a),\delta_m(b))}\equiv 1 \pmod m
+</div>
+<script type="math/tex; mode=display">
+(ab)^{\operatorname{lcm}(\delta_m(a),\delta_m(b))}\equiv 1 \pmod m
+</script>
+</div>
+<p>由前面所述阶的性质，有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(ab)\mid\operatorname{lcm}\big(\delta_m(a),\delta_m(b)\big)
+</div>
+<script type="math/tex; mode=display">
+\delta_m(ab)\mid\operatorname{lcm}\big(\delta_m(a),\delta_m(b)\big)
+</script>
+</div>
+<p>又由于 <span class="arithmatex"><span class="MathJax_Preview">\delta_m(ab)=\delta_m(a)\delta_m(b)</span><script type="math/tex">\delta_m(ab)=\delta_m(a)\delta_m(b)</script></span>，故</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(a)\delta_m(b)\mid\operatorname{lcm}\big(\delta_m(a),\delta_m(b)\big)
+</div>
+<script type="math/tex; mode=display">
+\delta_m(a)\delta_m(b)\mid\operatorname{lcm}\big(\delta_m(a),\delta_m(b)\big)
+</script>
+</div>
+<p>即 <span class="arithmatex"><span class="MathJax_Preview">\gcd(\delta_m(a),\delta_m(b))=1</span><script type="math/tex">\gcd(\delta_m(a),\delta_m(b))=1</script></span>。</p>
+<p><em>充分性</em></p>
+<p>由 <span class="arithmatex"><span class="MathJax_Preview">(ab)^{\delta_m(ab)}\equiv 1 \pmod m</span><script type="math/tex">(ab)^{\delta_m(ab)}\equiv 1 \pmod m</script></span> 可知</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+1 \equiv (ab)^{\delta_m(ab)\delta_m(b)}\equiv a^{\delta_m(ab)\delta_m(b)} \pmod m
+</div>
+<script type="math/tex; mode=display">
+1 \equiv (ab)^{\delta_m(ab)\delta_m(b)}\equiv a^{\delta_m(ab)\delta_m(b)} \pmod m
+</script>
+</div>
+<p>故 <span class="arithmatex"><span class="MathJax_Preview">\delta_m(a)\mid\delta_m(ab)\delta_m(b)</span><script type="math/tex">\delta_m(a)\mid\delta_m(ab)\delta_m(b)</script></span>。结合 <span class="arithmatex"><span class="MathJax_Preview">\gcd(\delta_m(a),\delta_m(b))=1</span><script type="math/tex">\gcd(\delta_m(a),\delta_m(b))=1</script></span> 即得</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(a)\mid\delta_m(ab)
+</div>
+<script type="math/tex; mode=display">
+\delta_m(a)\mid\delta_m(ab)
+</script>
+</div>
+<p>对称地，同理可得</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(b)\mid\delta_m(ab)
+</div>
+<script type="math/tex; mode=display">
+\delta_m(b)\mid\delta_m(ab)
+</script>
+</div>
+<p>所以</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(a)\delta_m(b)\mid\delta_m(ab)
+</div>
+<script type="math/tex; mode=display">
+\delta_m(a)\delta_m(b)\mid\delta_m(ab)
+</script>
+</div>
+<p>另一方面，有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+(ab)^{\delta_m(a)\delta_m(b)}\equiv(a^{\delta_m(a)})^{\delta_m(b)}\times(b^{\delta_m(b)})^{\delta_m(a)}\equiv 1 \pmod m
+</div>
+<script type="math/tex; mode=display">
+(ab)^{\delta_m(a)\delta_m(b)}\equiv(a^{\delta_m(a)})^{\delta_m(b)}\times(b^{\delta_m(b)})^{\delta_m(a)}\equiv 1 \pmod m
+</script>
+</div>
+<p>故</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(ab)\mid\delta_m(a)\delta_m(b)
+</div>
+<script type="math/tex; mode=display">
+\delta_m(ab)\mid\delta_m(a)\delta_m(b)
+</script>
+</div>
+<p>综合以上两点即得</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(ab)=\delta_m(a)\delta_m(b)
+</div>
+<script type="math/tex; mode=display">
+\delta_m(ab)=\delta_m(a)\delta_m(b)
+</script>
+</div>
+<p><strong>证毕</strong></p>
+<hr />
+<blockquote>
+<p><strong>性质 <span class="arithmatex"><span class="MathJax_Preview">4</span><script type="math/tex">4</script></span></strong>：设 <span class="arithmatex"><span class="MathJax_Preview">k \in \mathbb{N}</span><script type="math/tex">k \in \mathbb{N}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">m\in \mathbb{N}^{*}</span><script type="math/tex">m\in \mathbb{N}^{*}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">a\in\mathbb{Z}</span><script type="math/tex">a\in\mathbb{Z}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">\gcd(a,m)=1</span><script type="math/tex">\gcd(a,m)=1</script></span>，则</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(a^k)=\dfrac{\delta_m(a)}{\gcd\big(\delta_m(a),k\big)}
+</div>
+<script type="math/tex; mode=display">
+\delta_m(a^k)=\dfrac{\delta_m(a)}{\gcd\big(\delta_m(a),k\big)}
+</script>
+</div>
+</blockquote>
+<p><strong>证明</strong>：注意到：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+a^{k\delta_m(a^k)}=(a^k)^{\delta_m(a^k)}\equiv 1 \pmod m
+</div>
+<script type="math/tex; mode=display">
+a^{k\delta_m(a^k)}=(a^k)^{\delta_m(a^k)}\equiv 1 \pmod m
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\Rightarrow \delta_m(a)\mid k\delta_m(a^k)
+</div>
+<script type="math/tex; mode=display">
+\Rightarrow \delta_m(a)\mid k\delta_m(a^k)
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\Rightarrow \dfrac{\delta_m(a)}{\gcd\big(\delta_m(a),k\big)}\mid\delta_m(a^k)
+</div>
+<script type="math/tex; mode=display">
+\Rightarrow \dfrac{\delta_m(a)}{\gcd\big(\delta_m(a),k\big)}\mid\delta_m(a^k)
+</script>
+</div>
+<p>另一方面，由 <span class="arithmatex"><span class="MathJax_Preview">a^{\delta_m(a)}\equiv 1 \pmod m</span><script type="math/tex">a^{\delta_m(a)}\equiv 1 \pmod m</script></span>，可知：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+(a^k)^{\frac{\delta_m(a)}{\gcd(\delta_m(a),k)}}=(a^{\delta_m(a)})^{\frac{k}{\gcd(\delta_m(a),k)}}\equiv 1 \pmod m
+</div>
+<script type="math/tex; mode=display">
+(a^k)^{\frac{\delta_m(a)}{\gcd(\delta_m(a),k)}}=(a^{\delta_m(a)})^{\frac{k}{\gcd(\delta_m(a),k)}}\equiv 1 \pmod m
+</script>
+</div>
+<p>故：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(a^k)\mid\dfrac{\delta_m(a)}{\gcd(\delta_m(a),k)}
+</div>
+<script type="math/tex; mode=display">
+\delta_m(a^k)\mid\dfrac{\delta_m(a)}{\gcd(\delta_m(a),k)}
+</script>
+</div>
+<p>综合以上两点，得：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(a^k)=\dfrac{\delta_m(a)}{\gcd(\delta_m(a),k)}
+</div>
+<script type="math/tex; mode=display">
+\delta_m(a^k)=\dfrac{\delta_m(a)}{\gcd(\delta_m(a),k)}
+</script>
+</div>
+<p><strong>证毕</strong></p>
+<hr />
+<h2 id="_4">原根<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>原根</strong>：设 <span class="arithmatex"><span class="MathJax_Preview">m \in \mathbb{N}^{*}</span><script type="math/tex">m \in \mathbb{N}^{*}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">a\in \mathbb{Z}</span><script type="math/tex">a\in \mathbb{Z}</script></span>。若 <span class="arithmatex"><span class="MathJax_Preview">\gcd(a,m)=1</span><script type="math/tex">\gcd(a,m)=1</script></span>，且 <span class="arithmatex"><span class="MathJax_Preview">\delta_m(a)=\varphi(m)</span><script type="math/tex">\delta_m(a)=\varphi(m)</script></span>，则称 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 为模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的原根。</p>
+</blockquote>
+<details class="note" open="open">
+<summary>注</summary>
+<p>在抽象代数中，原根就是循环群的生成元。这个概念只在模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 缩剩余系关于乘法形成的群中有“原根”这个名字，在一般的循环群中都称作“生成元”。</p>
+<p>并非每个模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 缩剩余系关于乘法形成的群都是循环群，存在原根就表明它同构于循环群，如果不存在原根就表明不同构。</p>
+</details>
+<h3 id="_5">原根判定定理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>原根判定定理</strong>：设 <span class="arithmatex"><span class="MathJax_Preview">m \geqslant 3, \gcd(a,m)=1</span><script type="math/tex">m \geqslant 3, \gcd(a,m)=1</script></span>，则 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 是模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的原根的充要条件是，对于 <span class="arithmatex"><span class="MathJax_Preview">\varphi(m)</span><script type="math/tex">\varphi(m)</script></span> 的每个素因数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，都有 <span class="arithmatex"><span class="MathJax_Preview">a^{\frac{\varphi(m)}{p}}\not\equiv 1\pmod m</span><script type="math/tex">a^{\frac{\varphi(m)}{p}}\not\equiv 1\pmod m</script></span>。</p>
+</blockquote>
+<p><strong>证明：</strong> 必要性显然，下面用反证法证明充分性。</p>
+<p>当对于 <span class="arithmatex"><span class="MathJax_Preview">\varphi(m)</span><script type="math/tex">\varphi(m)</script></span> 的每个素因数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，都有 <span class="arithmatex"><span class="MathJax_Preview">a^{\frac{\varphi(m)}{p}}\not\equiv 1\pmod m</span><script type="math/tex">a^{\frac{\varphi(m)}{p}}\not\equiv 1\pmod m</script></span> 成立时，我们假设存在一个 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>，其不是模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的原根。</p>
+<p>因为 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 不是 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的原根，则存在一个 <span class="arithmatex"><span class="MathJax_Preview">t&lt;\varphi(m)</span><script type="math/tex">t<\varphi(m)</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">a^t\equiv 1\pmod{m}</span><script type="math/tex">a^t\equiv 1\pmod{m}</script></span>。</p>
+<p>由 <a href="../bezouts/">裴蜀定理</a> 得，一定存在一组 <span class="arithmatex"><span class="MathJax_Preview">k,x</span><script type="math/tex">k,x</script></span> 满足 <span class="arithmatex"><span class="MathJax_Preview">kt=x\varphi(m)+\gcd(t,\varphi(m))</span><script type="math/tex">kt=x\varphi(m)+\gcd(t,\varphi(m))</script></span>。</p>
+<p>又由 <a href="../fermat/">欧拉定理</a> 得 <span class="arithmatex"><span class="MathJax_Preview">a^{\varphi(m)}\equiv 1\pmod{m}</span><script type="math/tex">a^{\varphi(m)}\equiv 1\pmod{m}</script></span>，故有：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+1\equiv a^{kt}\equiv a^{x\varphi(m)+\gcd(t,\varphi(m))}\equiv a^{\gcd(t,\varphi(m))}\pmod{m}
+</div>
+<script type="math/tex; mode=display">
+1\equiv a^{kt}\equiv a^{x\varphi(m)+\gcd(t,\varphi(m))}\equiv a^{\gcd(t,\varphi(m))}\pmod{m}
+</script>
+</div>
+<p>由于 <span class="arithmatex"><span class="MathJax_Preview">\gcd(t, \varphi(m)) \mid \varphi(m)</span><script type="math/tex">\gcd(t, \varphi(m)) \mid \varphi(m)</script></span> 且 <span class="arithmatex"><span class="MathJax_Preview">\gcd(t, \varphi(m))\leqslant t &lt; \varphi(m)</span><script type="math/tex">\gcd(t, \varphi(m))\leqslant t < \varphi(m)</script></span>。</p>
+<p>故存在 <span class="arithmatex"><span class="MathJax_Preview">\varphi(m)</span><script type="math/tex">\varphi(m)</script></span> 的素因数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">\gcd(t, \varphi(m)) \mid \frac{\varphi(m)}{p}</span><script type="math/tex">\gcd(t, \varphi(m)) \mid \frac{\varphi(m)}{p}</script></span>。</p>
+<p>则 <span class="arithmatex"><span class="MathJax_Preview">a^{\frac{\varphi(m)}{p}}\equiv a^{(t, \varphi(m))}\equiv 1\pmod{m}</span><script type="math/tex">a^{\frac{\varphi(m)}{p}}\equiv a^{(t, \varphi(m))}\equiv 1\pmod{m}</script></span>，与条件矛盾。</p>
+<p>故假设不成立，原命题成立。</p>
+<p><strong>证毕</strong></p>
+<h3 id="_6">原根个数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>若一个数 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 有原根，则它原根的个数为 <span class="arithmatex"><span class="MathJax_Preview">\varphi(\varphi(m))</span><script type="math/tex">\varphi(\varphi(m))</script></span>。</p>
+</blockquote>
+<p><strong>证明</strong>：若 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 有原根 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>，则：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(g^k)=\dfrac{\delta_m(g)}{\gcd\big(\delta_m(g),k\big)}=\dfrac{\varphi(m)}{\gcd\big(\varphi(m),k\big)}
+</div>
+<script type="math/tex; mode=display">
+\delta_m(g^k)=\dfrac{\delta_m(g)}{\gcd\big(\delta_m(g),k\big)}=\dfrac{\varphi(m)}{\gcd\big(\varphi(m),k\big)}
+</script>
+</div>
+<p>所以若 <span class="arithmatex"><span class="MathJax_Preview">\gcd\big(k,\varphi(m)\big)=1</span><script type="math/tex">\gcd\big(k,\varphi(m)\big)=1</script></span>，则有：<span class="arithmatex"><span class="MathJax_Preview">\delta_m(g^k)=\varphi(m)</span><script type="math/tex">\delta_m(g^k)=\varphi(m)</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">g^k</span><script type="math/tex">g^k</script></span> 也是模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的原根。</p>
+<p>而满足 <span class="arithmatex"><span class="MathJax_Preview">\gcd\big(\varphi(m),k\big)=1</span><script type="math/tex">\gcd\big(\varphi(m),k\big)=1</script></span> 且 <span class="arithmatex"><span class="MathJax_Preview">1\leq k \leq \varphi(m)</span><script type="math/tex">1\leq k \leq \varphi(m)</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 有 <span class="arithmatex"><span class="MathJax_Preview">\varphi(\varphi(m))</span><script type="math/tex">\varphi(\varphi(m))</script></span> 个。所以原根就有 <span class="arithmatex"><span class="MathJax_Preview">\varphi(\varphi(m))</span><script type="math/tex">\varphi(\varphi(m))</script></span> 个。</p>
+<p><strong>证毕</strong></p>
+<h3 id="_7">原根存在定理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>原根存在定理</strong>：一个数 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 存在原根当且仅当 <span class="arithmatex"><span class="MathJax_Preview">m=2,4,p^{\alpha},2p^{\alpha}</span><script type="math/tex">m=2,4,p^{\alpha},2p^{\alpha}</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 为奇素数，<span class="arithmatex"><span class="MathJax_Preview">\alpha\in \mathbb{N}^{*}</span><script type="math/tex">\alpha\in \mathbb{N}^{*}</script></span>。</p>
+</blockquote>
+<p>我们来证明它，分成 <span class="arithmatex"><span class="MathJax_Preview">m=2,4</span><script type="math/tex">m=2,4</script></span>、<span class="arithmatex"><span class="MathJax_Preview">m=p^{\alpha}</span><script type="math/tex">m=p^{\alpha}</script></span>、<span class="arithmatex"><span class="MathJax_Preview">m=2p^{\alpha}</span><script type="math/tex">m=2p^{\alpha}</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">m\ne 2,4,p,p^{\alpha}</span><script type="math/tex">m\ne 2,4,p,p^{\alpha}</script></span>，四个部分。</p>
+<ul>
+<li>
+<p><span class="arithmatex"><span class="MathJax_Preview">m=2,4</span><script type="math/tex">m=2,4</script></span>，原根显然存在。</p>
+</li>
+<li>
+<p><span class="arithmatex"><span class="MathJax_Preview">m=p^{\alpha}</span><script type="math/tex">m=p^{\alpha}</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 为奇素数，<span class="arithmatex"><span class="MathJax_Preview">\alpha\in \mathbb{N}^*</span><script type="math/tex">\alpha\in \mathbb{N}^*</script></span>。</p>
+<blockquote>
+<p><strong>定理 1</strong>：对于奇素数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，<span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 有原根。</p>
+</blockquote>
+<p><strong>证明</strong>：先证一个引理：</p>
+<blockquote>
+<blockquote>
+<p><strong>引理</strong>：设 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 是与 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 互素的两个整数，则存在 <span class="arithmatex"><span class="MathJax_Preview">c\in\mathbb{Z}</span><script type="math/tex">c\in\mathbb{Z}</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">\delta_p(c)=\operatorname{lcm}\big(\delta_p(a),\delta_p(b)\big)</span><script type="math/tex">\delta_p(c)=\operatorname{lcm}\big(\delta_p(a),\delta_p(b)\big)</script></span>。</p>
+</blockquote>
+<p><strong>证明</strong>：我们先将 <span class="arithmatex"><span class="MathJax_Preview">\delta_m(a),\delta_m(b)</span><script type="math/tex">\delta_m(a),\delta_m(b)</script></span> 表示成质因数分解的形式：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\left(\delta_m(a)=\prod_{i=1}^k{p_i^{\alpha_i}},\delta_m(b)=\prod_{i=1}^k{p_i^{\beta_i}} \right)
+</div>
+<script type="math/tex; mode=display">
+\left(\delta_m(a)=\prod_{i=1}^k{p_i^{\alpha_i}},\delta_m(b)=\prod_{i=1}^k{p_i^{\beta_i}} \right)
+</script>
+</div>
+<p>接着将它们表示成如下形式：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(a)=XY,\delta_m(b)=ZW
+</div>
+<script type="math/tex; mode=display">
+\delta_m(a)=XY,\delta_m(b)=ZW
+</script>
+</div>
+<p>其中：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+Y=\prod_{i=1}^k{p_i^{[\alpha_i&gt;\beta_i]\alpha_i}},X=\dfrac {\delta_m(a)}Y
+</div>
+<script type="math/tex; mode=display">
+Y=\prod_{i=1}^k{p_i^{[\alpha_i>\beta_i]\alpha_i}},X=\dfrac {\delta_m(a)}Y
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+W=\prod_{i=1}^k{p_i^{[\alpha_i\le\beta_i]\beta_i}},Z=\dfrac {\delta_m(b)}W
+</div>
+<script type="math/tex; mode=display">
+W=\prod_{i=1}^k{p_i^{[\alpha_i\le\beta_i]\beta_i}},Z=\dfrac {\delta_m(b)}W
+</script>
+</div>
+<p>则由阶的 <strong>性质 <span class="arithmatex"><span class="MathJax_Preview">4</span><script type="math/tex">4</script></span></strong>，可得：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m\left(a^X\right)=\dfrac{\delta_m(a)}{\gcd\big(\delta_m(a),X\big)}=\dfrac {XY}X=Y
+</div>
+<script type="math/tex; mode=display">
+\delta_m\left(a^X\right)=\dfrac{\delta_m(a)}{\gcd\big(\delta_m(a),X\big)}=\dfrac {XY}X=Y
+</script>
+</div>
+<p>同理：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m\left(b^Z\right)=W
+</div>
+<script type="math/tex; mode=display">
+\delta_m\left(b^Z\right)=W
+</script>
+</div>
+<p>又因为显然有 <span class="arithmatex"><span class="MathJax_Preview">\gcd(Y,W)=1</span><script type="math/tex">\gcd(Y,W)=1</script></span>，<span class="arithmatex"><span class="MathJax_Preview">YW=\operatorname{lcm}\big(\delta_p(a),\delta_p(b)\big)</span><script type="math/tex">YW=\operatorname{lcm}\big(\delta_p(a),\delta_p(b)\big)</script></span>，则再由阶的 <strong>性质 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span></strong>，可得：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m\left(a^Xb^Z\right)=\delta_m\left(a^X\right)\delta_m\left(b^Z\right)=YW=\operatorname{lcm}\big(\delta_p(a),\delta_p(b)\big)
+</div>
+<script type="math/tex; mode=display">
+\delta_m\left(a^Xb^Z\right)=\delta_m\left(a^X\right)\delta_m\left(b^Z\right)=YW=\operatorname{lcm}\big(\delta_p(a),\delta_p(b)\big)
+</script>
+</div>
+<p>于是令 <span class="arithmatex"><span class="MathJax_Preview">c=a^Xb^Z</span><script type="math/tex">c=a^Xb^Z</script></span> 则原命题得证。</p>
+<p><strong>证毕</strong></p>
+</blockquote>
+<p>回到原命题，对 <span class="arithmatex"><span class="MathJax_Preview">1 \sim (p-1)</span><script type="math/tex">1 \sim (p-1)</script></span> 依次两两使用引理，可知存在 <span class="arithmatex"><span class="MathJax_Preview">g\in \mathbb{Z}</span><script type="math/tex">g\in \mathbb{Z}</script></span> 使得</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_p(g)=\operatorname{lcm}\big(\delta_p(1),\delta_p(2),\cdots,\delta_p(p-1)\big)
+</div>
+<script type="math/tex; mode=display">
+\delta_p(g)=\operatorname{lcm}\big(\delta_p(1),\delta_p(2),\cdots,\delta_p(p-1)\big)
+</script>
+</div>
+<p>这表明 <span class="arithmatex"><span class="MathJax_Preview">\delta_p(j)\mid\delta_p(g)(j=1,2,\cdots,p-1)</span><script type="math/tex">\delta_p(j)\mid\delta_p(g)(j=1,2,\cdots,p-1)</script></span>，所以 <span class="arithmatex"><span class="MathJax_Preview">j=1,2,\cdots,p-1</span><script type="math/tex">j=1,2,\cdots,p-1</script></span> 都是同余方程</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+x^{\delta_p(g)}\equiv 1\pmod p
+</div>
+<script type="math/tex; mode=display">
+x^{\delta_p(g)}\equiv 1\pmod p
+</script>
+</div>
+<p>的根。由拉格朗日定理，可知方程的次数 <span class="arithmatex"><span class="MathJax_Preview">\delta_p(g) \geq p-1</span><script type="math/tex">\delta_p(g) \geq p-1</script></span>。</p>
+<p>又由费马小定理，易知 <span class="arithmatex"><span class="MathJax_Preview">\delta_p(g) \leq p-1</span><script type="math/tex">\delta_p(g) \leq p-1</script></span>，故 <span class="arithmatex"><span class="MathJax_Preview">\delta_p(g)=p-1=\varphi(p)</span><script type="math/tex">\delta_p(g)=p-1=\varphi(p)</script></span>。</p>
+<p>综上可知 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 为模 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的原根。</p>
+<p><strong>证毕</strong></p>
+<hr />
+<blockquote>
+<p><strong>定理 2</strong>：对于奇素数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，<span class="arithmatex"><span class="MathJax_Preview">\alpha \in \mathbb{N}^{*}</span><script type="math/tex">\alpha \in \mathbb{N}^{*}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">p^\alpha</span><script type="math/tex">p^\alpha</script></span> 有原根。</p>
+</blockquote>
+<p><strong>证明</strong>：一个基本的想法是将模 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的原根平移。</p>
+<p>先证明一个引理：</p>
+<blockquote>
+<blockquote>
+<p><strong>引理</strong>：存在模 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的原根 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>，使得 <span class="arithmatex"><span class="MathJax_Preview">g^{p-1}\not\equiv 1 \pmod {p^2}</span><script type="math/tex">g^{p-1}\not\equiv 1 \pmod {p^2}</script></span>。</p>
+</blockquote>
+<p><strong>证明</strong>：事实上，任取模 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的原根 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>，若 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 不满足条件，我们认定 <span class="arithmatex"><span class="MathJax_Preview">g+p</span><script type="math/tex">g+p</script></span> 满足条件。</p>
+<p>易知 <span class="arithmatex"><span class="MathJax_Preview">g+p</span><script type="math/tex">g+p</script></span> 也是模 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的原根。</p>
+<p>我们有</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}(g+p)^{p-1}&amp;\equiv C_{p-1}^0g^{p-1}+C_{p-1}^1pg^{p-2}\\&amp;\equiv g^{p-1}+p(p-1)g^{p-2}\\&amp;\equiv 1-pg^{p-2}\\&amp;\not\equiv 1 \pmod {p^2}\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}(g+p)^{p-1}&\equiv C_{p-1}^0g^{p-1}+C_{p-1}^1pg^{p-2}\\&\equiv g^{p-1}+p(p-1)g^{p-2}\\&\equiv 1-pg^{p-2}\\&\not\equiv 1 \pmod {p^2}\end{aligned}
+</script>
+</div>
+<p><strong>证毕</strong></p>
+</blockquote>
+<p>回到原题，我们证明若 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 是一个满足引理条件的原根，则对任意 <span class="arithmatex"><span class="MathJax_Preview">\alpha\in\mathbb{N}^{*}</span><script type="math/tex">\alpha\in\mathbb{N}^{*}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 是模 <span class="arithmatex"><span class="MathJax_Preview">p^{\alpha}</span><script type="math/tex">p^{\alpha}</script></span> 的原根。</p>
+<p>首先，证明下面的结论：对任意 <span class="arithmatex"><span class="MathJax_Preview">\beta\in\mathbb{N}^{*}</span><script type="math/tex">\beta\in\mathbb{N}^{*}</script></span>，都可设</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+g^{\varphi(p^\beta)}=1+p^{\beta}\times k_{\beta}
+</div>
+<script type="math/tex; mode=display">
+g^{\varphi(p^\beta)}=1+p^{\beta}\times k_{\beta}
+</script>
+</div>
+<p>这里 <span class="arithmatex"><span class="MathJax_Preview">p\nmid k_{\beta}</span><script type="math/tex">p\nmid k_{\beta}</script></span>。事实上，<span class="arithmatex"><span class="MathJax_Preview">\beta=1</span><script type="math/tex">\beta=1</script></span> 时，由 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 的选取可知结论成立。现设上式对 <span class="arithmatex"><span class="MathJax_Preview">\beta</span><script type="math/tex">\beta</script></span> 时成立，则</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}g^{\varphi(p^{\beta+1})}&amp;=(g^{\varphi(p^{\beta})})^{p}\\&amp;=(1+p^{\beta}\times k_{\beta})^p\\&amp;\equiv 1+p^{\beta+1}\times k_{\beta} \pmod {p^{\beta+2}}\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}g^{\varphi(p^{\beta+1})}&=(g^{\varphi(p^{\beta})})^{p}\\&=(1+p^{\beta}\times k_{\beta})^p\\&\equiv 1+p^{\beta+1}\times k_{\beta} \pmod {p^{\beta+2}}\end{aligned}
+</script>
+</div>
+<p>结合 <span class="arithmatex"><span class="MathJax_Preview">p\nmid k_{\beta}</span><script type="math/tex">p\nmid k_{\beta}</script></span> 可知命题对 <span class="arithmatex"><span class="MathJax_Preview">\beta+1</span><script type="math/tex">\beta+1</script></span> 成立。</p>
+<p>所以命题对任意 <span class="arithmatex"><span class="MathJax_Preview">\beta\in\mathbf{N}^{*}</span><script type="math/tex">\beta\in\mathbf{N}^{*}</script></span> 都成立。</p>
+<p>其次，记 <span class="arithmatex"><span class="MathJax_Preview">\delta=\delta_{p^\alpha}(g)</span><script type="math/tex">\delta=\delta_{p^\alpha}(g)</script></span>，则由欧拉定理，可知 <span class="arithmatex"><span class="MathJax_Preview">\delta\mid p^{\alpha-1}(p-1)</span><script type="math/tex">\delta\mid p^{\alpha-1}(p-1)</script></span>。</p>
+<p>而由 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 为模 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 的原根，及 <span class="arithmatex"><span class="MathJax_Preview">g^{\delta}\equiv 1\pmod {p^\alpha}</span><script type="math/tex">g^{\delta}\equiv 1\pmod {p^\alpha}</script></span>。</p>
+<p>所以可设 <span class="arithmatex"><span class="MathJax_Preview">\delta=p^{\beta-1}(p-1)</span><script type="math/tex">\delta=p^{\beta-1}(p-1)</script></span>，这里 <span class="arithmatex"><span class="MathJax_Preview">1\leq \beta\leq \alpha</span><script type="math/tex">1\leq \beta\leq \alpha</script></span>。</p>
+<p>现在利用之前的结论，可知：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+g^{\varphi(p^{\beta})}\not\equiv 1\pmod {p^{\beta+1}}\Rightarrow g^{\delta}\not\equiv 1\pmod {p^{\beta+1}}
+</div>
+<script type="math/tex; mode=display">
+g^{\varphi(p^{\beta})}\not\equiv 1\pmod {p^{\beta+1}}\Rightarrow g^{\delta}\not\equiv 1\pmod {p^{\beta+1}}
+</script>
+</div>
+<p>结合 <span class="arithmatex"><span class="MathJax_Preview">g^{\delta}\equiv 1\pmod {p^\alpha}</span><script type="math/tex">g^{\delta}\equiv 1\pmod {p^\alpha}</script></span> 可知 <span class="arithmatex"><span class="MathJax_Preview">\beta \geq \alpha</span><script type="math/tex">\beta \geq \alpha</script></span>。</p>
+<p>综上可知，<span class="arithmatex"><span class="MathJax_Preview">\beta=\alpha</span><script type="math/tex">\beta=\alpha</script></span>，即：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_{p^{\alpha}}(g)=p^{\alpha-1}(p-1)=\varphi(p^\alpha)
+</div>
+<script type="math/tex; mode=display">
+\delta_{p^{\alpha}}(g)=p^{\alpha-1}(p-1)=\varphi(p^\alpha)
+</script>
+</div>
+<p>从而，<span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 是模 <span class="arithmatex"><span class="MathJax_Preview">p^{\alpha}</span><script type="math/tex">p^{\alpha}</script></span> 的原根。</p>
+<p><strong>证毕</strong></p>
+</li>
+<li>
+<p><span class="arithmatex"><span class="MathJax_Preview">m=2p^{\alpha}</span><script type="math/tex">m=2p^{\alpha}</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 为奇素数，<span class="arithmatex"><span class="MathJax_Preview">\alpha\in\mathbb{N}^*</span><script type="math/tex">\alpha\in\mathbb{N}^*</script></span>。</p>
+<blockquote>
+<p><strong>定理 <span class="arithmatex"><span class="MathJax_Preview">3</span><script type="math/tex">3</script></span></strong>：对于奇素数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，<span class="arithmatex"><span class="MathJax_Preview">\alpha\in\mathbf{N}^{*}</span><script type="math/tex">\alpha\in\mathbf{N}^{*}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">2p^{\alpha}2</span><script type="math/tex">2p^{\alpha}2</script></span> 的原根存在。</p>
+</blockquote>
+<p><strong>证明</strong>：设 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 是模 <span class="arithmatex"><span class="MathJax_Preview">p^{\alpha}</span><script type="math/tex">p^{\alpha}</script></span> 的原根，则 <span class="arithmatex"><span class="MathJax_Preview">g+p^{\alpha}</span><script type="math/tex">g+p^{\alpha}</script></span> 也是模 <span class="arithmatex"><span class="MathJax_Preview">p^{\alpha}</span><script type="math/tex">p^{\alpha}</script></span> 的原根。</p>
+<p>在 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">g+p^{\alpha}</span><script type="math/tex">g+p^{\alpha}</script></span> 中有一个是奇数，设这个奇数是 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span>，则 <span class="arithmatex"><span class="MathJax_Preview">\gcd(G,2p^{\alpha})=1</span><script type="math/tex">\gcd(G,2p^{\alpha})=1</script></span>。</p>
+<p>由欧拉定理，<span class="arithmatex"><span class="MathJax_Preview">\delta_{2p^{\alpha}}(G)\mid\varphi(2p^{\alpha})</span><script type="math/tex">\delta_{2p^{\alpha}}(G)\mid\varphi(2p^{\alpha})</script></span>。</p>
+<p>而 <span class="arithmatex"><span class="MathJax_Preview">G^{\delta_{2p^{\alpha}}(G)}\equiv 1\pmod {2p^{\alpha}}</span><script type="math/tex">G^{\delta_{2p^{\alpha}}(G)}\equiv 1\pmod {2p^{\alpha}}</script></span>，故：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+G^{\delta_{2p^{\alpha}}(G)}\equiv 1 \pmod {p^{\alpha}}
+</div>
+<script type="math/tex; mode=display">
+G^{\delta_{2p^{\alpha}}(G)}\equiv 1 \pmod {p^{\alpha}}
+</script>
+</div>
+<p>利用 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 为模 <span class="arithmatex"><span class="MathJax_Preview">p^{\alpha}</span><script type="math/tex">p^{\alpha}</script></span> 的原根可知 <span class="arithmatex"><span class="MathJax_Preview">\varphi(p^{\alpha})\mid\delta_{2p^{\alpha}}(G)</span><script type="math/tex">\varphi(p^{\alpha})\mid\delta_{2p^{\alpha}}(G)</script></span>。</p>
+<p>结合 <span class="arithmatex"><span class="MathJax_Preview">\varphi(p^{\alpha})=\varphi(2p^{\alpha})</span><script type="math/tex">\varphi(p^{\alpha})=\varphi(2p^{\alpha})</script></span> 可知 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 为模 <span class="arithmatex"><span class="MathJax_Preview">2p^{\alpha}</span><script type="math/tex">2p^{\alpha}</script></span> 的原根。</p>
+<p><strong>证毕</strong></p>
+</li>
+<li>
+<p><span class="arithmatex"><span class="MathJax_Preview">m\ne 2,4,p^{\alpha},p^{\alpha}</span><script type="math/tex">m\ne 2,4,p^{\alpha},p^{\alpha}</script></span>，其中 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 为奇素数，<span class="arithmatex"><span class="MathJax_Preview">\alpha\in\mathbb{N}^*</span><script type="math/tex">\alpha\in\mathbb{N}^*</script></span>。</p>
+<blockquote>
+<p><strong>定理 <span class="arithmatex"><span class="MathJax_Preview">4</span><script type="math/tex">4</script></span></strong>：对于 <span class="arithmatex"><span class="MathJax_Preview">m\ne 2,4</span><script type="math/tex">m\ne 2,4</script></span>，且不存在奇素数 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 及 <span class="arithmatex"><span class="MathJax_Preview">\alpha \in \mathbb{N}^{*}</span><script type="math/tex">\alpha \in \mathbb{N}^{*}</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">m=p^{\alpha},2p^{\alpha}</span><script type="math/tex">m=p^{\alpha},2p^{\alpha}</script></span>，模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的原根不存在。</p>
+</blockquote>
+<p><strong>证明</strong>：对于 <span class="arithmatex"><span class="MathJax_Preview">m=2^{\alpha}</span><script type="math/tex">m=2^{\alpha}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">\alpha\in\mathbb{N}^{*},\alpha\geq 3</span><script type="math/tex">\alpha\in\mathbb{N}^{*},\alpha\geq 3</script></span>，则对任意奇数 <span class="arithmatex"><span class="MathJax_Preview">a=2k+1</span><script type="math/tex">a=2k+1</script></span> 均有：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}a^{2^{\alpha-2}}&amp;=(2k+1)^{2^{\alpha-2}}\\&amp;\equiv 1+C_{2^{\alpha-2}}^1(2k)+C_{2^{\alpha-2}}^{2}(2k)^{2}\\&amp;\equiv1+2^{\alpha-1}k+2^{\alpha-1}(2^{\alpha-2}-1)k^2\\&amp;\equiv 1+2^{\alpha-1}(k+(2^{\alpha-2}-1)k^2)\\&amp;\equiv 1 \pmod {2^{\alpha}}\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}a^{2^{\alpha-2}}&=(2k+1)^{2^{\alpha-2}}\\&\equiv 1+C_{2^{\alpha-2}}^1(2k)+C_{2^{\alpha-2}}^{2}(2k)^{2}\\&\equiv1+2^{\alpha-1}k+2^{\alpha-1}(2^{\alpha-2}-1)k^2\\&\equiv 1+2^{\alpha-1}(k+(2^{\alpha-2}-1)k^2)\\&\equiv 1 \pmod {2^{\alpha}}\end{aligned}
+</script>
+</div>
+<p>其中最后一步用到 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 与 <span class="arithmatex"><span class="MathJax_Preview">(2^{\alpha-2}-1)k^2</span><script type="math/tex">(2^{\alpha-2}-1)k^2</script></span> 同奇偶，故其和为偶数。</p>
+<p>若 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 不是 <span class="arithmatex"><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span> 的幂，且 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 为符合题目条件的数，则可设 <span class="arithmatex"><span class="MathJax_Preview">m=rt</span><script type="math/tex">m=rt</script></span>，这里 <span class="arithmatex"><span class="MathJax_Preview">2&lt;r&lt;t</span><script type="math/tex">2<r<t</script></span> 且 <span class="arithmatex"><span class="MathJax_Preview">\gcd(r,t)=1</span><script type="math/tex">\gcd(r,t)=1</script></span>。</p>
+<p>此时，若 <span class="arithmatex"><span class="MathJax_Preview">\gcd(a,m)=1</span><script type="math/tex">\gcd(a,m)=1</script></span>，由欧拉定理可知：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+a^{\varphi(r)}\equiv 1 \pmod r\;,\quad a^{\varphi(t)}\equiv1\pmod t
+</div>
+<script type="math/tex; mode=display">
+a^{\varphi(r)}\equiv 1 \pmod r\;,\quad a^{\varphi(t)}\equiv1\pmod t
+</script>
+</div>
+<p>注意到 <span class="arithmatex"><span class="MathJax_Preview">n&gt;2</span><script type="math/tex">n>2</script></span> 时，<span class="arithmatex"><span class="MathJax_Preview">\varphi(n)</span><script type="math/tex">\varphi(n)</script></span> 为偶数，所以：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+a^{\frac{1}{2}\varphi(r)\varphi(t)}\equiv 1\pmod {rt}
+</div>
+<script type="math/tex; mode=display">
+a^{\frac{1}{2}\varphi(r)\varphi(t)}\equiv 1\pmod {rt}
+</script>
+</div>
+<p>进而：</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\delta_m(a)\leq\dfrac{1}{2}\varphi(r)\varphi(t)=\dfrac{1}{2}\varphi(rt)=\dfrac{1}{2}\varphi(m)&lt;\varphi(m)
+</div>
+<script type="math/tex; mode=display">
+\delta_m(a)\leq\dfrac{1}{2}\varphi(r)\varphi(t)=\dfrac{1}{2}\varphi(rt)=\dfrac{1}{2}\varphi(m)<\varphi(m)
+</script>
+</div>
+<p>由原根定义可得：模 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的原根不存在。</p>
+<p><strong>证毕</strong></p>
+</li>
+</ul>
+<hr />
+<p>综合以上 <span class="arithmatex"><span class="MathJax_Preview">4</span><script type="math/tex">4</script></span> 个定理，我们便给出了一个数存在原根的充要条件。</p>
+<h3 id="_8">最小原根的数量级<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>王元于 <span class="arithmatex"><span class="MathJax_Preview">1959</span><script type="math/tex">1959</script></span> 年证明了若 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 有原根，其最小原根是不多于 <span class="arithmatex"><span class="MathJax_Preview">m^{0.25}</span><script type="math/tex">m^{0.25}</script></span> 级别的。此处略去证明。</p>
+<p>这保证了我们暴力找一个数的最小原根，复杂度是可以接受的。</p>
+                
+                  
+                
+              
+              
+                 
+ 
+ 
+<hr><blockquote class="page-copyright">
+  <span><i class="md-icon">build</i>本页面最近更新：</span><span class="facts_modified"></span>，<a class="edit_history">更新历史</a><br>
+  <span><i class="md-icon">edit</i>发现错误？想一起完善？ <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/math/number-theory/primitive-root.md" title="编辑此页" class="page_edit_url">在 GitHub 上编辑此页！</a></span><br>
+  <span><i class="md-icon">people</i>本页面贡献者：</span><span class="page_contributors">OI-wiki</span><br>
+  <span><i class="md-icon">copyright</i>本页面的全部内容在 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a></strong> 协议之条款下提供，附加条款亦可能应用</span>
+</blockquote>
+
+
+<h2 id="__comments" data-no-instant>评论</h2>
+<form id="gitalk-form" onsubmit="return!1" data-no-instant>
+<div id="gitalk-container" data-no-instant>
+</div>
+</form>
+<link rel="stylesheet" href="../../../assets/vendor/gitalk/gitalk.css">
+<script src="../../../assets/vendor/gitalk/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    id: 'Primitive root',
+    owner: 'OI-wiki',
+    repo: 'gitment',
+    admin: ['Ir1d', 'cjsoft', 'TrisolarisHD', 'Xeonacid', 'sshwy', 'Enter-tainer', 'StudyingFather'],
+    clientID: 'd6a911c8fba0194626d4',
+    clientSecret: '867ec7e13cc99b420bd147cbb62d5cfec271ba81',
+    distractionFreeMode: false,
+    pagerDirection: 'first'
+  })
+  gitalk.render('gitalk-container')
+</script>
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<script>function scrollFunction(){20<document.body.scrollTop||20<document.documentElement.scrollTop?document.getElementById("myBtn").style.display="block":document.getElementById("myBtn").style.display="none"}function topFunction(){document.body.scrollTop=0,document.documentElement.scrollTop=0}window.onscroll=function(){scrollFunction()}</script>
+<button onclick="topFunction()" id="myBtn" class="data-tip-left" data-tip="回到顶部">
+  <svg class="Zi Zi--BackToTop data-tip-left" data-tip="回到顶部" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M16.036 19.59a1 1 0 0 1-.997.995H9.032a.996.996 0 0 1-.997-.996v-7.005H5.03c-1.1 0-1.36-.633-.578-1.416L11.33 4.29a1.003 1.003 0 0 1 1.412 0l6.878 6.88c.782.78.523 1.415-.58 1.415h-3.004v7.005z"></path>
+  </svg>
+</button>
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 WWeiying
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+        <div id="miitbeian"></div>
+      </div>
+      
+      <span style="float:right" class="build_date_utc"><a href="https://github.com/24OI/OI-wiki">最近更新：, 2022-04-29</a></span>
+      <script>
+        /* miitbeian */
+        if (window.location.hostname == "oi-wiki.com") {
+          document.getElementById("miitbeian").innerHTML = `<a href="http://beian.miit.gov.cn/">黑ICP备19005132号-2</a>`;
+        }
+        /* Easter Egg */
+        console.log(`%c OI Wiki %c  %c`,"background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff","background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff","background:transparent");
+        console.log('少年，恭喜你囍提彩蛋，我们在做一些 OI 相关的有趣的事情，如果您对此感兴趣，欢迎访问 https://join-us.oi-wiki.org');
+      </script>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.411a9f9f.js"></script>
+      <script>app.initialize({version:"1.2.4",url:{base:"../../.."}}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/service-worker.js",{scope:"/"}).then(function(e){console.log("PWA Registration succeeded. Scope is "+e.scope)}).catch(function(e){console.log("PWA Registration failed with "+e)})</script>
+      
+        <script src="../../../_static/js/extra.js?v=16"></script>
+      
+        <script src="../../../assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
