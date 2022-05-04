@@ -1043,13 +1043,15 @@
 </li>
 <li>
 <p>涉及到“前置知识”的页面，请在开头添加一行 <strong>前置知识：……</strong>，放在页面概述前。格式如下：</p>
-<p><code>前置知识：[站内页面1](url1)、[站内页面2](url2)和[站内页面3](url3)</code></p>
-<details class="success" open="open">
-<summary>示例</summary>
-<p>前置知识：<a href="../basic/complexity.md">时间复杂度</a></p>
-<p>本页面将介绍基础的计算理论的知识。</p>
-</details>
 </li>
+</ul>
+<p><code>前置知识：[站内页面1](url1)、[站内页面2](url2)和[站内页面3](url3)</code></p>
+<p>???+ success "示例"
+      前置知识：<a href="../basic/complexity.md">时间复杂度</a></p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>  本页面将介绍基础的计算理论的知识。
+</code></pre></div></td></tr></table></div>
+
+<ul>
 <li>
 <p>请注意文档结构。文档结构应当十分条理，层次清晰。请不要让诸如「五级标题」这种事情再次发生了，一篇正常的文章是用不到如此复杂的结构层次的。</p>
 </li>
@@ -1058,25 +1060,30 @@
 </li>
 <li>
 <p>请尽量为链接提供完整的标题、或者可被识别的提示，避免使用裸地址和“这”、“此”之类的模糊不清的描述。每一个超链接都应尽量对其加以清楚明确的描述，方便读者明白该超链接将指向何处。</p>
+</li>
+</ul>
 <p>建议使用源文章或者标签页的标题。</p>
-<details class="fail" open="open">
-<summary>不推荐的写法</summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p>???+ fail "不推荐的写法"
+      <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>请参考[这个页面](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)
 
 请参考 &lt;https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork&gt;
+</code></pre></div></td></tr></table></div></p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>  请参考 [这个页面](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)
+
+  请参考 &lt;https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork&gt;
 </code></pre></div></td></tr></table></div>
-<p>请参考 <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork">这个页面</a></p>
-<p>请参考 <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork">https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork</a></p>
-</details>
-<details class="success" open="open">
-<summary>推荐的写法</summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>请参考 GitHub 官方的帮助页面 [<span class="nt">Syncing a fork - GitHub Docs</span>](<span class="na">https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork</span>)
+
+<p>???+ success "推荐的写法"
+      <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>请参考 GitHub 官方的帮助页面 [<span class="nt">Syncing a fork - GitHub Docs</span>](<span class="na">https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork</span>)
+</code></pre></div></td></tr></table></div></p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>  请参考 GitHub 官方的帮助页面 [Syncing a fork - GitHub Docs](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)
 </code></pre></div></td></tr></table></div>
-<p>请参考 GitHub 官方的帮助页面 <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork">Syncing a fork - GitHub Docs</a></p>
-</details>
-</li>
+
+<ul>
 <li>
 <p>受 Markdown 格式限制，<code>## 参考资料与注释</code> 二级标题必须放在文末。</p>
 </li>
