@@ -384,8 +384,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         走过的坑
@@ -399,13 +397,19 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    Github报错:
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ssh-key" class="md-nav__link">
     ssh key格式设置
   </a>
@@ -431,6 +435,11 @@
   <a href="#_3" class="md-nav__link">
     解决方法：
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -475,13 +484,19 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    Github报错:
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ssh-key" class="md-nav__link">
     ssh key格式设置
   </a>
@@ -507,6 +522,11 @@
   <a href="#_3" class="md-nav__link">
     解决方法：
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -540,13 +560,15 @@
                   <a href="https://github.com/WWeiying/Learn-notes/edit/master/docs/experience/wrongs.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="github">Github报错:<a class="headerlink" href="#github" title="Permanent link">&para;</a></h1>
-<h2 id="ssh-key">ssh key格式设置<a class="headerlink" href="#ssh-key" title="Permanent link">&para;</a></h2>
-<h3 id="_1">错误现象：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+                  <h1>走过的坑</h1>
+                
+                <h2 id="github">Github报错:<a class="headerlink" href="#github" title="Permanent link">&para;</a></h2>
+<h3 id="ssh-key">ssh key格式设置<a class="headerlink" href="#ssh-key" title="Permanent link">&para;</a></h3>
+<h4 id="_1">错误现象：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <p>"Key is invalid. You must supply a key in OpenSSH public key format"</p>
-<h3 id="_2">错误原因：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="_2">错误原因：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p>在复制粘贴过程中出现的格式问题。</p>
-<h3 id="_3">解决方法：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h4 id="_3">解决方法：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>运行ssh key生成命令，并生成id_rsa.pub文件：
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh-keygen -t rsa -C <span class="s2">&quot;your email address&quot;</span>
 </code></pre></div></td></tr></table></div>
