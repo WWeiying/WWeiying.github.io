@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.wweiying.top/website/</loc>
+         <lastmod>2022-05-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.wweiying.top/experience/wrongs/</loc>
          <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
@@ -17,11 +22,6 @@
     </url>
     <url>
          <loc>https://www.wweiying.top/start/format/</loc>
-         <lastmod>2022-05-04</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.wweiying.top/start/website/</loc>
          <lastmod>2022-05-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
