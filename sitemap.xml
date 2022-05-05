@@ -6,7 +6,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.wweiying.top/ysyx/</loc>
+         <lastmod>2022-05-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.wweiying.top/ai/article/</loc>
+         <lastmod>2022-05-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.wweiying.top/algorithm/algorithm/</loc>
+         <lastmod>2022-05-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.wweiying.top/algorithm/cplus/</loc>
          <lastmod>2022-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
