@@ -2,27 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://www.wweiying.top/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.wweiying.top/website/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.wweiying.top/ysyx/</loc>
+         <lastmod>2022-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.wweiying.top/experience/wrongs/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.wweiying.top/start/ai/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.wweiying.top/start/format/</loc>
-         <lastmod>2022-05-04</lastmod>
+         <lastmod>2022-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
