@@ -47,7 +47,7 @@
     
     
       
-        <title>网站工具 - Record mathematics, Program and Engineer</title>
+        <title>网站 - Record mathematics, Program and Engineer</title>
       
     
     
@@ -149,7 +149,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                网站工具
+                网站
               
             </span>
           
@@ -217,7 +217,9 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -239,7 +241,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../ai/ai/" class="md-tabs__link">
+        <a href="../../ai/article/" class="md-tabs__link">
           人工智能
         </a>
       
@@ -252,7 +254,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../website.md" class="md-tabs__link">
+        <a href="./" class="md-tabs__link md-tabs__link--active">
           网站和工具
         </a>
       
@@ -402,7 +404,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ai/ai/" title="论文" class="md-nav__link">
+    <a href="../../ai/article/" title="论文" class="md-nav__link">
       论文
     </a>
   </li>
@@ -417,10 +419,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       网站和工具
@@ -436,11 +440,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../website.md" title="网站和工具" class="md-nav__link">
-      网站和工具
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="网站" class="md-nav__link md-nav__link--active">
+      网站
     </a>
+    
   </li>
 
         
@@ -474,8 +487,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../experience/git/" title="Linux" class="md-nav__link">
-      Linux
+    <a href="../../experience/git/" title="git" class="md-nav__link">
+      git
     </a>
   </li>
 
@@ -577,7 +590,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
   var gitalk = new Gitalk({
-    id: '网站工具',
+    id: '网站',
     owner: 'WWeiying',
     repo: 'WWeiying.github.io',
     admin: ['WWeiying'],
@@ -603,6 +616,41 @@
   </svg>
 </button>
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../ai/article/" title="论文" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                论文
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../experience/git/" title="git" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                git
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
