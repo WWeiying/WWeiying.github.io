@@ -6,16 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.wweiying.top/stars/</loc>
-         <lastmod>2022-07-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.wweiying.top/ysyx/</loc>
-         <lastmod>2022-07-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.wweiying.top/algorithm/algorithm/</loc>
          <lastmod>2022-07-24</lastmod>
          <changefreq>daily</changefreq>
@@ -57,6 +47,11 @@
     </url>
     <url>
          <loc>https://www.wweiying.top/start/news/</loc>
+         <lastmod>2022-07-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.wweiying.top/start/stars/</loc>
          <lastmod>2022-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
